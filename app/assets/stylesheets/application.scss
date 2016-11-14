@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+
+@import 'spotlight/variables_bootstrap';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'sir-trevor/main';
+@import 'spotlight/spotlight';
+
+// @import 'blacklight/blacklight';
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "exhibits/variables_olinuris";
+@import "exhibits/variables_bootstrap";
+@import "exhibits/base";
+@import "exhibits/header";
+@import "exhibits/footer";
+@import "exhibits/layout";
+@import "exhibits/show";
+@import "exhibits/search";
+ 

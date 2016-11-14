@@ -1,0 +1,96 @@
+body {
+	font-family: $font-family-sans-serif;
+	background: white; // footer color
+	margin-bottom: 0;
+}
+
+// Links
+// ------------------- //
+
+a { 
+	color: $link-primary;
+}
+a:hover, a:active, a:focus {
+	color: $link-primary-hover;
+	text-decoration: none;
+}
+
+// Add underlines to links in main content area
+.main-content,
+footer {
+	a {
+		border-bottom: 1px dotted $gray-light;
+	}
+	a:hover,
+	a:active,
+	a:focus {
+		border-bottom: 1px solid $gray-light;
+		text-decoration: none;
+	}
+}
+
+// Typography
+// ------------------- //
+
+p, li {
+	font-size: 16px;
+	line-height: 1.5em;
+}
+h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+	margin-bottom: .75em;
+	font-family: $font-family-sans-serif;
+}
+h1 {
+	margin-top: 0;
+}
+h4 {
+	font-size: 20px;
+}
+h5 {
+	font-size: 16px;
+}
+
+.site-title {
+	font-family: $font-family-cul;
+}
+
+// Bootstrap overrides
+// ---------------------- //
+.well {
+	border-radius: 0;
+	box-shadow: none;
+}
+.breadcrumb {
+	padding: 0;
+	background: inherit;
+	margin-bottom: 3em;
+	li {
+		font-size: 12px;
+	}
+}
+.pull-right {
+	float: none !important;
+}
+
+.label-default {
+	background: $tan;
+	color: $gray-dark;
+	font-weight: normal;
+}
+
+// MEDIA QUERIES
+// -------------------------
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm) {
+	.pull-right {
+		float: right !important;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+// @media (min-width: $screen-md) {
+// }
+/* Large devices (desktops, 1200px and up) */
+// @media (min-width: $screen-lg) {
+// }

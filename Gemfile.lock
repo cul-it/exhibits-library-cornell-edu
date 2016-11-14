@@ -347,6 +347,7 @@ DEPENDENCIES
   blacklight-gallery (>= 0.3.0)
   blacklight-oembed (>= 0.1.0)
   blacklight-spotlight!
+  bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.2)
   devise
@@ -363,7 +364,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   riiif (~> 0.4.0)
   rsolr (~> 1.0)
-  sass-rails (~> 5.0)
+  sass-rails (>= 3.2)
   sitemap_generator
   solr_wrapper (>= 0.3)
   spring

@@ -1,0 +1,125 @@
+// Cornell brand
+// ------------------- //
+
+.cornell-identity {
+	background: white;
+	.container {
+		background: $cornell-red;
+	}
+	.cornell-logo {
+		@include make-xs-column(4);
+	}
+	button {
+		i {
+			color: white;
+		}
+	}
+}
+.cu-insignia {
+	float: left;
+	margin-right: 1em;
+}
+
+// Library brand
+// ------------------- //
+.library-brand {
+	margin-top: 1em;
+}
+.brand {
+	text-transform: uppercase;
+	font-size: 25px;
+	font-family: $font-family-cul;
+	display: block;
+	line-height: 1em;
+	color: $gray-dark;
+}
+.brand:hover,
+.brand:active,
+.brand-focus {
+	color: $gray-dark;
+	text-decoration: none;
+}
+.cul-brand {
+	color: $gray-dark;
+	font-size: 21px;
+	font-family: $font-family-cul;
+	display: block;
+}
+.cul-brand:hover {
+	color: $gray-dark;
+	text-decoration: none;
+}
+
+// Header
+// --------------------
+header {
+	border-bottom: 4px solid black;
+	background: white;
+	i {
+		margin-right: .25em;
+		color: $cornell-red;
+	}
+	li {
+		font-size: 14px;
+	}
+}
+
+
+// MEDIA QUERIES
+// -------------------------
+
+// Small devices (tablets, 768px and up)
+@media (min-width: $screen-sm) { 
+	header {
+		padding: .5em 0 0 0;
+		.tab-content {
+			height: 80px;
+		}
+	}
+	.brand {
+		font-size: 28px;
+	}
+	.cul-brand {
+		font-size: 22px;
+	}
+	.library-brand {
+		margin-top: 1.5em;
+	}
+}
+
+// Medium devices (desktops, 992px and up)
+@media (min-width: $screen-md) {
+	header {
+		padding: 1em 0;
+		// .nav > li > a {
+		// 	padding: 5px 10px;
+		// }
+		// .nav-tabs {
+		// 	a {
+		// 		font-size: 18px;
+		// 	}
+		// }
+		// .tab-content {
+		// 	height: 75px;
+		// }
+	}
+	.brand {
+		font-size: 32px;
+	}
+	.cul-brand {
+		font-size: 24px;
+	}
+}
+//Large devices (desktops, 1200px and up)
+// @media (min-width: $screen-lg) {
+// 	header {
+// 		// .nav > li > a {
+// 		// 	padding: 10px 15px;
+// 		// }
+// 		// .nav-tabs {
+// 		// 	a {
+// 		// 		font-size: 20px;
+// 		// 	}
+// 		// }
+// 	}
+// }
