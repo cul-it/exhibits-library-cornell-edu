@@ -1,0 +1,37 @@
+<!-- Cornell mobile header -->
+<div class="cornell-identity visible-xs">
+  <div class="container">
+    <div class="row">
+      <div class="cornell-logo">
+        <a href="http://www.cornell.edu"><%= image_tag "cornell.gif" , alt: "Cornell University" %></a>
+      </div>
+      <div class="navbar">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-nav">
+            <span class="sr-only">Menu</span>
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="cu-insignia">
+          <a href="http://www.cornell.edu"><%= image_tag "CU-Insignia-Red-120.png" , alt: "Cornell University", class: "img-responsive hidden-xs" %></a>
+        </div>
+        <div class="library-brand">
+          <a class="cul-brand" href="http://www.library.cornell.edu">Cornell University Library</a>
+            <a class="brand" href="/">Online Exhibits</a>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <%= render :partial=>'/user_util_links' %>
+      </div>
+    </div>
+  </div>
+</header>
