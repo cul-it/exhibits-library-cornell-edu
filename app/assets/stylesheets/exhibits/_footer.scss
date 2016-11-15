@@ -1,70 +1,6 @@
-.olinuris-footer {
-	margin-top: 4em;
-	padding: 2em 0;
-	background: $charcoal-gray;
-	color: #f3f1ef;
-	.block-title {
-		color: white;
-		text-transform: uppercase;
-		font-family: $font-family-cul;
-		font-size: 20px;
-		margin-top: 0;
-	}
-	.nav {
-		margin-bottom: 1em;
-	}
-	.nav > li {
-		// float: left;
-		// padding: 0 10px;
-		// border-left: 1px solid $warm-gray;
-	}
-	// .nav > li:first-child {
-	// 	border: 0;
-	// 	padding-left: 0;
-	// }
-	.nav > li > a {
-		color: white;
-		padding: 0;
-		text-decoration: underline;
-	}
-	.nav > li > a:hover,
-	.nav > li > a:active,
-	.nav > li > a:focus {
-		background: inherit;
-	}
-	p, li {
-		font-size: 14px;
-	}
-	a {
-		color: white;
-		text-decoration: underline;
-	}
-	a:hover, a:active, a:focus {
-		color: white;
-	}
-	.footer-menu .block-title,
-	h3 {
-		font-size: 14px;
-		margin: 0 0 .5em 0;
-		font-weight: 700;
-		text-transform: uppercase;
-		font-family: $font-family-sans-serif;
-	}
-	ul, p {
-		margin-bottom: 15px;
-	}
-	.about-link {
-		background: $charcoal-dark;
-		border-radius: 3px;
-		padding: 8px 16px;
-		display: inline-block;
-		text-decoration: none;
-	}
-}
-
 footer {
-	padding: 2em 0;
-	// border-top: 1px solid $warm-gray;
+	padding: 3em 0;
+	border-top: 1px solid $warm-gray;
 	p, li {
 		font-size: 14px;
 	}
@@ -76,6 +12,12 @@ footer {
 	}
 	.block {
 		margin-bottom: .75em;
+	}
+	h3 {
+		margin: 0 0 1em;
+		font-family: $font-family-cul;
+		text-transform: uppercase;
+		font-size: 18px;
 	}
 }
 .btn-give {

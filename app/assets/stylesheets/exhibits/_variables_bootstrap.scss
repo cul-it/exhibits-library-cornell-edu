@@ -9,5 +9,8 @@ $link-primary: $cornell-medium-blue;
 $link-primary-hover: black;
 
 
-$font-family-sans-serif:  'Source Sans Pro', Helvetica, Arials, sans-serif;        @import
-url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic);
+$font-family-sans-serif:  'Roboto', Helvetica, Arials, sans-serif;        @import
+url(//fonts.googleapis.com/css?family=Roboto:300,400,400i,700);
+
+$font-family-serif: 'Merriweather', Georgia, sans-serif; @import
+url(//fonts.googleapis.com/css?family=Merriweather:400,400i,700);
