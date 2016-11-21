@@ -65,7 +65,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'devise_invitable'
 gem "dotenv-rails"
 gem "dotenv-deployment"
-gem 'mysql'
+gem 'mysql2'
 
 
 # Use font-awesome for icons
