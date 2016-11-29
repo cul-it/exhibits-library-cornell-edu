@@ -67,7 +67,7 @@ gem 'devise_invitable'
 gem "dotenv-rails"
 gem "dotenv-deployment"
 gem 'mysql2'
-
+gem 'openseadragon', '0.3.0'
 
 # Use font-awesome for icons
 gem 'font-awesome-sass', '~> 4.5.0'
