@@ -1,0 +1,21 @@
+// .sidenav {
+// 	li:first-child {
+// 		h4 {
+// 			margin-top: 0;
+// 		}
+// 	}
+// }
+#sidebar {
+	ol.sidenav {
+		li:first-child {
+			h4 {
+				margin-top: 0;
+			}
+		}
+		.active {
+			h4 {
+				font-weight: 700;
+			}
+		}
+	}
+}
