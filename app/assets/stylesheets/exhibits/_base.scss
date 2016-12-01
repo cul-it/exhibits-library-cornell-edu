@@ -55,6 +55,7 @@ h5 {
 	font-family: $font-family-cul;
 }
 
+
 // Bootstrap overrides
 // ---------------------- //
 .well {
@@ -77,6 +78,9 @@ h5 {
 	background: $tan;
 	color: $gray-dark;
 	font-weight: normal;
+}
+.thumbnail {
+	border: 0;
 }
 
 // MEDIA QUERIES
