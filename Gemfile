@@ -57,7 +57,7 @@ gem 'rsolr', '~> 1.0'
 gem 'devise'
 gem 'devise-guests', '~> 0.5'
 gem 'friendly_id', github: 'norman/friendly_id'
-gem 'riiif', '~> 0.4.0'
+gem 'riiif'
 gem 'sitemap_generator'
 gem 'blacklight-gallery', '>= 0.3.0'
 gem 'blacklight-oembed', '>= 0.1.0'
@@ -65,9 +65,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'devise_invitable'
 gem "dotenv-rails"
-gem "dotenv-deployment"
 gem 'mysql2'
-gem 'openseadragon', '0.3.0'
+gem 'openseadragon'
 
 # Use font-awesome for icons
 gem 'font-awesome-sass', '~> 4.5.0'
