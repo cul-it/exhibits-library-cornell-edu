@@ -21,9 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: db/production.sqlite3
+  adapter: sqlite3
   pool: 5
   timeout: 5000
+  database: db/production.sqlite3
   #adapter: mysql2
   #host: <%= ENV['MYSQL_HOST'] %>
   #database: <%= ENV['MYSQL_DATABASE'] %>
