@@ -25,10 +25,7 @@ class SolrDocument
 
   def update_exhibit_resource(resource_attributes)
       return unless resource_attributes && resource_attributes['url']
-      if resource_attributes['url'].present?
-      uploaded_resource.upload.update image: resource_attributes['url']
-      else 
+     
         uploaded_resource.upload.iiif_tilesource image: resource_attributes['url']
-    end
     end
 end
