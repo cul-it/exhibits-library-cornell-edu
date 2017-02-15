@@ -22,4 +22,14 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+   def update_exhibit_resource(resource_attributes)
+     if resource_attributes['url'].nil?
+        @resource.build_upload(image: params[:resources_upload][:url])
+      else
+      return unless resource_attributes && resource_attributes['url']
+      uploaded_resource.upload.update image: resource_attributes['url']
+    end
+    end
+
 end
