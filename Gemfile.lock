@@ -7,9 +7,9 @@ GIT
 
 GIT
   remote: git://github.com/projectblacklight/spotlight.git
-  revision: abac676a12edc0b99268eb873acfb72c506ea343
+  revision: 26afa29db984b1e3c2b2c5c431aef2083dff45be
   specs:
-    blacklight-spotlight (0.34.0)
+    blacklight-spotlight (0.34.1)
       acts-as-taggable-on (~> 4.0)
       almond-rails (~> 0.0.1)
       autoprefixer-rails
@@ -91,7 +91,7 @@ GEM
     almond-rails (0.0.3)
       rails (>= 4.2, < 6)
     arel (7.1.4)
-    autoprefixer-rails (6.7.2)
+    autoprefixer-rails (6.7.3)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
