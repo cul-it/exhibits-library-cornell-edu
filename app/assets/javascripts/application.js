@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require leaflet
+//= require leaflet-iiif
+//= require Leaflet.Editable
 //= require turbolinks//
 
 // Required by Blacklight
