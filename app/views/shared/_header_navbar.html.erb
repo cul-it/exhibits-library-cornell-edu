@@ -5,14 +5,6 @@
       <div class="cornell-logo">
         <a href="http://www.cornell.edu"><%= image_tag "cornell.gif" , alt: "Cornell University" %></a>
       </div>
-      <div class="navbar">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-nav">
-            <span class="sr-only">Menu</span>
-            <i class="fa fa-bars"></i>
-          </button>
-        </div>
-      </div>
     </div>  
   </div>
 </div>
@@ -30,7 +22,14 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <%= render :partial=>'/user_util_links' %>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            Menu<i class="fa fa-bars"></i>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <%= render :partial=>'/user_util_links' %>
+        </div>
       </div>
     </div>
   </div>
