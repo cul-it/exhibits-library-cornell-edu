@@ -9,11 +9,6 @@
 	.cornell-logo {
 		@include make-xs-column(4);
 	}
-	button {
-		i {
-			color: white;
-		}
-	}
 }
 .cu-insignia {
 	float: left;
@@ -54,18 +49,54 @@
 // --------------------
 header {
 	background: white;
-	i {
-		margin-right: .25em;
-		color: $cornell-red;
-	}
 	li {
 		font-size: 14px;
 	}
+	.navbar-nav {
+		a {
+			color: $gray-dark;
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+	}
+	
 }
 .masthead {
 	border-top: 1px solid #e7e7e7;
+	.site-title {
+		white-space: normal;
+		font-size: 24px;
+	}
+}
+.site-title-container {
+	max-height: none;
 }
 
+// Utilities navbar
+// --------------------
+.navbar-toggle {
+	border: 1px solid $warm-gray;
+	float: none;
+	border-radius: 0;
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-bottom: .5em;
+	margin-top: 2em;
+	i {
+		margin-left: .5em;
+	}
+}
+.navbar-collapse {
+	border: 1px solid $warm-gray;
+	margin-bottom: .5em;
+}
+
+// Form
+// ---------
+.navbar-form {
+	margin-left: 0;
+	margin-right: 0;
+}
 
 // MEDIA QUERIES
 // -------------------------
@@ -86,6 +117,14 @@ header {
 	}
 	.library-brand {
 		margin-top: 1.5em;
+	}
+	.masthead {
+		.site-title {
+			font-size: 30px;
+		}
+	}
+	.navbar-collapse {
+		border:  0;
 	}
 }
 
