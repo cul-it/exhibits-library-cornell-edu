@@ -1,24 +1,41 @@
-# README
+# CUL Online Exhibitions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Prerequisites
 
-Things you may want to cover:
+* ruby
+* bundler
 
-* Ruby version
+### QuickStart
 
-* System dependencies
+1. Clone this repo
+ ```bash
+$ git clone git@github.com:cul-it/exhibits-library-cornell-edu.git
+```
 
-* Configuration
+1. Install gems
+ ```bash
+$ cd <clone>
+$ bundle install
+```
 
-* Database creation
+1. Run database migrations
+ ```bash
+$ rake db:migrate
+```
 
-* Database initialization
+1. Copy example dotenv file
+ ```bash
+$ cp .env.example .env
+```
 
-* How to run the test suite
+1. Start Solr (via [solr_wrapper](https://github.com/cbeer/solr_wrapper))
+ ```bash
+$ bundle exec solr_wrapper
+```
+> Solr will be accessible at http://localhost:8983/solr
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Start Rails in new terminal session
+ ```bash
+$ rails s
+```
+> Visit the application at [http://localhost:3000](http://localhost:3000)
