@@ -33,6 +33,8 @@ $ cp .env.example .env
 $ bundle exec solr_wrapper
 ```
 > Solr will be accessible at http://localhost:8983/solr
+>
+> solr_wrapper is configured to persist data between runs. Please refer to the [solr_wrapper documentation](https://github.com/cbeer/solr_wrapper#cleaning-your-repository-from-the-command-line) for details on purging persisted data.
 
 1. Start Rails in new terminal session
  ```bash
