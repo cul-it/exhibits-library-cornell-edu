@@ -41,3 +41,12 @@ $ bundle exec solr_wrapper
 $ rails s
 ```
 > Visit the application at [http://localhost:3000](http://localhost:3000)
+
+1. Sign up for an account
+ > Visit http://localhost:3000/users/sign_up
+
+1. Promote this account to a site-wide admin
+ ```bash
+$ rake spotlight:admin
+```
+> When prompted, enter the same email address that was used when signing up for an account above
