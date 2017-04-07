@@ -1,10 +1,10 @@
 # Spotlight documentation
 
-##Requesting an account
+## Requesting an account
 
 To become a user, please email Jenn Colt (jrc88@cornell.edu) to request an account
 
-##Creating exhibit
+## Creating exhibit
 
 Once you have an account, you can create exhibits by logging into http://exhibits.library.cornell.edu and clicking the "Create a new exhibit" button on the home page.
 
