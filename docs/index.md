@@ -1,1 +1,2 @@
-Spotlight documentation
+# Spotlight documentation
+Coming soon
