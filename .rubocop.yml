@@ -4,3 +4,5 @@ require: rubocop-rspec
 inherit_gem:
   blacklight: .rubocop.yml
   blacklight-spotlight: .rubocop.yml
+
+inherit_from: .rubocop_todo.yml
