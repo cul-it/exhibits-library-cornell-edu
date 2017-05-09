@@ -1,0 +1,11 @@
+require: rubocop-rspec
+
+# Inherit upstream configs
+inherit_gem:
+  blacklight: .rubocop.yml
+  blacklight-spotlight: .rubocop.yml
+
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - 'db/**/*'

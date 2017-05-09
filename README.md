@@ -46,3 +46,13 @@
    $ rails s
    ```
    > Visit the application at  [http://localhost:3000](http://localhost:3000)
+
+### Linting/Testing
+
+1. RuboCop
+
+   > Ensure consistency in code style/formatting
+
+   ```sh
+   bundle exec rubocop
+   ```
