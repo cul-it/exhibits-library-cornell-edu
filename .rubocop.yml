@@ -5,4 +5,7 @@ inherit_gem:
   blacklight: .rubocop.yml
   blacklight-spotlight: .rubocop.yml
 
-inherit_from: .rubocop_todo.yml
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - 'db/**/*'
