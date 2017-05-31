@@ -2,7 +2,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/bundler'
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
-require 'mina/rvm'    # for rvm support. (https://rvm.io)
+require 'mina/rvm' # for rvm support. (https://rvm.io)
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -37,7 +37,6 @@ task :environment do
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
   invoke :'rvm:use', 'ruby-2.3.1'
-
 end
 
 # Put any custom commands you need to run at setup
@@ -57,7 +56,7 @@ task :deploy do
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
-#    invoke :'rails:assets_precompile'
+    # invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
     on :launch do
