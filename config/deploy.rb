@@ -60,11 +60,11 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-        command %{sudo /sbin/service httpd reload}
-      end
+      # in_path(fetch(:current_path)) do
+        # command %{mkdir -p tmp/}
+        # command %{touch tmp/restart.txt}
+        # command %{sudo /sbin/service httpd reload}
+      # end
     end
   end
 
