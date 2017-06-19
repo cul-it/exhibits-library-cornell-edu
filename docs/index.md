@@ -74,6 +74,10 @@ The Items section is where you upload images for use throughout your exhibition.
 
 You may upload a single image or multiple images via a CSV file (a downloadable template is provided). You may also upload items via JSON or IIIF manifest.
 
+#### Minimum image size
+
+We suggest that you size your images no smaller than 400px x 400px. Small images will be upsampled accordingly, which will degrade the quality of the image on the page.
+
 ### Tags
 
 Tags can be set up within an exhibition and applied to various items. Adding tags will allow for things like creating browseable categories of images.
@@ -84,13 +88,19 @@ In the Browse section, you can set up different categories of images to be displ
 
 If Browse is enabled, all items will fall into a default "All Exhibit Items category." If you have defined tags, you can also create browse categories based on those tags.
 
+#### Saved Searches
+
+If search is enabled, you can save searches when logged in. Saved searches will be available as Browse Categories in the Dashboard.
+
+To save a search, log into Spotlight, perform a Search, and click the "Save Search" link. Add a title if it's a new search, or update the title if it's a previously saved search.
+
 ### Feature pages
 
 Feature pages are where you can provide narrative to your exhibition. To create a feature page, click the "Add new page" button and enter a page title.
 
 Feature pages can be reordered and nested by hovering over the gray tab on the left side of a page and dragging and dropping it into the correct position.
 
-![You can reorder or nest feature pages](/images/reorder-feature-pages.png)
+![You can reorder or nest feature pages](/images/reorder-feature-pages2.png)
 
 ### About pages
 
@@ -121,28 +131,30 @@ There are several ways to edit a page (e.g. Home, Feature, About):
 
 | Widget | Description
 | --- | ---|
-| Browse categories | Grid of categories; this would be "All Exhibit Items," or tagged items |
+| Browse categories | Grid of categories; this would be "All Exhibit Items," or tagged items that have been saved as a Browse category* |
 | Pages | Grid of feature pages |
-| Item row | An individual item with text; image is not zoomable |
+| Item row | An individual item with text; image is not zoomable, but if clicked displays the item with detailed metadata and a zoomable image |
 | Item carousel | Multiple items in a carousel format |
 | Item embed | An individual item with text; image is zoomable |
 | Item slideshow | Multiple items in a slideshow format |
 | Item grid | Multiple items in a grid format (thumbnails) |
 | Search results | Like browse categories, except display in a search results format (list, gallery, masonry or slideshow) |
 
+* The maximum number of browse categories is 5. If you add more than this, the categories will not wrap or align properly.
+
 ### Text editing options
 
-Simple text formatting within text blocks can be achieved by selecting and right-clicking on text.
+Simple formatting within text blocks can be achieved by selecting and right-clicking on text.
 
 ![Text editing options](/images/text-edit.png)
 
-Options include bold, italics, link,  un-link, H1 (heading) or blockquote.
+Options include bold, italics, link,  un-link, H1 (heading) and blockquote.
 
 ### Page options
 
 In Edit mode, under "Options," you can set whether or not a page is published and/or displays in the sidebar menu.
 
-![Page options includes publishing and sidebar link display](/images/oage-options.png)
+![Page options includes publishing and sidebar link display](/images/page-options.png)
 
 ### Thumbnail
 
