@@ -1,4 +1,4 @@
-# Cornell Exhibitions - How to use Spotlight
+# Spotlight Help
 
 ## Becoming a user
 
@@ -14,9 +14,9 @@ For ideas on what your finished exhibition in Spotlight can look like, explore [
 
 To administer your exhibit, log into the [Cornell Online Exhibitions](http://exhibits.library.cornell.edu). In the top navigation, click on your user name and select "Exhibit Dashboard" from the dropdown menu.
 
-[image]
+![Dashboard link](/images/dashboard-link.png)
 
-When you are first using Spotlight, it may be helpful to click through the items in the dashboard navigation to see what types of features and configurations are available. Below is a brief summary of each of the dashboard sections.
+When you first use Spotlight, it may be helpful to click through the items in the dashboard navigation to see what types of features and configurations are available. Below is a brief summary of each of the dashboard sections.
 
 ### Dashboard
 
