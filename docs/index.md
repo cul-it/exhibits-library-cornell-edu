@@ -26,24 +26,75 @@ The dashboard home page, which displays recent exhibit-building activity.
 
 While this is not currently configured, analytics providers can be integrated into the exhibit dashboard.
 
-### Configuration
+## Configuration
 
-#### General
+### General
 
-This section contains basic exhibit settings, such as exhibit title, subtitle, description, tags and contacts. This is also where you can choose to publish your exhibit. You can also choose to filter items here, as well as import and export data, and delete your exhibit.
+This section contains basic exhibit settings, such as:
 
-#### Appearance
+* Exhibit title
+* Subtitle
+* Description
+* Tags
+* Contacts
 
-This section is where you can set the masthead image in your exhibit's header, set an exhibit thumbnail (for display on the CUL Exhibits home page) and set what items you would like to appear in your exhibit's main menu.
+This is also where you can choose to publish your exhibit, filter items, import and export data, and delete your exhibit.
 
+### Appearance
 
-## Items (Images)
+This section is where you can set the masthead image in your exhibit's header, an exhibit thumbnail (for display on the CUL Exhibitios home page) and set what items you would like to appear in your exhibit's main menu.
 
-## Metadata
+### Users
 
-## Feature pages
+The Users section contains a list of users configured for that particular exhibition, as well as the ability to edit or remove users.
 
-## About pages
+### Metadata
+
+Spotlight items come with the following default metadata fields:
+
+* Title
+* Description
+* Attribution
+* Date
+* Tags
+
+In the Metadata section, you can configure whether or not these fields are displayed on an item view, or in list gallery, masonry or slideshow views.
+
+In addition, you can add custom, exhibit-specific fields in this section.
+
+### Search
+
+In the Search section, you can enable the display of a site-wide search box, as well as define what fields are searchable.
+
+## Curation
+
+### Items
+
+The Items section is where you upload images for use throughout your exhibition. To upload images, click the "Add items" button.
+
+You may upload a single images or multiple images via an downloadable CSV file. You may also upload items via JSON or IIIF manifest.
+
+### Tags
+
+Tags can be set up within an exhibition and applied to various items. This will allow for the creation of canned searches as was a browseable categories of images.
+
+### Browse
+
+In the Browse section, you can set up different categories of images to be displayed within a main "Browse" link in the top navigation.
+
+If Browse is enabled, all items will fall into a default "All Exhibit Items category." If you have defined tags, you can also create browse categories based on those tags.
+
+### Feature pages
+
+Feature pages are where you can provide narrative to your exhibition. To create a feature page, click the "Add new page" button and enter a page title.
+
+Feature pages can be reordered and nested by hovering over the gray tab on the left side of a page and dragging and dropping it into the correct position.
+
+![You can reorder or nest feature pages](/images/reorder-feature-pages.png)
+
+### About pages
+
+About pages can be used to describe information about the exhibition itself (such as exhibition background, credits, contact information, etc.). In this section you can also set up an exhibition contact, for display in the sidebar of About pages. About pages can also be reordered and nested, as described above in "Feature pages."
 
 ## Editing
 
