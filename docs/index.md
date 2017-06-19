@@ -76,7 +76,7 @@ You may upload a single image or multiple images via a CSV file (a downloadable 
 
 #### Minimum image size
 
-We suggest that you size your images no smaller than 400px x 400px. Small images will be upsampled accordingly, which will degrade the quality of the image on the page.
+We suggest that you size your images no smaller than 400x400 pixels. Small images will be upsampled accordingly, which will degrade the quality of the image in the display.
 
 ### Tags
 
@@ -140,7 +140,7 @@ There are several ways to edit a page (e.g. Home, Feature, About):
 | Item grid | Multiple items in a grid format (thumbnails) |
 | Search results | Like browse categories, except display in a search results format (list, gallery, masonry or slideshow) |
 
-* The maximum number of browse categories is 5. If you add more than this, the categories will not wrap or align properly.
+\* The maximum number of browse categories is 5. If you add more than this, the categories will not wrap or align properly.
 
 ### Text editing options
 
