@@ -25,3 +25,6 @@
 
 # Ignore the public directory
 /public
+
+# Local coveralls reports
+/coverage
