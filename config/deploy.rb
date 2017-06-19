@@ -16,7 +16,7 @@ set :deploy_to, '/cul/web/exhibits-dev.library.cornell.edu/rails-app'
 set :repository, 'git@github.com:cul-it/exhibits-library-cornell-edu.git'
 set :branch, 'dev'
 set :rails_env, 'development'
-set :rvm_use_path, '/usr/local/rvm/scripts/rvm'
+set :rvm_use_path, '/usr/local/rvm/bin/rvm'
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
