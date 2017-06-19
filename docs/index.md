@@ -72,11 +72,11 @@ In the Search section, you can enable the display of a site-wide search box, as 
 
 The Items section is where you upload images for use throughout your exhibition. To upload images, click the "Add items" button.
 
-You may upload a single images or multiple images via an downloadable CSV file. You may also upload items via JSON or IIIF manifest.
+You may upload a single image or multiple images via a CSV file (a downloadable template is provided). You may also upload items via JSON or IIIF manifest.
 
 ### Tags
 
-Tags can be set up within an exhibition and applied to various items. This will allow for the creation of canned searches as was a browseable categories of images.
+Tags can be set up within an exhibition and applied to various items. Adding tags will allow for things like creating browseable categories of images.
 
 ### Browse
 
@@ -96,6 +96,54 @@ Feature pages can be reordered and nested by hovering over the gray tab on the l
 
 About pages can be used to describe information about the exhibition itself (such as exhibition background, credits, contact information, etc.). In this section you can also set up an exhibition contact, for display in the sidebar of About pages. About pages can also be reordered and nested, as described above in "Feature pages."
 
-## Editing
+## Editing pages
 
-## Publish your exhibit
+There are several ways to edit a page (e.g. Home, Feature, About):
+
+* Log in to your exhibition, navigate to the page and click the "Edit" link.
+* From the Dashboard, in the Curation sidebar, click "Feature pages" or "About pages." There is an Edit link next to each page.
+
+### Standard widgets
+
+| Widget | Description
+| --- | ---|
+| Heading | Heading, such as at the beginning of a section of text |
+| Text | Basic text block |
+| List | An unordered (bulleted) list |
+| Quote | Blockquote |
+| Iframe | Embed iframe |
+| Video | Embed video |
+| Embed + Text | Embed a web resource via URL and add text next to it |
+| Horizontal rule | Add a horizontal line to widgets items |
+| Uploaded item row | Upload a new item for display, with text; image is not zoomable |
+
+### Exhibit item widgets
+
+| Widget | Description
+| --- | ---|
+| Browse categories | Grid of categories; this would be "All Exhibit Items," or tagged items |
+| Pages | Grid of feature pages |
+| Item row | An individual item with text; image is not zoomable |
+| Item carousel | Multiple items in a carousel format |
+| Item embed | An individual item with text; image is zoomable |
+| Item slideshow | Multiple items in a slideshow format |
+| Item grid | Multiple items in a grid format (thumbnails) |
+| Search results | Like browse categories, except display in a search results format (list, gallery, masonry or slideshow) |
+
+### Text editing options
+
+Simple text formatting within text blocks can be achieved by selecting and right-clicking on text.
+
+![Text editing options](/images/text-edit.png)
+
+Options include bold, italics, link,  un-link, H1 (heading) or blockquote.
+
+### Page options
+
+In Edit mode, under "Options," you can set whether or not a page is published and/or displays in the sidebar menu.
+
+![Page options includes publishing and sidebar link display](/images/oage-options.png)
+
+### Thumbnail
+
+In Edit mode, under "Thumbnail," you can configure a thumbnail for that page. This gets displayed when using the Browse pages widget. You may either use an item from the exhibition, or upload a new item. There is also a cropping tool included for specifying the square-shaped image crop.
