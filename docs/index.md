@@ -1,4 +1,4 @@
-# Spotlight documentation
+# Cornell Exhibitions - How to use Spotlight
 
 ## Becoming a user
 
@@ -6,13 +6,15 @@ To request an account, send an email to Jenn Colt (jrc88@cornell.edu).
 
 ## Creating an exhibit
 
-To create an exhibit, please email Jenn Colt (jrc88@cornell.edu) with a title and brief description of your exhibit.
+To create an exhibit, please email Jenn Colt (jrc88@cornell.edu) with a title and a brief description of your exhibit.
 
-Visit http://exhibits.library.cornell.edu or http://exhibits.stanford.edu and explore existing Spotlight exhibits, to help give you ideas for how to build exhibits and use the various widgets available in Spotlight.
+For ideas on what your finished exhibition in Spotlight can look like, explore [Cornell Online Exhibitions](http://exhibits.library.cornell.edu) or [Stanford Online Exhibits](http://exhibits.stanford.edu).
 
 ## Administering your exhibit - Dashboard
 
-To administer your exhibit, log into the Cornell Exhibitions website at http://exhibits.library.cornell.edu. In the top navigation, click on your user name and select "Exhibit Dashboard" from the dropdown menu.
+To administer your exhibit, log into the [Cornell Online Exhibitions](http://exhibits.library.cornell.edu). In the top navigation, click on your user name and select "Exhibit Dashboard" from the dropdown menu.
+
+[image]
 
 When you are first using Spotlight, it may be helpful to click through the items in the dashboard navigation to see what types of features and configurations are available. Below is a brief summary of each of the dashboard sections.
 
