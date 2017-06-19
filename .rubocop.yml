@@ -9,3 +9,4 @@ AllCops:
   DisplayCopNames: true
   Exclude:
     - 'db/**/*'
+    - 'bin/**/*'
