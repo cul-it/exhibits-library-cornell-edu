@@ -72,7 +72,7 @@ In the Search section, you can enable the display of a site-wide search box, as 
 
 The Items section is where you upload images for use throughout your exhibition. To upload images, click the "Add items" button.
 
-You may upload a single image or multiple images via a CSV file (a downloadable template is provided). You may also upload items via JSON or IIIF manifest.
+You may upload a single image or [multiple images via a CSV file](https://github.com/cul-it/exhibits-library-cornell-edu/wiki/Importing-from-a-spreadsheet) (a downloadable template is provided). You may also upload items via JSON or IIIF manifest.
 
 #### Minimum image size
 
