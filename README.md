@@ -20,7 +20,7 @@
 
 1. Run database migrations
    ```sh
-   $ rake db:migrate
+   $ bin/rake db:migrate
    ```
 
 1. Copy example dotenv file
@@ -30,7 +30,7 @@
 
 1. Start Solr (via [solr_wrapper](https://github.com/cbeer/solr_wrapper))
    ```sh
-   $ bundle exec solr_wrapper
+   $ bin/solr_wrapper
    ```
    > Solr will be accessible at http://localhost:8983/solr
    >
@@ -38,7 +38,7 @@
 
 1. Create an initial admin user and default exhibit
    ```sh
-   $ rake spotlight:initialize
+   $ bin/rake spotlight:initialize
    ```
 
 1. Start Rails in new terminal session
@@ -54,5 +54,5 @@
    > Ensure consistency in code style/formatting
 
    ```sh
-   bundle exec rubocop
+   bin/rubocop
    ```
