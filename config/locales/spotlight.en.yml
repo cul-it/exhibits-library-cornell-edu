@@ -1,0 +1,7 @@
+en:
+  spotlight:
+    confirmation_mailer:
+      confirmation_instructions:
+        welcome: "Welcome %{email}!"
+        instructions: "You recently requested an account on the Library's Online Exhibitions website. Please click the link below to confirm your account:"
+        confirm: Confirm my account
