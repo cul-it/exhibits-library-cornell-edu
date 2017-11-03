@@ -1,4 +1,5 @@
 class PortalResourcesController < ApplicationController
+  helper :all
   load_and_authorize_resource :exhibit, class: Spotlight::Exhibit
   before_action :build_resource
   def create
@@ -13,13 +14,11 @@ class PortalResourcesController < ApplicationController
 
     def build_resource
       @resource = begin
-                    r = PortalResource.first_or_initialize(resource_params)
+                    r = PortalResource.new
                     r.exhibit = current_exhibit
                     r
                   end
     end
 
-    def resource_params
-      params.require(:portal_resource).permit(:url)
-    end
+    
 end
