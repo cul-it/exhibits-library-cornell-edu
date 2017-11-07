@@ -74,9 +74,11 @@ The Items section is where you upload images for use throughout your exhibition.
 
 You may upload a single image or [multiple images via a CSV file](https://github.com/cul-it/exhibits-library-cornell-edu/wiki/Importing-from-a-spreadsheet) (a downloadable template is provided). You may also upload items via JSON or IIIF manifest.
 
-#### Minimum and maximum image sizes
+#### Minimum image size
 
 We suggest that you size your images no smaller than 400x400 pixels. Small images will be upsampled accordingly, which will degrade the quality of the image in the display.
+
+#### Maximum file size
 
 The maximum file size is 5MB. Please be sure that your files do not exceed 5MB each.
 
