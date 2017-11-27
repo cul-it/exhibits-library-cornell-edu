@@ -17,7 +17,7 @@ set :repository, 'git@github.com:cul-it/exhibits-library-cornell-edu.git'
 set :branch, 'dev'
 set :rails_env, 'development'
 set :rvm_use_path, '/usr/local/rvm/bin/rvm'
-set :user, 'jenkins'
+set :user, 'cul_jenkins'
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
