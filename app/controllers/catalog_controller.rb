@@ -19,7 +19,8 @@ class CatalogController < ApplicationController
       rows: 10,
       fl: '*'
     }
-
+    config.add_facet_fields_to_solr_request!
+    
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
