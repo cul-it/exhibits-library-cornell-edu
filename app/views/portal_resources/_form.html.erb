@@ -1,0 +1,12 @@
+<%= form_for([current_exhibit, @resource.becomes(PortalResource)]) do |f| %>
+<%= f.label :url_label, t('.url') %>
+ <%= f.text_field :url, :value => "http://jrc88.solr.library.cornell.edu/solr/digitalcollections", :size => 100 %>
+ <br/>
+ <%= f.label :query_label, t('.query') %>
+ <%= f.text_field :query, :value => "*:*", :size => 100 %>
+ <br/>
+ <%= f.label :rows_label, t('.rows') %>
+ <%= f.text_field :rows, :value => "1000", :size => 10 %>
+ <br/>
+ <%= f.submit t('.add_item'), class: 'btn btn-primary' %>
+<% end if can? :manage, PortalResource %>
