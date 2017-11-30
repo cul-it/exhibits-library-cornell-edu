@@ -6,13 +6,21 @@ class PortalBuilder < Spotlight::SolrDocumentBuilder
       content = JSON.parse(open(solr_query).read)
       #byebug
       content['response']['docs'].map do |doc|
+        if doc['content_metadata_image_iiif_info_ssm'].present?
         {
             'id': doc['id'],
             'full_title_tesim': doc['title_tesim'],
-            'creator_tesim': doc['creator_tesim'],
+            'spotlight_upload_attribution_tesim': doc['creator_tesim'],
             'iiif_manifest_url_ssi': doc['content_metadata_image_iiif_info_ssm'],
-            'subject_tesim': Array(doc['subject_tesim']).map{|x| x['name']}
+            'exhibit_' + exhibit.slug + '_subject_tesim' => doc['subject_tesim'],
+            'exhibit_' + exhibit.slug + '_archival-collection_tesim'=> doc['archival_collection_tesim'],
+            'exhibit_' + exhibit.slug + '_repository_tesim'=> doc['repository_tesim'],
+            'exhibit_' + exhibit.slug + '_item-location_tesim'=> doc['location_repo_tesim'],
+            'spotlight_upload_description_tesim': doc['description_tesim'],
+            'spotlight_upload_date_tesim': doc['date_tesim'],
+            'thumbnail_url_ssm': doc['content_metadata_image_iiif_info_ssm'][0].to_s.gsub('info.json','full/!400,400/0/native.jpg')
         }
+      end
       end
     end
   end
