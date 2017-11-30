@@ -18,7 +18,7 @@ class PortalBuilder < Spotlight::SolrDocumentBuilder
             'spotlight_upload_date_tesim': doc['date_tesim'],
             'thumbnail_url_ssm': doc['content_metadata_image_iiif_info_ssm'][0].to_s.gsub('info.json','full/!400,400/0/native.jpg')
         }
-        end
       end
     end
   end
+end
