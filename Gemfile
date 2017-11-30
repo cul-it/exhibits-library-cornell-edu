@@ -72,6 +72,5 @@ gem "dotenv-rails"
 gem 'mysql2'
 gem 'openseadragon'
 
-
 # Use font-awesome for icons
 gem 'font-awesome-sass', '~> 4.5.0'
