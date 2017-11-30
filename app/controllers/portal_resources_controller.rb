@@ -19,9 +19,7 @@ class PortalResourcesController < ApplicationController
                     r
                   end
     end
-
-
     def resource_params
-      params.require(:portal_resource).permit(:url,:query,:rows)
+      params.require(:portal_resource).permit(:url, :query, :rows)
     end
 end
