@@ -62,6 +62,10 @@ In the Metadata section, you can configure whether or not these fields are displ
 
 In addition, you can add custom, exhibit-specific fields in this section.
 
+#### Metadata fields for display
+
+Metadata fields can be configured to display on List, Gallery, Masonry and Slideshow layouts. Please note that for the Masonry view, even though you can select multiple fields for display, only the Title will actually display due to the minimalist style of masonry layout.
+
 ### Search
 
 In the Search section, you can enable the display of a site-wide search box, as well as define what fields are searchable.
@@ -109,6 +113,7 @@ Feature pages can be reordered and nested by hovering over the gray tab on the l
 ### About pages
 
 About pages can be used to describe information about the exhibition itself (such as exhibition background, credits, contact information, etc.). In this section you can also set up an exhibition contact, for display in the sidebar of About pages. About pages can also be reordered and nested, as described above in "Feature pages."
+
 
 ## Editing pages
 
