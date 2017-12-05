@@ -78,9 +78,9 @@ You may upload a single image or [multiple images via a CSV file](https://github
 
 We suggest that you size your images no smaller than 400x400 pixels. Small images will be upsampled accordingly, which will degrade the quality of the image in the display.
 
-#### Maximum file size
+#### Maximum recommended file size
 
-The maximum file size is 5MB. Please be sure that your files do not exceed 5MB each.
+The maximum recommended file size is 5MB. Please be sure that your files do not exceed 5MB each.
 
 ### Tags
 
@@ -126,7 +126,7 @@ There are several ways to edit a page (e.g. Home, Feature, About):
 | List | An unordered (bulleted) list |
 | Quote | Blockquote |
 | Iframe | Embed iframe |
-| Video | Embed video |
+| Video | Upload and embed video - NOT RECOMMENDED** |
 | Embed + Text | Embed a web resource via URL and add text next to it |
 | Horizontal rule | Add a horizontal line to widgets items |
 | Uploaded item row | Upload a new item for display, with text; image is not zoomable |
@@ -145,6 +145,8 @@ There are several ways to edit a page (e.g. Home, Feature, About):
 | Search results | Like browse categories, except display in a search results format (list, gallery, masonry or slideshow) |
 
 \* The maximum number of browse categories is 5. If you add more than this, the categories will not wrap or align properly.
+
+\*\* We recommend you DO NOT use the Video widget at this time. Uploading large video files can cause a page to become unresponsive. Instead, we suggest that you  upload your video to a streaming service such as [YouTube](http://www.youtube.com) or the Library's [MediaSpace](http://media.library.cornell.edu), and then paste embed code into either the Iframe or Embed + Text widgets.
 
 ### Text editing options
 
