@@ -64,7 +64,7 @@ In addition, you can add custom, exhibit-specific fields in this section.
 
 #### Metadata fields for display
 
-Metadata fields can be configured to display on List, Gallery, Masonry and Slideshow layouts. Please note that for the Masonry view, even though you can select multiple fields for display, only the Title will actually display due to the minimalist style of masonry layout.
+Metadata fields can be configured to display on List, Gallery, Masonry and Slideshow layouts. Please note that for the Masonry view, even though you can select multiple fields for display, only the Title field will actually be shown.
 
 ### Search
 
