@@ -20,14 +20,12 @@ class CatalogController < ApplicationController
       fl: '*'
     }
     config.add_facet_fields_to_solr_request!
-    
+
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
-
-    config.add_facet_field 'spotlight_upload_attribution_tesim', label: 'Attribution'
 
     config.add_search_field 'all_fields', label: 'Everything'
 
