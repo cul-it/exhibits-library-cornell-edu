@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  portal_resources:
+    form:
+      add_item: "Add results of portal search"
