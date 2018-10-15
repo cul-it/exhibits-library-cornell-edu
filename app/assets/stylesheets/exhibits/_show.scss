@@ -1,3 +1,8 @@
 .search-widgets {
 	margin-bottom: .5em;
 }
+
+// Fix for bad aspect ratio on carousel on mobile devices
+.carousel-block.carousel-height-medium .carousel-inner > .item > a > img {
+	height: auto;
+}
