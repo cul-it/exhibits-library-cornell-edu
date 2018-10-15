@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312155954) do
+ActiveRecord::Schema.define(version: 20171127152807) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -263,7 +263,6 @@ ActiveRecord::Schema.define(version: 20180312155954) do
     t.integer  "masthead_id"
     t.integer  "thumbnail_id"
     t.string   "default_index_view_type"
-    t.boolean  "search_box",              default: false
     t.index ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
     t.index ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
   end
@@ -276,7 +275,7 @@ ActiveRecord::Schema.define(version: 20180312155954) do
 
   create_table "spotlight_solr_document_sidecars", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.boolean  "public",                         default: true
+    t.boolean  "public",        default: true
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -284,7 +283,7 @@ ActiveRecord::Schema.define(version: 20180312155954) do
     t.string   "document_type"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.binary   "index_status",  limit: 10485760
+    t.binary   "index_status"
     t.index ["document_type", "document_id"], name: "spotlight_solr_document_sidecars_solr_document"
     t.index ["exhibit_id", "document_type", "document_id"], name: "spotlight_solr_document_sidecars_exhibit_document"
     t.index ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
@@ -299,15 +298,8 @@ ActiveRecord::Schema.define(version: 20180312155954) do
     t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
-    t.index ["context"], name: "index_taggings_on_context"
     t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
-    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
-    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
-    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
-    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
   create_table "tags", force: :cascade do |t|
