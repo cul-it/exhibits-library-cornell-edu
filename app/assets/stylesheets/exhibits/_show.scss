@@ -4,5 +4,25 @@
 
 // Fix for bad aspect ratio on carousel on mobile devices
 .carousel-block.carousel-height-medium .carousel-inner > .item > a > img {
-	height: auto;
+	height: 300px;
+	width: auto;
 }
+
+// MEDIA QUERIES
+// -------------------------
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm) {
+	// Fix for bad aspect ratio on carousel on mobile devices
+	.carousel-block.carousel-height-medium .carousel-inner > .item > a > img {
+		height: 500px;
+		width: auto;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+// @media (min-width: $screen-md) {
+// }
+/* Large devices (desktops, 1200px and up) */
+// @media (min-width: $screen-lg) {
+// }
