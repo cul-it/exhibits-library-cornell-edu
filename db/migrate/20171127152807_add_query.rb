@@ -1,4 +1,4 @@
-class AddQuery < ActiveRecord::Migration[5.0]
+class AddQuery < ActiveRecord::Migration[4.2]
   def up
    add_column :spotlight_resources, :query, :text
    add_column :spotlight_resources, :rows, :integer

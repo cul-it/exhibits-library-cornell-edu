@@ -21,10 +21,15 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-.env
+.env*
 
 # Ignore the public directory
 /public
 
 # Local coveralls reports
 /coverage
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

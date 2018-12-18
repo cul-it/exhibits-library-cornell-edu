@@ -1,30 +1,48 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8
   pool: 5
   timeout: 5000
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_development" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+  host:     <%= "#{ENV['DATABASE_HOST']}" %>
+  pool: 5
+  timeout: 5000
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: sqlite3
   database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+integration:
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_integration" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+  host:     <%= "#{ENV['DATABASE_HOST']}" %>
+  pool: 5
+  timeout: 5000
+
+staging:
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_staging" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+  host:     <%= "#{ENV['DATABASE_HOST']}" %>
+  pool: 5
+  timeout: 5000
 
 production:
-  adapter: mysql2
-  host: <%= ENV['MYSQL_HOST'] %>
-  database: <%= ENV['MYSQL_DATABASE'] %>
-  username: <%= ENV['MYSQL_USERNAME'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
-  socket: <%= ENV['MYSQL_SOCKET'] %>
-  pool: 200
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+  host:     <%= "#{ENV['DATABASE_HOST']}" %>
+  pool: 5
+  timeout: 5000
