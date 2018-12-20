@@ -26,7 +26,7 @@ integration:
   username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
   password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
   host:     <%= "#{ENV['DATABASE_HOST']}" %>
-  pool: 5
+  pool:     <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
 
 staging:
@@ -35,7 +35,7 @@ staging:
   username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
   password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
   host:     <%= "#{ENV['DATABASE_HOST']}" %>
-  pool: 5
+  pool:     <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
 
 production:
@@ -44,5 +44,5 @@ production:
   username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
   password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
   host:     <%= "#{ENV['DATABASE_HOST']}" %>
-  pool: 5
+  pool:     <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
