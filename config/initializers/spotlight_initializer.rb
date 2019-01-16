@@ -43,7 +43,7 @@ Spotlight::Engine.config.external_resources_partials = ["portal_resources/form"]
 #   OpenStruct.new(field_name: :spotlight_upload_date_tesim, label: 'Date')
 # ]
 # Spotlight::Engine.config.upload_title_field = nil # OpenStruct.new(...)
-# Spotlight::Engine.config.uploader_storage = :file
+Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 # Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png)
 
 # Spotlight::Engine.config.featured_image_thumb_size = [400, 300]
