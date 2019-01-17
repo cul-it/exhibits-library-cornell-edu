@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'spotlight/exhibits#index'
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   mount Blacklight::Engine => '/'
   # root to: "catalog#index" # replaced by spotlight root path
 

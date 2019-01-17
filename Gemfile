@@ -34,6 +34,7 @@ gem 'friendly_id', github: 'norman/friendly_id'
 gem 'openseadragon'
 gem 'riiif'
 gem 'rsolr', '~> 1.0'
+gem 'sidekiq'
 gem 'sitemap_generator'
 
 
