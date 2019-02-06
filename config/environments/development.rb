@@ -54,4 +54,5 @@ Rails.application.configure do
 
   config.active_job.queue_adapter     = :sidekiq
   # config.active_job.queue_name_prefix = "exhibits_#{Rails.env}"
+  config.debug_logger = Logger.new("#{Rails.root}/log/debug.log")
 end
