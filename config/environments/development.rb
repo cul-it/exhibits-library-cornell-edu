@@ -55,4 +55,8 @@ Rails.application.configure do
   config.active_job.queue_adapter     = :sidekiq
   # config.active_job.queue_name_prefix = "exhibits_#{Rails.env}"
   config.debug_logger = Logger.new("#{Rails.root}/log/debug.log")
+
+  # provides access to IRB console on exception pages
+  config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
+  config.web_console.development_only = false
 end

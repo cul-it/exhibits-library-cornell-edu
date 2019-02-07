@@ -84,4 +84,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # provides access to IRB console on exception pages
+  config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
+  config.web_console.development_only = false
 end

@@ -32,31 +32,25 @@ gem 'devise_invitable'
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'friendly_id', github: 'norman/friendly_id'
 gem 'jquery-rails'
-gem 'mina'
-gem 'openseadragon'
+gem 'mina' # deployment script generator -- is this used?  should this be used?
+gem 'openseadragon' # js lib for displaying tiling images
 gem 'riiif'
 gem 'rsolr', '~> 1.0'
 gem 'sidekiq'
 gem 'sitemap_generator'
 
 group :development, :integration, :test do
-  gem 'byebug'
-  gem 'coveralls', require: false
-  gem 'listen'
-  gem 'rubocop'
-  gem 'rubocop-checkstyle_formatter', require: false
-  gem 'solr_wrapper', '>= 0.3'
+  gem 'byebug' # debugging
+  gem 'listen' # listens for changes to files ## don't see where this is explicitly used
 
-  # gem 'capybara'
   # gem 'database_cleaner'
-  # gem 'factory_bot_rails', '~> 4.4', require: false
-  # gem 'faker'
   # gem 'listen', '~> 3.0.5'
-  # gem 'rails-controller-testing'
-  # gem 'rspec-rails'
-  # gem 'rspec-activemodel-mocks'
-  # gem 'rubocop', '~> 0.48.1', require: false
-  # gem 'rubocop-checkstyle_formatter', '~> 0.4.0', require: false
+end
+
+group :development do
+  gem 'solr_wrapper', '>= 0.3' # start solr based on .solr_wrapper.yml
+
+  # gem 'spring-watcher-listen', '~> 2.0.0' # makes Spring watch filesystem for changes using Listen rather than polling
 end
 
 group :development, :integration do
@@ -64,17 +58,30 @@ group :development, :integration do
   gem 'binding_of_caller' # deeper stack trace used by better errors
   gem 'spring' # Spring speeds up development by keeping your application running in the background.
   gem 'web-console', '~> 3.0' # access to IRB console on exception pages
-  gem 'xray-rails'
+  gem 'xray-rails' # overlay showing which files are contributing to the UI
+end
+
+group :development, :test do
+  gem 'rubocop' # style checker
+  gem 'rubocop-checkstyle_formatter', require: false
 
   # gem 'bixby', '~> 1.0.0' # style guide enforcement with rubocop
-  # gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'rubocop', '~> 0.48.1', require: false
+  # gem 'rubocop-checkstyle_formatter', '~> 0.4.0', require: false
 end
 
 group :test do
+  gem 'coveralls', require: false
   gem 'rspec-rails', '~> 3.1'
   gem 'sqlite3'
 
+  # gem 'capybara'
+  # gem 'factory_bot_rails', '~> 4.4', require: false
+  # gem 'faker'
   # gem 'rubocop-rspec', '~> 1.15', '>= 1.15.1'
+  # gem 'rails-controller-testing'
+  # gem 'rspec-rails'
+  # gem 'rspec-activemodel-mocks'
 end
 
 # tmp pin of autoprefixer to avoid nodes version error
