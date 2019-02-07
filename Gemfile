@@ -31,62 +31,57 @@ gem 'devise-guests', '~> 0.5'
 gem 'devise_invitable'
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'friendly_id', github: 'norman/friendly_id'
+gem 'jquery-rails'
+gem 'mina'
 gem 'openseadragon'
 gem 'riiif'
 gem 'rsolr', '~> 1.0'
 gem 'sidekiq'
 gem 'sitemap_generator'
 
-
-gem 'mina'
-gem 'jquery-rails'
-
-
-
-# ruby "2.5.3"
-
-# gem 'therubyracer', platforms: :ruby
-# gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
-
-# gem 'capistrano-rails', group: :development
-
 group :development, :integration, :test do
-  # gem 'byebug', platform: :mri
   gem 'byebug'
-  # gem 'capybara'
   gem 'coveralls', require: false
+  gem 'listen'
+  gem 'rubocop'
+  gem 'rubocop-checkstyle_formatter', require: false
+  gem 'solr_wrapper', '>= 0.3'
+
+  # gem 'capybara'
   # gem 'database_cleaner'
   # gem 'factory_bot_rails', '~> 4.4', require: false
   # gem 'faker'
-  gem 'listen'
   # gem 'listen', '~> 3.0.5'
   # gem 'rails-controller-testing'
   # gem 'rspec-rails'
   # gem 'rspec-activemodel-mocks'
-  gem 'rubocop'
-  gem 'rubocop-checkstyle_formatter', require: false
   # gem 'rubocop', '~> 0.48.1', require: false
   # gem 'rubocop-checkstyle_formatter', '~> 0.4.0', require: false
-  gem 'solr_wrapper', '>= 0.3'
 end
 
 group :development, :integration do
   gem 'better_errors' # add command line in browser when errors
   gem 'binding_of_caller' # deeper stack trace used by better errors
-  # gem 'bixby', '~> 1.0.0' # style guide enforcement with rubocop
   gem 'spring' # Spring speeds up development by keeping your application running in the background.
-  # gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '~> 3.0' # access to IRB console on exception pages
   gem 'xray-rails'
+
+  # gem 'bixby', '~> 1.0.0' # style guide enforcement with rubocop
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
   gem 'rspec-rails', '~> 3.1'
-  # gem 'rubocop-rspec', '~> 1.15', '>= 1.15.1'
   gem 'sqlite3'
-end
 
+  # gem 'rubocop-rspec', '~> 1.15', '>= 1.15.1'
+end
 
 # tmp pin of autoprefixer to avoid nodes version error
 gem 'autoprefixer-rails', '8.5.2'
+
+# ruby "2.5.3"
+# gem 'therubyracer', platforms: :ruby
+# gem 'redis', '~> 3.0'
+# gem 'bcrypt', '~> 3.1.7'
+# gem 'capistrano-rails', group: :development
