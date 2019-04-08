@@ -43,38 +43,38 @@ class CreateVersions < ActiveRecord::Migration[4.2]
 
   private
 
-  # MySQL 5.6 utf8mb4 limit is 191 chars for keys used in indexes.
-  # See https://github.com/airblade/paper_trail/issues/651
-  def item_type_options
-    opt = { null: false }
-    opt[:limit] = 191 if mysql?
-    opt
-  end
-
-  def mysql?
-    MYSQL_ADAPTERS.include?(connection.class.name)
-  end
-
-  # Even modern versions of MySQL still use `latin1` as the default character
-  # encoding. Many users are not aware of this, and run into trouble when they
-  # try to use PaperTrail in apps that otherwise tend to use UTF-8. Postgres, by
-  # comparison, uses UTF-8 except in the unusual case where the OS is configured
-  # with a custom locale.
-  #
-  # - https://dev.mysql.com/doc/refman/5.7/en/charset-applications.html
-  # - http://www.postgresql.org/docs/9.4/static/multibyte.html
-  #
-  # Furthermore, MySQL's original implementation of UTF-8 was flawed, and had
-  # to be fixed later by introducing a new charset, `utf8mb4`.
-  #
-  # - https://mathiasbynens.be/notes/mysql-utf8mb4
-  # - https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html
-  #
-  def versions_table_options
-    if mysql?
-      { options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci" }
-    else
-      {}
+    # MySQL 5.6 utf8mb4 limit is 191 chars for keys used in indexes.
+    # See https://github.com/airblade/paper_trail/issues/651
+    def item_type_options
+      opt = { null: false }
+      opt[:limit] = 191 if mysql?
+      opt
     end
-  end
+
+    def mysql?
+      MYSQL_ADAPTERS.include?(connection.class.name)
+    end
+
+    # Even modern versions of MySQL still use `latin1` as the default character
+    # encoding. Many users are not aware of this, and run into trouble when they
+    # try to use PaperTrail in apps that otherwise tend to use UTF-8. Postgres, by
+    # comparison, uses UTF-8 except in the unusual case where the OS is configured
+    # with a custom locale.
+    #
+    # - https://dev.mysql.com/doc/refman/5.7/en/charset-applications.html
+    # - http://www.postgresql.org/docs/9.4/static/multibyte.html
+    #
+    # Furthermore, MySQL's original implementation of UTF-8 was flawed, and had
+    # to be fixed later by introducing a new charset, `utf8mb4`.
+    #
+    # - https://mathiasbynens.be/notes/mysql-utf8mb4
+    # - https://dev.mysql.com/doc/refman/5.5/en/charset-unicode-utf8mb4.html
+    #
+    def versions_table_options
+      if mysql?
+        { options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci" }
+      else
+        {}
+      end
+    end
 end

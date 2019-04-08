@@ -5,9 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.6'
 gem 'dotenv-deployment'
 gem 'dotenv-rails'
+gem 'rails', '~> 5.1.6'
 
 # rails related dependencies
 gem 'coffee-rails', '~> 4.2'
@@ -21,9 +21,9 @@ gem 'uglifier', '>= 1.3.0'
 
 # spotlight related dependencies
 gem 'blacklight', ' ~> 6.14.0'
-gem 'blacklight-spotlight', '~> 1.4.0'
 gem 'blacklight-gallery', '>= 0.3.0'
 gem 'blacklight-oembed', '>= 0.1.0'
+gem 'blacklight-spotlight', '~> 1.4.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'carrierwave-aws'
 gem 'devise'
@@ -62,12 +62,8 @@ group :development, :integration do
 end
 
 group :development, :test do
-  gem 'rubocop' # style checker
+  gem 'bixby', '~> 1.0.0' # style guide enforcement with rubocop
   gem 'rubocop-checkstyle_formatter', require: false
-
-  # gem 'bixby', '~> 1.0.0' # style guide enforcement with rubocop
-  # gem 'rubocop', '~> 0.48.1', require: false
-  # gem 'rubocop-checkstyle_formatter', '~> 0.4.0', require: false
 end
 
 group :test do
@@ -78,7 +74,6 @@ group :test do
   # gem 'capybara'
   # gem 'factory_bot_rails', '~> 4.4', require: false
   # gem 'faker'
-  # gem 'rubocop-rspec', '~> 1.15', '>= 1.15.1'
   # gem 'rails-controller-testing'
   # gem 'rspec-rails'
   # gem 'rspec-activemodel-mocks'

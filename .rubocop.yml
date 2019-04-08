@@ -1,12 +1,86 @@
-require: rubocop-rspec
-
-# Inherit upstream configs
 inherit_gem:
-  blacklight: .rubocop.yml
-  blacklight-spotlight: .rubocop.yml
+  bixby: bixby_default.yml
+
+inherit_from: .rubocop_fixme.yml
 
 AllCops:
+  TargetRubyVersion: 2.3
   DisplayCopNames: true
   Exclude:
     - 'db/**/*'
+    - 'script/**/*'
     - 'bin/**/*'
+    - 'vendor/**/*'
+
+Metrics/BlockLength:
+  ExcludedMethods: ['included']
+  Exclude:
+    - 'spec/**/*'
+    - 'tasks/**/*'
+    - 'db/schema.rb'
+    - 'Rakefile'
+    - '*.gemspec'
+    - 'config/routes.rb'
+
+# Naming/FileName: # https://github.com/bbatsov/rubocop/issues/2973
+#   Exclude:
+#     - 'Gemfile'
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'
+
+# disable frozen string literal comment. We can't safely introduce this
+# system-wide until a major version because it freezes strings that downstream
+# users might be mutating. Please use the frozen string literal pragma on new
+# files
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Rails/ApplicationJob:
+  Enabled: false
+
+Rails/ApplicationRecord:
+  Enabled: false
+
+# We define custom methods like `find_by_user_key`,
+# `find_by_created_date`, etc
+Rails/DynamicFindBy:
+  Enabled: false
+
+# # By default RSpec/MessageSpies has the following:
+# #   Prefer have_received for setting message expectations. Setup form as a spy using allow or instance_spy.
+# # The default assumes EnforcedStyle is 'have_received'. Most of our specs are 'receive'
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/ExpectActual:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageExpectation:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false

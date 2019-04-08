@@ -52,9 +52,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.active_job.queue_adapter     = :sidekiq
+  config.active_job.queue_adapter = :sidekiq
   # config.active_job.queue_name_prefix = "exhibits_#{Rails.env}"
-  config.debug_logger = Logger.new("#{Rails.root}/log/debug.log")
+  config.debug_logger = Logger.new(Rails.root.join('log', 'debug.log'))
 
   # provides access to IRB console on exception pages
   config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
