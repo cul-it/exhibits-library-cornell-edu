@@ -19,6 +19,6 @@ class CreateSpotlightPages < ActiveRecord::Migration[4.2]
     end
     add_index :spotlight_pages, :exhibit_id
     add_index :spotlight_pages, :parent_page_id
-    add_index :spotlight_pages, [:slug,:scope], unique: true
+    add_index :spotlight_pages, [:slug, :scope], unique: true
   end
 end

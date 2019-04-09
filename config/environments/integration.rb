@@ -53,7 +53,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  config.active_job.queue_adapter     = :sidekiq
+  config.active_job.queue_adapter = :sidekiq
   # config.active_job.queue_name_prefix = "exhibits_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
@@ -80,7 +80,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
-  config.debug_logger = Logger.new("#{Rails.root}/log/debug.log")
+  config.debug_logger = Logger.new(Rails.root.join('log', 'debug.log'))
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

@@ -9,7 +9,7 @@ class UpdateCustomFieldNames < ActiveRecord::Migration[4.2]
     end
 
     Spotlight::SolrDocumentSidecar.find_each do |f|
-      f.data.select { |k, v| fields.has_key? k }.each do |k, v|
+      f.data.select { |k, _v| fields.key? k }.each do |k, _v|
         f.data[fields[k].send(:field_name)] = f.data.delete(k)
       end
     end
@@ -24,7 +24,7 @@ class UpdateCustomFieldNames < ActiveRecord::Migration[4.2]
     end
 
     Spotlight::SolrDocumentSidecar.find_each do |f|
-      f.data.select { |k, v| fields.has_key? k }.each do |k, v|
+      f.data.select { |k, _v| fields.key? k }.each do |k, _v|
         f.data[fields[k].send(:solr_field)] = f.data.delete(k)
       end
     end

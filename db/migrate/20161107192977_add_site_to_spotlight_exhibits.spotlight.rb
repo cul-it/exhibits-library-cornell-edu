@@ -13,12 +13,12 @@ class AddSiteToSpotlightExhibits < ActiveRecord::Migration[4.2]
 
   private
 
-  def add_default_site_to_exhibits
-    Spotlight::Site.reset_column_information
-    Spotlight::Exhibit.reset_column_information
+    def add_default_site_to_exhibits
+      Spotlight::Site.reset_column_information
+      Spotlight::Exhibit.reset_column_information
 
-    Spotlight::Exhibit.find_each do |e|
-      e.site = Spotlight::Site.instance
+      Spotlight::Exhibit.find_each do |e|
+        e.site = Spotlight::Site.instance
+      end
     end
-  end
 end
