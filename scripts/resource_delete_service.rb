@@ -79,13 +79,12 @@ class ResourceDeleteService
       return if resource.blank?
 
       featured_image = find_featured_image(resource)
-      alt_resources_with_image = find_alternate_resource_for_image(resource)
       thumbnails = find_thumbnails(featured_image)
       solr_document_sidecars = find_solr_document_sidecars(resource)
       bookmarks = find_bookmarks(solr_document_sidecars)
 
-      perform_pretest(resource: resource, featured_image: featured_image, alternate_resources_for_image: alt_resources_with_image,
-                      thumbnails: thumbnails, solr_document_sidecars: solr_document_sidecars, bookmarks: bookmarks)
+      perform_pretest(resource: resource, featured_image: featured_image, thumbnails: thumbnails,
+                      solr_document_sidecars: solr_document_sidecars, bookmarks: bookmarks)
       return if pretest
       return unless delete?
       perform_deletes(resource: resource, featured_image: featured_image, thumbnails: thumbnails,
@@ -108,7 +107,7 @@ class ResourceDeleteService
         puts("DELETE Complete!")
       end
 
-      def perform_pretest(resource:, featured_image:, alternate_resources_for_image: [], thumbnails: [], solr_document_sidecars: [], bookmarks: [])
+      def perform_pretest(resource:, featured_image:, thumbnails: [], solr_document_sidecars: [], bookmarks: [])
         puts "-----------------------------------"
         puts("Will DELETE...")
         puts("    resource - id: #{resource.id}    type: #{resource.type}    upload_id: #{resource.upload_id}    exhibit_id: #{resource.exhibit_id}")
