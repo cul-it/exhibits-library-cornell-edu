@@ -6,7 +6,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -52,13 +52,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', ' ~> 6.0'
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight'
+gem 'blacklight-spotlight', '~> 1.4.0'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
 gem 'rsolr', '~> 1.0'
-gem 'devise'
+gem 'devise', '~> 4.6'
+gem 'responders', '2.4.1'
 gem 'devise-guests', '~> 0.5'
 gem 'friendly_id', github: 'norman/friendly_id'
 gem 'riiif'
