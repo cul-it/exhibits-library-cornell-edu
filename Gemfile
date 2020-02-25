@@ -41,10 +41,8 @@ gem 'sitemap_generator'
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
-  gem 'listen' # listens for changes to files ## don't see where this is explicitly used
-
+  gem 'listen' # listens for changes to files to allow for auto-reload during development
   # gem 'database_cleaner'
-  # gem 'listen', '~> 3.0.5'
 end
 
 group :development do
