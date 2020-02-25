@@ -77,8 +77,9 @@ group :test do
   # gem 'rspec-activemodel-mocks'
 end
 
-# tmp pin of autoprefixer to avoid nodes version error
-gem 'autoprefixer-rails', '8.5.2'
+# tmp pins for incompatibilities
+gem 'autoprefixer-rails', '8.5.2' # avoid nodes version error
+gem 'sprockets', '3.7.2' # avoid err working with font-awesome 4.5 - corrected in 5.12
 
 # ruby "2.5.3"
 # gem 'therubyracer', platforms: :ruby
