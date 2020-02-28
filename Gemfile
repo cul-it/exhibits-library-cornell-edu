@@ -13,7 +13,7 @@ gem 'rails', '~> 5.1.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'mysql2'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'sass-rails', '>= 3.2'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
