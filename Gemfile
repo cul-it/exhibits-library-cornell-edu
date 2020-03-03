@@ -13,7 +13,7 @@ gem 'rails', '~> 5.1.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'mysql2'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'sass-rails', '>= 3.2'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -36,15 +36,13 @@ gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'openseadragon' # js lib for displaying tiling images
 gem 'riiif'
 gem 'rsolr', '~> 1.0'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.2'
 gem 'sitemap_generator'
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
-  gem 'listen' # listens for changes to files ## don't see where this is explicitly used
-
+  gem 'listen' # listens for changes to files to allow for auto-reload during development
   # gem 'database_cleaner'
-  # gem 'listen', '~> 3.0.5'
 end
 
 group :development do
@@ -79,8 +77,9 @@ group :test do
   # gem 'rspec-activemodel-mocks'
 end
 
-# tmp pin of autoprefixer to avoid nodes version error
-gem 'autoprefixer-rails', '8.5.2'
+# tmp pins for incompatibilities
+gem 'autoprefixer-rails', '8.5.2' # avoid nodes version error
+gem 'sprockets', '3.7.2' # avoid err working with font-awesome 4.5 - corrected in 5.12
 
 # ruby "2.5.3"
 # gem 'therubyracer', platforms: :ruby
