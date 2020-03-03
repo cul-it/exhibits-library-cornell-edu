@@ -41,6 +41,11 @@
    $ bin/rake spotlight:initialize
    ```
 
+1. Start Sidekiq for processing background jobs (Needs to run at the root of the rails app.)
+   ```sh
+   $ bundle exec sidekiq -d -L log/sidekiq.log -e development
+   ```
+
 1. Start Rails in new terminal session
    ```sh
    $ rails s
