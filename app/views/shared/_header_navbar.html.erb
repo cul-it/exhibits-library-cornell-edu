@@ -34,3 +34,9 @@
     </div>
   </div>
 </header>
+
+<% if current_user && ENV['ACCESS_MODE'].casecmp?('ADMIN_ONLY') %>
+  <div class="maintenance-message">
+    Exhibits are in maintenance mode.  Editing is unavailable at this time.
+  </div>
+<% end %>
