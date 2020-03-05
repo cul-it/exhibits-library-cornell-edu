@@ -10,9 +10,15 @@ module Spotlight
 
       alias_action :process_import, to: :import
 
-      can :manage, :all if user.superadmin?
+      if user.superadmin?
+        if AccessModeService.limit_access_to_site_admins? && !user.site_admin?
+          can :read, :all
+        else
+          can :manage, :all
+        end
+      end
 
-      if ENV['ACCESS_MODE']&.casecmp?('ADMIN_ONLY')
+      if AccessModeService.limit_access_to_site_admins?
         can [:read], Spotlight::Exhibit, id: user.exhibit_roles.pluck(:resource_id)
       else
         # exhibit admin
