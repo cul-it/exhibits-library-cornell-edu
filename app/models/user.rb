@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def to_s
     email
   end
+
+  def site_admin?
+    AccessModeService.site_admins.include? email
+  end
 end
