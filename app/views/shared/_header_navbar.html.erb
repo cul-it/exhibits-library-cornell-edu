@@ -34,3 +34,9 @@
     </div>
   </div>
 </header>
+
+<% if current_user && AccessModeService.limit_access_to_site_admins? %>
+  <div class="maintenance-message">
+    Exhibits are in maintenance mode.  Editing is unavailable at this time.
+  </div>
+<% end %>
