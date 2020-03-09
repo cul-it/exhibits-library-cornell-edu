@@ -36,16 +36,25 @@ class ResourceDeleteService
       where_clause = { upload_id: nil }
       where_clause[:exhibit_id] = exhibit if exhibit
       resource_ids = Spotlight::Resource.where(where_clause).limit(limit).map(&:id)
-      delete_resources(resource_ids, pretest: true)
+      delete_resources(resource_ids, pretest: true) # just lists info about resources when pretest: true
       resource_ids
     end
 
     # @param [Integer] exhibit id
-    # @return [Array<Integer>] resource_ids - list of ids of resources with image=NULL
+    # @return [Array<Integer>] resource_ids - list of ids of resources in the exhibit
     def find_resources_for_exhibit(exhibit:, limit: 1000)
       puts "Resources for exhibit #{exhibit}"
       resource_ids = Spotlight::Resource.where(exhibit_id: exhibit).limit(limit).map(&:id)
-      delete_resources(resource_ids, pretest: true)
+      delete_resources(resource_ids, pretest: true) # just lists info about resources when pretest: true
+      resource_ids
+    end
+
+    # @param [Integer] upload_id - id for an uploaded file
+    # @return [Array<Integer>] resource_ids - list of ids of resources with the upload_id (Should be at most 1.  More than that is an error.)
+    def find_resources_with_upload_id(upload_id:, limit: 10)
+      puts "Resources with upload_id #{upload_id}"
+      resource_ids = Spotlight::Resource.where(upload_id: upload_id).limit(limit).map(&:id)
+      delete_resources(resource_ids, pretest: true) # just lists info about resources when pretest: true
       resource_ids
     end
 
