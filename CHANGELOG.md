@@ -1,3 +1,7 @@
+### 1.0.1 (2020-03-10)
+
+* BUG FIX: patch s3 access to remove expiry token from attachment URLs
+
 ### 1.0.0 (2020-03-05)
 
 First release on AWS
