@@ -1,0 +1,112 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: Sidebar Menu
+  folders:
+
+  - title: New? Start Here
+    output: web, pdf
+    folderitems:
+
+    - title: Introduction
+      url: /introduction.html
+      output: web, pdf
+
+    - title: Signing up to contribute
+      url: /sign_up_process.html
+      output: web, pdf
+
+    - title: Requesting a new exhibit
+      url: /exhibit_request.html
+      output: web, pdf
+
+    - title: Spotlight Technology Stack
+      url: /spotlight_technology_stack.html
+      output: web, pdf
+
+    - title: How to Ask for Help
+      url: /get-help.html
+      output: web, pdf
+
+  - title: Exhibit Admins
+    output: web, pdf
+    folderitems:
+
+    - title: Exhibit Dashboard for Admins
+      url: /exhibit_dashboard_for_admins.html
+      output: web, pdf
+
+    - title: Dashboard
+      url: /exhibit_dashboard_home.html
+      output: web, pdf
+
+    - title: Analytics
+      url: /exhibit_analytics.html
+      output: web, pdf
+
+      subfolders:
+      - title: Configuration
+        output: web, pdf
+        subfolderitems:
+
+        - title: General
+          url: /managing_general_settings.html
+          output: web, pdf
+
+        - title: Appearance
+          url: /managing_appearance.html
+          output: web, pdf
+
+        - title: Users
+          url: /managing_users.html
+          output: web, pdf
+
+        - title: Metadata
+          url: /managing_metadata_fields.html
+          output: web, pdf
+
+        - title: Search
+          url: /managing_search_experience.html
+          output: web, pdf
+
+  - title: Exhibite Curators
+    output: web, pdf
+    folderitems:
+
+    - title: Exhibit Dashboard for Curators
+      url: /exhibit_dashboard_for_curators.html
+      output: web, pdf
+
+      subfolders:
+        - title: Curation
+          output: web, pdf
+          subfolderitems:
+
+          - title: Items
+            url: /managing_items.html
+            output: web, pdf
+
+          - title: Tags
+            url: /managing_exhibit_tags.html
+            output: web, pdf
+
+          - title: Browse
+            url: /managing_browse_categories.html
+            output: web, pdf
+
+          - title: Feature pages
+            url: /managing_feature_pages.html
+            output: web, pdf
+
+          - title: About pages
+            url: /managing_about_pages.html
+            output: web, pdf
+
+    - title: Editing pages
+      url: /editing_pages.html
+      output: web, pdf
+
+    - title: Managing Saved Searches
+      url: /managing_saved_searches.html
+      output: web, pdf
+

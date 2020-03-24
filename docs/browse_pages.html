@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title> | Cornell Library Exhibits Knowledge Base</title>
+<link rel="stylesheet" href="/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/css/modern-business.css">
+<link rel="stylesheet" href="/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/css/customstyles.css">
+<link rel="stylesheet" href="/css/theme-spotlight.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+</head>
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://exhibits-library-cornell.github.io/index.html" title="Cornell Library Exhibits Knowledge Base">
+            <img alt="Cornell Library Exhibits Knowledge Base" src="/images/company_logo.png">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li class="active"><a href="/browse_pages.html">Browse Pages</a></li>
+                
+                
+                
+                <li><a href="/get-help.html">Contact</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+              <li>
+                <div id="search-demo-container">
+  <form role="search" method="get" action="http://exhibits-library-cornell.github.io/search/" id="search-input">
+      <input id="searchString" name="searchString"
+       placeholder="Search..." type="text">
+    <button type="submit" title="Search for keywords"><i class="fa fa-search" name="googleSearchName"value="Search"></i></button>
+  </form>
+</div>
+
+              </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+      <!-- Sidebar Column -->
+      <div class="col-md-3">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle"> </li>
+    
+    
+    
+    <li>
+        <a href="#">New? Start Here</a>
+        <ul>
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/introduction.html">Introduction</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/sign_up_process.html">Signing up to contribute</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/exhibit_request.html">Requesting a new exhibit</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/spotlight_technology_stack.html">Spotlight Technology Stack</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/get-help.html">How to Ask for Help</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Exhibit Admins</a>
+        <ul>
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/exhibit_dashboard_home.html">Dashboard</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/exhibit_analytics.html">Analytics</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Configuration</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_general_settings.html">General</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_appearance.html">Appearance</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_users.html">Users</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_metadata_fields.html">Metadata</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_search_experience.html">Search</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Exhibite Curators</a>
+        <ul>
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/exhibit_dashboard_for_curators.html">Exhibit Dashboard for Curators</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Curation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_items.html">Items</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_exhibit_tags.html">Tags</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_browse_categories.html">Browse</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_feature_pages.html">Feature pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="http://exhibits-library-cornell.github.io/managing_about_pages.html">About pages</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/editing_pages.html">Editing pages</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="http://exhibits-library-cornell.github.io/managing_saved_searches.html">Managing Saved Searches</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main"></h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+  <!-- <link rel="stylesheet" href="http://exhibits-library-cornell.github.io/css/browse_pages.css"> -->
+<link rel="stylesheet" href="/css/browse_pages.css">
+
+<div id="page_lists">
+  <h1>Browse pages by:
+    <span class="select_page_list">
+      <button class="select_page_list active" value="title">Title</button>
+      <button class="select_page_list" value="keyword">Keyword</button>
+    </span>
+  </h1>
+
+  <dl class="page_list by_title" data-pages_listed_by="title">
+    
+      <dt><a class="page_title" href="index.html">A Guide For Building Cornell Online Exhibits</a></dt>
+    
+      <dt><a class="page_title" href="editing_pages.html">Editing Pages</a></dt>
+    
+      <dt><a class="page_title" href="tag_exhibit_admins.html">Exhibit Admins</a></dt>
+    
+      <dt><a class="page_title" href="exhibit_analytics.html">Exhibit Analytics</a></dt>
+    
+      <dt><a class="page_title" href="tag_exhibit_curators.html">Exhibit Curators</a></dt>
+    
+      <dt><a class="page_title" href="exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a></dt>
+    
+      <dt><a class="page_title" href="exhibit_dashboard_for_curators.html">Exhibit Dashboard for Curators</a></dt>
+    
+      <dt><a class="page_title" href="exhibit_dashboard_home.html">Exhibit Dashboard Home</a></dt>
+    
+      <dt><a class="page_title" href="get-help.html">Get Help</a></dt>
+    
+      <dt><a class="page_title" href="tag_getting_started.html">Getting started pages</a></dt>
+    
+      <dt><a class="page_title" href="introduction.html">Introduction to Spotlight Exhibits</a></dt>
+    
+      <dt><a class="page_title" href="managing_about_pages.html">Managing About Pages</a></dt>
+    
+      <dt><a class="page_title" href="managing_browse_categories.html">Managing Browse Categories</a></dt>
+    
+      <dt><a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a></dt>
+    
+      <dt><a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a></dt>
+    
+      <dt><a class="page_title" href="managing_feature_pages.html">Managing Feature Pages</a></dt>
+    
+      <dt><a class="page_title" href="managing_items.html">Managing Items</a></dt>
+    
+      <dt><a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a></dt>
+    
+      <dt><a class="page_title" href="managing_saved_searches.html">Managing Saved Searches</a></dt>
+    
+      <dt><a class="page_title" href="managing_search_experience.html">Managing Search Experience</a></dt>
+    
+      <dt><a class="page_title" href="managing_exhibit_tags.html">Managing Tags</a></dt>
+    
+      <dt><a class="page_title" href="managing_users.html">Managing Users</a></dt>
+    
+      <dt><a class="page_title" href="exhibit_request.html">Request a New Exhibit</a></dt>
+    
+      <dt><a class="page_title" href="/search/">Search</a></dt>
+
+      <dt><a class="page_title" href="spotlight_technology_stack.html">Spotlight Technology Stack</a></dt>
+    
+      <dt><a class="page_title" href="sign_up_process.html">User Sign-up Process</a></dt>
+    
+  </dl>
+
+  <dl class="page_list by_keyword" style="display: none;" data-pages_listed_by="keyword">
+    
+      <div class="keyword_group">
+        <dt class="keyword">About Page</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_about_pages.html">Managing About Pages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Admin</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="exhibit_analytics.html">Exhibit Analytics</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_home.html">Exhibit Dashboard Home</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_search_experience.html">Managing Search Experience</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_users.html">Managing Users</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Analytics</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="exhibit_analytics.html">Exhibit Analytics</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Appearance</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Banner Image</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Community</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="index.html">A Guide For Building Cornell Online Exhibits</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Curator</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="editing_pages.html">Editing Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_curators.html">Exhibit Dashboard for Curators</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_about_pages.html">Managing About Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_browse_categories.html">Managing Browse Categories</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_exhibit_tags.html">Managing Tags</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_feature_pages.html">Managing Feature Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_items.html">Managing Items</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_saved_searches.html">Managing Saved Searches</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Dashboard</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_curators.html">Exhibit Dashboard for Curators</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_home.html">Exhibit Dashboard Home</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Edit</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="editing_pages.html">Editing Pages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Edit Page</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="editing_pages.html">Editing Pages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Exhibit Admin</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="exhibit_analytics.html">Exhibit Analytics</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_home.html">Exhibit Dashboard Home</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_search_experience.html">Managing Search Experience</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_users.html">Managing Users</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Exhibit Description</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Exhibit Thumbnail</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Exhibit Title</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Exhibits</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="editing_pages.html">Editing Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_analytics.html">Exhibit Analytics</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_curators.html">Exhibit Dashboard for Curators</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_home.html">Exhibit Dashboard Home</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_request.html">Request a New Exhibit</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="get-help.html">Get Help</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="introduction.html">Introduction to Spotlight Exhibits</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_about_pages.html">Managing About Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_browse_categories.html">Managing Browse Categories</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_exhibit_tags.html">Managing Tags</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_feature_pages.html">Managing Feature Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_items.html">Managing Items</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_saved_searches.html">Managing Saved Searches</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_search_experience.html">Managing Search Experience</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_users.html">Managing Users</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="sign_up_process.html">User Sign-up Process</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="spotlight_technology_stack.html">Spotlight Technology Stack</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Feature Page</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_feature_pages.html">Managing Feature Pages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Fields</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">General</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Guide</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="index.html">A Guide For Building Cornell Online Exhibits</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Help</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="get-help.html">Get Help</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Introduction</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="introduction.html">Introduction to Spotlight Exhibits</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Items</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_items.html">Managing Items</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Masthead</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Metadata</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">New Exhibit</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="exhibit_request.html">Request a New Exhibit</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">New User</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="sign_up_process.html">User Sign-up Process</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Orientation</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="introduction.html">Introduction to Spotlight Exhibits</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Page</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="editing_pages.html">Editing Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_about_pages.html">Managing About Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_feature_pages.html">Managing Feature Pages</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Request access</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="sign_up_process.html">User Sign-up Process</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Request Exhibit</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="exhibit_request.html">Request a New Exhibit</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Saved Search</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_saved_searches.html">Managing Saved Searches</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Search</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_saved_searches.html">Managing Saved Searches</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_search_experience.html">Managing Search Experience</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Search Experience</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_search_experience.html">Managing Search Experience</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Settings</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Sign in</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="sign_up_process.html">User Sign-up Process</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Sign up</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="sign_up_process.html">User Sign-up Process</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Spotlight</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="editing_pages.html">Editing Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_analytics.html">Exhibit Analytics</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_admins.html">Exhibit Dashboard for Admins</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_for_curators.html">Exhibit Dashboard for Curators</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_dashboard_home.html">Exhibit Dashboard Home</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="exhibit_request.html">Request a New Exhibit</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="get-help.html">Get Help</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="introduction.html">Introduction to Spotlight Exhibits</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_about_pages.html">Managing About Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_appearance.html">Managing Exhibit Appearance</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_browse_categories.html">Managing Browse Categories</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_exhibit_tags.html">Managing Tags</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_feature_pages.html">Managing Feature Pages</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_general_settings.html">Managing Exhibit General Settings</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_items.html">Managing Items</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_metadata_fields.html">Managing Metadata Fields</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_saved_searches.html">Managing Saved Searches</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_search_experience.html">Managing Search Experience</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="managing_users.html">Managing Users</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="sign_up_process.html">User Sign-up Process</a>
+              </li>
+            
+              <li>
+                <a class="page_title" href="spotlight_technology_stack.html">Spotlight Technology Stack</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Stack</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="spotlight_technology_stack.html">Spotlight Technology Stack</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Tags</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_exhibit_tags.html">Managing Tags</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Technology</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="spotlight_technology_stack.html">Spotlight Technology Stack</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Technology Stack</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="spotlight_technology_stack.html">Spotlight Technology Stack</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+      <div class="keyword_group">
+        <dt class="keyword">Users</dt>
+        <dd>
+          <ul>
+            
+              <li>
+                <a class="page_title" href="managing_users.html">Managing Users</a>
+              </li>
+            
+          </ul>
+        </dd>
+      </div>
+    
+  </ul>
+</div>
+
+<script>
+$('document').ready(function() {
+  $('button.select_page_list').click(function(e) {
+    // Remove the 'active' class for all buttons, before adding it back to the
+    // one that was just clicked
+    $('button.select_page_list').each(function(i) {
+      $(this).removeClass('active')
+    });
+    $button = $(e.target)
+    $button.addClass('active')
+    $('.page_list').each(function (index) {
+      $page_list = $(this)
+      if ( $button.val() == $page_list.data('pages_listed_by') ) {
+        $page_list.show()
+      } else {
+        $page_list.hide()
+      }
+    })
+  });
+});
+</script>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2020 Cornell University Library. All rights reserved. <br />
+ Site last generated: Mar 24, 2020 <br />
+<a href="http://exhibits.library.cornell.edu/">exhibits.library.cornell.edu</a><br />
+<a href=""></a></a><br />
+<p><img src="/images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+      </div>
+
+    <!-- /.row -->
+    </div>
+  <!-- /.container -->
+  </div>
+</body>
+
+
+
+</html>
