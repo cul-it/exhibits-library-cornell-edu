@@ -9,6 +9,8 @@ We use a Jekyll-based custom theme for markup and display, and pages are publish
 
 These are community documents, so we rely on the pull request model. If you'd like to contribute content:
 
+### Setting up the documentation for writing on your local machine
+
 - clone this project 
 ```
 git clone git@github.com:cul-it/exhibits-library-cornell-edu.git
@@ -25,12 +27,8 @@ bundle install --path=vendor/bundle
 ```
 - create/edit pages within the Spotlight directory (e.g. [/pages/spotlight/](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/pages/spotlight))
 - add links for new pages in home_sidebar.yml [/home_sidebar.yml](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/home_sidebar.yml) which controls the left sidebar navigation in the UI
-- write content ([notes on writing content](#notes-on-writing-content))
-- add/update [front matter](#basic-front-matter), including updating the last_updated date if content changed.
-- update [browse pages](#browse-pages) if necessary
-- submit a Pull Request
 
-To Test in Jekyll:
+#### To Test on your local machine:
 
 From `exhibits-library-cornell-edu/docs` directory
 ```
@@ -40,6 +38,38 @@ bundle exec jekyll serve
 ```
 
 View the documentation in a browser at http://localhost:4000
+
+### Writing documentation
+
+- write content ([notes on writing content](#notes-on-writing-content))
+- add/update [front matter](#basic-front-matter), including updating the last_updated date if content changed.
+- update [browse pages](#browse-pages) if necessary
+
+#### Test and submit Pull Request
+
+- test locally (see #to-test-on-your-local-machine)
+- list changes
+```
+git status
+```
+- if all looks right, add changes
+```
+git branch
+git add * -m '_WHAT YOU CHANGED_'
+git push origin _NAME_OF_YOUR_BRANCH_
+```
+SUBSTITUTE: _NAME_OF_YOUR_BRANCH_ with the name you used when creating the branch.  You can get the name of your branch by executing `git branch`.  The currently active branch will have an * beside the name.
+
+WARNING: You should not push directly to the `dev` or `master` branches.
+
+- submit a Pull Request
+  * on [github](https://github.com/cul-it/exhibits-library-cornell-edu), navigate to your branch.  Look for select box starting with label `Branch:` and select your branch.  
+  * click New pull request
+  * review the files that have changed to make sure the look correct
+  * git the pull request a title
+  * describe the changes you have made at the level of detail that is appropriate for your changes
+  * include links to github issues that are related to the changes
+  * submit
 
 ### Basic Front Matter
 The front matter on each page controls how the page is built and functions.
