@@ -9,8 +9,13 @@
               <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{{ site.url }}/index.html" title="{{site.topnav_title}}">
-            <img alt="{{site.topnav_title}}" src="{{ "images/company_logo.png" | prepend: site.baseurl_root }}">
+            <img class="company-logo" alt="{{site.topnav_title}}" src="{{ "images/cornell_seal_simple_b31b1b.svg" | prepend: site.baseurl_root }}" />
           </a>
+          <div class="navbar-sitetitle">
+              <a class="navbar-sitetitle" href="{{ site.url }}/index.html" title="{{site.topnav_title}}">
+                {{site.topnav_title}}
+              </a>
+          </div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
