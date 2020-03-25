@@ -2,7 +2,7 @@
 name: Documentation
 about: Request new documentation or changes to existing documentation.
 title: 'DOCS: '
-labels: 'Documentation'
+labels: Documentation
 assignees: ''
 
 ---
