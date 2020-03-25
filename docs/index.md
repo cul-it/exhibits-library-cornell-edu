@@ -9,7 +9,7 @@ toc: false
    <div class="col-lg-12">
       <h2 class="page-header">Knowledge Base Categories</h2>
 
-      <a href="https://github.com/cul-it/exhibits-library-cornell-edu/issues/new?assignees=&labels=Documentation&template=documentation.md&title=DOCS%3A+" class="btn btn-lg btn-primary" target="_blank">Contribute New Documentation</a>
+      <a href="https://github.com/cul-it/exhibits-library-cornell-edu/blob/dev/docs/README.md" class="btn btn-lg btn-primary" target="_blank">Contribute New Documentation</a>
 
       <ul class='info'><li>Note: This site is under active development. If there's a content you'd like to see here, or if you notice errors, please create an <a href="https://github.com/cul-it/exhibits-library-cornell-edu/issues/new?assignees=&labels=Documentation&template=documentation.md&title=DOCS%3A+">issue</a>. All content has been reviewed and approved.</li></ul>
    </div>
