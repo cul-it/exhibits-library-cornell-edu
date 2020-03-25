@@ -1,6 +1,6 @@
 .summary {
     color: #999290;
-    border-left: 5px solid #8C2900;
+    border-left: 5px solid #B31B1B;
     font-size:16px;
 }
 
@@ -8,25 +8,25 @@ h3 {color: #000; }
 h4 {color: #999290; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    background-color: #8c2900;
-    color: 8c2900;
+    background-color: #B31B1B;
+    color: B31B1B;
 }
 
 .nav > li.active > a {
-    background-color: #8c2900;
+    background-color: #B31B1B;
 }
 
 .nav > li > a:hover {
-    background-color: #8c2900;
+    background-color: #B31B1B;
 }
 
 div.navbar-collapse .dropdown-menu > li > a:hover {
-    background-color: #8c2900;
+    background-color: #B31B1B;
 }
 
 .nav li.thirdlevel > a {
     background-color: #FAFAFA !important;
-    color: #8c2900;
+    color: #B31B1B;
     font-weight: bold;
 }
 
@@ -38,7 +38,7 @@ a[data-toggle="tooltip"] {
 
 .navbar-inverse {
     background-color: #fff;
-    border-color: #8c2900;
+    border-color: #B31B1B;
 }
 
 .navbar-inverse .navbar-nav > .open > a,
@@ -48,13 +48,27 @@ a[data-toggle="tooltip"] {
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: #8c2900 !important;
+    border-color: #B31B1B !important;
+}
+
+img.company-logo {
+    width: 67px;
+    height: 67px;
+}
+div.navbar-sitetitle {
+    margin-top: 15px;
+    max-width: 400px;
+}
+
+div.navbar-sitetitle a {
+    color: #B31B1B;
+    font-size: 25px;
 }
 
 .btn-primary {
     color: #ffffff;
-    background-color: #8c2900;
-    border-color: #8c2900;
+    background-color: #B31B1B;
+    border-color: #B31B1B;
 }
 
 .btn-primary:hover,
@@ -62,8 +76,8 @@ a[data-toggle="tooltip"] {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    background-color: #8c2900;
-    border-color: #8c2900;
+    background-color: #B31B1B;
+    border-color: #B31B1B;
 }
 
 .printTitle {
@@ -87,8 +101,7 @@ li.sidebarTitle {
     margin-top:40px;
     font-weight:normal;
     font-size:130%;
-    color: #8C2900;
+    color: #B31B1B;
     margin-bottom:10px;
     margin-left: 5px;
-
 }
