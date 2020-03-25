@@ -13,7 +13,7 @@ toc: false
 
       <ul class='info'><li>Note: This site is under active development. If there's a content you'd like to see here, or if you notice errors, please create an <a href="https://github.com/cul-it/exhibit-library-cornell.github.io/issues/new">issue</a>. All content has been reviewed and approved.</li></ul>
    </div>
-   <div class="col-md-3 col-sm-6">
+   <div class="col-md-4 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
                <span class="fa-stack fa-5x">
@@ -28,7 +28,7 @@ toc: false
            </div>
        </div>
    </div>
-   <div class="col-md-3 col-sm-6">
+   <div class="col-md-4 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
                <span class="fa-stack fa-5x">
@@ -43,7 +43,7 @@ toc: false
            </div>
        </div>
    </div>
-   <div class="col-md-3 col-sm-6">
+   <div class="col-md-4 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
                <span class="fa-stack fa-5x">
