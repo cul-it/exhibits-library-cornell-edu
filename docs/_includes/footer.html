@@ -5,7 +5,7 @@
 {% if page.last_updated %}<span>Page last updated:</span> {{page.last_updated}}<br/>{% endif %} Site last generated: {{ site.time | date: "%b %-d, %Y"  }} <br />
 <a href="{{site.organization_link}}">{{site.organization_link_name}}</a><br />
 <a href="{{site.community_link}}">{{site.community_link_name}}</a></a><br />
-<p><img class="company-logo" src="images/cornell_seal_simple_b31b1b.svg" alt="Company logo" /></p>
+<p><img class="company-logo" src="{{ site.url }}/images/cornell_seal_simple_b31b1b.svg" alt="Company logo" /></p>
                 </div>
             </div>
 </footer>
