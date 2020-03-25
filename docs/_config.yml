@@ -112,14 +112,14 @@ sidebars:
 
 description: ""
 # the description is used in the feed.xml file
-url: http://exhibits-library-cornell.github.io
-production_url : http://exhibits-library-cornell.github.io
-BASE_PATH : http://exhibits-library-cornell.github.io
+url: https://cul-it.github.io/exhibits-library-cornell-edu
+production_url : https://cul-it.github.io/exhibits-library-cornell-edu
+BASE_PATH : https://cul-it.github.io/exhibits-library-cornell-edu
 
 theme: jekyll-theme-minimal
 
 # needed for sitemap.xml file only
-url: http://exhibits-library-cornell.github.io
+url: https://cul-it.github.io/exhibits-library-cornell-edu
 plugins:
   - jekyll-sitemap
 
