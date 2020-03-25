@@ -1,33 +1,50 @@
-# exhibits-library-cornell.github.io
+# cul-it.github.io/exhibits-library-cornell-edu
 
 
 ## How Does This Work?
 
-We use a Jekyll-based custom theme for markup and display, and pages are published to http://exhibits-library-cornell.github.io.
+We use a Jekyll-based custom theme for markup and display, and pages are published to http://cul-it.github.io/exhibits-library-cornell-edu.
 
 ## Adding or Editing Content
 
 These are community documents, so we rely on the pull request model. If you'd like to contribute content:
 
-- clone this project (link on [cul-it/exhibits-library-cornell.github.io](http://github.com/cul-it/exhibits-library-cornell.github.io))
-- make a branch for your new documentation
-- run `bundle install`
-- create/edit pages within the Spotlight directory (e.g. [/pages/spotlight/](https://github.com/cul-it/exhibits-library-cornell.github.io/tree/master/pages/spotlight))
-- add links for new pages in home_sidebar.yml which controls the left sidebar navigation in the UI
+- clone this project 
+```
+git clone git@github.com:cul-it/exhibits-library-cornell-edu.git
+cd exhibits-library-cornell-edu
+```
+- make a branch for your new documentation replacing fix_WHAT_YOU_ARE_FIXING or new_WHAT_IS_NEW with a short name for the branch (e.g. fix_browse_typo, new_manage_users)
+```
+git branch docs/fix_WHAT_YOU_ARE_FIXING_or_new_WHAT_IS_NEW
+```
+- get dependencies
+```
+cd docs
+bundle install --path=vendor/bundle
+```
+- create/edit pages within the Spotlight directory (e.g. [/pages/spotlight/](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/pages/spotlight))
+- add links for new pages in home_sidebar.yml [/home_sidebar.yml](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/home_sidebar.yml) which controls the left sidebar navigation in the UI
 - write content ([notes on writing content](#notes-on-writing-content))
 - add/update [front matter](#basic-front-matter), including updating the last_updated date if content changed.
 - update [browse pages](#browse-pages) if necessary
 - submit a Pull Request
 
 To Test in Jekyll:
-* Run the jekyll server
-`bundle exec jekyll serve`
-* View the documentation in a browser at http://localhost:4000
+
+From `exhibits-library-cornell-edu/docs` directory
+```
+rm -R -f _site
+SAVE_GENERATED_FILES=1 bundle exec jekyll build
+bundle exec jekyll serve
+```
+
+View the documentation in a browser at http://localhost:4000
 
 ### Basic Front Matter
 The front matter on each page controls how the page is built and functions.
 
-Example front matter for page [Best Practices -> Coding Styles](https://raw.githubusercontent.com/cul-it/exhibits-library-cornell.github.io/master/pages/spotlight/exhibit_curators/manage_items.md)
+Example front matter for page [Exhibit Curators -> Manage Items](https://raw.githubusercontent.com/cul-it/exhibits-library-cornell-edu/dev/docs/pages/spotlight/exhibit_curators/managing_items.md)
 ```
 ---
 title: Managing Items
@@ -38,11 +55,14 @@ sidebar: home_sidebar
 folder: spotlight/exhibit_curators/
 ---
 ```
+
 #### Front Matter Options
+
 * **title** [String] _(required)_ - The title displayed on the generated html page
 * **permalink** [text] _(required)_ - The name of the generated html file that will be part of the url accessed by users
+* **last_updated** _(recommended)_ - Change to the date the documentation was last updated.
 * **keywords** [Array<Strings>] _(recommended)_ - Used as titles in the generated `browse_pages.html` for browsing by keyword, and as keywords that get populated into the metadata for SEO
-* **sidebar** [text] _(optional)_ - Default value is `home_sidebar`, and the only option at this point
+* **sidebar** [text] _(required)_ - Default value is `home_sidebar`, and the only option at this point
 * **tags** [Array] _(optional)_ - Automatically populate pages for each of the 4 major categories included on the main page. If you use a tag, you should also add a summary. Valid tags values:
   * getting_started
   * exhibit_admins
@@ -57,17 +77,17 @@ You can highlight content with the following...
 ```
 <ul class='info'><li>This shows an info icon and provides the user additional information in a blue box.</li></ul>
 ```
-![info box](https://github.com/cul-it/exhibits-library-cornell.github.io/tree/master/assets/images/readme_documentation/info_box.jpg "Info Box")
+![info box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/info_box.jpg "Info Box")
 
 ```
 <ul class='warning'><li>This shows a warning icon and provides the user warning information in a red box.</li></ul>
 ```
-![warning box](https://github.com/cul-it/exhibits-library-cornell.github.io/tree/master/assets/images/readme_documentation/warning_box.jpg "Warning Box")
+![warning box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/warning_box.jpg "Warning Box")
 
 ```
 <ul class='question'><li>This shows a question icon and provides the user with information in a yellow box indicating that there may be some uncertainty about a particular piece of information in the documentation.</li></ul>
 ```
-![question box](https://github.com/cul-it/exhibits-library-cornell.github.io/tree/master/assets/images/readme_documentation/question_box.jpg "Question Box")
+![question box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/question_box.jpg "Question Box")
 
 
 NOTE: You cannot use markdown in these boxes.  For example, if you want a link, you will have to use an html anchor tag.
