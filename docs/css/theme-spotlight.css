@@ -65,6 +65,10 @@ div.navbar-sitetitle a {
     font-size: 25px;
 }
 
+div.navbar-sitetitle a:hover {
+    text-decoration: none;
+}
+
 .btn-primary {
     color: #ffffff;
     background-color: #B31B1B;
