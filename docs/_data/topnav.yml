@@ -2,6 +2,6 @@
 topnav:
   - items:
       - title: 'Browse Pages'
-        url: '/browse_pages.html'
+        url: 'browse_pages.html'
       - title: 'Contact'
-        url: '/get-help.html'
+        url: 'get-help.html'
