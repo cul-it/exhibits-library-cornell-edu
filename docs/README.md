@@ -107,17 +107,17 @@ You can highlight content with the following...
 ```
 <ul class='info'><li>This shows an info icon and provides the user additional information in a blue box.</li></ul>
 ```
-![info box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/info_box.jpg "Info Box")
+![info box](https://raw.githubusercontent.com/cul-it/exhibits-library-cornell-edu/master/docs/assets/images/readme_documentation/info_box.jpg "Info Box")
 
 ```
 <ul class='warning'><li>This shows a warning icon and provides the user warning information in a red box.</li></ul>
 ```
-![warning box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/warning_box.jpg "Warning Box")
+![warning box](https://raw.githubusercontent.com/cul-it/exhibits-library-cornell-edu/master/docs/assets/images/readme_documentation/warning_box.jpg "Warning Box")
 
 ```
 <ul class='question'><li>This shows a question icon and provides the user with information in a yellow box indicating that there may be some uncertainty about a particular piece of information in the documentation.</li></ul>
 ```
-![question box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/question_box.jpg "Question Box")
+![question box](https://raw.githubusercontent.com/cul-it/exhibits-library-cornell-edu/master/docs/assets/images/readme_documentation/question_box.jpg "Question Box")
 
 
 NOTE: You cannot use markdown in these boxes.  For example, if you want a link, you will have to use an html anchor tag.
