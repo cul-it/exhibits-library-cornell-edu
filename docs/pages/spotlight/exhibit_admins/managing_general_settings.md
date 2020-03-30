@@ -9,16 +9,34 @@ folder: spotlight/exhibit_admins/
 
 Access from the [Exhibit Dashboard](exhibit_dashboard_for_admins) under Configuration section clicking General in the left side bar menu.
 
-## Setting the Exhibit Title, etc.
+## Overview
 
-This section contains basic exhibit settings, such as:
+
+## Basic setting tab
+
+This section contains basic exhibit settings:
 
 * Exhibit title
 * Subtitle
 * Description
 * Tags
-* Contacts
+* Contact emails
 
-This is also where you can choose to publish your exhibit, filter items, import and export data, and delete your exhibit.
 
+## Filter items tab
+
+
+## Import data tab
+
+![warning box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/warning_box.jpg "This cannot be undone.")
+
+
+## Export data tab
+
+![info box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/info_box.jpg "This is generally done only by a site admin.")
+
+
+## Delete exhibit tab
+
+![warning box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/warning_box.jpg "This cannot be undone.")
 
