@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/norman/friendly_id.git
-  revision: 984dac788d106faf60313cd0e51593474a513078
-  specs:
-    friendly_id (5.3.0)
-      activerecord (>= 4.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -105,7 +98,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (1.5.1)
+    blacklight-spotlight (2.0.0)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -131,8 +124,8 @@ GEM
       nokogiri
       oauth2
       openseadragon
-      paper_trail (~> 7.0)
-      rails (~> 5.0)
+      paper_trail (>= 7.0)
+      rails (~> 5.1)
       riiif (~> 1.0)
       roar (~> 1.1)
       roar-rails
@@ -207,6 +200,8 @@ GEM
     ffi (1.12.2)
     font-awesome-sass (4.5.0)
       sass (>= 3.2)
+    friendly_id (5.3.0)
+      activerecord (>= 4.0.0)
     github-markup (3.0.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -282,8 +277,8 @@ GEM
     openseadragon (0.5.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    paper_trail (7.1.3)
-      activerecord (>= 4.0, < 5.2)
+    paper_trail (10.3.1)
+      activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.17.0)
     parser (2.6.2.1)
@@ -488,7 +483,7 @@ DEPENDENCIES
   blacklight (~> 6.14.0)
   blacklight-gallery (>= 0.3.0)
   blacklight-oembed (>= 0.1.0)
-  blacklight-spotlight (~> 1.5.0)
+  blacklight-spotlight (= 2.0.0)
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave-aws
@@ -500,7 +495,7 @@ DEPENDENCIES
   dotenv-deployment
   dotenv-rails
   font-awesome-sass (~> 4.5.0)
-  friendly_id!
+  friendly_id (~> 5.3)
   jbuilder (~> 2.5)
   jquery-rails
   listen
