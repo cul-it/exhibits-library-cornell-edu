@@ -28,15 +28,15 @@ This section contains basic exhibit settings:
 
 ## Import data tab
 
-![warning box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/warning_box.jpg "This cannot be undone.")
+<ul class='warning'><li>This cannot be undone.</li></ul>
 
 
 ## Export data tab
 
-![info box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/info_box.jpg "This is generally done only by a site admin.")
+<ul class='info'><li>This is generally done only by a site admin.</li></ul>
 
 
 ## Delete exhibit tab
 
-![warning box](https://github.com/cul-it.github.io/exhibits-library-cornell-edu/tree/master/docs/assets/images/readme_documentation/warning_box.jpg "This cannot be undone.")
+<ul class='warning'><li>This cannot be undone.</li></ul>
 
