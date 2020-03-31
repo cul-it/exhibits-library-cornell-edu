@@ -178,7 +178,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-guests (0.6.1)
+    devise-guests (0.7.0)
       devise
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
@@ -343,8 +343,9 @@ GEM
       roar (~> 1.1.0)
       test_xml (>= 0.1.6)
       uber (< 0.2.0)
-    rsolr (1.1.2)
+    rsolr (2.3.0)
       builder (>= 2.1.2)
+      faraday (>= 0.9.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -408,7 +409,7 @@ GEM
       rails (>= 3, < 7)
       redcarpet (>= 2.0.1, < 4)
       twitter-text (~> 1.4)
-    sitemap_generator (6.0.1)
+    sitemap_generator (6.1.0)
       builder (~> 3.0)
     solr_wrapper (2.0.0)
       faraday
@@ -440,7 +441,7 @@ GEM
     tins (1.20.2)
     tophat (2.3.1)
       actionpack (>= 3.0.0)
-    turbolinks (5.2.0)
+    turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
     twitter-text (1.14.7)
@@ -452,7 +453,7 @@ GEM
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.1.20)
+    uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     underscore-rails (1.8.3)
     unf (0.1.4)
@@ -505,7 +506,7 @@ DEPENDENCIES
   puma (~> 3.12)
   rails (~> 5.1.6)
   riiif
-  rsolr (~> 1.0)
+  rsolr (~> 2.3)
   rspec-rails (~> 3.1)
   rubocop-checkstyle_formatter
   sass-rails (>= 3.2)

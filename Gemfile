@@ -31,7 +31,7 @@ gem 'friendly_id', '~> 5.3'               #           5.3.0
 gem 'jquery-rails'                        # 4.3.5     4.3.5
 gem 'openseadragon' # js lib for displaying tiling images  # 0.5.0
 gem 'riiif'                               # 1.7.1     1.7.1
-gem 'rsolr', '~> 1.0'                     # 1.1.2     2.3.0
+gem 'rsolr', '~> 2.3'                     # 1.1.2     2.3.0
 gem 'sitemap_generator'                   # 6.0.1     6.1.0
 
 # additional app dependencies based on our specific setup
