@@ -1,3 +1,11 @@
+### 1.1.0 (2020-03-30)
+
+* spotlight version updated to v1.5.1
+  * 5 database migrations
+  * many dependency updates
+* added spotlight version to footer
+* refactors documentation to use Jekyll documentation theme
+
 ### 1.0.1 (2020-03-10)
 
 * BUG FIX: patch s3 access to remove expiry token from attachment URLs
