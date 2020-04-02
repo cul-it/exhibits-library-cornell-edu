@@ -1,3 +1,7 @@
+### 1.1.1 (2020-04-02)
+
+* BUG FIX: give exhibit admin permission to upload a file as the masthead
+
 ### 1.1.0 (2020-03-30)
 
 * spotlight version updated to v1.5.1
