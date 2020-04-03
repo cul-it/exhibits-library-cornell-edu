@@ -1,3 +1,13 @@
+### 2.0.0 (2020-04-03)
+
+* spotlight version updated to v1.5.1
+  * update spotlight to 2.0.0
+  * migrations related to language support
+  * update related dependencies
+  * kept rails at 5.1.6, as an update to 5.2 requires too many other changes and is not required
+* update customizations to be compatible with spotlight 2.0.0
+* update dependencies and cleanup Gemfile
+
 ### 1.1.1 (2020-04-02)
 
 * BUG FIX: give exhibit admin permission to upload a file as the masthead

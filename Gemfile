@@ -12,32 +12,34 @@ gem 'rails', '~> 5.1.6'
 # rails related dependencies
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
-gem 'mysql2'
 gem 'puma', '~> 3.12'
-gem 'sass-rails', '>= 3.2'
-gem 'turbolinks', '~> 5'
+gem 'sass-rails', '~> 5.0'
+gem 'turbolinks', '~> 5.2'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 4.2'
 
 # spotlight related dependencies
 gem 'blacklight', ' ~> 6.14.0'
-gem 'blacklight-gallery', '>= 0.3.0'
-gem 'blacklight-oembed', '>= 0.1.0'
-gem 'blacklight-spotlight', '~> 1.5.0'
+gem 'blacklight-gallery', '>= 0.12.0'
+gem 'blacklight-oembed', '>= 0.3.0'
+gem 'blacklight-spotlight', '= 2.0.0'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'carrierwave-aws'
 gem 'devise'
-gem 'devise-guests', '~> 0.5'
+gem 'devise-guests', '~> 0.7'
 gem 'devise_invitable'
-gem 'font-awesome-sass', '~> 4.5.0'
-gem 'friendly_id', github: 'norman/friendly_id'
+gem 'friendly_id', '~> 5.3'
 gem 'jquery-rails'
-gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'openseadragon' # js lib for displaying tiling images
 gem 'riiif'
-gem 'rsolr', '~> 1.0'
-gem 'sidekiq', '~> 5.2'
+gem 'rsolr', '~> 2.3'
 gem 'sitemap_generator'
+
+# additional app dependencies based on our specific setup
+gem 'carrierwave-aws'
+gem 'font-awesome-sass', '~> 4.5.0'
+gem 'mina' # deployment script generator -- is this used?  should this be used?
+gem 'mysql2'
+gem 'sidekiq', '~> 5.2'
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
@@ -80,9 +82,3 @@ end
 # tmp pins for incompatibilities
 gem 'autoprefixer-rails', '8.5.2' # avoid nodes version error
 gem 'sprockets', '3.7.2' # avoid err working with font-awesome 4.5 - corrected in 5.12
-
-# ruby "2.5.3"
-# gem 'therubyracer', platforms: :ruby
-# gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
-# gem 'capistrano-rails', group: :development
