@@ -1,3 +1,12 @@
+### 2.2.0 (2020-04-05)
+
+* spotlight version updated to v2.2.0
+  * make several changes to fix the build, including updating our Rubocop todo, and requiring i18n < 1.1 as i18n introduced a backwards incompatible change with Rails (rails/rails#33574)
+  * Updates our CI to build with Rails 5.2.1
+  * adds new locale files for Chinese and Italian languages
+  * Update the PaperTrails versions table to be larger to accommodate large Spotlight::Page
+  * Uses textarea for free form text input
+
 ### 2.1.0 (2020-04-05)
 
 * spotlight version updated to v2.1.0
