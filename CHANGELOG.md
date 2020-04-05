@@ -1,11 +1,18 @@
+### 2.0.2 (2020-04-05)
+
+* spotlight version updated to v2.0.2
+  * fixes an issue where you could browse though the Previous/Next record pagination from browse categories into negative numbers (or past the number of documents in the browse category)
+  * change the field type of the the content column for Pages to increase the size from text to mediumtext
+  * database migration for field type change for Pages  
+
 ### 2.0.1 (2020-04-05)
 
-* spotlight version updated to v1.5.1
+* spotlight version updated to v2.0.1
   * bug fixes only
 
 ### 2.0.0 (2020-04-03)
 
-* spotlight version updated to v1.5.1
+* spotlight version updated to v2.0.0
   * update spotlight to 2.0.0
   * migrations related to language support
   * update related dependencies
