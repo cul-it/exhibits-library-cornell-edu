@@ -1,3 +1,9 @@
+### 2.1.0 (2020-04-05)
+
+* spotlight version updated to v2.1.0
+  * allows the application catalog config to provide values for custom fields
+  * enables a Spotlight application to add custom attributes to be shown on a SirTrevor Widget edit form  
+
 ### 2.0.2 (2020-04-05)
 
 * spotlight version updated to v2.0.2
