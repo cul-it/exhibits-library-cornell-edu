@@ -1,3 +1,8 @@
+### 2.2.1 (2020-04-05)
+
+* spotlight version updated to v2.2.1
+  * fixes an issue where show fields were not showing up as sorted in the metadata administrator panel.
+    
 ### 2.2.0 (2020-04-05)
 
 * spotlight version updated to v2.2.0
