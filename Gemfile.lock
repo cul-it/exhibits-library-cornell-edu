@@ -38,8 +38,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (5.0.0)
-      activerecord (>= 4.2.8)
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     almond-rails (0.3.0)
@@ -98,8 +98,8 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.0.0)
-      acts-as-taggable-on (~> 5.0)
+    blacklight-spotlight (2.1.0)
+      acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -284,7 +284,7 @@ GEM
     parser (2.6.2.1)
       ast (~> 2.4.0)
     powerpack (0.1.2)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     puma (3.12.4)
     rack (2.0.9)
     rack-protection (2.0.8.1)
@@ -374,7 +374,7 @@ GEM
       rubocop (>= 0.35.1)
     rubocop-rspec (1.22.2)
       rubocop (>= 0.52.1)
-    ruby-oembed (0.12.0)
+    ruby-oembed (0.13.0)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     rubyzip (2.2.0)
@@ -394,7 +394,7 @@ GEM
       rack (< 2.1.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
-    signet (0.13.2)
+    signet (0.14.0)
       addressable (~> 2.3)
       faraday (>= 0.17.3, < 2.0)
       jwt (>= 1.5, < 3.0)
@@ -450,7 +450,7 @@ GEM
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uber (0.1.0)
     uglifier (4.2.0)
@@ -484,7 +484,7 @@ DEPENDENCIES
   blacklight (~> 6.14.0)
   blacklight-gallery (>= 0.12.0)
   blacklight-oembed (>= 0.3.0)
-  blacklight-spotlight (= 2.0.0)
+  blacklight-spotlight (= 2.1.0)
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave-aws
