@@ -1,3 +1,8 @@
+### 2.0.1 (2020-04-05)
+
+* spotlight version updated to v1.5.1
+  * bug fixes only
+
 ### 2.0.0 (2020-04-03)
 
 * spotlight version updated to v1.5.1
