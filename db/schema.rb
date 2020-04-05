@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200330193732) do
+ActiveRecord::Schema.define(version: 20200405172839) do
 
   create_table "bookmarks", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "user_id", null: false
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 20200330193732) do
     t.string "type"
     t.string "slug"
     t.string "scope"
-    t.text "content"
+    t.text "content", limit: 16777215
     t.integer "weight", default: 50
     t.boolean "published"
     t.integer "exhibit_id"
