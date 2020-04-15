@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200405172839) do
+ActiveRecord::Schema.define(version: 20200415151922) do
 
   create_table "bookmarks", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "user_id", null: false
@@ -307,7 +307,7 @@ ActiveRecord::Schema.define(version: 20200405172839) do
 
   create_table "taggings", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "tag_id"
-    t.string "taggable_id"
+    t.integer "taggable_id"
     t.string "taggable_type"
     t.string "tagger_type"
     t.integer "tagger_id"

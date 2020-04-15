@@ -4,7 +4,7 @@ module Spotlight
   module Ability
     include CanCan::Ability
 
-    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
     def initialize(user)
       user ||= Spotlight::Engine.user_class.new
 
@@ -52,6 +52,6 @@ module Spotlight
       can :read, Spotlight::Search, published: true
       can :read, Spotlight::Language, public: true
     end
-    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
   end
 end
