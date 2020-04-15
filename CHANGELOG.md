@@ -1,3 +1,10 @@
+### 2.3.0 (2020-04-15)
+
+* spotlight version updated to v2.3.0
+  * added the ability to explicitly configure which Solr fields an upload field belongs to
+  * changed Taggable id type and fixed an Exhibit tags bug
+  * requires database migration for change of taggable_id to integer type
+
 ### 2.2.1 (2020-04-05)
 
 * spotlight version updated to v2.2.1
