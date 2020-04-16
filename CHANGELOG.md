@@ -1,3 +1,9 @@
+### 2.4.1 (2020-04-16)
+
+* spotlight version updated to v2.4.0
+  * validate the FeaturedImage object if provided
+  * avoid using javascript keywords as variable names
+
 ### 2.4.0 (2020-04-16)
 
 * spotlight version updated to v2.4.0
@@ -7,7 +13,6 @@
   * add custom routing constraints by setting
 * update to blacklight v6.19
   * fixes an issue where citations are rendering in un-styled modals
-  * support rails 4.2
   * move asset generating to the assets generator
   * use solr_wrapper config file for collection configuration
 * update to blacklight v6.17
