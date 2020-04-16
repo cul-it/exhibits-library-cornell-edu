@@ -46,7 +46,7 @@ GEM
       rails (>= 4.2)
     arel (8.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.5.2)
+    autoprefixer-rails (9.7.6)
       execjs
     aws-eventstream (1.0.1)
     aws-partitions (1.129.0)
@@ -78,11 +78,11 @@ GEM
     bixby (1.0.0)
       rubocop (~> 0.50, <= 0.52.1)
       rubocop-rspec (~> 1.22, <= 1.22.2)
-    blacklight (6.14.1)
+    blacklight (6.20.0)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
-      jbuilder
+      jbuilder (~> 2.7)
       kaminari (>= 0.15)
       nokogiri (~> 1.6)
       rails (>= 4.2, < 6)
@@ -98,11 +98,11 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.3.3)
+    blacklight-spotlight (2.4.0)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
-      blacklight (~> 6.3)
+      blacklight (~> 6.20)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2)
       breadcrumbs_on_rails (~> 3.0)
@@ -478,14 +478,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  autoprefixer-rails (= 8.5.2)
   better_errors
   binding_of_caller
   bixby (~> 1.0.0)
-  blacklight (~> 6.14.0)
+  blacklight (~> 6.20.0)
   blacklight-gallery (>= 0.12.0)
   blacklight-oembed (>= 0.3.0)
-  blacklight-spotlight (= 2.3.3)
+  blacklight-spotlight (= 2.4.0)
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave-aws
@@ -515,7 +514,6 @@ DEPENDENCIES
   sitemap_generator
   solr_wrapper (>= 0.3)
   spring
-  sprockets (= 3.7.2)
   sqlite3
   turbolinks (~> 5.2)
   tzinfo-data
