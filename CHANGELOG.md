@@ -1,6 +1,11 @@
+### 2.4.2 (2020-04-16)
+
+* put pin of autoprefixer-rails back in place
+* put pin of sprockets back in place
+
 ### 2.4.1 (2020-04-16)
 
-* spotlight version updated to v2.4.0
+* spotlight version updated to v2.4.1
   * validate the FeaturedImage object if provided
   * avoid using javascript keywords as variable names
 

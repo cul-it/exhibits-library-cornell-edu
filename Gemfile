@@ -78,3 +78,7 @@ group :test do
   # gem 'rspec-rails'
   # gem 'rspec-activemodel-mocks'
 end
+
+# tmp pins for incompatibilities
+gem 'autoprefixer-rails', '8.5.2' # ERROR: Autoprefixer doesn’t support Node v4.6.0 (only happens on AWS)
+gem 'sprockets', '3.7.2' # avoid err working with font-awesome 4.5 - corrected in 5.12
