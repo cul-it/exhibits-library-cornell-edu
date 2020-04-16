@@ -11,6 +11,8 @@ AllCops:
     - 'script/**/*'
     - 'bin/**/*'
     - 'vendor/**/*'
+    - 'docs/**/*'
+    - 'scripts/**/*'
 
 Metrics/BlockLength:
   ExcludedMethods: ['included']
