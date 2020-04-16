@@ -1,3 +1,34 @@
+### 2.4.2 (2020-04-16)
+
+* put pin of autoprefixer-rails back in place
+* put pin of sprockets back in place
+
+### 2.4.1 (2020-04-16)
+
+* spotlight version updated to v2.4.1
+  * validate the FeaturedImage object if provided
+  * avoid using javascript keywords as variable names
+
+### 2.4.0 (2020-04-16)
+
+* spotlight version updated to v2.4.0
+  * allow dots to appear in the identifier
+  * require update to blacklight v6.20
+* update to blacklight v6.20
+  * add custom routing constraints by setting
+* update to blacklight v6.19
+  * fixes an issue where citations are rendering in un-styled modals
+  * move asset generating to the assets generator
+  * use solr_wrapper config file for collection configuration
+* update to blacklight v6.17
+  * adds support to configure an error callback for selections
+* update to blacklight v6.16
+  * avoids unnecessary field lookup for configs that are present for a specific type. Adds deprecation warnings going forward.
+  * improves accessibility of per page, fact toggle, and sort buttons
+  * adds deprecation warnings for discard_flash_if_xhr
+  * fixes an issue where the searchbox in Safari is broken
+  * fixes an issue where Bookmark checkboxes would update, even though the request failed
+
 ### 2.3.3 (2020-04-16)
 
 * spotlight version updated to v2.3.2
@@ -5,7 +36,6 @@
   * fixed typo in method name for CarrierwaveFileResolver
   * includes flash when redirecting from exhibits home page
   
-
 ### 2.3.2 (2020-04-16)
 
 * spotlight version updated to v2.3.2
