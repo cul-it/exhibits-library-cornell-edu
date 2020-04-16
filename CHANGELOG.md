@@ -1,3 +1,23 @@
+### 2.3.3 (2020-04-16)
+
+* spotlight version updated to v2.3.2
+  * use the same logic as the rest of the app for determining whether to render the search bar or not
+  * fixed typo in method name for CarrierwaveFileResolver
+  * includes flash when redirecting from exhibits home page
+  
+
+### 2.3.2 (2020-04-16)
+
+* spotlight version updated to v2.3.2
+  * fixes a bug that prevents changes on page edit forms from persisting (see sul-dlss/exhibits#1326 for more info)
+
+### 2.3.1 (2020-04-16)
+
+* spotlight version updated to v2.3.1
+  * enable facets in newly generated applications
+  * increase the maximum number of feature pages
+  * fix the caption fallback for the slideshow feature block
+
 ### 2.3.0 (2020-04-15)
 
 * spotlight version updated to v2.3.0
