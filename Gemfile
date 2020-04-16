@@ -19,10 +19,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows doe
 gem 'uglifier', '~> 4.2'
 
 # spotlight related dependencies
-gem 'blacklight', ' ~> 6.14.0'
+gem 'blacklight', ' ~> 6.20.0'
 gem 'blacklight-gallery', '>= 0.12.0'
 gem 'blacklight-oembed', '>= 0.3.0'
-gem 'blacklight-spotlight', '= 2.3.3'
+gem 'blacklight-spotlight', '= 2.4.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'devise-guests', '~> 0.7'
@@ -78,7 +78,3 @@ group :test do
   # gem 'rspec-rails'
   # gem 'rspec-activemodel-mocks'
 end
-
-# tmp pins for incompatibilities
-gem 'autoprefixer-rails', '8.5.2' # avoid nodes version error
-gem 'sprockets', '3.7.2' # avoid err working with font-awesome 4.5 - corrected in 5.12
