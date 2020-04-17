@@ -1,3 +1,8 @@
+### 2.6.0 (2020-04-17)
+
+* spotlight version updated to v2.6.1.1
+  * add help block text for image upload areas
+
 ### 2.5.1 (2020-04-17)
 
 * spotlight v2.5 required initializer config change for riiif
