@@ -1,3 +1,11 @@
+### 2.5.0 (2020-04-17)
+
+* spotlight version updated to v2.5.1
+  * updates riiif to 2.0
+  * updates i18n to 1.8.2
+  * sets up anonymizeIP configuration for Google Analytics
+  * fixes a bug where urls in some feature page widgets that had underscores would be converted to italics
+
 ### 2.4.2 (2020-04-16)
 
 * put pin of autoprefixer-rails back in place
