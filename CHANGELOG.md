@@ -1,3 +1,7 @@
+### 2.5.1 (2020-04-17)
+
+* spotlight v2.5 required initializer config change for riiif
+
 ### 2.5.0 (2020-04-17)
 
 * spotlight version updated to v2.5.1
