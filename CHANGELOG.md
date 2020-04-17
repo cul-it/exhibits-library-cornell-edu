@@ -1,3 +1,8 @@
+### 2.7.0 (2020-04-17)
+
+* spotlight version updated to v2.7.2
+  * use paginated facets for exhibit tags
+
 ### 2.6.0 (2020-04-17)
 
 * spotlight version updated to v2.6.1.1
