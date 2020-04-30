@@ -1,3 +1,11 @@
+### 2.10.0 (2020-04-30)
+
+* spotlight version updated to v2.10.0
+  * allow importing IIIF manifests with multilingual metadata
+  * allow curators to specify exhibit-specific configuration for search fields
+  * add some configuration to allow uploaded field mappings to provide processing directives
+  * allow applications to use an external (non-riiif) IIIF server for image derivative requests
+
 ### 2.9.0 (2020-04-30)
 
 * spotlight version updated to v2.9.0
