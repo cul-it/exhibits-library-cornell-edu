@@ -98,7 +98,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.7.2)
+    blacklight-spotlight (2.8.0)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -255,7 +255,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.1009)
+    mime-types-data (3.2020.0425)
     mina (1.2.3)
       open4 (~> 1.3.4)
       rake
@@ -488,7 +488,7 @@ DEPENDENCIES
   blacklight (~> 6.20.0)
   blacklight-gallery (>= 0.12.0)
   blacklight-oembed (>= 0.3.0)
-  blacklight-spotlight (= 2.7.2)
+  blacklight-spotlight (= 2.8.0)
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave-aws

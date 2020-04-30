@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200415151922) do
+ActiveRecord::Schema.define(version: 20200430140635) do
 
   create_table "bookmarks", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "user_id", null: false
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20200415151922) do
     t.datetime "updated_at"
     t.string "field_type"
     t.boolean "readonly_field", default: false
+    t.boolean "is_multiple", default: false
   end
 
   create_table "spotlight_exhibits", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -204,7 +205,7 @@ ActiveRecord::Schema.define(version: 20200415151922) do
     t.string "slug"
     t.string "scope"
     t.text "content", limit: 16777215
-    t.integer "weight", default: 50
+    t.integer "weight", default: 1000
     t.boolean "published"
     t.integer "exhibit_id"
     t.integer "created_by_id"
@@ -217,6 +218,7 @@ ActiveRecord::Schema.define(version: 20200415151922) do
     t.integer "thumbnail_id"
     t.string "locale", default: "en"
     t.integer "default_locale_page_id"
+    t.string "content_type"
     t.index ["default_locale_page_id"], name: "index_spotlight_pages_on_default_locale_page_id"
     t.index ["exhibit_id"], name: "index_spotlight_pages_on_exhibit_id"
     t.index ["locale"], name: "index_spotlight_pages_on_locale"
