@@ -1,3 +1,9 @@
+### 2.9.0 (2020-04-30)
+
+* spotlight version updated to v2.9.0
+  * fix a bug with paginating through search results embedded on a feature page
+  * fix a bug rendering the edit form for a feature page that tries to display a deleted page
+
 ### 2.8.1 (2020-04-30)
 
 * display the header with a different background color for each Rails env
@@ -5,7 +11,8 @@
 ### 2.8.0 (2020-04-30)
 
 * add web accessibility assistance link in footer
-* spotlight version updated to v2.8
+* spotlight version updated to v2.8.0
+  * requires db migration
   * add-and-continue stays on the same tab when adding items
   * bulk add forwards to exhibit page after adding items
   * allow items to be added without an image
