@@ -1,3 +1,8 @@
+### 2.13.0 (2020-04-30)
+   
+* spotlight version updated to v2.13.0
+  * Add Spotlight::ValidityChecker for checking if a job (e.g. indexing) still needs to be run to avoid doing duplicate work
+  
 ### 2.12.1 (2020-04-30)
    
 * spotlight version updated to v2.12.1
