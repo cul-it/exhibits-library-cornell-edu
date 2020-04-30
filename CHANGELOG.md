@@ -1,3 +1,14 @@
+### 2.8.0 (2020-04-30)
+
+* add web accessibility assistance link in footer
+* spotlight version updated to v2.8
+  * fix 'and' appearing after last tag when multiple tags
+  * add-and-continue now stays on the same tab when adding items
+  * bulk add forwards to exhibit page after adding items
+  * allow custom field types to specify if they are facetable
+  * allow items without an image
+  * add support for multi-valued custom fields
+
 ### 2.7.0 (2020-04-17)
 
 * spotlight version updated to v2.7.2
