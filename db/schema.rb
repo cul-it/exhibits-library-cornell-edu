@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200430190337) do
+ActiveRecord::Schema.define(version: 20200430195754) do
 
   create_table "bookmarks", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer "user_id", null: false
@@ -312,6 +312,7 @@ ActiveRecord::Schema.define(version: 20200430190337) do
     t.string "resource_type"
     t.binary "index_status", limit: 16777215
     t.index ["document_type", "document_id"], name: "spotlight_solr_document_sidecars_solr_document"
+    t.index ["exhibit_id", "document_type", "document_id"], name: "by_exhibit_and_doc", unique: true
     t.index ["exhibit_id", "document_type", "document_id"], name: "spotlight_solr_document_sidecars_exhibit_document"
     t.index ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
     t.index ["resource_type", "resource_id"], name: "spotlight_solr_document_sidecars_resource"

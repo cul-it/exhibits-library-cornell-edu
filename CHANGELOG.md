@@ -1,3 +1,14 @@
+### 2.12.1 (2020-04-30)
+   
+* spotlight version updated to v2.12.1
+  * requires migration to add a unique constraints to solr document sidecars
+     
+### 2.12.0 (2020-04-30)
+
+* spotlight version updated to v2.12.0
+  * fixes bug where uploaded images are no longer able to be viewed in a IIIF viewer
+  * HTML lang attribute should now reflect the current i18n locale
+
 ### 2.11.0 (2020-04-30)
 
 * spotlight version updated to v2.11.0
@@ -6,7 +17,7 @@
     
 ### 2.10.1 (2020-04-30)
 
-* migrate table for custom search fields
+* migrate table for custom search fields (required for spotlight v2.10.0)
 
 ### 2.10.0 (2020-04-30)
 
