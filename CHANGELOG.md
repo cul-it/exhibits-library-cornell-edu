@@ -1,3 +1,8 @@
+### 2.12.1 (2020-04-30)
+   
+* spotlight version updated to v2.12.1
+  * requires migration to add a unique constraints to solr document sidecars
+     
 ### 2.12.0 (2020-04-30)
 
 * spotlight version updated to v2.12.0
@@ -12,7 +17,7 @@
     
 ### 2.10.1 (2020-04-30)
 
-* migrate table for custom search fields
+* migrate table for custom search fields (required for spotlight v2.10.0)
 
 ### 2.10.0 (2020-04-30)
 
