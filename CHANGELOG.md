@@ -1,3 +1,9 @@
+### 2.11.0 (2020-04-30)
+
+* spotlight version updated to v2.11.0
+  * add UI controls for making a user a site administrator
+  * fix a regression in generating IIIF manifests for sites served over https
+    
 ### 2.10.1 (2020-04-30)
 
 * migrate table for custom search fields
