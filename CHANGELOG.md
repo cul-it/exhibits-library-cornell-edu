@@ -1,3 +1,7 @@
+### 2.10.1 (2020-04-30)
+
+* migrate table for custom search fields
+
 ### 2.10.0 (2020-04-30)
 
 * spotlight version updated to v2.10.0
