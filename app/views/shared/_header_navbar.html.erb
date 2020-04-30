@@ -1,3 +1,4 @@
+<% header_class = Rails.env == "production" ? "" : ' class=' + Rails.env + '_env' %>
 <!-- Cornell mobile header -->
 <div class="cornell-identity visible-xs">
   <div class="container">
@@ -9,7 +10,7 @@
   </div>
 </div>
 
-<header>
+<header<%= header_class %>>
   <div class="container">
     <div class="row">
       <div class="col-sm-8">

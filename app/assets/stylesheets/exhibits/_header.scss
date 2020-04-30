@@ -173,3 +173,17 @@ header {
 // 		// }
 // 	}
 // }
+
+// Header colors to identify Rails environment that is running
+header.staging_env {
+  background: #7aba7b; // light green
+}
+
+header.integration_env {
+  background: #a6e1ec; // pale blue
+}
+
+header.development_env {
+  background: #ebccd1; // pale pink
+}
+

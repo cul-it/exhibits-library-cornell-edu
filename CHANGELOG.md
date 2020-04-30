@@ -1,3 +1,7 @@
+### 2.8.1 (2020-04-30)
+
+* display the header with a different background color for each Rails env
+
 ### 2.8.0 (2020-04-30)
 
 * add web accessibility assistance link in footer
