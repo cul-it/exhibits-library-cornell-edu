@@ -1,3 +1,58 @@
+### 2.13.0 (2020-04-30)
+   
+* spotlight version updated to v2.13.0
+  * Add Spotlight::ValidityChecker for checking if a job (e.g. indexing) still needs to be run to avoid doing duplicate work
+  
+### 2.12.1 (2020-04-30)
+   
+* spotlight version updated to v2.12.1
+  * requires migration to add a unique constraints to solr document sidecars
+     
+### 2.12.0 (2020-04-30)
+
+* spotlight version updated to v2.12.0
+  * fixes bug where uploaded images are no longer able to be viewed in a IIIF viewer
+  * HTML lang attribute should now reflect the current i18n locale
+
+### 2.11.0 (2020-04-30)
+
+* spotlight version updated to v2.11.0
+  * add UI controls for making a user a site administrator
+  * fix a regression in generating IIIF manifests for sites served over https
+    
+### 2.10.1 (2020-04-30)
+
+* migrate table for custom search fields (required for spotlight v2.10.0)
+
+### 2.10.0 (2020-04-30)
+
+* spotlight version updated to v2.10.0
+  * allow importing IIIF manifests with multilingual metadata
+  * allow curators to specify exhibit-specific configuration for search fields
+  * add some configuration to allow uploaded field mappings to provide processing directives
+  * allow applications to use an external (non-riiif) IIIF server for image derivative requests
+
+### 2.9.0 (2020-04-30)
+
+* spotlight version updated to v2.9.0
+  * fix a bug with paginating through search results embedded on a feature page
+  * fix a bug rendering the edit form for a feature page that tries to display a deleted page
+
+### 2.8.1 (2020-04-30)
+
+* display the header with a different background color for each Rails env
+
+### 2.8.0 (2020-04-30)
+
+* add web accessibility assistance link in footer
+* spotlight version updated to v2.8.0
+  * requires db migration
+  * add-and-continue stays on the same tab when adding items
+  * bulk add forwards to exhibit page after adding items
+  * allow items to be added without an image
+  * allow custom field types to be configured as facetable
+  * add support for multi-valued custom fields
+
 ### 2.7.0 (2020-04-17)
 
 * spotlight version updated to v2.7.2
