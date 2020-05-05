@@ -1,3 +1,7 @@
+### 2.13.2 (2020-05-05)
+   
+* make update_bundler ebextension script configurable with environment variables
+  
 ### 2.13.1 (2020-05-05)
    
 * update ruby for update_bundler ebextension script to 2.5.8
