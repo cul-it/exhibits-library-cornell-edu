@@ -1,3 +1,7 @@
+### 2.13.1 (2020-05-05)
+   
+* update ruby for update_bundler ebextension script to 2.5.8
+  
 ### 2.13.0 (2020-04-30)
    
 * spotlight version updated to v2.13.0
