@@ -21,7 +21,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-.env*
+.env
 
 # Ignore the public directory
 /public
