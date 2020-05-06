@@ -8,14 +8,13 @@ module Spotlight
 
     after_perform do |job|
       csv_data, exhibit, user = job.arguments
+      # BEGIN CUSTOMIZATION elr37 - catch exceptions from notification to prevent job from repeating if email fails
       begin
         Spotlight::IndexingCompleteMailer.documents_indexed(csv_data, exhibit, user).deliver_now
       rescue RuntimeError => e
         Rails.application.config.debug_logger.warn("********************** EMAIL FAILURE  => exception #{e.class.name} : #{e.message}")
-      rescue Exception => e
-        Rails.logger.warn("********************** EMAIL FAILURE  => exception #{e.class.name} : #{e.message}")
-        Rails.application.config.debug_logger.warn("********************** EMAIL FAILURE  => exception #{e.class.name} : #{e.message}")
       end
+      # END CUSTOMIZATION
     end
 
     def perform(csv_data, exhibit, _user)
