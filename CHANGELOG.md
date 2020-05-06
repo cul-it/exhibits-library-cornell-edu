@@ -1,3 +1,7 @@
+### 2.14.0.alpha1 (2020-05-06)
+
+* use letter opener gem for testing email notifications in development environment
+
 ### 2.13.3 (2020-05-06)
 
 * clean up environment variables and add examples

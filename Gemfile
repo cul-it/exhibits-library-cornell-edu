@@ -48,6 +48,7 @@ group :development, :integration, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'solr_wrapper', '>= 0.3' # start solr based on .solr_wrapper.yml
 
   # gem 'spring-watcher-listen', '~> 2.0.0' # makes Spring watch filesystem for changes using Listen rather than polling
