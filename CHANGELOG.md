@@ -1,3 +1,7 @@
+### 2.13.3 (2020-05-06)
+
+* clean up environment variables and add examples
+
 ### 2.13.2 (2020-05-05)
    
 * make update_bundler ebextension script configurable with environment variables
