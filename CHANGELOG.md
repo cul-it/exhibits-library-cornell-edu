@@ -1,11 +1,16 @@
+### 2.14.2 (2020-06-13)
+
+* set up environment variables for configuring action mailer in stg and prod environments
+* use letter opener gem for testing email notifications in int environment
+
 ### 2.14.1 (2020-05-21)
 
+* add examples directory holding example csv for multi-item upload
 * only show tabs for Add Item that are valid choices in our system
-* add example directory holding example csv for multi-item upload
 
 ### 2.14.0 (2020-05-21)
 
-* use letter opener gem for testing email notifications in development environment
+* use letter opener gem for testing email notifications in dev environment
 * prevent add from CSV job from running again when email notification fails
 * minor adjustment to reset password notification to add source as CUL-Online Exhibits
 * adjust permissions for debug logger to allow writing
@@ -13,8 +18,8 @@
 
 ### 2.13.4 (2020-05-20)
    
-* make sidekiq logger statements write to production log
 * override entire ReindexJob instead of prepend
+* make sidekiq logger statements write to production log
 * skip exceptions in perform_before block as well as perform method
   
 ### 2.13.3 (2020-05-20)
