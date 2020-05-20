@@ -1,3 +1,7 @@
+### 2.13.3 (2020-05-20)
+   
+* skip exceptions when reindexing exhibits and log info about the failing resource 
+  
 ### 2.13.2 (2020-05-05)
    
 * make update_bundler ebextension script configurable with environment variables
