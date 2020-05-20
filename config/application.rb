@@ -15,5 +15,10 @@ module Exhibits
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    # Prepends
+    config.to_prepare do
+      Spotlight::ReindexJob.prepend PrependedJobs::ReindexJob
+    end
   end
 end
