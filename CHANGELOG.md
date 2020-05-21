@@ -1,3 +1,7 @@
+### 2.14.1 (2020-05-21)
+
+* only show tabs for Add Item that are valid choices in our system
+
 ### 2.14.0 (2020-05-21)
 
 * use letter opener gem for testing email notifications in development environment
