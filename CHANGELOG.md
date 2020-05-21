@@ -1,6 +1,7 @@
 ### 2.14.1 (2020-05-21)
 
 * only show tabs for Add Item that are valid choices in our system
+* add example directory holding example csv for multi-item upload
 
 ### 2.14.0 (2020-05-21)
 
