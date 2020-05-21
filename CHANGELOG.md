@@ -5,10 +5,14 @@
 * minor adjustment to reset password notification to add source as CUL-Online Exhibits
 * adjust permissions for debug logger to allow writing
 
-### 2.13.4 (2020-05-06)
+### 2.13.5 (2020-05-06)
 
 * clean up environment variables and add examples
 
+### 2.13.4 (2020-05-20)
+   
+* make sidekiq logger statements write to production log
+  
 ### 2.13.3 (2020-05-20)
    
 * skip exceptions when reindexing exhibits and log info about the failing resource 
