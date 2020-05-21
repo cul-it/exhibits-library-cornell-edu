@@ -9,3 +9,5 @@ end
 Sidekiq.configure_client do |s|
   s.redis = redis_conn
 end
+
+Sidekiq::Logging.logger = Rails.logger

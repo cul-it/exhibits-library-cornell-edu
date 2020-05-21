@@ -1,3 +1,9 @@
+### 2.13.4 (2020-05-20)
+   
+* make sidekiq logger statements write to production log
+* override entire ReindexJob instead of prepend
+* skip exceptions in perform_before block as well as perform method
+  
 ### 2.13.3 (2020-05-20)
    
 * skip exceptions when reindexing exhibits and log info about the failing resource 
