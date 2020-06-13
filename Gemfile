@@ -51,7 +51,6 @@ group :development do
   gem 'better_errors' # add command line in browser when errors
   gem 'binding_of_caller' # deeper stack trace used by better errors
   gem 'solr_wrapper', '>= 0.3' # start solr based on .solr_wrapper.yml
-  gem 'web-console', '~> 3.0' # access to IRB console on exception pages
 
   # gem 'spring-watcher-listen', '~> 2.0.0' # makes Spring watch filesystem for changes using Listen rather than polling
 end
@@ -59,6 +58,7 @@ end
 group :development, :integration do
   gem 'letter_opener'
   gem 'spring' # Spring speeds up development by keeping your application running in the background.
+  gem 'web-console', '~> 3.0' # access to IRB console on exception pages
   gem 'xray-rails' # overlay showing which files are contributing to the UI
 end
 
