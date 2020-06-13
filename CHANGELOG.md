@@ -1,5 +1,6 @@
 ### 2.14.2 (2020-06-13)
 
+* update dependencies to address security vulnerabilities - kaminari, websockets-extensions
 * set up environment variables for configuring action mailer in stg and prod environments
 * use letter opener gem for testing email notifications in int environment
 
