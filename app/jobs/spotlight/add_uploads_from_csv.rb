@@ -33,12 +33,12 @@ module Spotlight
 
     private
 
-    def encoded_csv(csv)
-      csv.map do |row|
-        row.map do |label, column|
-          [label, column.encode('UTF-8', invalid: :replace, undef: :replace, replace: "\uFFFD")] if column.present?
-        end.compact.to_h
-      end.compact
-    end
+      def encoded_csv(csv)
+        csv.map do |row|
+          row.map do |label, column|
+            [label, column.encode('UTF-8', invalid: :replace, undef: :replace, replace: "\uFFFD")] if column.present?
+          end.compact.to_h
+        end.compact
+      end
   end
 end

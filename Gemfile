@@ -62,8 +62,8 @@ end
 
 group :development, :integration do
   gem 'spring' # Spring speeds up development by keeping your application running in the background.
-  gem 'xray-rails' # overlay showing which files are contributing to the UI
   gem 'web-console', '~> 3.0' # access to IRB console on exception pages
+  gem 'xray-rails' # overlay showing which files are contributing to the UI
 end
 
 group :development, :test do
