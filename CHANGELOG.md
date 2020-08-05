@@ -1,3 +1,7 @@
+### 2.16.0 (2020-08-04)
+
+* update to ruby 2.5.8 and rails 5.2.4
+
 ### 2.15.0 (2020-06-16)
 
 * update dependencies to address security vulnerabilities - kaminari, websockets-extensions
