@@ -283,6 +283,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+    okcomputer (1.18.2)
     open4 (1.3.4)
     openseadragon (0.5.0)
       rails (> 3.2.0)
@@ -516,6 +517,7 @@ DEPENDENCIES
   listen
   mina
   mysql2
+  okcomputer (~> 1.18)
   puma (~> 3.12)
   rails (~> 5.2.0)
   riiif
