@@ -16,6 +16,7 @@ module Spotlight
         else
           can :manage, :all
         end
+        cannot :manage, Spotlight::Site.instance unless user.site_admin?
       end
 
       if AccessModeService.limit_access_to_site_admins?
