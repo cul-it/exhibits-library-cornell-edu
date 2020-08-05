@@ -1,3 +1,7 @@
+### 2.17.0 (2020-08-05)
+
+* add okcomputer health check for solr
+
 ### 2.16.0 (2020-08-04)
 
 * update to ruby 2.5.8 and rails 5.2.4

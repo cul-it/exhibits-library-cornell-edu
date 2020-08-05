@@ -42,6 +42,7 @@ gem 'carrierwave-aws'
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
+gem 'okcomputer', '~> 1.18'
 gem 'sidekiq', '~> 5.2'
 
 group :development, :integration, :test do
