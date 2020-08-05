@@ -10,11 +10,11 @@
 # ==> Appearance configuration
 # Spotlight::Engine.config.exhibit_main_navigation = [:curated_features, :browse, :about]
 Spotlight::Engine.config.resource_partials = [
-#   'spotlight/resources/external_resources_form',
+  # 'spotlight/resources/external_resources_form',
   'spotlight/resources/upload/form',
   'spotlight/resources/csv_upload/form'
-#   'spotlight/resources/json_upload/form'
-#   'spotlight/resources/iiif/form'
+  # 'spotlight/resources/json_upload/form'
+  # 'spotlight/resources/iiif/form'
 ]
 # Spotlight::Engine.config.external_resources_partials = ["portal_resources/form"]
 # Spotlight::Engine.config.default_browse_index_view_type = :gallery

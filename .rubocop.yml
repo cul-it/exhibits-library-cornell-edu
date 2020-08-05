@@ -13,6 +13,7 @@ AllCops:
     - 'vendor/**/*'
     - 'docs/**/*'
     - 'scripts/**/*'
+    - 'tmp/**/*'
 
 Metrics/BlockLength:
   ExcludedMethods: ['included']

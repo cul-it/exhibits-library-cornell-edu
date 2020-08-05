@@ -16,4 +16,4 @@ OkComputer::Registry.register "sidekiq", OkComputer::SidekiqLatencyCheck.new('de
 OkComputer::Registry.register "solr", OkComputer::HttpCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, '') + "/admin/ping")
 
 # do not fail syschecks pageload if any of the following checks fail; results will be displayed
-OkComputer.make_optional %w(cache)
+OkComputer.make_optional %w[cache]
