@@ -1,8 +1,9 @@
+<% require 'version' %>
 <footer>
 	<div class="container">
 		<p>©2020 Cornell University Library / (607) 255-4144 / <a href="http://www.library.cornell.edu/privacy">Privacy</a> / <a href="https://www.library.cornell.edu/web-accessibility">Web Accessibility Assistance</a></p>
 		<p><small><a href="https://cul-it.github.io/exhibits-library-cornell-edu/">Spotlight help</a></small></p>
-		<p class="text-muted version"><small>Cornell Exhibits v2.17.0.rc5</small></p>
-		<p class="text-muted version"><small>Spotlight v2.13.0</small></p>
+		<p class="text-muted version"><small>Cornell Exhibits <%= Version::VERSION %>></small></p>
+		<p class="text-muted version"><small>Spotlight <%= SPOTLIGHT_VERSION %></small></p>
 	</div>
 </footer>
