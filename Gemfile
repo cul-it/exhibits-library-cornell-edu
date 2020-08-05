@@ -7,10 +7,10 @@ end
 
 gem 'dotenv-deployment'
 gem 'dotenv-rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.0'
 
 # rails related dependencies
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
@@ -19,17 +19,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows doe
 gem 'uglifier', '~> 4.2'
 
 # spotlight related dependencies
-gem 'blacklight', ' ~> 6.20.0'
+gem 'blacklight', '~> 6.20.0'
 gem 'blacklight-gallery', '>= 0.12.0'
 gem 'blacklight-oembed', '>= 0.3.0'
 gem 'blacklight-spotlight', '= 2.13.0'
+# gem 'blacklight-advanced_search'
+# gem 'blacklight-heatmaps'
+# gem 'blacklight-range_limit', '~> 6.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'devise-guests', '~> 0.7'
 gem 'devise_invitable'
 gem 'friendly_id', '~> 5.3'
 gem 'jquery-rails'
-gem 'openseadragon' # js lib for displaying tiling images
+# gem 'openseadragon' # js lib for displaying tiling images
 gem 'riiif'
 gem 'rsolr', '~> 2.3'
 gem 'sitemap_generator'
