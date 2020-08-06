@@ -1,3 +1,7 @@
+### 2.17.6 (2020-08-10)
+
+* restrict exhibit tags to controlled list
+
 ### 2.17.5 (2020-08-10)
 
 * FIX: move nav-btn css definition
