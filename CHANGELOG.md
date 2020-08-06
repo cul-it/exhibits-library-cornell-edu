@@ -2,6 +2,7 @@
 
 * move login to footer
 * remove extra links from header for public users
+* set the color for create exhibit button to make it easier to see
 
 ### 2.17.3 (2020-08-06)
 
