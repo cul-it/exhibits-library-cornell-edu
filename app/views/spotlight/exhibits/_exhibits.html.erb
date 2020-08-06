@@ -1,0 +1,13 @@
+<% # BEGIN CUSTOMIZATION elr - show 3 exhibit per row when there is a sidebar; otherwise, show 4 %>
+<% if can?(:manage, Spotlight::Exhibit) %>
+  <% exhibits_per_row = 3 %>
+<% else %>
+  <% exhibits_per_row = 4 %>
+<% end %>
+
+<% exhibits.each_slice(exhibits_per_row).each do |row| %>
+<% # END CUSTOMIZATION %>
+  <div class="row"><!-- start main content row -->
+    <%= render collection: row, partial: 'exhibit_card', as: 'exhibit' %>
+  </div>
+<% end %>

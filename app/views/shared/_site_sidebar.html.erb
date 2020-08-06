@@ -1,22 +1,16 @@
 <% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
 <h4 class="nav-heading"><%=t(:'.header') %></h4>
 <ul class="nav sidenav">
-  <li><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings' %></li>
-
   <% if can? :manage, Spotlight::Site.instance %>
+    <% # BEGIN CUSTOMIZATION elr - Limit right side bar actions to site admins only %>
+    <li><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings' %></li>
     <li><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %></li>
-  <% end %>
-
-  <% if can? :manange, Spotlight::Exhibit %>
     <li><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %></li>
     <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
-  <% end %>
 
-  <% # BEGIN CUSTOMIZATION elr - add System Check to right side bar for site admins %>
-  <% if can? :manage, Spotlight::Site.instance %>
     <li><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all') %></li>
+    <% # END CUSTOMIZATION %>
   <% end %>
-  <% # END CUSTOMIZATION %>
 </ul>
 
 <ul class="nav sidenav nav-pills nav-stacked">
