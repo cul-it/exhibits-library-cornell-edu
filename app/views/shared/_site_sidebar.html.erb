@@ -12,11 +12,11 @@
     <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
   <% end %>
 
-  <% # BEGIN customization (elr) - add System Check to right side bar for site admins %>
+  <% # BEGIN CUSTOMIZATION elr - add System Check to right side bar for site admins %>
   <% if can? :manage, Spotlight::Site.instance %>
     <li><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all') %></li>
   <% end %>
-  <% # END customization %>
+  <% # END CUSTOMIZATION %>
 </ul>
 
 <ul class="nav sidenav nav-pills nav-stacked">
