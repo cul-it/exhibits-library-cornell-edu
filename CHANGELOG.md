@@ -1,3 +1,7 @@
+### 2.17.1 (2020-08-06)
+
+* cleanup comments for v2.17 - no code changes
+
 ### 2.17.0 (2020-08-05)
 
 * add okcomputer health check for solr, database, cache, app, sidekiq
