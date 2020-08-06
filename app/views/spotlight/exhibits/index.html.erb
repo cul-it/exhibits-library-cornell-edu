@@ -1,5 +1,5 @@
 <% # BEGIN CUSTOMIZATION elr - use 9 columns when there will be a sidebar; otherwise, 12 columns %>
-  <% if can?(:manage, Spotlight::Exhibit) %>
+  <% if can?(:create, Spotlight::Exhibit) %>
 <div class="col-md-9">
   <% else %>
 <div class="col-md-12">
