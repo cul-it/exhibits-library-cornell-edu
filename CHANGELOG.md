@@ -1,3 +1,8 @@
+### 2.17.3 (2020-08-06)
+
+* limit privileges of administrators to creating exhibits
+* grant full privileges to site admins
+
 ### 2.17.2 (2020-08-06)
 
 * display 4 exhibits per row when no sidebar
