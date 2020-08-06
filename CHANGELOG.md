@@ -2,6 +2,7 @@
 
 * add okcomputer health check for solr, database, cache, app, sidekiq
 * get versions for spotlight and app from code instead of hardcoding
+* rubocop repairs
 
 ### 2.16.0 (2020-08-04)
 
