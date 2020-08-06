@@ -1,3 +1,7 @@
+### 2.17.2 (2020-08-06)
+
+* display 4 exhibits per row when no sidebar
+
 ### 2.17.1 (2020-08-06)
 
 * cleanup comments for v2.17 - no code changes
