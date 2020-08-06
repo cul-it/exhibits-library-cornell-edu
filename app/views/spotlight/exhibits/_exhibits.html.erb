@@ -1,5 +1,5 @@
 <% # BEGIN CUSTOMIZATION elr - show 3 exhibit per row when there is a sidebar; otherwise, show 4 %>
-<% if can?(:manage, Spotlight::Exhibit) %>
+<% if can?(:create, Spotlight::Exhibit) %>
   <% exhibits_per_row = 3 %>
 <% else %>
   <% exhibits_per_row = 4 %>
