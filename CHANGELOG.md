@@ -1,6 +1,7 @@
 ### 2.17.2 (2020-08-06)
 
 * display 4 exhibits per row when no sidebar
+* in right side menu, do not show users actions they cannot perform
 
 ### 2.17.1 (2020-08-06)
 
