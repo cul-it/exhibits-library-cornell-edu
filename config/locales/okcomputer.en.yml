@@ -1,0 +1,7 @@
+en:
+  okcomputer:
+    check:
+      passed: "OK      : %{registrant_name} - %{message}"
+      failed: "FAILED  : %{registrant_name} - %{message}"
+    system_check: System Checks
+

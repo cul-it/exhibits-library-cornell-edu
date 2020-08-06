@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
+  mount OkComputer::Engine, at: "/syscheck"
 
   mount Blacklight::Engine => '/'
   # root to: "catalog#index" # replaced by spotlight root path

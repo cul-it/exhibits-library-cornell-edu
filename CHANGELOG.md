@@ -1,3 +1,13 @@
+### 2.17.1 (2020-08-06)
+
+* cleanup comments for v2.17 - no code changes
+
+### 2.17.0 (2020-08-05)
+
+* add okcomputer health check for solr, database, cache, app, sidekiq
+* get versions for spotlight and app from code instead of hardcoding
+* rubocop repairs
+
 ### 2.16.0 (2020-08-04)
 
 * update to ruby 2.5.8 and rails 5.2.4
