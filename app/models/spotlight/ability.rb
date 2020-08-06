@@ -10,9 +10,7 @@ module Spotlight
 
       alias_action :process_import, to: :import
 
-      if user.site_admin?
-        can :manage, :all
-      end
+      can :manage, :all if user.site_admin?
 
       if user.superadmin? && !AccessModeService.limit_access_to_site_admins?
         can :create, Spotlight::Exhibit
