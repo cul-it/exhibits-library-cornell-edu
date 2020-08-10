@@ -1,3 +1,16 @@
+### 2.17.7 (2020-08-10)
+
+* add google analytics
+
+### 2.17.6 (2020-08-10)
+
+* restrict exhibit tags to controlled list
+
+### 2.17.5 (2020-08-10)
+
+* FIX: move nav-btn css definition
+* FIX: flow one card at a time to next row when reducing width
+
 ### 2.17.4 (2020-08-06)
 
 * move login to footer

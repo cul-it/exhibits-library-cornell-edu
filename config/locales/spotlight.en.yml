@@ -5,3 +5,5 @@ en:
         welcome: "Welcome %{email}!"
         instructions: "You recently requested an account on the Library's Online Exhibitions website. Please click the link below to confirm your account:"
         confirm: Confirm my account
+    header_links:
+      login: Admin Login
