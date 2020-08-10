@@ -1,7 +1,10 @@
+### 2.17.7 (2020-08-10)
+
+* add google analytics
+
 ### 2.17.6 (2020-08-10)
 
 * restrict exhibit tags to controlled list
-* add google analytics
 
 ### 2.17.5 (2020-08-10)
 
