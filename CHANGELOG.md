@@ -1,3 +1,7 @@
+### 2.17.9 (2020-09-18)
+
+* setup CloudFront pre-loading of assets
+
 ### 2.17.8 (2020-09-18)
 
 * add ebextension file for awslogs in CloudWatch
