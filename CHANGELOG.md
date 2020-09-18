@@ -1,3 +1,8 @@
+### 2.17.8 (2020-09-18)
+
+* add ebextension file for awslogs in CloudWatch
+* update to rails 5.2.4.4
+
 ### 2.17.7 (2020-08-10)
 
 * add google analytics
