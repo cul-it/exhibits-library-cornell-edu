@@ -1,3 +1,7 @@
+### 2.17.10 (2020-11-02)
+
+* setup CloudFront pre-loading of assets for stage
+
 ### 2.17.9 (2020-09-18)
 
 * setup CloudFront pre-loading of assets
