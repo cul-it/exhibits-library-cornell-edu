@@ -1,3 +1,8 @@
+### 2.17.10 (2020-11-05)
+
+* CloudFront requires more testing -- removed
+* remove override of featured_pages_block - problem fixed in spotlight
+
 ### 2.17.9 (2020-09-18)
 
 * setup CloudFront pre-loading of assets
