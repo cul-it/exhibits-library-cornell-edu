@@ -7,3 +7,7 @@ en:
         confirm: Confirm my account
     header_links:
       login: Admin Login
+  helpers:
+    action:
+      spotlight/role:
+        destroy: Remove from exhibit
