@@ -24,7 +24,7 @@
 .env
 
 # Ignore the public directory
-/public
+/public/uploads
 
 # Local coveralls reports
 /coverage

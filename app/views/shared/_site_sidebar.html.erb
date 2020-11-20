@@ -4,11 +4,13 @@
   <% if can? :manage, Spotlight::Site.instance %>
     <% # BEGIN CUSTOMIZATION elr - Limit right side bar actions to site admins only %>
     <li><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings' %></li>
+    <li><%= link_to t(:'local_documentation'), 'https://cul-it.github.io/exhibits-library-cornell-edu/' %></li>
     <li><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %></li>
     <li><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %></li>
     <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
 
     <li><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all') %></li>
+    <li><%= link_to t(:'dashboard'), '/dashboard' %></li>
     <% # END CUSTOMIZATION %>
   <% end %>
 </ul>
