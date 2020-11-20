@@ -24,3 +24,6 @@ en:
   portal_resources:
     form:
       add_item: "Add results of portal search"
+  dashboard: Dashboard
+  local_documentation: Cornell curator documentation
+

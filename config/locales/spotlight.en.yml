@@ -7,6 +7,9 @@ en:
         confirm: Confirm my account
     header_links:
       login: Admin Login
+  shared:
+    site_sidebar:
+      documentation: Spotlight curator documentation
   helpers:
     action:
       spotlight/role:

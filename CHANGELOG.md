@@ -1,3 +1,7 @@
+### 2.17.11 (2020-11-20)
+
+* add analytics dashboard
+
 ### 2.17.10 (2020-11-05)
 
 * CloudFront requires more testing -- removed
