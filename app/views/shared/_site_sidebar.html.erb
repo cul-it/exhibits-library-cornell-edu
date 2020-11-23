@@ -1,21 +1,24 @@
-<% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
+<% # BEGIN CUSTOMIZATION elr - Limit right side bar actions to site admins only %>
+<% if current_user %>
 <h4 class="nav-heading"><%=t(:'.header') %></h4>
 <ul class="nav sidenav">
+  <li><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings' %></li>
+  <li><%= link_to t(:'local_documentation'), 'https://cul-it.github.io/exhibits-library-cornell-edu/' %></li>
   <% if can? :manage, Spotlight::Site.instance %>
-    <% # BEGIN CUSTOMIZATION elr - Limit right side bar actions to site admins only %>
-    <li><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings' %></li>
-    <li><%= link_to t(:'local_documentation'), 'https://cul-it.github.io/exhibits-library-cornell-edu/' %></li>
     <li><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %></li>
     <li><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %></li>
     <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
-
     <li><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all') %></li>
+  <% end %>
+  <% if can?(:create, Spotlight::Exhibit) %>
     <li><%= link_to t(:'dashboard'), '/dashboard' %></li>
-    <% # END CUSTOMIZATION %>
   <% end %>
 </ul>
 
+  <% if can?(:create, Spotlight::Exhibit) %>
 <ul class="nav sidenav nav-pills nav-stacked">
-  <li><%= link_to t(:'spotlight.sites.new.page_title'), spotlight.new_exhibit_path, class: 'btn btn-default btn-nav', role: 'button' if can? :create, Spotlight::Exhibit %></li>
+  <li><%= link_to t(:'spotlight.sites.new.page_title'), spotlight.new_exhibit_path, class: 'btn btn-default btn-nav', role: 'button' %></li>
 </ul>
+  <% end %>
 <% end %>
+<% # END CUSTOMIZATION %>
