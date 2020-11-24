@@ -1,3 +1,7 @@
+### 2.17.12 (2020-11-20)
+
+* show at least documentation links in sidebar for all logged in users
+
 ### 2.17.11 (2020-11-20)
 
 * add analytics dashboard
