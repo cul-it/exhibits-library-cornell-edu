@@ -7,6 +7,12 @@ en:
         confirm: Confirm my account
     header_links:
       login: Admin Login
+    admin_users:
+      index:
+        create: Add new exhibit creator
+        destroy: Remove from exhibit creator role
+        instructions: Existing exhibit creators
+        update: Make user an exhibit creator
   shared:
     site_sidebar:
       documentation: Spotlight curator documentation
