@@ -50,6 +50,7 @@
    ```sh
    $ rails s
    ```
+
    > Visit the application at  [http://localhost:3000](http://localhost:3000)
 
 ### Linting/Testing
@@ -61,4 +62,5 @@
    ```sh
    bin/rubocop
    ```
+
 
