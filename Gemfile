@@ -72,16 +72,21 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara', '~> 3.29'
+  gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls', require: false
+  gem 'factory_bot', '~> 4.4'
+  gem 'factory_bot_rails', '~> 4.4', require: false
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'rspec-activemodel-mocks', '~> 1.0'
+  gem 'rspec-its', '~> 1.1'
   gem 'rspec-rails', '~> 3.1'
+  gem 'rspec_junit_formatter'
+  gem 'selenium-webdriver'
   gem 'sqlite3'
-
-  # gem 'capybara'
-  # gem 'factory_bot_rails', '~> 4.4', require: false
-  # gem 'faker'
-  # gem 'rails-controller-testing'
-  # gem 'rspec-rails'
-  # gem 'rspec-activemodel-mocks'
+  gem 'webdrivers', '~> 4.4'
+  gem 'webmock'
 end
 
 # tmp pins for incompatibilities
