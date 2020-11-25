@@ -1,0 +1,68 @@
+# rails _5.2.4.3_ new .exhibits_app --database=mysql
+# rm .exhibits-library-cornell-edu/config/database.yml # use ENV for database configuration
+# docker-compose build
+# docker-compose up app
+version: '3.5'
+services:
+  app: &app
+    build:
+      context: .
+    image: cul-it/exhibits:v1
+    container_name: cul-it-exhibits
+    stdin_open: true
+    tty: true
+    user: root
+    env_file:
+      - .env
+    volumes:
+      #      - .:/app/cul-it/exhibits-webapp # use for debugging
+      - app_src:/app/cul-it/exhibits-webapp # use when not debugging
+      - rails-public:/app/cul-it/exhibits-webapp/public
+      - rails-tmp:/app/cul-it/exhibits-webapp/tmp
+      - gems:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - redis
+      - solr
+
+  mysql:
+    image: mariadb
+    restart: always
+    container_name: cul-it-exhibits-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
+      - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_development
+      - MYSQL_USER=${DATABASE_RAILS_USER}
+      - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-mysql-data:/var/lib/mysql/data
+
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - redis:/data
+
+  solr:
+    image: solr:8.7
+    ports:
+      - 8988:8983
+    command:
+      - sh
+      - "-c"
+      - "precreate-core exhibits_test /opt/solr/server/configsets/exhibitsconf; solr-precreate exhibit /opt/solr/server/configsets/exhibitsconf"
+    volumes:
+      - solr_home:/opt/solr/server/solr
+      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+
+volumes:
+  app_src: # comment out when debugging and using . volume for exhibits-webapp
+  db-mysql-data:
+  gems:
+  rails-public:
+  rails-tmp:
+  redis:
+  solr_home:
