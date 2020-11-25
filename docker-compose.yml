@@ -2,7 +2,7 @@
 # rm .exhibits-library-cornell-edu/config/database.yml # use ENV for database configuration
 # docker-compose build
 # docker-compose up app
-version: '3.5'
+version: '3.2'
 services:
   app: &app
     build:
@@ -12,8 +12,11 @@ services:
     stdin_open: true
     tty: true
     user: root
-    env_file:
-      - .env
+    environment:
+      - DATABASE_NAME_PREFIX=exhibits
+      - DATABASE_RAILS_USER= exhibits_user
+      - DATABASE_RAILS_USER_PW=exhibits_password
+      - DATABASE_HOST=mysql
     volumes:
       #      - .:/app/cul-it/exhibits-webapp # use for debugging
       - app_src:/app/cul-it/exhibits-webapp # use when not debugging
@@ -32,10 +35,10 @@ services:
     restart: always
     container_name: cul-it-exhibits-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
-      - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_development
-      - MYSQL_USER=${DATABASE_RAILS_USER}
-      - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
+      - MYSQL_ROOT_PASSWORD=exhibits_root_password
+      - MYSQL_USER=exhibits_user
+      - MYSQL_PASSWORD=exhibits_password
+      - MYSQL_DATABASE=exhibits_test
     ports:
       - "3306:3306"
     volumes:
