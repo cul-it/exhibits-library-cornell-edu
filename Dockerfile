@@ -35,6 +35,8 @@ COPY . .
 RUN mkdir -p /app/cul-it/exhibits-webapp/log
 RUN echo "" > /app/cul-it/exhibits-webapp/log/debug.log
 RUN chmod 666 /app/cul-it/exhibits-webapp/log/debug.log
+RUN echo "" > /app/cul-it/exhibits-webapp/log/sidekiq.log
+RUN chmod 666 /app/cul-it/exhibits-webapp/log/sidekiq.log
 
 #RUN bundle exec rake assets:precompile
 
@@ -45,10 +47,3 @@ EXPOSE 3000
 ## Script runs when container first starts
 ENTRYPOINT [ "bin/docker-entrypoint.sh" ]
 CMD ["bundle", "exec", "puma", "-v", "-b", "tcp://0.0.0.0:3000"]
-
-# Run tests in terminal:
-# ```
-#   $ docker-compose build
-#   $ docker-compose up -d
-#   $ docker-compose exec -w app /app/cul-it/exhibits-webapp sh -c "bundle exec rspec"
-# ```

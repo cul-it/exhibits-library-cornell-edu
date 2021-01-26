@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_development" %>
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_docker" %>
   username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
   password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
   host:     <%= "#{ENV['DATABASE_HOST']}" %>
@@ -20,7 +20,7 @@ test:
 #  pool: 5
 #  timeout: 5000
   <<: *default
-  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_test" %>
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_docker" %>
   username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
   password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
   host:     <%= "#{ENV['DATABASE_HOST']}" %>

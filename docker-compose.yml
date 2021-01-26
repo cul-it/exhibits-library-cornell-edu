@@ -1,24 +1,31 @@
-# rails _5.2.4.3_ new .exhibits_app --database=mysql
-# rm .exhibits-library-cornell-edu/config/database.yml # use ENV for database configuration
-# docker-compose build
-# docker-compose up app
+## Test interactively in browser:
+# ```
+#   $ docker-compose build
+#   $ docker-compose up -d
+# ```
+# View at http://localhost:3000
+#
+## Run tests in terminal:
+# ```
+#   $ docker-compose build
+#   $ docker-compose up -d
+#   $ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
+# ```
+# NOTE: You don't have to rebuild to run tests if you already executed the first two commands to test interactively in a browser.
+#
 version: '3.2'
 services:
   app: &app
     build:
       context: .
     image: cul-it/exhibits:v1
-    container_name: cul-it-exhibits
     stdin_open: true
     tty: true
     user: root
-    environment:
-      - DATABASE_NAME_PREFIX=exhibits
-      - DATABASE_RAILS_USER= exhibits_user
-      - DATABASE_RAILS_USER_PW=exhibits_password
-      - DATABASE_HOST=mysql
+    env_file:
+      - '.env'
     volumes:
-      #      - .:/app/cul-it/exhibits-webapp # use for debugging
+#      - .:/app/cul-it/exhibits-webapp # use for debugging
       - app_src:/app/cul-it/exhibits-webapp # use when not debugging
       - rails-public:/app/cul-it/exhibits-webapp/public
       - rails-tmp:/app/cul-it/exhibits-webapp/tmp
@@ -33,33 +40,36 @@ services:
   mysql:
     image: mariadb
     restart: always
-    container_name: cul-it-exhibits-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=exhibits_root_password
-      - MYSQL_USER=exhibits_user
-      - MYSQL_PASSWORD=exhibits_password
-      - MYSQL_DATABASE=exhibits_test
+      - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
+      - MYSQL_USER=${DATABASE_RAILS_USER}
+      - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
+      - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_docker
     ports:
       - "3306:3306"
     volumes:
       - db-mysql-data:/var/lib/mysql/data
 
+  solr:
+    image: solr:7.5
+    ports:
+      - "8983:8983"
+    command:
+      - sh
+      - "-c"
+      - "precreate-core blacklight-core /opt/solr/server/configsets/exhibitsconf; solr-precreate exhibit /opt/solr/server/configsets/exhibitsconf"
+    volumes:
+      - solr_home:/opt/solr/server/solr
+      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+
   redis:
     image: redis:5-alpine
     volumes:
       - redis:/data
-
-  solr:
-    image: solr:8.7
     ports:
-      - 8988:8983
+      - "6379:6379"
     command:
-      - sh
-      - "-c"
-      - "precreate-core exhibits_test /opt/solr/server/configsets/exhibitsconf; solr-precreate exhibit /opt/solr/server/configsets/exhibitsconf"
-    volumes:
-      - solr_home:/opt/solr/server/solr
-      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+      - redis-server
 
 volumes:
   app_src: # comment out when debugging and using . volume for exhibits-webapp
