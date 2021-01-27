@@ -1,0 +1,81 @@
+## Test interactively in browser:
+# ```
+#   $ docker-compose build
+#   $ docker-compose up -d
+# ```
+# View at http://localhost:3000
+#
+## Run tests in terminal:
+# ```
+#   $ docker-compose build
+#   $ docker-compose up -d
+#   $ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
+# ```
+# NOTE: You don't have to rebuild to run tests if you already executed the first two commands to test interactively in a browser.
+#
+version: '3.2'
+services:
+  app: &app
+    build:
+      context: .
+    image: cul-it/exhibits:v1
+    stdin_open: true
+    tty: true
+    user: root
+    env_file:
+      - '.env'
+    volumes:
+#      - .:/app/cul-it/exhibits-webapp # use for debugging
+      - app_src:/app/cul-it/exhibits-webapp # use when not debugging
+      - rails-public:/app/cul-it/exhibits-webapp/public
+      - rails-tmp:/app/cul-it/exhibits-webapp/tmp
+      - gems:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - redis
+      - solr
+
+  mysql:
+    image: mariadb
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
+      - MYSQL_USER=${DATABASE_RAILS_USER}
+      - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
+      - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_docker
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-mysql-data:/var/lib/mysql/data
+
+  solr:
+    image: solr:7.5
+    ports:
+      - "8983:8983"
+    command:
+      - sh
+      - "-c"
+      - "precreate-core blacklight-core /opt/solr/server/configsets/exhibitsconf; solr-precreate exhibit /opt/solr/server/configsets/exhibitsconf"
+    volumes:
+      - solr_home:/opt/solr/server/solr
+      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - "6379:6379"
+    command:
+      - redis-server
+
+volumes:
+  app_src: # comment out when debugging and using . volume for exhibits-webapp
+  db-mysql-data:
+  gems:
+  rails-public:
+  rails-tmp:
+  redis:
+  solr_home:
