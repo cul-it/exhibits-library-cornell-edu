@@ -5,6 +5,7 @@ jobs:
     working_directory: ~/repo # Default working directory, where your project will be cloned
     steps:
       - checkout
+      - run: bin/create_cci_env
       - run: docker-compose up -d
       - run: docker-compose exec app sh -c "bundle exec rubocop"
       - run: docker-compose exec app sh -c "bundle exec rake db:migrate RAILS_ENV=test"
