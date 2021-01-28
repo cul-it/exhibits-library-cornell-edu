@@ -78,33 +78,57 @@ entries:
       output: web, pdf
 
       subfolders:
-        - title: Curation
+      - title: Curation
+        output: web, pdf
+        subfolderitems:
+
+        - title: Items
+          url: /managing_items.html
           output: web, pdf
-          subfolderitems:
 
-          - title: Items
-            url: /managing_items.html
-            output: web, pdf
+        - title: Tags
+          url: /managing_exhibit_tags.html
+          output: web, pdf
 
-          - title: Tags
-            url: /managing_exhibit_tags.html
-            output: web, pdf
+        - title: Browse
+          url: /managing_browse_categories.html
+          output: web, pdf
 
-          - title: Browse
-            url: /managing_browse_categories.html
-            output: web, pdf
+        - title: Feature pages
+          url: /managing_feature_pages.html
+          output: web, pdf
 
-          - title: Feature pages
-            url: /managing_feature_pages.html
-            output: web, pdf
+        - title: About pages
+          url: /managing_about_pages.html
+          output: web, pdf
 
-          - title: About pages
-            url: /managing_about_pages.html
-            output: web, pdf
+      - title: Editing pages
+        output: web, pdf
+        subfolderitems:
 
-    - title: Editing pages
-      url: /editing_pages.html
-      output: web, pdf
+        - title: Overview
+          url: /editing_pages_overview.html
+          output: web, pdf
+
+        - title: Heading Widget
+          url: /editing_pages_heading_widget.html
+          output: web, pdf
+
+        - title: Text Widget
+          url: /editing_pages_text_widget.html
+          output: web, pdf
+
+        - title: List Widget
+          url: /editing_pages_list_widget.html
+          output: web, pdf
+
+        - title: Quote Widget
+          url: /editing_pages_quote_widget.html
+          output: web, pdf
+
+        - title: Horizontal Rule Widget
+          url: /editing_pages_hr_widget.html
+          output: web, pdf
 
     - title: Managing Saved Searches
       url: /managing_saved_searches.html

@@ -1,3 +1,14 @@
+### 2.18.0 (2021-01-28)
+
+* remove support for video widget
+* add documentation for heading, text, list, quote, and hr widgets
+* update dependencies
+* add CircleCI as continuous integration testing in GitHub
+* add Docker configs for local and CCI testing (experimental for use in browser)
+* add first test to simply test that users can login
+* limit tag to curated set on New Exhibit form
+* use exhibit creator language instead of administrator
+
 ### 2.17.12 (2020-11-20)
 
 * show at least documentation links in sidebar for all logged in users

@@ -1,0 +1,10 @@
+.git
+/log/*
+/tmp/*
+/node_modules
+/.bundle
+/public/uploads
+/public/assets
+/_*/
+/coverage/*
+/artifacts/*

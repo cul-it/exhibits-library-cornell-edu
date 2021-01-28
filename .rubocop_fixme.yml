@@ -1,0 +1,4 @@
+RSpec/ExampleLength:
+  Max: 9
+  Exclude:
+    - 'spec/features/**/*'

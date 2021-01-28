@@ -4,8 +4,25 @@
 
 * ruby
 * bundler
+* Docker (to start with Docker)
 
 ### QuickStart
+
+#### OPTION 1: Start with Docker (EXPERIMENTAL)
+
+```sh
+$ docker-compose build
+$ docker-compose up -d
+```
+
+Access through browser: http://localhost:3000
+
+Run tests:
+```sh
+$ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
+```
+
+#### OPTION 2: Start app manually
 
 1. Clone this repo
    ```sh
