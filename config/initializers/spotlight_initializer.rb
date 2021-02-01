@@ -70,7 +70,7 @@ Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 
 # ==> Sir Trevor Widget Configuration
 Spotlight::Engine.config.sir_trevor_widgets = %w[
-  Heading Text List Quote Iframe Oembed Rule UploadedItems Browse LinkToSearch
+  Heading Text List Quote Iframe Video Oembed Rule UploadedItems Browse LinkToSearch
   FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
   SolrDocumentsFeatures SolrDocumentsGrid SearchResults
 ]
