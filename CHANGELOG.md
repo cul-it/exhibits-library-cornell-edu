@@ -1,3 +1,7 @@
+### 2.19.0 (2021-02-01)
+
+* revert removal of video widget - caused problems with previously uploaded videos
+
 ### 2.18.0 (2021-01-28)
 
 * remove support for video widget
