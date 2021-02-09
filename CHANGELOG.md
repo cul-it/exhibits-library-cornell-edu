@@ -1,3 +1,7 @@
+### 2.19.1 (2021-02-08)
+
+* fix fails to skip reindex error due to misspelling of exhibit_or_resources variable
+
 ### 2.19.0 (2021-02-01)
 
 * revert removal of video widget - caused problems with previously uploaded videos
