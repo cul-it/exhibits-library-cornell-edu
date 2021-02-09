@@ -62,10 +62,10 @@ module Spotlight
         begin
           resource.reindex(log_entry)
         rescue Exception => e # rubocop:disable Lint/RescueException
-          skipped = skip_perform_exceptions(exhibit_or_resoruces) ? "SKIPPING " : ""
+          skipped = skip_perform_exceptions(exhibit_or_resources) ? "SKIPPING " : ""
           logger.warn("#{skipped}RESOURCE REINDEX FAILURE: Exception reindexing resource #{resource.id} in exhibit " \
                       "#{resource.exhibit_id} with upload_id #{resource.upload_id}.  Cause: #{e.class}: #{e.message}")
-          raise e unless skip_perform_exceptions(exhibit_or_resoruces)
+          raise e unless skip_perform_exceptions(exhibit_or_resources)
         end
         # END CUSTOMIZATION
       end
