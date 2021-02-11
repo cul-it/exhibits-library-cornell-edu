@@ -1,3 +1,7 @@
+### 2.20.0 (2021-02-11)
+
+* update production database tables to use utf8 allowing for internationalization
+
 ### 2.19.1 (2021-02-08)
 
 * fix fails to skip reindex error due to misspelling of exhibit_or_resources variable
