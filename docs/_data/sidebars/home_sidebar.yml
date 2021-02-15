@@ -130,6 +130,10 @@ entries:
           url: /editing_pages_hr_widget.html
           output: web, pdf
 
+        - title: Pages Widget
+          url: /editing_pages_pages_widget.html
+          output: web, pdf
+
     - title: Managing Saved Searches
       url: /managing_saved_searches.html
       output: web, pdf
