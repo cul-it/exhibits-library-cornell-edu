@@ -77,10 +77,17 @@ You can remove a page by hiding it or removing it from the pages widget.
 <hr>
 ### Gotchas
 
-The widget will allow you to select more than 3 pages, but it will not display more than 3 pages.  And if more than 5 are selected, it will be displayed as text and potentially overlapping with other widgets on the page.
+#### 3 page limit
 
-It is recommended that you not select more than 3 pages.
+> _This is documented in [Issue #448](https://github.com/cul-it/exhibits-library-cornell-edu/issues/448).  
+>You can check this issue to see if the status has changed or been resolved._
 
-If you need more than 3 pages, add the pages widget below the first and select up to 3 more pages. 
+The widget will allow you to select more than 3 pages, but it will not display more than 3 pages.  And if more than 5 are selected, it will be displayed as text only and potentially overlapping with other widgets on the page.
+
+__Workaround:__ 
+
+__It is recommended that you not select more than 3 pages.__
+
+__If you need more than 3 pages, add a second pages widget below the first and select up to 3 more pages for the second pages widget.  You can continue to add pages widgets as needed to get links to all the pages you want.__ 
 
 <hr>
