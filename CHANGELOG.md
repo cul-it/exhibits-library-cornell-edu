@@ -1,3 +1,8 @@
+### 2.21.0 (2021-04-13)
+
+* update rails to 5.2.5 to fix mimemagic gem yank
+* add documentation for the pages widget
+
 ### 2.20.0 (2021-02-11)
 
 * update production database tables to use utf8 allowing for internationalization
