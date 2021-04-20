@@ -19,9 +19,13 @@
     <% if current_exhibit %>
       <%= exhibit_stylesheet_link_tag "application" %>
     <% else %>
+      <% ### BEGIN CUSTOMIZATION (elr) add 'data-trubolinks-track' reload  %>
       <%= stylesheet_link_tag    "application",'data-turbolinks-track': 'reload' %>
+      <% ### END CUSTOMIZATION %>
     <% end %>
+    <% ### BEGIN CUSTOMIZATION (elr) add 'data-trubolinks-track' reload  %>
     <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload'%>
+    <% ### END CUSTOMIZATION %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
     <%= description %>

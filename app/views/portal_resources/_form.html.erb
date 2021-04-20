@@ -1,3 +1,4 @@
+<% ### CUSTOMIZATION (jcolt) - new view form for portal resources (EXPERIMENTAL) %>
 <%= form_for([current_exhibit, @resource.becomes(PortalResource)]) do |f| %>
 <%= f.label :url_label, t('.url') %>
  <%= f.text_field :url, :value => "http://jrc88.solr.library.cornell.edu/solr/digitalcollections", :size => 100 %>

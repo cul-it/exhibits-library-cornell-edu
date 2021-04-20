@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+### CUSTOMIZATION (jcolt) - new service class creates solr documents for portal resources (EXPERIMENTAL)
+
 require 'open-uri'
 class PortalBuilder < Spotlight::SolrDocumentBuilder
   def to_solr # rubocop:disable Metrics/AbcSize, Metrics/MethodLength

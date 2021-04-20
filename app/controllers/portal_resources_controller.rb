@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+### CUSTOMIZATION (jcolt) - new controller class for portal resources (EXPERIMENTAL)
+
 class PortalResourcesController < ApplicationController
   helper :all
   load_and_authorize_resource :exhibit, class: Spotlight::Exhibit

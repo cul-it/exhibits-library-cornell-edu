@@ -1,3 +1,4 @@
+### CUSTOMIZATION (elr) - new initializer for S3 storage support
 if ENV['S3_KEY_ID'].present?
   CarrierWave.configure do |config|
     config.storage = :aws
