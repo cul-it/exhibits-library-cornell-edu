@@ -65,11 +65,11 @@ Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 # ==> Google Analytics integration
 # Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
 # Spotlight::Engine.config.ga_pkcs12_key_path = nil
-# Spotlight::Engine.config.ga_web_property_id = nil
+Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
 # Spotlight::Engine.config.ga_email = nil
 # Spotlight::Engine.config.ga_analytics_options = {}
 # Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
-# Spotlight::Engine.config.ga_anonymize_ip = false # false for backwards compatibility
+Spotlight::Engine.config.ga_anonymize_ip = true
 
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,

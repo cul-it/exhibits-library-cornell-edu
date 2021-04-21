@@ -1,24 +1,36 @@
-<% # BEGIN CUSTOMIZATION elr - Limit right side bar actions to site admins only %>
+<% ### BEGIN CUSTOMIZATION elr - show sidebar to all logged in users to give curators access to documentation %>
 <% if current_user %>
+<% ### END CUSTOMIZATION %>
 <h4 class="nav-heading"><%=t(:'.header') %></h4>
-<ul class="nav sidenav">
-  <li><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings' %></li>
-  <li><%= link_to t(:'local_documentation'), 'https://cul-it.github.io/exhibits-library-cornell-edu/' %></li>
+<ul class="nav sidenav flex-column">
+  <% ### CUSTOM COMMENT elr - actions for all users - documentation %>
+  <li class="nav-item"><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings', class: 'nav-link' %></li>
+  <% ### BEGIN CUSTOMIZATION elr - add link to local documentation %>
+  <li class="nav-item"><%= link_to t(:'local_documentation'), 'https://cul-it.github.io/exhibits-library-cornell-edu/', class: 'nav-link' %></li>
+  <% ### END CUSTOMIZATION %>
+
+  <% ### CUSTOM COMMENT elr - actions for super super site admins %>
   <% if can? :manage, Spotlight::Site.instance %>
-    <li><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %></li>
-    <li><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %></li>
-    <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
-    <li><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all') %></li>
+    <li class="nav-item"><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path, class: 'nav-link' %></li>
+    <% ### BEGIN CUSTOMIZATION elr - move exhibit manage links under site manage %>
+    <li class="nav-item"><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path, class: 'nav-link' %></li>
+    <% ### END CUSTOMIZATION %>
+    <% ### BEGIN CUSTOMIZATION elr - add link to system check %>
+    <li class="nav-item"><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all'), class: 'nav-link' %></li>
+    <% ### END CUSTOMIZATION %>
   <% end %>
-  <% if can?(:create, Spotlight::Exhibit) %>
+
+  <% ### CUSTOM COMMENT elr - actions for exhibit creators %>
+  <% ### BEGIN CUSTOMIZATION elr - add link to dashboard %>
+  <% if can? :create, Spotlight::Exhibit %>
     <li><%= link_to t(:'dashboard'), '/dashboard' %></li>
   <% end %>
+  <% ### END CUSTOMIZATION %>
 </ul>
 
-  <% if can?(:create, Spotlight::Exhibit) %>
+<% ### CUSTOM COMMENT elr - create exhibit button for exhibit creators %>
 <ul class="nav sidenav nav-pills nav-stacked">
-  <li><%= link_to t(:'spotlight.sites.new.page_title'), spotlight.new_exhibit_path, class: 'btn btn-default btn-nav', role: 'button' %></li>
+  <li class="nav-item"><%= link_to t(:'spotlight.exhibits.new.page_title'), spotlight.new_exhibit_path, class: 'btn btn-outline-secondary btn-nav', role: 'button' if can? :create, Spotlight::Exhibit %></li>
 </ul>
-  <% end %>
 <% end %>
-<% # END CUSTOMIZATION %>

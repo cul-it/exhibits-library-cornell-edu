@@ -1,18 +1,28 @@
-<div class="content-block item-text row">
-  <div class="items-col spotlight-flexbox <%= 'col-md-6' if uploaded_items_block.text? %> col-xs-12 uploaded-items-block pull-<%= uploaded_items_block.content_align %>">
+<div class="content-block item-text row d-block clearfix">
+  <div class="items-col spotlight-flexbox <%= 'col-md-6' if uploaded_items_block.text? %> col-12 <%= uploaded_items_block.content_align == 'right'  ? 'float-right' : 'float-left'  %> uploaded-items-block">
     <% if uploaded_items_block.files.present? %>
       <% uploaded_items_block.files.each do |file| %>
         <div class="box" data-id="<%= file[:id] %>">
           <div class="contents">
-            <div class="thumbnail">
-              <% url = file[:url].split('?').first %>
-              <img src='<%= url %>' alt='<%= file[:title] %>' />
-              <% if file[:caption].present? %>
-                <div class="caption">
-                  <%= file[:caption] %>
-                </div>
+            <% ### BEGIN CUSTOMIZATION elr - patch s3 access to remove expiry token from attachment URLs (PR #251) %>
+            <% url = file[:url].split('?').first %>
+            <% ### END CUSTOMIZATION %>
+            <% if file[:link].present? %>
+              <%= link_to file[:link], rel: 'ugc' do %>
+                <% ### BEGIN CUSTOMIZATION elr - use patched url %>
+                <%= image_tag url, class: 'img-thumbnail', alt: file[:caption] %>
+                <% ### END CUSTOMIZATION %>
               <% end %>
-            </div>
+            <% else %>
+              <% ### BEGIN CUSTOMIZATION elr - use patched url %>
+              <%= image_tag url, class: 'img-thumbnail', alt: '', role: 'presentation' %>
+              <% ### END CUSTOMIZATION %>
+            <% end %>
+            <% if file[:caption].present? %>
+              <div class="caption">
+                <%= file[:caption] %>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -20,7 +30,7 @@
   </div>
 
   <% if uploaded_items_block.text? %>
-    <div class="text-col col-md-6">
+    <div class="text-col col-md-6 mw-100">
       <%= content_tag(:h3, uploaded_items_block.title) if uploaded_items_block.title.present? %>
       <%= sir_trevor_markdown uploaded_items_block.text %>
     </div>
