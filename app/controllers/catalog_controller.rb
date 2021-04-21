@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# TODO: UPGRADE - need closer review - lots of diffs
 ##
 # Simplified catalog controller
 class CatalogController < ApplicationController
@@ -27,10 +29,17 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
 
-    config.add_search_field 'all_fields', label: 'Everything'
+    config.add_search_field 'all_fields', label: I18n.t('spotlight.search.fields.search.all_fields')
 
-    config.add_sort_field 'relevance', sort: 'score desc', label: 'Relevance'
+    config.add_sort_field 'relevance', sort: 'score desc', label: I18n.t('spotlight.search.fields.sort.relevance')
 
     config.add_field_configuration_to_solr_request!
+
+    # enable facets:
+    # https://github.com/projectblacklight/spotlight/issues/1812#issuecomment-327345318
+    config.add_facet_fields_to_solr_request!
+
+    # Set which views by default only have the title displayed, e.g.,
+    # config.view.gallery.title_only_by_default = true
   end
 end
