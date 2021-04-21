@@ -1,3 +1,4 @@
+# TODO: UPGRADE - Verified
 Rails.application.routes.draw do
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
@@ -8,15 +9,14 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   mount OkComputer::Engine, at: "/syscheck"
 
+  mount Spotlight::Engine, at: '/' # as opposed to `at: 'spotlight'` which was generated
   mount Blacklight::Engine => '/'
   # root to: "catalog#index" # replaced by spotlight root path
-
   concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
   end
-
   devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
 
@@ -31,8 +31,6 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-
-  mount Spotlight::Engine, at: '/'
 
   resources :exhibits, only: [] do
     resources :portal_resources, only: [:create, :update] do

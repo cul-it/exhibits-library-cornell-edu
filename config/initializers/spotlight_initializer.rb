@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+# TODO: UPGRADE - Verified
+
 # ==> User model
 # Note that your chosen model must include Spotlight::User mixin
 # Spotlight::Engine.config.user_class = '::User'
@@ -35,7 +38,6 @@ Spotlight::Engine.config.resource_partials = [
 # Spotlight::Engine.config.resource_global_id_field = :"#{config.solr_fields.prefix}spotlight_resource_id#{config.solr_fields.string_suffix}"
 # Spotlight::Engine.config.full_image_field = :full_image_url_ssm
 # Spotlight::Engine.config.thumbnail_field = :thumbnail_url_ssm
-# Spotlight::Engine.config.square_image_field = :thumbnail_square_url_ssm
 
 # ==> Uploaded item configuration
 # Spotlight::Engine.config.upload_fields = [
@@ -61,16 +63,24 @@ Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 # Spotlight::Engine.config.featured_image_square_size = [400, 400]
 
 # ==> Google Analytics integration
-# Spotlight::Engine.config.analytics_provider = nil
+# Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
 # Spotlight::Engine.config.ga_pkcs12_key_path = nil
 # Spotlight::Engine.config.ga_web_property_id = nil
 # Spotlight::Engine.config.ga_email = nil
 # Spotlight::Engine.config.ga_analytics_options = {}
 # Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
+# Spotlight::Engine.config.ga_anonymize_ip = false # false for backwards compatibility
 
 # ==> Sir Trevor Widget Configuration
-Spotlight::Engine.config.sir_trevor_widgets = %w[
-  Heading Text List Quote Iframe Video Oembed Rule UploadedItems Browse LinkToSearch
-  FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
-  SolrDocumentsFeatures SolrDocumentsGrid SearchResults
-]
+# These are set by default by Spotlight's configuration,
+# but you can customize them here, or in the SirTrevorRails::Block#custom_block_types method
+# Spotlight::Engine.config.sir_trevor_widgets = %w(
+#   Heading Text List Quote Iframe Video Oembed Rule UploadedItems Browse BrowseGroupCategories LinkToSearch
+#   FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
+#   SolrDocumentsFeatures SolrDocumentsGrid SearchResults
+# )
+#
+# Page configurations made available to widgets
+# Spotlight::Engine.config.page_configurations = {
+#   'my-local-config': ->(context) { context.my_custom_data_path(context.current_exhibit) }
+# }
