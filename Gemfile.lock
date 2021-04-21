@@ -658,7 +658,7 @@ DEPENDENCIES
   xray-rails
 
 RUBY VERSION
-   ruby 2.5.8p224
+   ruby 2.6.7p197
 
 BUNDLED WITH
    2.2.7
