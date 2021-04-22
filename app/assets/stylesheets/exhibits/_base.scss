@@ -86,16 +86,19 @@ h5 {
 // MEDIA QUERIES
 // -------------------------
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: $screen-sm) {
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {
 	.pull-right {
 		float: right !important;
 	}
 }
 
-/* Medium devices (desktops, 992px and up) */
-// @media (min-width: $screen-md) {
+// Medium devices (tablets, 768px and up)
+// @include media-breakpoint-up(md) {
 // }
-/* Large devices (desktops, 1200px and up) */
-// @media (min-width: $screen-lg) {
-// }
+
+// Large devices (desktops, 992px and up)
+// @include media-breakpoint-up(lg) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+// @include media-breakpoint-up(xl) { ... }

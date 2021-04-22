@@ -7,7 +7,7 @@
 		background: $cornell-red;
 	}
 	.cornell-logo {
-		@include make-xs-column(4);
+		@include make-col(4);
 	}
 }
 .cu-insignia {
@@ -110,8 +110,8 @@ header {
 // MEDIA QUERIES
 // -------------------------
 
-// Small devices (tablets, 768px and up)
-@media (min-width: $screen-sm) { 
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {
 	header {
 		padding: .5em 0 0 0;
 		.tab-content {
@@ -137,8 +137,8 @@ header {
 	}
 }
 
-// Medium devices (desktops, 992px and up)
-@media (min-width: $screen-md) {
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {
 	header {
 		padding: 1em 0;
 		// .nav > li > a {
@@ -160,19 +160,13 @@ header {
 		font-size: 24px;
 	}
 }
-//Large devices (desktops, 1200px and up)
-// @media (min-width: $screen-lg) {
-// 	header {
-// 		// .nav > li > a {
-// 		// 	padding: 10px 15px;
-// 		// }
-// 		// .nav-tabs {
-// 		// 	a {
-// 		// 		font-size: 20px;
-// 		// 	}
-// 		// }
-// 	}
-// }
+
+// Large devices (desktops, 992px and up)
+// @include media-breakpoint-up(lg) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+// @include media-breakpoint-up(xl) { ... }
+
 
 // Header colors to identify Rails environment that is running
 header.staging_env {
