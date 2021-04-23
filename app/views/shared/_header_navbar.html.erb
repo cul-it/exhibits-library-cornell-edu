@@ -1,41 +1,40 @@
 <% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
-<% header_class = Rails.env == "production" ? "" : ' class=' + Rails.env + '_env' %>
+<% nav_env_bkgnd = Rails.env == "production" ? "" : "#{Rails.env}_env" %>
 <!-- Cornell mobile header -->
-<div class="cornell-identity visible-xs">
+<div class="cornell-identity d-none d-xs-block">
   <div class="container">
     <div class="row">
       <div class="cornell-logo">
         <a href="http://www.cornell.edu"><%= image_tag "cornell.gif" , alt: "Cornell University" %></a>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
 
-<header<%= header_class %>>
-  <div class="container">
-    <div class="row">
+<nav class="navbar navbar-expand-md navbar-light <%= nav_env_bkgnd %> topbar" role="navigation" aria-label="<%= t('spotlight.topbar.label') %>">
+  <div class="<%= container_classes %>">
+    <div class="row header_full_row">
       <div class="col-sm-8">
         <div class="cu-insignia">
           <a href="http://www.cornell.edu"><%= image_tag "CU-Insignia-Red-120.png" , alt: "Cornell University", class: "img-responsive hidden-xs" %></a>
         </div>
         <div class="library-brand">
           <a class="cul-brand" href="http://www.library.cornell.edu">Cornell University Library</a>
-            <a class="brand" href="/">Online Exhibitions</a>
+          <a class="brand" href="/">Online Exhibitions</a>
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-            Menu<i class="fa fa-bars"></i>
-          </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <%= render :partial=>'shared/user_util_links' %>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+          <%= render partial: 'shared/user_util_links' %>
         </div>
       </div>
     </div>
   </div>
-</header>
+</nav>
 
 <% if current_user && AccessModeService.limit_access_to_site_admins? %>
   <div class="maintenance-message">
