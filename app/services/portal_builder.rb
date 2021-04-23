@@ -7,7 +7,7 @@ class PortalBuilder < Spotlight::SolrDocumentBuilder
     solr_query = resource.url + "/select?indent=true&wt+json&q=" + resource.query + "&wt=json&rows=" + resource.rows.to_s
     content = JSON.parse(open(solr_query).read)
     content['response']['docs'].map do |doc|
-      next unless doc['content_metadata_image_iiif_info_ssm'].present?
+      next if doc['content_metadata_image_iiif_info_ssm'].blank?
       {
         'id': doc['id'],
         'full_title_tesim': doc['title_tesim'],

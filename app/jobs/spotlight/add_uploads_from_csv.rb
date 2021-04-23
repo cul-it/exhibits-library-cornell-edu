@@ -37,14 +37,14 @@ module Spotlight
       end
     end
 
-    private
+  private
 
     def resources(csv_data, exhibit)
       return to_enum(:resources, csv_data, exhibit) unless block_given?
 
       encoded_csv(csv_data).each do |row|
         url = row.delete('url')
-        next unless url.present?
+        next if url.blank?
 
         resource = Spotlight::Resources::Upload.new(
           data: row,
@@ -56,13 +56,13 @@ module Spotlight
       end
     end
 
-      def encoded_csv(csv)
-        csv.map do |row|
-          row.map do |label, column|
-            [label, column.encode('UTF-8', invalid: :replace, undef: :replace, replace: "\uFFFD")] if column.present?
-          end.compact.to_h
-        end.compact
-      end
+    def encoded_csv(csv)
+      csv.map do |row|
+        row.map do |label, column|
+          [label, column.encode('UTF-8', invalid: :replace, undef: :replace, replace: "\uFFFD")] if column.present?
+        end.compact.to_h
+      end.compact
+    end
 
     def job_tracking_resource
       arguments[1]

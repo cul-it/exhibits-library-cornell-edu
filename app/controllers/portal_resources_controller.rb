@@ -13,17 +13,17 @@ class PortalResourcesController < ApplicationController
     end
   end
 
-  private
+private
 
-    def build_resource
-      @resource = begin
-                    r = PortalResource.new(resource_params)
-                    r.exhibit = current_exhibit
-                    r
-                  end
-    end
+  def build_resource
+    @resource = begin
+                  r = PortalResource.new(resource_params)
+                  r.exhibit = current_exhibit
+                  r
+                end
+  end
 
-    def resource_params
-      params.require(:portal_resource).permit(:url, :query, :rows)
-    end
+  def resource_params
+    params.require(:portal_resource).permit(:url, :query, :rows)
+  end
 end

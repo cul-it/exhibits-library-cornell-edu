@@ -121,7 +121,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'bixby', '~> 1.0.0' # style guide enforcement with rubocop
+  gem 'bixby', '~> 3.0' # style guide enforcement with rubocop
   gem 'rubocop-checkstyle_formatter', require: false
 end
 
