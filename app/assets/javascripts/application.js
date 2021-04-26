@@ -16,7 +16,7 @@
 //= require leaflet-iiif
 //= require Leaflet.Editable
 //= require turbolinks//
-
+//= require bootstrap
 // Required by Blacklight
 //= require blacklight/blacklight
 //= require_tree .
