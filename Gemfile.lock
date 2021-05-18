@@ -320,7 +320,8 @@ GEM
       ast (~> 2.4.1)
     powerpack (0.1.2)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-protection (2.0.8.1)
@@ -576,7 +577,7 @@ DEPENDENCIES
   mina
   mysql2
   okcomputer (~> 1.18)
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.2.0)
   rails-controller-testing
   riiif
