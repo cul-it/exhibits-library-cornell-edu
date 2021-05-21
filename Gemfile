@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.7'
+ruby '2.7.3'
 
 # rubocop:disable Bundler/OrderedGems
 ## Gems adds by `rails new`
@@ -64,8 +64,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ## Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '= 7.13.2'
-gem 'blacklight-spotlight', '= 3.0.0.rc5'
+gem 'blacklight', '= 7.18.1'
+gem 'blacklight-spotlight', '= 3.0.2'
 
 ## Gems added by spotlight installation process
 group :development, :test do

@@ -23,6 +23,11 @@ class CatalogController < ApplicationController
     }
     config.add_facet_fields_to_solr_request!
 
+    # Maximum number of results to show per page
+    config.max_per_page = 96
+    # Options for the user for number of results to show per page
+    config.per_page = [12, 24, 48, 96]
+
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
