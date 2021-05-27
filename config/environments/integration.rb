@@ -94,6 +94,6 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.active_record.dump_schema_after_migration = false
 
   # provides access to IRB console on exception pages
-  config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
-  config.web_console.development_only = false
+#  config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
+#  config.web_console.development_only = false
 end
