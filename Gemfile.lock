@@ -350,7 +350,7 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.7)
-    nokogiri (1.11.5-x86_64-darwin)
+    nokogiri (1.11.5)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -621,7 +621,7 @@ GEM
       rails (>= 3.1.0)
 
 PLATFORMS
-  x86_64-darwin-18
+  ruby
 
 DEPENDENCIES
   better_errors
@@ -687,6 +687,3 @@ DEPENDENCIES
 
 RUBY VERSION
    ruby 2.7.3p183
-
-BUNDLED WITH
-   2.2.17
