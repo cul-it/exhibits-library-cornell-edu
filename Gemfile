@@ -102,6 +102,7 @@ gem 'carrierwave-aws'
 gem 'font-awesome-rails'
 gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
+gem 'ruby-oembed'
 gem 'okcomputer', '~> 1.18'
 gem 'sidekiq', '~> 5.2'
 
