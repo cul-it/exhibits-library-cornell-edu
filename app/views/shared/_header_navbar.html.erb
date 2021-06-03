@@ -1,5 +1,6 @@
 <% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
 <% nav_env_bkgnd = Rails.env == "production" ? "" : "#{Rails.env}_env" %>
+<% nav_env_bkgnd = "migrating" if ENV["MIGRATING"] == "true" && Rails.env != "production" %>
 <!-- Cornell mobile header -->
 <div class="cornell-identity d-none d-xs-block">
   <div class="container">
