@@ -6,43 +6,56 @@
 	.container {
 		background: $cornell-red;
 	}
-	.cornell-logo {
-		@include make-col(4);
+	// .cornell-logo {
+	// 	@include make-col(4);
+	// }
+}
+// .cu-insignia {
+// 	float: left;
+// 	margin-right: 1em;
+// }
+.mobile-cornell-wrapper {
+	background: $cornell-red;
+	padding: .25rem 0;
+}
+.mobile-cornell-logo {
+	background: url("/img/cornell-reduced-white.svg") no-repeat;
+	width: 200px;
+	height: 45px;
+	display: block;
+	text-indent: -99999em;
+}
+.logo {
+	padding-left: 0;
+	background: url("/img/CULibraryRed.svg") no-repeat;
+	.insignia {
+		float: left;
+		margin-right: .5em;
+		width: 100px;
+		height: 100px;
+		text-indent: -99999em;
 	}
 }
-.cu-insignia {
-	float: left;
-	margin-right: 1em;
-}
-
-// Library brand
-// ------------------- //
 .library-brand {
-	margin-top: 1em;
-}
-.brand {
-	text-transform: uppercase;
-	font-size: 25px;
 	font-family: $font-family-cul;
+	margin-top: .5em;
+	a, a:hover, a:active, a:focus {
+		color: white;
+	}
+	a {
+		text-indent: -99999em;
+		display: block;
+		width: 160px;
+		height: 100px;
+		margin-left: 150px;
+	}
+}
+.library-brand-mobile {
 	display: block;
-	line-height: 1em;
-	color: $gray-dark;
-}
-.brand:hover,
-.brand:active,
-.brand-focus {
-	color: $gray-dark;
-	text-decoration: none;
-}
-.cul-brand {
-	color: $gray-dark;
-	font-size: 21px;
-	font-family: $font-family-cul;
-	display: block;
-}
-.cul-brand:hover {
-	color: $gray-dark;
-	text-decoration: none;
+	background: url("/img/CULWordmark.svg") no-repeat;
+	text-indent: -99999em;
+	width: 120px;
+	height: 45px;
 }
 
 // Header
@@ -63,9 +76,14 @@ header {
 }
 .masthead {
 	border-top: 1px solid #e7e7e7;
+	background: $pale-gray;
 	.site-title {
 		white-space: normal;
-		font-size: 24px;
+		font-size: 1.8rem;
+		text-transform: uppercase;
+	}
+	.site-title-wrapper {
+		margin-top: .5rem;
 	}
 }
 .site-title-container {
@@ -81,7 +99,6 @@ header {
 	text-transform: uppercase;
 	font-size: 12px;
 	margin-bottom: .5em;
-	margin-top: 2em;
 	i {
 		margin-left: .5em;
 	}
@@ -118,22 +135,13 @@ header {
 			height: 80px;
 		}
 	}
-	.brand {
-		font-size: 28px;
-	}
-	.cul-brand {
-		font-size: 22px;
-	}
-	.library-brand {
-		margin-top: 1.5em;
+	.navbar-collapse {
+		border:  0;
 	}
 	.masthead {
 		.site-title {
-			font-size: 30px;
+			font-size: 2rem;
 		}
-	}
-	.navbar-collapse {
-		border:  0;
 	}
 }
 
@@ -141,23 +149,6 @@ header {
 @include media-breakpoint-up(md) {
 	header {
 		padding: 1em 0;
-		// .nav > li > a {
-		// 	padding: 5px 10px;
-		// }
-		// .nav-tabs {
-		// 	a {
-		// 		font-size: 18px;
-		// 	}
-		// }
-		// .tab-content {
-		// 	height: 75px;
-		// }
-	}
-	.brand {
-		font-size: 32px;
-	}
-	.cul-brand {
-		font-size: 24px;
 	}
 }
 
