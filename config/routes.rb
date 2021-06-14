@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     end
   end
 
+  ### TODO: Portal access is temporarily removed.  See Issue #35.
   # resources :exhibits, only: [] do
   #   resources :portal_resources, only: [:create, :update] do
   #   end
