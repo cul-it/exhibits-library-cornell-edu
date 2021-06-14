@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # TODO: UPGRADE - Verified
-
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
   include Spotlight::User
