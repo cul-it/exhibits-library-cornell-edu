@@ -64,8 +64,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ## Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '= 7.18.1'
-gem 'blacklight-spotlight', '= 3.0.2'
+gem 'blacklight', '= 7.19.0'
+gem 'blacklight-spotlight', '= 3.1.0'
+# gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'master'
 
 ## Gems added by spotlight installation process
 group :development, :test do
@@ -102,8 +103,8 @@ gem 'carrierwave-aws'
 gem 'font-awesome-rails'
 gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
-gem 'ruby-oembed'
 gem 'okcomputer', '~> 1.18'
+gem 'ruby-oembed'
 gem 'sidekiq', '~> 5.2'
 
 group :development, :integration, :test do

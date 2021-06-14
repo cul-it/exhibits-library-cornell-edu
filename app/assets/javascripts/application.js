@@ -10,13 +10,21 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jquery3
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//
+// Required by Blacklight
+//= require popper
+// Twitter Typeahead for autocomplete
+//= require twitter/typeahead
+//= require bootstrap
+//= require blacklight/blacklight
+//= require blacklight_gallery
+//
 //= require leaflet
 //= require leaflet-iiif
 //= require Leaflet.Editable
-//= require turbolinks//
-//= require bootstrap
-// Required by Blacklight
-//= require blacklight/blacklight
+//
 //= require_tree .
