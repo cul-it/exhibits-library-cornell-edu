@@ -60,7 +60,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = ENV['QUEUE_ADAPTER']&.to_sym || :sidekiq # set ENV['QUEUE_ADAPTER'] to "inline" to debug jobs
   # config.active_job.queue_name_prefix = "exhibits_#{Rails.env}"
 
   # Configure Email Notifications
@@ -93,7 +93,7 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   config.debug_logger = Logger.new(Rails.root.join('log', 'debug.log'))
 
@@ -101,6 +101,6 @@ Rails.application.configure do # rubocop:disable Metrics/BlockLength
   config.active_record.dump_schema_after_migration = false
 
   # provides access to IRB console on exception pages
-#  config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
-#  config.web_console.development_only = false
+  # config.web_console.whitelisted_ips = ENV['IP_WHITELIST'] if ENV['IP_WHITELIST'].present?
+  # config.web_console.development_only = false
 end
