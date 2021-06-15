@@ -1,9 +1,8 @@
 # frozen_string_literal: true
-### NO CUSTOMIZATION - Installed by Spotlight installation process
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
 
-  include Spotlight::AccessControlsEnforcementSearchBuilder
+  include Spotlight::SearchBuilder
 
   ##
   # @example Adding a new step to the processor chain

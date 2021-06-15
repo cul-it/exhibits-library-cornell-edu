@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
-### NO CUSTOMIZATION - Installed by Spotlight installation process
 class SolrDocument
   include Blacklight::Solr::Document
+  include Blacklight::Gallery::OpenseadragonSolrDocument
+
   include Spotlight::SolrDocument
 
   include Spotlight::SolrDocument::AtomicUpdates
