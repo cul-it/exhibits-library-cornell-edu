@@ -35,6 +35,14 @@
   </div>
 </nav>
 
+<nav class="site-nav">
+  <div class="<%= container_classes %>">
+    <div class="site-title-brand">
+      <a href="/">I18n.t(:'blacklight.application_name')</a>
+    </div>
+  </div>
+</nav>
+
 <% if current_user && AccessModeService.limit_access_to_site_admins? %>
   <div class="maintenance-message">
     Exhibits are in maintenance mode.  Editing is unavailable at this time.

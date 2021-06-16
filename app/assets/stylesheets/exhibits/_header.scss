@@ -90,6 +90,21 @@ header {
 	max-height: none;
 }
 
+.site-nav {
+	border-top: 1px solid #e7e7e7;
+	background: $cornell-red;
+}
+
+.site-title-brand {
+	padding: .5rem;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	color: $pale-gray;
+	a, a:hover, a:active, a:focus {
+		color: $pale-gray;
+	}
+}
+
 // Utilities navbar
 // --------------------
 .navbar-toggler {
@@ -139,6 +154,7 @@ header {
 		border:  0;
 	}
 	.masthead {
+		border-top: 1px solid #e7e7e7;
 		.site-title {
 			font-size: 2rem;
 		}
