@@ -1,6 +1,21 @@
 <% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
-<% nav_env_bkgnd = Rails.env == "production" ? "" : "#{Rails.env}_env" %>
-<% nav_env_bkgnd = "migrating" if ENV["MIGRATING"] == "true" && Rails.env != "production" %>
+<% default_nav_env_bkgnd = Rails.env == "production" ? "" : "#{Rails.env}_env" %>
+<%
+  nav_env_bkgnd = if ENV["BANNER_BACKGROUND"]
+                    case ENV["BANNER_BACKGROUND"].downcase
+                      when "migrating"
+                        "migrating"
+                      when "production"
+                        # overrides default environment based style to allow for UI style testing
+                        ""
+                      else
+                        default_nav_env_bkgnd
+                      end
+                  else
+                    default_nav_env_bkgnd
+                  end
+%>
+
 <!-- Cornell mobile header -->
 <div class="mobile-cornell-wrapper d-block d-sm-none">
   <div class="container">
@@ -38,7 +53,7 @@
 <nav class="site-nav">
   <div class="<%= container_classes %>">
     <div class="site-title-brand">
-      <a href="/">I18n.t(:'blacklight.application_name')</a>
+      <a href="/"><%= I18n.t(:'blacklight.application_name') %></a>
     </div>
   </div>
 </nav>
