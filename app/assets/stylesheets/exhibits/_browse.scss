@@ -1,0 +1,14 @@
+.caption-area {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  text-align: center;
+  line-height: 17px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  .caption {
+    header {
+      background: inherit;
+    }
+  }
+}

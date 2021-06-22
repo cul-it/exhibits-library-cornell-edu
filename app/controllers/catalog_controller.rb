@@ -5,7 +5,7 @@
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 
-  configure_blacklight do |config|
+  configure_blacklight do |config| # rubocop:disable Metrics/BlockLength
     config.show.oembed_field = :oembed_url_ssm
     config.show.partials.insert(1, :oembed)
 
@@ -51,5 +51,7 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
     config.add_results_collection_tool(:view_type_group)
+
+    config.view.masonry.title_only_by_default = true
   end
 end
