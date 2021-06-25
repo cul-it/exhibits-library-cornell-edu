@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+### CUSTOMIZATION (elr) - new service class that checks for our super super admins
+
 class AccessModeService
   def self.limit_access_to_site_admins?
     result = ENV['ACCESS_MODE']&.casecmp?('SITE_ADMIN_ONLY')

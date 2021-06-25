@@ -1,17 +1,20 @@
+# frozen_string_literal: true
+# TODO: UPGRADE - need closer review - lots of diffs
 ##
 # Simplified catalog controller
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 
-  configure_blacklight do |config|
+  configure_blacklight do |config| # rubocop:disable Metrics/BlockLength
     config.show.oembed_field = :oembed_url_ssm
     config.show.partials.insert(1, :oembed)
 
-    config.view.gallery.partials = [:index_header, :index]
-    config.view.masonry.partials = [:index]
-    config.view.slideshow.partials = [:index]
+    config.view.gallery.document_component = Blacklight::Gallery::DocumentComponent
+    # config.view.gallery.classes = 'row-cols-2 row-cols-md-3'
+    config.view.masonry.document_component = Blacklight::Gallery::DocumentComponent
+    config.view.slideshow.document_component = Blacklight::Gallery::SlideshowComponent
+    config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
-    config.show.tile_source_field = :iiif_manifest_url_ssi
     config.show.partials.insert(1, :openseadragon)
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
@@ -27,10 +30,28 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
 
-    config.add_search_field 'all_fields', label: 'Everything'
+    config.add_search_field 'all_fields', label: I18n.t('spotlight.search.fields.search.all_fields')
 
-    config.add_sort_field 'relevance', sort: 'score desc', label: 'Relevance'
+    config.add_sort_field 'relevance', sort: 'score desc', label: I18n.t('spotlight.search.fields.sort.relevance')
 
     config.add_field_configuration_to_solr_request!
+
+    # enable facets:
+    # https://github.com/projectblacklight/spotlight/issues/1812#issuecomment-327345318
+    config.add_facet_fields_to_solr_request!
+
+    # Set which views by default only have the title displayed, e.g.,
+    # config.view.gallery.title_only_by_default = true
+
+    # Maximum number of results to show per page
+    config.max_per_page = 100
+    # Options for the user for number of results to show per page
+    config.per_page = [10, 25, 50, 100]
+
+    config.add_results_collection_tool(:sort_widget)
+    config.add_results_collection_tool(:per_page_widget)
+    config.add_results_collection_tool(:view_type_group)
+
+    config.view.masonry.title_only_by_default = true
   end
 end

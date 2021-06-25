@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+### CUSTOMIZATION (elr) - new initializer for ok computer system check
 
 # Endpoint for okcomputer is `/syscheck`
 #   - `syscheck` functions as a basic liveness check that the app responds;
