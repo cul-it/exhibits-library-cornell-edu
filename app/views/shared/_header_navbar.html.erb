@@ -38,13 +38,15 @@
         </div>
       </div>
       <div class="col-4">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <% if current_user %>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
-          <%= render partial: 'shared/user_util_links' %>
-        </div>
+          <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+            <%= render partial: 'shared/user_util_links' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
