@@ -55,7 +55,11 @@
 <nav class="site-nav">
   <div class="<%= container_classes %>">
     <div class="site-title-brand">
-      <a href="/"><%= I18n.t(:'blacklight.application_name') %></a>
+      <% unless current_exhibit # Addresses accessibility missing <h1> on non-exhibit pages %>
+        <h1 class="site-title-brand"><a href="/"><%= I18n.t(:'blacklight.application_name') %></a></h1>
+      <% else %>
+        <a href="/"><%= I18n.t(:'blacklight.application_name') %></a>
+      <% end %>
     </div>
   </div>
 </nav>
