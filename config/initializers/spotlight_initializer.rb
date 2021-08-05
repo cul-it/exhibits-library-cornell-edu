@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# TODO: UPGRADE - Verified
 
 # ==> User model
 # Note that your chosen model must include Spotlight::User mixin

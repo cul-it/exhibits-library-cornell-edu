@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# TODO: UPGRADE - Verified
 
 ActiveSupport::Reloader.to_prepare do
   ### START CUSTOMIZATION (elr) - new initializer for S3 storage support
