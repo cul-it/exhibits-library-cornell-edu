@@ -1,4 +1,3 @@
-# TODO: UPGRADE - Verified
 Rails.application.routes.draw do
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
