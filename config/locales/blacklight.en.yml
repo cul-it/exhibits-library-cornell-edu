@@ -1,3 +1,18 @@
 en:
   blacklight:
     application_name: 'Online Exhibitions'
+  views:
+    pagination:
+      first: 'First'
+      last: 'Last'
+      previous: 'Previous'
+      next: 'Next'
+      truncate: '…'
+      aria:
+        container_label: 'pagination links'
+        current_page: 'Current Page, Page %{page}'
+        go_to_page: 'Go to page %{page}'
+        go_to_previous_page: 'Previous page'
+        go_to_next_page: 'Next page'
+        go_to_first_page: 'First page'
+        go_to_last_page: 'Last page'
