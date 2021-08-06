@@ -29,3 +29,9 @@
 
 // Extra large devices (large desktops, 1200px and up)
 // @include media-breakpoint-up(xl) { ... }
+
+.carousel-caption {
+  position: relative;
+  background-color: #6C6C6C;
+  color: #eeeeee;
+}
