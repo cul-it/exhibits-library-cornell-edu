@@ -26,7 +26,7 @@
     <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
   </head>
   <body class="<%= render_body_class %>">
-    <div id="skip-link">
+    <div id="skip-link" role="navigation" aria-label="Skip links">
       <% if should_render_spotlight_search_bar? %>
         <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
       <% end %>
