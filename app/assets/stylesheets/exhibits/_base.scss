@@ -32,27 +32,13 @@ footer {
 // Typography
 // ------------------- //
 
-p, li {
-	font-size: 16px;
-	line-height: 1.6em;
-}
-h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
-	margin-bottom: .75em;
-	font-family: $font-family-sans-serif;
-}
-h1 {
-	margin-top: 0;
-}
-h4 {
-	font-size: 20px;
-}
-h5 {
-	font-size: 16px;
-}
 
 .page-title,
 .site-title {
 	font-family: $font-family-cul;
+}
+.page-title {
+	margin-bottom: 1.5rem;
 }
 
 
@@ -67,7 +53,7 @@ h5 {
 	background: inherit;
 	margin-bottom: 3em;
 	li {
-		font-size: 12px;
+		font-size: .75rem;
 	}
 }
 .pull-right {
