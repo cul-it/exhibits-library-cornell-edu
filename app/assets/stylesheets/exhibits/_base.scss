@@ -26,37 +26,39 @@ a {
 
 // Bootstrap overrides
 // ---------------------- //
-.well {
-	border-radius: 0;
-	box-shadow: none;
-}
+// .well {
+// 	border-radius: 0;
+// 	box-shadow: none;
+// }
 .breadcrumb {
 	padding: 0;
 	background: inherit;
 	margin-bottom: 3em;
 	li {
-		font-size: .75rem;
+		font-size: .9rem;
 	}
 }
-.pull-right {
-	float: none !important;
-}
+// .pull-right {
+// 	float: none !important;
+// }
 
-.label-default {
-	background: $tan;
-	color: $gray-dark;
-	font-weight: normal;
-}
-.thumbnail {
-	border: 0;
-}
+// .label-default {
+// 	background: $tan;
+// 	color: $gray-dark;
+// 	font-weight: normal;
+// }
+// .thumbnail {
+// 	border: 0;
+// }
+
+// #500 - update blockquote style
 .blockquote {
 	font-size: 1.1rem;
 	padding: 1rem 0 .5rem 1rem;
 	border-left: 5px solid #eee;
 }
 
-// #433 - color contrast is insufficient
+// #433 - color contrast is insufficient for all of the following:
 .page-item.active .page-link {
 	border-color: $almost-black;
 	background-color: $almost-black;
@@ -76,11 +78,11 @@ a {
 // -------------------------
 
 // Small devices (landscape phones, 576px and up)
-@include media-breakpoint-up(sm) {
-	.pull-right {
-		float: right !important;
-	}
-}
+// @include media-breakpoint-up(sm) {
+	// .pull-right {
+	// 	float: right !important;
+	// }
+// }
 
 // Medium devices (tablets, 768px and up)
 // @include media-breakpoint-up(md) {
