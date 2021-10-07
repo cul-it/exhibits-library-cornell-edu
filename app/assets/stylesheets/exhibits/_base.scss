@@ -9,24 +9,7 @@ body {
 
 a { 
 	color: $link-primary;
-}
-a:hover, a:active, a:focus {
-	color: $link-primary-hover;
-	text-decoration: none;
-}
-
-// Add underlines to links in main content area
-.main-content,
-footer {
-	a {
-		border-bottom: 1px dotted $gray-light;
-	}
-	a:hover,
-	a:active,
-	a:focus {
-		border-bottom: 1px solid $gray-light;
-		text-decoration: none;
-	}
+	text-decoration: underline;
 }
 
 // Typography
@@ -71,6 +54,22 @@ footer {
 	font-size: 1.1rem;
 	padding: 1rem 0 .5rem 1rem;
 	border-left: 5px solid #eee;
+}
+
+// #433 - color contrast is insufficient
+.page-item.active .page-link {
+	border-color: $almost-black;
+	background-color: $almost-black;
+}
+.image-masthead .exhibit-navbar {
+	background: black;
+}
+.navbar-dark .navbar-nav .nav-link, .image-masthead .exhibit-navbar .navbar-nav .nav-link {
+	color: white;
+}
+.breadcrumb-item.active,
+.dl-invert dt {
+	color: inherit;
 }
 
 // MEDIA QUERIES
