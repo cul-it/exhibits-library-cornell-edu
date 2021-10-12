@@ -87,7 +87,6 @@ gem 'blacklight-oembed', '~> 1.0'
 
 ## Gems added for application customization
 # support for .env file
-gem 'dotenv-deployment'
 gem 'dotenv-rails'
 
 # spotlight related dependencies
