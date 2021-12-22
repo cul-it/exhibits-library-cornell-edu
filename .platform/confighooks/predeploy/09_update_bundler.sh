@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# WARNING: This file is the same as `.platform/hooks/predeploy/09_update_bundler.sh`.
+#   Any changes made to this file should also be made to the file under `.platform/hooks`.
+
 UPDATE_BUNDLER=$(/opt/elasticbeanstalk/bin/get-config environment -k UPDATE_BUNDLER)
 
 echo '***** Checking if bundler should be updated'
