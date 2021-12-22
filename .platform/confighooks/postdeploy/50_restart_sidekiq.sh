@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # ref: https://forums.aws.amazon.com/thread.jspa?threadID=330819
 
-# WARNING: This file is the same as `.platform/hooks/postdeploy/50_restart_sidekiq.sh`.
-#   Any changes made to this file should also be made to the file under `.platform/hooks`.
+# WARNING: This file lives under `.platform/hooks/postdeploy` and `.platform/confighooks/postdeploy`.
+#   Any changes made to this file should also be made to the other file with the same name.
 
 EB_APP_USER=$(/opt/elasticbeanstalk/bin/get-config platformconfig -k AppUser)
 EB_APP_DEPLOY_DIR=$(/opt/elasticbeanstalk/bin/get-config platformconfig -k AppDeployDir)

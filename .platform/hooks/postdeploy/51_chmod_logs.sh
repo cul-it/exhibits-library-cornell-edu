@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# WARNING: This file lives under `.platform/hooks/postdeploy` and `.platform/confighooks/postdeploy`.
+#   Any changes made to this file should also be made to the other file with the same name.
+
 EB_APP_DEPLOY_DIR=$(/opt/elasticbeanstalk/bin/get-config platformconfig -k AppDeployDir)
 APP_LOG_DIR=$EB_APP_DEPLOY_DIR/log
 SIDEKIQ_LOG=$APP_LOG_DIR/sidekiq.log
