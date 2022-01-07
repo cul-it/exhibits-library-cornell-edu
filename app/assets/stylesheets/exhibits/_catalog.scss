@@ -1,0 +1,12 @@
+.facet-limit-active {
+    border-color: $accessible-green !important;
+    .card-header {
+        background-color: $accessible-green !important;
+        .btn {
+            color: white !important;
+        }
+    }
+}
+.facet-values li .selected {
+    color: $accessible-green !important;
+}
