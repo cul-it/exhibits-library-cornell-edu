@@ -105,7 +105,7 @@ gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
 gem 'ruby-oembed'
-gem 'sidekiq', '~> 5.2'
+gem 'sidekiq', '~> 6.4'
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
