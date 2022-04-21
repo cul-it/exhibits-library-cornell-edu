@@ -69,11 +69,10 @@ header {
 		white-space: normal;
 	}
 	.site-title-wrapper {
-		margin-top: 0;
-		// padding: 1rem 0;
+		margin-top: 1rem;
 		display: inline-block;
-		background: rgba(0,0,0,.5);
-		padding: .5rem;
+		background: rgba(0,0,0,.7);
+		padding: .5rem 1rem;
 	}
 }
 .image-masthead {
@@ -168,11 +167,6 @@ header {
 @include media-breakpoint-up(md) {
 	header {
 		padding: 1em 0;
-	}
-	.masthead {
-		.site-title-wrapper {
-			margin-top: .5rem;
-		}
 	}
 }
 
