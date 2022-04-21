@@ -70,7 +70,10 @@ header {
 	}
 	.site-title-wrapper {
 		margin-top: 0;
-		padding: 1rem 0;
+		// padding: 1rem 0;
+		display: inline-block;
+		background: rgba(0,0,0,.5);
+		padding: .5rem;
 	}
 }
 .image-masthead {
@@ -88,6 +91,7 @@ header {
 }
 .site-title-container {
 	max-height: none;
+	padding-bottom: 2rem !important;
 }
 
 .site-nav {
@@ -168,7 +172,6 @@ header {
 	.masthead {
 		.site-title-wrapper {
 			margin-top: .5rem;
-			padding: 1rem 0 .25rem;
 		}
 	}
 }
