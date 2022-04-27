@@ -23,6 +23,13 @@ a {
 	margin-bottom: 1.5rem;
 }
 
+// #542 - better spacing for text area H2; may need adjustment if this effects other system elements
+#content {
+	h2 {
+		margin: 2rem 0 1rem;
+	}
+}
+
 p, li {
 	font-size: 1.1rem;
 }
