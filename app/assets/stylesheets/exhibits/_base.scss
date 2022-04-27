@@ -1,5 +1,5 @@
 body {
-	font-family: $font-family-sans-serif;
+	font-family: $font-family-cul;
 	background: white; // footer color
 	margin-bottom: 0;
 }
@@ -26,10 +26,7 @@ a {
 
 // Bootstrap overrides
 // ---------------------- //
-// .well {
-// 	border-radius: 0;
-// 	box-shadow: none;
-// }
+
 .breadcrumb {
 	padding: 0;
 	background: inherit;
@@ -38,18 +35,6 @@ a {
 		font-size: .9rem;
 	}
 }
-// .pull-right {
-// 	float: none !important;
-// }
-
-// .label-default {
-// 	background: $tan;
-// 	color: $gray-dark;
-// 	font-weight: normal;
-// }
-// .thumbnail {
-// 	border: 0;
-// }
 
 // #500 - update blockquote style
 .blockquote {
@@ -73,18 +58,12 @@ a {
 .dl-invert dt {
 	color: inherit;
 }
-// .documents-masonry .document .caption-area {
-// 	rgba(0,0,0,0.8) !important;
-// }
 
 // MEDIA QUERIES
 // -------------------------
 
 // Small devices (landscape phones, 576px and up)
 // @include media-breakpoint-up(sm) {
-	// .pull-right {
-	// 	float: right !important;
-	// }
 // }
 
 // Medium devices (tablets, 768px and up)
