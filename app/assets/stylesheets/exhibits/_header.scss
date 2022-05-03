@@ -30,7 +30,6 @@
 	}
 }
 .library-brand {
-	font-family: $font-family-cul;
 	margin-top: .5em;
 	a, a:hover, a:active, a:focus {
 		color: white;
@@ -104,7 +103,6 @@ header {
 	font-size: 1.8rem;
 	text-transform: uppercase;
 	color: $pale-gray;
-	font-family: $font-family-cul;
 	a, a:hover, a:active, a:focus {
 		color: $almost-black;
 		text-decoration: none;

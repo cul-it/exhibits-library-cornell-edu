@@ -1,7 +1,7 @@
 body {
-	font-family: $font-family-cul;
 	background: white; // footer color
 	margin-bottom: 0;
+	font-family: $font-family-sans-serif;
 }
 
 // Links
@@ -15,10 +15,6 @@ a {
 // Typography
 // ------------------- //
 
-.page-title,
-.site-title {
-	font-family: $font-family-cul;
-}
 .page-title {
 	margin-bottom: 1.5rem;
 }
