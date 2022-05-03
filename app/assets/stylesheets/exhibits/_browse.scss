@@ -12,3 +12,12 @@
     }
   }
 }
+
+// #471 - fix contrast of browse masonry
+.documents-masonry {
+  .document {
+    .caption-area {
+      background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+  }
+}
