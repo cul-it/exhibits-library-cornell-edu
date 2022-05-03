@@ -3,9 +3,12 @@
 }
 
 // Add space between metadata and viewer
-.document-metadata {
-	margin-top: 2rem;
+.blacklight-catalog-show {
+	.document-metadata {
+		margin-top: 2rem;
+	}
 }
+
 
 // Fix for bad aspect ratio on carousel on mobile devices
 .carousel-block.carousel-height-medium .carousel-inner > .item > a > img {
