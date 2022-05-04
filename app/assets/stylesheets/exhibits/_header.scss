@@ -67,14 +67,9 @@ header {
 	.site-title {
 		white-space: normal;
 	}
-	.site-title-wrapper {
-		margin-top: 1rem;
-		display: inline-block;
-		background: rgba(0,0,0,.7);
-		padding: .5rem 1rem;
-	}
 }
-.image-masthead {
+.image-masthead,
+.mastheed {
 	.h2 {
 		font-size: 2.4rem;
 	}
@@ -85,6 +80,16 @@ header {
 				white-space: normal;
 			}
 		}
+	}
+}
+
+// background treatment only for mastheads with images
+.image-masthead {
+	.site-title-wrapper {
+		margin-top: 1rem;
+		display: inline-block;
+		background: rgba(0,0,0,.7);
+		padding: .5rem 1rem;
 	}
 }
 .site-title-container {
