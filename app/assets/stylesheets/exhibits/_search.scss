@@ -4,8 +4,12 @@
 		border-color: $cornell-red;
 	}
 }
-.facet-label {
-	.selected {
-		color: black;
+
+// #433 - Increase contrast of selected facet - change from green to black
+.facet-values {
+	li {
+		.selected {
+			color: black !important;
+		}
 	}
 }

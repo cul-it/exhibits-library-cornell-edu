@@ -111,33 +111,33 @@ header {
 
 // Utilities navbar
 // --------------------
-// .navbar-toggler {
-// 	border: 1px solid $warm-gray;
-// 	float: none;
-// 	border-radius: 0;
-// 	text-transform: uppercase;
-// 	margin-bottom: .5em;
-// 	i {
-// 		margin-left: .5em;
-// 	}
-// }
-// .navbar-collapse {
-// 	border: 1px solid $warm-gray;
-// 	margin-bottom: .5em;
-// }
+.navbar-toggler {
+	border: 1px solid $warm-gray;
+	float: none;
+	border-radius: 0;
+	text-transform: uppercase;
+	margin-bottom: .5em;
+	i {
+		margin-left: .5em;
+	}
+}
+.navbar-collapse {
+	border: 1px solid $warm-gray;
+	margin-bottom: .5em;
+}
 
 // Form
 // ---------
-// .navbar-form {
-// 	margin-left: 0;
-// 	margin-right: 0;
-// }
+.navbar-form {
+	margin-left: 0;
+	margin-right: 0;
+}
 
 // Maintenance
 // -------------------------
 .maintenance-message {
     text-align: center;
-    padding: 1rem;
+    padding: 10px;
     background-color: #f7ecb5;
     font-weight: bold;
 }
@@ -176,20 +176,20 @@ header {
 
 
 // Header colors to identify Rails environment that is running
-// nav div.header_full_row {
-//   width: 100%;
-// }
-// nav.staging_env {
-//   background: #7aba7b; // light green
-// }
+nav div.header_full_row {
+  width: 100%;
+}
+nav.staging_env {
+  background: #7aba7b; // light green
+}
 
-// nav.integration_env {
-//   background: #a6e1ec; // pale blue
-// }
+nav.integration_env {
+  background: #a6e1ec; // pale blue
+}
 
-// nav.migrating {
-//   background: #f4ea7d; // yellow
-// }
+nav.migrating {
+  background: #f4ea7d; // yellow
+}
 
 // nav.development_env {
 //   background: #ebccd1; // pale pink
