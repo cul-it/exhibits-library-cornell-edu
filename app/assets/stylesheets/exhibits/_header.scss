@@ -61,11 +61,17 @@ header {
 	}
 	
 }
+
+// Rules are kinda specific to exhibits that don't have a masthead image, see Circus Fashion
 .masthead {
 	border-top: 1px solid #e7e7e7;
-	background: $pale-gray;
+	background: black;
 	.site-title {
 		white-space: normal;
+		color: white
+	}
+	small {
+		color: white;
 	}
 }
 .image-masthead,
