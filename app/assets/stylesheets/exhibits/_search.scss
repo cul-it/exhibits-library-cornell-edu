@@ -2,6 +2,14 @@
 	.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
 		background: $cornell-red;
 		border-color: $cornell-red;
-		border-radius: 0;
+	}
+}
+
+// #433 - Increase contrast of selected facet - change from green to black
+.facet-values {
+	li {
+		.selected {
+			color: black !important;
+		}
 	}
 }

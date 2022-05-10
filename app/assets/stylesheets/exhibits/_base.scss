@@ -1,7 +1,7 @@
 body {
-	font-family: $font-family-sans-serif;
 	background: white; // footer color
 	margin-bottom: 0;
+	font-family: $font-family-sans-serif;
 }
 
 // Links
@@ -9,93 +9,78 @@ body {
 
 a { 
 	color: $link-primary;
-}
-a:hover, a:active, a:focus {
-	color: $link-primary-hover;
-	text-decoration: none;
-}
-
-// Add underlines to links in main content area
-.main-content,
-footer {
-	a {
-		border-bottom: 1px dotted $gray-light;
-	}
-	a:hover,
-	a:active,
-	a:focus {
-		border-bottom: 1px solid $gray-light;
-		text-decoration: none;
-	}
+	text-decoration: underline;
 }
 
 // Typography
 // ------------------- //
 
+.page-title {
+	margin-bottom: 1.5rem;
+}
+
+// #542 - better spacing for text area H2; may need adjustment if this effects other system elements
+.blacklight-feature_pages-show {
+	#content {
+		h2 {
+			margin: 2rem 0 1rem;
+		}
+	}
+}
+
+
 p, li {
-	font-size: 16px;
-	line-height: 1.6em;
+	font-size: 1.1rem;
 }
-h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
-	margin-bottom: .75em;
-	font-family: $font-family-sans-serif;
-}
-h1 {
-	margin-top: 0;
-}
-h4 {
-	font-size: 20px;
-}
-h5 {
-	font-size: 16px;
-}
-
-.page-title,
-.site-title {
-	font-family: $font-family-cul;
-}
-
 
 // Bootstrap overrides
 // ---------------------- //
-.well {
-	border-radius: 0;
-	box-shadow: none;
-}
+
 .breadcrumb {
 	padding: 0;
 	background: inherit;
 	margin-bottom: 3em;
 	li {
-		font-size: 12px;
+		font-size: .9rem;
 	}
 }
-.pull-right {
-	float: none !important;
+
+// #500 - update blockquote style
+.blockquote {
+	font-size: 1.1rem;
+	padding: 1rem 0 .5rem 1rem;
+	border-left: 5px solid #eee;
 }
 
-.label-default {
-	background: $tan;
-	color: $gray-dark;
-	font-weight: normal;
+// #433 - color contrast is insufficient for all of the following:
+.page-item.active .page-link {
+	border-color: $almost-black;
+	background-color: $almost-black;
 }
-.thumbnail {
-	border: 0;
+.image-masthead .exhibit-navbar {
+	background: black;
+}
+.navbar-dark .navbar-nav .nav-link, .image-masthead .exhibit-navbar .navbar-nav .nav-link, .masthead .exhibit-navbar .navbar-nav .nav-link {
+	color: white;
+}
+.breadcrumb-item.active,
+.dl-invert dt {
+	color: inherit;
 }
 
 // MEDIA QUERIES
 // -------------------------
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: $screen-sm) {
-	.pull-right {
-		float: right !important;
-	}
-}
+// Small devices (landscape phones, 576px and up)
+// @include media-breakpoint-up(sm) {
+// }
 
-/* Medium devices (desktops, 992px and up) */
-// @media (min-width: $screen-md) {
+// Medium devices (tablets, 768px and up)
+// @include media-breakpoint-up(md) {
 // }
-/* Large devices (desktops, 1200px and up) */
-// @media (min-width: $screen-lg) {
-// }
+
+// Large devices (desktops, 992px and up)
+// @include media-breakpoint-up(lg) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+// @include media-breakpoint-up(xl) { ... }

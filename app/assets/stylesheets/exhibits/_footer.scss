@@ -2,51 +2,9 @@ footer {
 	padding: 3em 0;
 	border-top: 1px solid $warm-gray;
 	p, li {
-		font-size: 14px;
-	}
-	.block-title {
-		font-size: 14px;
-		font-family: $font-family-cul;
-		text-transform: uppercase;
-		margin-top: 0;
-	}
-	.block {
-		margin-bottom: .75em;
-	}
-	h3 {
-		margin: 0 0 1em;
-		font-family: $font-family-cul;
-		text-transform: uppercase;
-		font-size: 18px;
+		font-size: .9rem;
 	}
     p.version {
       margin: -5px 0px;
     }
-}
-.btn-give {
-	background: $cornell-red;
-	font-family: $font-family-cul;
-	color: white;
-	font-size: 12px;
-	text-transform: uppercase;
-	display: inline-block;
-	padding: 5px 10px;
-	border: 0;
-	border-radius: 0;
-}
-.btn-give:hover,
-.btn-give:active,
-.btn-give:focus {
-	border: 0;
-	background: $cornell-dark-red;
-	color: white;
-}
-// .address {
-// 	margin-top: 1.5em;
-// }
-.social-links {
-	margin-top: 3em;
-	.fa {
-		font-size: 3em;
-	}
 }

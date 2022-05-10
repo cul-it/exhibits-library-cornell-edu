@@ -5,4 +5,6 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
+### BEGIN CUSTOMIZATION (elr) - only use solr_wrapper on localhost
 require 'solr_wrapper/rake_task' if Rails.env.development?
+### END CUSTOMIZATION

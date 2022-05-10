@@ -8,15 +8,14 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   mount OkComputer::Engine, at: "/syscheck"
 
+  mount Spotlight::Engine, at: '/' # as opposed to `at: 'spotlight'` which was generated
   mount Blacklight::Engine => '/'
   # root to: "catalog#index" # replaced by spotlight root path
-
   concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
   end
-
   devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
 
@@ -32,11 +31,10 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Spotlight::Engine, at: '/'
-
-  resources :exhibits, only: [] do
-    resources :portal_resources, only: [:create, :update] do
-    end
-  end
+  ### TODO: Portal access is temporarily removed.  See Issue #35.
+  # resources :exhibits, only: [] do
+  #   resources :portal_resources, only: [:create, :update] do
+  #   end
+  # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

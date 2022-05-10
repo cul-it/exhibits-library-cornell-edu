@@ -1,3 +1,5 @@
+### CUSTOMIZATION (elr) - new initializer to extract spotlight version from Gemfile.lock
+
 SPOTLIGHT_VERSION =
   if File.exist?('Gemfile.lock')
     version_match = `grep 'blacklight-spotlight (' Gemfile.lock`

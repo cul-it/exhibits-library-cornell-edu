@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+### CUSTOMIZATION (elr) - new service class to configure our connection to S3
+
 class S3
   class << self
     def connected?

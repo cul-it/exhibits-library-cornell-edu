@@ -1,3 +1,18 @@
+### 3.0.0 (2022-05-10)
+
+* update to Spotlight 3.3.0
+  * remove stale customizations
+  * remove Portal code due to conflicts 
+* update to Blacklight 7.19.0
+* update to Bootstrap 4.6.0
+* update to Ruby 2.7.3
+* update to Bixby 3.0.2 (for Rubocop)
+* update to AWS Linux 2
+  * update ebextensions
+  * update Puma to 5.3.2
+* update to current library branding specs
+* improve accessibility
+
 ### 2.21.0 (2021-04-13)
 
 * update rails to 5.2.5 to fix mimemagic gem yank

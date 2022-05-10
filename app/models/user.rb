@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  include Spotlight::User
-  attr_accessible :email, :password, :password_confirmation if Blacklight::Utils.needs_attr_accessible?
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
+  include Spotlight::User
+
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -15,7 +15,9 @@ class User < ApplicationRecord
     email
   end
 
+  ### BEGIN CUSTOMIZATION (elr) - add check for our super super admins
   def site_admin?
     AccessModeService.site_admins.include? email
   end
+  ### END CUSTOMIZATION
 end
