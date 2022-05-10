@@ -1,4 +1,4 @@
-### 3.0.0 (2022-05-TBD)
+### 3.0.0 (2022-05-10)
 
 * update to Spotlight 3.3.0
   * remove stale customizations
