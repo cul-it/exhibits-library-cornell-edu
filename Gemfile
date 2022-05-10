@@ -65,7 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ## Gems manually added to control blacklight and spotlight versions
 gem 'blacklight', '= 7.19.0'
-gem 'blacklight-spotlight', '= 3.1.0'
+gem 'blacklight-spotlight', '~> 3.3'
 # gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'master'
 
 ## Gems added by spotlight installation process
