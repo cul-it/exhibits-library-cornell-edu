@@ -11,7 +11,7 @@ var relatedPages = {
     },
     requestPages:function(rootUrl, exhibitSlug, docid) {
       //Do an AJAX request for this exhibit
-      var url = rootUrl + exhibitSlug + "/tempages?item=" + docid;
+      var url = rootUrl + exhibitSlug + "/itempages?item=" + docid;
       $.ajax({
         url : url,
         success: function(data) {
