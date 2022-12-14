@@ -38,7 +38,7 @@ Spotlight::Engine.config.resource_partials = [
 # Spotlight::Engine.config.full_image_field = :full_image_url_ssm
 # Spotlight::Engine.config.thumbnail_field = :thumbnail_url_ssm
 
-# ==> Adding copyright to default configuration.  Note "UploadFieldConfig" needs to be preceded by "Spotlight::".  
+# ==> Adding copyright to default configuration.  Note "UploadFieldConfig" needs to be preceded by "Spotlight::".
 # Refer to https://github.com/projectblacklight/spotlight/blob/v3.3.0/lib/spotlight/engine.rb
 Spotlight::Engine.config.upload_fields = [
   Spotlight::UploadFieldConfig.new(
@@ -46,19 +46,19 @@ Spotlight::Engine.config.upload_fields = [
      label: -> { I18n.t(:"spotlight.search.fields.#{Spotlight::Engine.config.upload_description_field}") },
      form_field_type: :text_area
    ),
-   Spotlight::UploadFieldConfig.new(
+  Spotlight::UploadFieldConfig.new(
      field_name: :spotlight_upload_attribution_tesim,
      label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_attribution_tesim') }
    ),
-   Spotlight::UploadFieldConfig.new(
+  Spotlight::UploadFieldConfig.new(
      field_name: :spotlight_upload_date_tesim,
      label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
    ),
-   Spotlight::UploadFieldConfig.new(
+  Spotlight::UploadFieldConfig.new(
      field_name: :spotlight_copyright_tesim,
      label: -> { I18n.t(:'spotlight.search.fields.spotlight_copyright_tesim') }
    )
- ]
+]
 # ==> Uploaded item configuration
 # Spotlight::Engine.config.upload_fields = [
 #   UploadFieldConfig.new(
