@@ -5,5 +5,7 @@
   )
 ) %>
 <div id="related-pages">
-<%= document.to_s %>
+<%= document["id"] %>
+<%= document["spotlight_exhibit_slugs_ssim"] %>
+<%= current_exhibit.to_s %>
 </div>
