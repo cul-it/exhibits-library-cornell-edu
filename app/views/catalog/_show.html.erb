@@ -4,8 +4,11 @@
     show: true
   )
 ) %>
-<div id="related-pages">
-<%= document["id"] %>
-<%= document["spotlight_exhibit_slugs_ssim"] %>
+<%
+  doc_id = document['id'] || ''
+  exhibit_slug = (document.has_key?('spotlight_exhibit_slugs_ssim')) && (document['spotlight_exhibit_slugs_ssim'].length > 0) ? document['spotlight_exhibit_slugs_ssim'][0] : ''
+
+%>
+<div id="related-pages" docid="<%= doc_id %>" exhibitslug="<%= exhibit_slug %>" rooturl="<%= root_url %>">
 <%= current_exhibit.to_s %>
 </div>
