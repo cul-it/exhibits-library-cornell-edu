@@ -20,7 +20,7 @@ var relatedPages = {
             var pages = data["results"]["pages"];
             var pageTitles = [];
             $.each(pages, function(i, v) {
-              pageTitles.push(requestPages.generatePageLink(v, rootUrl, exhibitSlug));
+              pageTitles.push(relatedPages.generatePageLink(v, rootUrl, exhibitSlug));
             });
             $("#related-pages").html("This item is used on the following pages: " + pageTitles.join(", "));
           }
