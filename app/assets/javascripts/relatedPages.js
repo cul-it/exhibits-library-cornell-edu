@@ -18,12 +18,9 @@ var relatedPages = {
           console.log(data);
           if((data != null) && ("results" in data) && ("pages" in data["results"]) && (data["results"]["pages"].length > 0)) {
             var pages = data["results"]["pages"];
-            var pageList = "";
             var pageTitles = [];
             $.each(pages, function(i, v) {
-              if("title" in v) {
-                pageTitles.push(v["title"]);
-              }
+              pageTitles.push(requestPages.generatePageLink(v, rootUrl, exhibitSlug));
             });
             $("#related-pages").html("This item is used on the following pages: " + pageTitles.join(", "));
           }
@@ -33,6 +30,18 @@ var relatedPages = {
           console.log(xhr.status + ":" + xhr.statusText + ":" + xhr.responseText);
         }
       });
+    },
+    generatePageLink(pageObject, rootUrl, exhibitSlug) {
+      var title = pageObject["title"];
+      var pageSlug = pageObject["slug"];
+      var pageType = pageObject["pagetype"];
+      var pageURL = rootUrl + exhibitSlug;
+      if(pageType == "about") {
+        pageURL += "/about/" + pageSlug;
+      } else if(pageType == "feature") {
+        pageURL += "/feature/" + pageSlug;
+      }
+      return "<a href='" + pageURL + "'>" + title + "</a>";
     }
 };
 
