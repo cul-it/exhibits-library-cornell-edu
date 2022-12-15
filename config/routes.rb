@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/:exhibit_id/itempages' => 'spotlight/pages#item_pages'
+  get '/:exhibit_id/itempages' => 'spotlight/itempages#item_pages'
 
   ### TODO: Portal access is temporarily removed.  See Issue #35.
   # resources :exhibits, only: [] do
