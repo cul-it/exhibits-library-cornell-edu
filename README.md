@@ -78,5 +78,7 @@ $ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
    ```sh
    bin/rubocop
    ```
+### Circle/CI
+Go to https://circleci.com and pick "log in" and the "Login with GitHub" option.  This will allow you to select this repository.  Once you are logged in, you should be able to see CircleCI builds and messages.   
      
 
