@@ -1,6 +1,9 @@
 en:
   blacklight:
     application_name: 'Online Exhibitions'
+    icon:
+      add_circle: Zoom In
+      remove_circle: Zoom Out
   views:
     pagination:
       first: 'First'
