@@ -87,14 +87,12 @@ gem 'blacklight-oembed', '~> 1.0'
 
 ## Gems added for application customization
 # support for .env file
-gem 'dotenv-deployment'
 gem 'dotenv-rails'
 
 # spotlight related dependencies
 # gem 'blacklight-advanced_search'
 # gem 'blacklight-heatmaps'
 # gem 'blacklight-range_limit', '~> 6.0'
-gem 'bootstrap-sass', '~> 3.3.6' # Rails include 'bootstrap'.  Is this also needed?
 gem 'devise_invitable'
 gem 'riiif'
 
