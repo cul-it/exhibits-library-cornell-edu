@@ -7,9 +7,9 @@ UPDATE_BUNDLER=$(/opt/elasticbeanstalk/bin/get-config environment -k UPDATE_BUND
 
 echo '***** Checking if bundler should be updated'
 if [ $UPDATE_BUNDLER = true ] ; then
-  # @example $CMD = /opt/rubies/ruby-2.7.3/bin/gem install bundler -v 2.2.18
+  # @example $CMD = /opt/rubies/ruby-2.7.7/bin/gem install bundler -v 2.2.18
   # Where envinroment variables values are...
-  #   $RUBY_PATH = '/opt/rubies/ruby-2.7.3/bin/gem'
+  #   $RUBY_PATH = '/opt/rubies/ruby-2.7.7/bin/gem'
   #   $BUNDLER_VERSION = '2.2.18'
 
   RUBY_PATH=$(/opt/elasticbeanstalk/bin/get-config environment -k RUBY_PATH)
