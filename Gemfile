@@ -6,7 +6,7 @@ ruby '2.7.7'
 # rubocop:disable Bundler/OrderedGems
 ## Gems adds by `rails new`
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 5.2.8'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -70,6 +70,11 @@ gem 'blacklight-spotlight', '~> 3.3'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
+
+# TODO: Check if this be removed after ror upgrade
+# Added to fix "already initialized constant errors" with net/protocol: https://github.com/ruby/net-imap/issues/16
+gem "net-http"
+gem 'sprockets', '~> 3.0'
 
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.6'
