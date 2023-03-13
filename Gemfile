@@ -34,7 +34,7 @@ gem 'blacklight-spotlight', '~> 3.3'
 gem "net-http"
 gem 'sprockets', '~> 3.0'
 
-gem 'rsolr', '>= 1.0', '< 3'
+gem 'rsolr'
 gem 'bootstrap', '~> 4.6'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
