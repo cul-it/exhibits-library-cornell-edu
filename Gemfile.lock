@@ -71,18 +71,19 @@ GEM
       rubocop-performance
       rubocop-rails
       rubocop-rspec
-    blacklight (7.19.0)
+    blacklight (7.33.1)
       deprecation
       globalid
+      hashdiff
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
       ostruct (>= 0.3.2)
-      rails (>= 5.1, < 7)
-      view_component (>= 2.28.0)
-    blacklight-gallery (3.5.0)
+      rails (>= 5.1, < 7.1)
+      view_component (~> 2.66)
+    blacklight-gallery (4.0.2)
       blacklight (~> 7.17)
-      rails (>= 5.1, < 7)
+      rails (>= 5.1, < 8)
     blacklight-oembed (1.1.1)
       blacklight (>= 7.0, < 9)
       rails
@@ -633,10 +634,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bixby
-  blacklight (= 7.19.0)
-  blacklight-gallery (~> 3.0)
+  blacklight (~> 7.33.1)
+  blacklight-gallery (~> 4.0)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 3.3)
+  blacklight-spotlight (~> 3.4)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.6)
   byebug
