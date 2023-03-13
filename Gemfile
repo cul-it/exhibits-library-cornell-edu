@@ -26,24 +26,24 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ## Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '= 7.19.0'
-gem 'blacklight-spotlight', '~> 3.3'
+gem 'blacklight', '= 7.19.0' # TODO: NEEDS UPGRADE
+gem 'blacklight-spotlight', '~> 3.3' # TODO: NEEDS UPGRADE
 
 # TODO: Check if this be removed after ror upgrade
 # Added to fix "already initialized constant errors" with net/protocol: https://github.com/ruby/net-imap/issues/16
 gem "net-http"
-gem 'sprockets', '~> 3.0'
+gem 'sprockets', '~> 3.0' # TODO: NEEDS UPGRADE
 
 gem 'rsolr'
 gem 'bootstrap', '~> 4.6'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
-gem 'devise'
-gem 'devise-guests', '~> 0.6'
+gem 'devise' #, '~> 4.8.0' # TODO: NEEDS UPGRADE
+gem 'devise-guests', '~> 0.6' # TODO: NEEDS UPGRADE
 gem 'friendly_id'
 gem 'sitemap_generator'
-gem 'blacklight-gallery', '~> 3.0'
-gem 'blacklight-oembed', '~> 1.0'
+gem 'blacklight-gallery', '~> 3.0' # TODO: NEEDS UPGRADE
+gem 'blacklight-oembed', '~> 1.0' # TODO: NEEDS UPGRADE
 # rubocop:enable Bundler/OrderedGems
 
 ## Gems added for application customization
@@ -51,7 +51,7 @@ gem 'blacklight-oembed', '~> 1.0'
 gem 'dotenv-rails'
 
 # spotlight related dependencies
-gem 'devise_invitable'
+gem 'devise_invitable' # TODO: NEEDS UPGRADE
 gem 'riiif'
 
 # additional app dependencies based on our specific setup
@@ -61,7 +61,7 @@ gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
 gem 'ruby-oembed'
-gem 'sidekiq', '~> 5.2'
+gem 'sidekiq', '~> 5.2' # TODO: NEEDS UPGRADE
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
