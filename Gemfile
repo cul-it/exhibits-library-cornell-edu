@@ -38,21 +38,19 @@ gem 'rsolr'
 gem 'bootstrap', '~> 4.6'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
-gem 'devise' #, '~> 4.8.0' # TODO: NEEDS UPGRADE
+gem 'devise', '~> 4.8.0' # TODO: NEEDS UPGRADE
 gem 'devise-guests', '~> 0.6' # TODO: NEEDS UPGRADE
+gem 'devise_invitable' # TODO: NEEDS UPGRADE
 gem 'friendly_id'
 gem 'sitemap_generator'
 gem 'blacklight-gallery', '~> 3.0' # TODO: NEEDS UPGRADE
 gem 'blacklight-oembed', '~> 1.0' # TODO: NEEDS UPGRADE
+gem 'riiif'
 # rubocop:enable Bundler/OrderedGems
 
 ## Gems added for application customization
 # support for .env file
 gem 'dotenv-rails'
-
-# spotlight related dependencies
-gem 'devise_invitable' # TODO: NEEDS UPGRADE
-gem 'riiif'
 
 # additional app dependencies based on our specific setup
 gem 'carrierwave-aws'
