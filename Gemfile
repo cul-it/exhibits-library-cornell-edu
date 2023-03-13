@@ -45,10 +45,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 4.2.0'
 
 # Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '= 7.19.0' # TODO: NEEDS UPGRADE
-gem 'blacklight-gallery', '~> 3.0' # TODO: NEEDS UPGRADE
-gem 'blacklight-oembed', '~> 1.0' # TODO: NEEDS UPGRADE
-gem 'blacklight-spotlight', '~> 3.3' # TODO: NEEDS UPGRADE
+gem 'blacklight', '~> 7.33.1'
+gem 'blacklight-gallery', '~> 4.0'
+gem 'blacklight-oembed', '~> 1.0'
+gem 'blacklight-spotlight', '~> 3.4' # TODO: NEEDS UPGRADE
 
 group :development do
   gem 'better_errors' # add command line in browser when errors
