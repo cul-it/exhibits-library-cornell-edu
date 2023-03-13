@@ -8,7 +8,6 @@ gem 'rails', '~> 6.1.7'
 # TODO: Check if this be removed after ror upgrade
 # Added to fix "already initialized constant errors" with net/protocol: https://github.com/ruby/net-imap/issues/16
 gem "net-http"
-gem 'sprockets', '~> 3.0' # TODO: NEEDS UPGRADE
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -88,8 +87,4 @@ end
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
-end
-
-group :development, :integration do
-  gem 'xray-rails' # overlay showing which files are contributing to the UI
 end
