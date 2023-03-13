@@ -12,6 +12,7 @@ gem "net-http"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.6'
+gem 'carrierwave-aws'
 gem 'devise', '~> 4.8.0' # TODO: NEEDS UPGRADE
 gem 'devise-guests', '~> 0.7.0' # TODO: NEEDS UPGRADE
 gem 'devise_invitable' # TODO: NEEDS UPGRADE
