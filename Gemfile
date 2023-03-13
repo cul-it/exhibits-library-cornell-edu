@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.7'
 
-gem 'rails', '~> 6.0.6'
+gem 'rails', '~> 6.1.7'
 
 # TODO: Check if this be removed after ror upgrade
 # Added to fix "already initialized constant errors" with net/protocol: https://github.com/ruby/net-imap/issues/16
@@ -48,7 +48,7 @@ gem 'uglifier', '>= 4.2.0'
 gem 'blacklight', '~> 7.33.1'
 gem 'blacklight-gallery', '~> 4.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 3.4' # TODO: NEEDS UPGRADE
+gem 'blacklight-spotlight', '~> 3.5'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors
