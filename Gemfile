@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.7'
 
-gem 'rails', '~> 5.2.8'
+gem 'rails', '~> 6.0.6'
 
 # TODO: Check if this be removed after ror upgrade
 # Added to fix "already initialized constant errors" with net/protocol: https://github.com/ruby/net-imap/issues/16
