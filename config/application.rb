@@ -23,5 +23,11 @@ module Exhibits
       # OriginalApp::OriginalClassName.prepend PrependedModuleName::OriginalClassName
       Spotlight::ExhibitsController.prepend PrependedControllers::ExhibitsController
     end
+
+    # TODO: May be able to remove this when spotlight is upgraded?
+    if ActiveRecord.respond_to?(:yaml_column_permitted_classes) || ActiveRecord::Base.respond_to?(:yaml_column_permitted_classes)
+      config.active_record.yaml_column_permitted_classes ||= []
+      config.active_record.yaml_column_permitted_classes += [Symbol, ActiveSupport::HashWithIndifferentAccess]
+    end
   end
 end
