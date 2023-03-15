@@ -4,13 +4,13 @@ inherit_gem:
 inherit_from: .rubocop_fixme.yml
 
 AllCops:
-  TargetRubyVersion: 2.6
   DisplayCopNames: true
   Exclude:
     - 'db/**/*'
     - 'script/**/*'
     - 'bin/**/*'
     - 'vendor/**/*'
+    - 'config/**/*'
     - 'docs/**/*'
     - 'scripts/**/*'
     - 'tmp/**/*'

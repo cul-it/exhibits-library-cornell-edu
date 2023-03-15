@@ -82,7 +82,6 @@ end
 
 group :development, :test do
   gem 'bixby' # style guide enforcement with rubocop
-  gem 'rubocop-checkstyle_formatter', require: false
   gem 'solr_wrapper'
 end
 
