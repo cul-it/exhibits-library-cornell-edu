@@ -22,7 +22,7 @@ RUN apk add --update --no-cache \
 
 WORKDIR /app/cul-it/exhibits-webapp
 
-RUN gem install bundler:2.2.17
+RUN gem install bundler:2.2.33
 
 ENV PATH="/app/cul-it/exhibits-webapp:$PATH"
 ENV RAILS_ROOT="/app/cul-it/exhibits-webapp"
