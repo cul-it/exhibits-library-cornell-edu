@@ -41,8 +41,19 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  # Raises error for missing translations
+  # Raise exceptions for disallowed deprecations.
+  config.active_support.disallowed_deprecation = :raise
+
+  # Tell Active Support which deprecation messages to disallow.
+  config.active_support.disallowed_deprecation_warnings = []
+
+  # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
+  # Sets the adapter for the queuing backend.
+  # When enqueuing jobs with the Inline adapter the job will be executed immediately.
   config.active_job.queue_adapter = :inline
+
+  # Annotate rendered view with file names.
+  # config.action_view.annotate_rendered_view_with_filenames = true
 end

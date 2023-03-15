@@ -10,8 +10,6 @@
 
 OkComputer.mount_at = false # when false, expects mount to happen in routes
 
-require 'health_checks'
-
 OkComputer::Registry.register "cache", OkComputer::CacheCheck.new
 OkComputer::Registry.register "sidekiq", OkComputer::SidekiqLatencyCheck.new('default', 50)
 OkComputer::Registry.register "solr", OkComputer::HttpCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, '') + "/admin/ping")
