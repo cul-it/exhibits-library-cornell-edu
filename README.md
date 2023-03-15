@@ -60,7 +60,7 @@ $ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
 
 1. Start Sidekiq for processing background jobs (Needs to run at the root of the rails app.)
    ```sh
-   $ bundle exec sidekiq -d -L log/sidekiq.log -e development
+   $ bundle exec sidekiq
    ```
 
 1. Start Rails in new terminal session
