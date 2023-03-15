@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.0.5
+ARG RUBY_VERSION=3.1.3
 FROM ruby:$RUBY_VERSION-alpine
 
 ## Install dependencies:
@@ -22,7 +22,7 @@ RUN apk add --update --no-cache \
 
 WORKDIR /app/cul-it/exhibits-webapp
 
-RUN gem install bundler:2.2.33
+RUN gem install bundler:2.4.8
 
 ENV PATH="/app/cul-it/exhibits-webapp:$PATH"
 ENV RAILS_ROOT="/app/cul-it/exhibits-webapp"
