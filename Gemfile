@@ -5,17 +5,13 @@ ruby '3.1.3'
 
 gem 'rails', '~> 7.0.4'
 
-# TODO: Check if this be removed after ror upgrade
-# Added to fix "already initialized constant errors" with net/protocol: https://github.com/ruby/net-imap/issues/16
-gem "net-http"
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.6'
 gem 'carrierwave-aws'
-gem 'devise', '~> 4.8.0' # TODO: NEEDS UPGRADE
-gem 'devise-guests', '~> 0.7.0' # TODO: NEEDS UPGRADE
-gem 'devise_invitable' # TODO: NEEDS UPGRADE
+gem 'devise'
+gem 'devise-guests'
+gem 'devise_invitable'
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'friendly_id'
