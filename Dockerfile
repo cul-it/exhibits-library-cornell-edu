@@ -17,7 +17,7 @@ RUN apk add --update --no-cache \
       sqlite-dev \
       tzdata \
       mariadb-dev \
-      imagemagick6-dev imagemagick6-libs
+      imagemagick
 
 
 WORKDIR /app/cul-it/exhibits-webapp
