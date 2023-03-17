@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.1.3
+ARG RUBY_VERSION=3.0.5
 FROM ruby:$RUBY_VERSION-alpine
 
 ## Install dependencies:

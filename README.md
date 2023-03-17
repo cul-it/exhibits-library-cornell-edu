@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-* [Ruby 3.1.3](https://www.ruby-lang.org/en/documentation/installation/)
+* [Ruby 3.0.5](https://www.ruby-lang.org/en/documentation/installation/)
 * [Bundler 2](https://bundler.io/)
 * [ImageMagick](https://imagemagick.org/script/download.php)
 * [Solr](https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html)
