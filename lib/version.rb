@@ -1,3 +1,3 @@
 module Version
-  VERSION = "v3.1.0".freeze
+  VERSION = "v4.0.0".freeze
 end
