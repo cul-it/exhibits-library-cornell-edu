@@ -32,7 +32,7 @@ class DataStudio
 
     field = "CASE\n"
     exhibits.each do |ex|
-      field += "WHEN (REGEXP_MATCH(Page, '.*#{ex.slug}.*')) THEN '#{ex.title}'\n"
+      field += "WHEN (REGEXP_MATCH(Page, \".*#{ex.slug}.*\")) THEN \"#{ex.title}\"\n"
     end
     field += "ELSE 'Unpublished'\nEND"
 
@@ -50,13 +50,13 @@ class DataStudio
 #   * click + ADD A FILTER
 #   * set Filter Name to Published Exhibits filter
 #   * set Filter to...
-#       Exclude   Exhibits    In    Home,Unpublished
+#       Exclude   Exhibits    In    Unpublished
 #     where Exhibits is the field setup by method .exhibits_field
-#     where Home,Unpublished is the results of this method
+#     where Unpublished is the results of this method
 # DO NOT INCLUDE THESE INSTRUCTIONS IN THE FORMULA
     INSTRUCTIONS
 
-    filter = "Home,Unpublished"
+    filter = "Unpublished"
 
     puts instructions
     puts ' '
@@ -80,7 +80,7 @@ class DataStudio
 CASE
 WHEN (REGEXP_MATCH(Page, '.*dashboard.*')) THEN "Dashboard"
 WHEN (REGEXP_MATCH(Page, '.*/edit')) THEN "Edit"
-WHEN (REGEXP_MATCH(Page, '.*/edit#.*')) THEN "Edit Tab"
+WHEN (REGEXP_MATCH(Page, '.*/edit#.*')) THEN "Edit Tabs"
 WHEN (REGEXP_MATCH(Page, '.*/edit/.*')) THEN "Edit Item"
 WHEN (REGEXP_MATCH(Page, '.*/users')) THEN "Users"
 WHEN (REGEXP_MATCH(Page, '.*/admin_users')) THEN "Admin Users"
@@ -119,7 +119,7 @@ END
 # DO NOT INCLUDE THESE INSTRUCTIONS IN THE FORMULA
     INSTRUCTIONS
 
-    filter = "Dashboard,Edit,Edit Tab,Edit Item," \
+    filter = "Dashboard,Edit,Edit Tabs,Edit Item," \
              "Users,Admin Users,Custom Fields,Custom Search Fields," \
              "Item Curation,New Item Curation,New Exhibit Curation," \
              "Tag Curation,Browse Curation," \
