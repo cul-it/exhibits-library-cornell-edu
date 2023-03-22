@@ -4,7 +4,40 @@
 	padding: 5px 0;
 }
 
-// .content-block a,
-// .st__content-block a {
-//   text-decoration: underline;
-// }
+// Tile sizing
+// Override Spotlight to enable multiple rows if tiles >5
+// Fixes: https://github.com/cul-it/exhibits-library-cornell-edu/issues/448
+[data-sidebar="false"],
+[data-sidebar="true"] {
+  &[class*="categories-"] {
+    .browse-category {
+      max-width: $maximum-tile-width;
+      max-height: $maximum-tile-width * $aspect-ratio-factor-4x3;
+      width: $xs-one-tile-width;
+      height: $xs-one-tile-width * $aspect-ratio-factor-4x3;
+    }
+  }
+	&[class*="categories-"]:not(.categories-1):not(.categories-2):not(.categories-3):not(.categories-4) {
+    .browse-category {
+      @media (min-width: breakpoint-min("sm")) {
+        width: $sm-three-tile-width;
+        height: $sm-three-tile-width * $aspect-ratio-factor-4x3;
+      }
+
+      @media (min-width: breakpoint-min("md")) {
+        width: $md-three-tile-width;
+        height: $md-three-tile-width * $aspect-ratio-factor-4x3;
+      }
+
+      @media (min-width: breakpoint-min("lg")) {
+        width: $lg-five-tile-width;
+        height: $lg-five-tile-width * $aspect-ratio-factor-4x3;
+      }
+
+      @media (min-width: breakpoint-min("xl")) {
+        width: $xl-five-tile-width;
+        height: $xl-five-tile-width * $aspect-ratio-factor-4x3;
+      }
+    }
+  }
+}
