@@ -25,6 +25,9 @@
 
 # Ignore the public directory
 /public/uploads
+/public/assets
+
+/node_modules
 
 # Local coveralls reports
 /coverage

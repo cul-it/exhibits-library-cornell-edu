@@ -6,17 +6,13 @@ default: &default
   socket: /var/lib/mysql/mysql.sock
 
 development:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_development" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
   pool: 5
-  timeout: 5000
-#  <<: *default
-#  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_docker" %>
-#  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-#  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
-#  host:     <%= "#{ENV['DATABASE_HOST']}" %>
-#  pool: 5
-#  timeout: 5000
+  socket: /tmp/mysql.sock
 
 test:
   adapter: sqlite3
