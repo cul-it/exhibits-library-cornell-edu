@@ -252,11 +252,7 @@ GEM
       pry (>= 0.13, < 0.15)
     public_suffix (4.0.7)
     racc (1.6.2)
-    rack (1.6.13)
-    rack-jekyll (0.5.0)
-      jekyll (>= 1.3)
-      listen (>= 1.3)
-      rack (~> 1.5)
+    rack (3.0.7)
     rack-test (2.1.0)
       rack (>= 1.3)
     rainbow (3.1.1)
@@ -332,7 +328,6 @@ DEPENDENCIES
   launchy
   nokogiri
   pry-byebug
-  rack-jekyll
   rake
   rspec
   rspec_junit_formatter
