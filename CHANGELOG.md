@@ -1,3 +1,15 @@
+### 3.2 (2023-03-23)
+
+* update to Spotlight 3.5.0
+* update to Blacklight 7.33.1
+* update rails to 7.0.4
+* update ruby to 3.0.5
+* update puma to 6.1.1
+* replace sass-rails with sassc-rails
+* remove dotenv-deployment and xray-rails gems
+* update remaining gem dependencies (minus sidekiq)
+* fix ebextension nginx config structure for AWS Linux 2
+
 ### 3.0.0 (2022-05-10)
 
 * update to Spotlight 3.3.0
