@@ -109,3 +109,15 @@ Spotlight::Engine.config.ga_debug_mode = false
 # Spotlight::Engine.config.page_configurations = {
 #   'my-local-config': ->(context) { context.my_custom_data_path(context.current_exhibit) }
 # }
+
+Spotlight::Engine.config.exhibit_themes = %w[default joyce]
+
+Exhibits::Application.config.after_initialize do
+  Spotlight::Exhibit.themes_selector = ->(exhibit) do
+    if exhibit.slug == 'dr-joyce-brothers'
+      %w[default joyce]
+    else
+      %w[default]
+    end
+  end
+end

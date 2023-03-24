@@ -1,0 +1,211 @@
+/*
+ Stylesheet used for joyce exhibit theme
+*/
+
+@import 'base';
+@font-face {
+  font-family: 'Mutable-SemiBold';
+  src: font-url('Mutable-SemiBold.otf');
+}
+
+// Masthead
+.masthead {
+  background-color: #dee78f;
+
+  .background-container {
+    background-position: center;
+    filter: none;
+    height: 180px;
+    border: none;
+
+    @media (max-width: breakpoint-max('md')) {
+      background-image: none !important;
+    }
+  }
+
+  .background-container-gradient {
+    display: none;
+  }
+  
+  .site-title-container {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .site-title-wrapper {
+      background: none;
+      text-align: center;
+      font-family: 'Mutable-SemiBold';
+
+      h1 {
+        color: #475476;
+        text-shadow: none;
+        font-size: 3rem;
+
+        &::first-letter {
+          font-feature-settings: 'ss02';
+          font-size: 4rem;
+        }
+      }
+      small {
+        color: #467D58;
+        padding-top: 0 !important;
+      }
+    }
+  }
+
+  #exhibit-navbar .nav-link {
+    color: #4b5474;
+  }
+}
+
+// Home Page
+.blacklight-home_pages {
+  background: #dee78f;
+
+  .uploaded-items-block .img-thumbnail {
+    border: none;
+    background: none;
+    width: 80%;
+  }
+}
+
+.navbar, #blacklight-modal {
+  background: white;
+}
+
+#exhibit-navbar, footer {
+  background: #e6b230;
+}
+
+#content {
+  h1.page-title {
+    font-family: 'Mutable-SemiBold';
+  }
+}
+
+.items-block {
+  .items-col.float-left .box {
+    min-width: 300px;
+  }
+
+  // Hackily override col-md-6 bootstrap styling set in html
+  // Roughly equivalent of col-md-4
+  .text-col.col-md-6 {
+    @media (min-width: breakpoint-min('md')) {
+      flex: 0 0 33.33333333%;
+      max-width: 33.33333333%;
+    }
+  }
+
+  // Hackily override col-md-6 bootstrap styling set in html
+  // Roughly equivalent of col-md-8
+  .items-col.float-right.col-md-6 {
+    @media (min-width: breakpoint-min('md')) {
+      flex: 0 0 66.66666667%;
+      max-width: 66.66666667%;
+    }
+  }
+}
+
+// Feature pages
+// Ids are distinct per page: "page-slug-content"
+#early-life-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case1.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#games-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case2.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#sports-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case3.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#radio-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case4.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#television-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case5.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#fashion-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case6.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#awards-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case7.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#books-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case8.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#publications-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case9.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#activities-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case10.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
+
+#legacy-content {
+  .page-title {
+    background-image: image-url('spotlight/themes/joyce/Case11.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    padding-left: 2rem;
+  }
+}
