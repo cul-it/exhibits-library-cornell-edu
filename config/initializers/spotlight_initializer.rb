@@ -83,13 +83,18 @@ Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 # Spotlight::Engine.config.featured_image_square_size = [400, 400]
 
 # ==> Google Analytics integration
+# After creating a property for your site on Google Analytics, you need to:
+# a) register an OAuth service account with access to your analytics property:
+#     (https://github.com/tpitale/legato/wiki/OAuth2-and-Google#registering-for-api-access)
+# b) download the pkcs12 key and make it accessible to your application
+# c) set ga_web_property_id below to your site's property id
 # Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
 # Spotlight::Engine.config.ga_pkcs12_key_path = nil
 Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
 # Spotlight::Engine.config.ga_email = nil
 # Spotlight::Engine.config.ga_analytics_options = {}
 # Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
-Spotlight::Engine.config.ga_anonymize_ip = true
+Spotlight::Engine.config.ga_debug_mode = false
 
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,
