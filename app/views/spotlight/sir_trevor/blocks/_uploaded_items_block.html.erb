@@ -15,7 +15,7 @@
               <% end %>
             <% else %>
               <% ### BEGIN CUSTOMIZATION elr - use patched url %>
-              <%= image_tag url, class: 'img-thumbnail', alt: '', role: 'presentation' %>
+              <%= image_tag url, class: 'img-thumbnail', alt: file[:caption], role: 'presentation' %>
               <% ### END CUSTOMIZATION %>
             <% end %>
             <% if file[:caption].present? %>
