@@ -108,9 +108,27 @@
   background: #e6b230;
 }
 
+// Hackily override col-lg-3 bootstrap styling set in html
+// Roughly equivalent of col-lg-2
+#sidebar.col-lg-3 {
+  @media (min-width: breakpoint-min('lg')) {
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
+  }
+}
+
 #content {
   h1.page-title {
     font-family: 'Mutable-SemiBold';
+  }
+
+  // Hackily override col-lg-9 bootstrap styling set in html
+  // Roughly equivalent of col-lg-10
+  &.col-lg-9 {
+    @media (min-width: breakpoint-min('lg')) {
+      flex: 0 0 83.33333333%;
+      max-width: 83.33333333%;
+    }
   }
 }
 
