@@ -44,9 +44,11 @@
 
       <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
-    <div class="row">
+    <!-- content_row_id is used as css selectors in exhibit themes -->
+    <% content_row_id = @page.try(:slug) ? "#{@page.try(:slug)}-content" : nil %>
+    <%= tag.div class: 'row', id: content_row_id do %>
       <%= content_for?(:content) ? yield(:content) : yield %>
-    </div>
+    <% end %>
     </main>
 
     <%= render partial: 'shared/footer' %>
