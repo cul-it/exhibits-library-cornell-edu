@@ -64,10 +64,39 @@
 .blacklight-home_pages {
   background: #dee78f;
 
-  .uploaded-items-block .img-thumbnail {
-    border: none;
-    background: none;
-    width: 80%;
+  .content-block.item-text {
+    @media (min-width: breakpoint-min('lg')) {
+      max-width: 90%;
+    }
+
+    .items-col.uploaded-items-block {
+      .box {
+        padding-top: 0;
+
+        .img-thumbnail {
+          border: none;
+          background: none;
+        }
+      }
+
+      // Hackily override col-md-6 bootstrap styling set in html
+      // Roughly equivalent of col-md-4
+      &.float-right.col-md-6 {
+        @media (min-width: breakpoint-min('md')) {
+          flex: 0 0 33.33333333%;
+          max-width: 33.33333333%;
+        }
+      }
+    }
+
+    // Hackily override col-md-6 bootstrap styling set in html
+    // Roughly equivalent of col-md-8
+    .text-col.col-md-6 {
+      @media (min-width: breakpoint-min('md')) {
+        flex: 0 0 66.66666667%;
+        max-width: 66.66666667% !important;
+      }
+    }
   }
 }
 
