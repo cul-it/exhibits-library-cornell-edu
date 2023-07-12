@@ -62,8 +62,6 @@
 
 // Home Page
 .blacklight-home_pages {
-  background: #dee78f;
-
   .content-block.item-text {
     @media (min-width: breakpoint-min('lg')) {
       max-width: 90%;
@@ -100,12 +98,8 @@
   }
 }
 
-.navbar, #blacklight-modal {
-  background: white;
-}
-
 #exhibit-navbar, footer {
-  background: #e6b230;
+  background: #ecbb35;
 }
 
 // Hackily override col-lg-3 bootstrap styling set in html
