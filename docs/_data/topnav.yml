@@ -1,7 +1,0 @@
----
-topnav:
-  - items:
-      - title: 'Browse Pages'
-        url: 'browse_pages.html'
-      - title: 'Contact'
-        url: 'get-help.html'
