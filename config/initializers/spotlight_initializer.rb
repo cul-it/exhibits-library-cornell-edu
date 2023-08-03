@@ -120,4 +120,6 @@ Exhibits::Application.config.after_initialize do
       %w[default]
     end
   end
+
+  Spotlight::Exhibit.send :include, Cul::ExhibitDefaults
 end
