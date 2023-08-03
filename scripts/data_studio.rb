@@ -32,7 +32,7 @@ class DataStudio
 
     field = "CASE\n"
     exhibits.each do |ex|
-      field += "WHEN (REGEXP_MATCH(Page, \".*#{ex.slug}.*\")) THEN \"#{ex.title}\"\n"
+      field += "WHEN (REGEXP_MATCH(Page path, \".*#{ex.slug}.*\")) THEN \"#{ex.title}\"\n"
     end
     field += "ELSE 'Unpublished'\nEND"
 
@@ -78,23 +78,23 @@ class DataStudio
 
     field = <<-FIELD
 CASE
-WHEN (REGEXP_MATCH(Page, '.*dashboard.*')) THEN "Dashboard"
-WHEN (REGEXP_MATCH(Page, '.*/edit')) THEN "Edit"
-WHEN (REGEXP_MATCH(Page, '.*/edit#.*')) THEN "Edit Tabs"
-WHEN (REGEXP_MATCH(Page, '.*/edit/.*')) THEN "Edit Item"
-WHEN (REGEXP_MATCH(Page, '.*/users')) THEN "Users"
-WHEN (REGEXP_MATCH(Page, '.*/admin_users')) THEN "Admin Users"
-WHEN (REGEXP_MATCH(Page, '.*custom_fields.*')) THEN "Custom Fields"
-WHEN (REGEXP_MATCH(Page, '.*custom_search_fields.*')) THEN "Custom Search Fields"
-WHEN (REGEXP_MATCH(Page, '.*catalog/admin.*')) THEN "Item Curation"
-WHEN (REGEXP_MATCH(Page, '.*resources/new.*')) THEN "New Item Curation"
-WHEN (REGEXP_MATCH(Page, '.*/new')) THEN "New Exhibit Curation"
-WHEN (REGEXP_MATCH(Page, '.*tags')) THEN "Tag Curation"
-WHEN (REGEXP_MATCH(Page, '.*searches')) THEN "Browse Curation"
-WHEN (REGEXP_MATCH(Page, '.*feature')) THEN "Feature Curation"
-WHEN (REGEXP_MATCH(Page, '.*feature#add-new')) THEN "Feature Curation (new)"
-WHEN (REGEXP_MATCH(Page, '.*about')) THEN "About Curation"
-WHEN (REGEXP_MATCH(Page, '.*about#add-new')) THEN "About Curation (new)"
+WHEN (REGEXP_MATCH(Page path, '.*dashboard.*')) THEN "Dashboard"
+WHEN (REGEXP_MATCH(Page path, '.*/edit')) THEN "Edit"
+WHEN (REGEXP_MATCH(Page path, '.*/edit#.*')) THEN "Edit Tabs"
+WHEN (REGEXP_MATCH(Page path, '.*/edit/.*')) THEN "Edit Item"
+WHEN (REGEXP_MATCH(Page path, '.*/users')) THEN "Users"
+WHEN (REGEXP_MATCH(Page path, '.*/admin_users')) THEN "Admin Users"
+WHEN (REGEXP_MATCH(Page path, '.*custom_fields.*')) THEN "Custom Fields"
+WHEN (REGEXP_MATCH(Page path, '.*custom_search_fields.*')) THEN "Custom Search Fields"
+WHEN (REGEXP_MATCH(Page path, '.*catalog/admin.*')) THEN "Item Curation"
+WHEN (REGEXP_MATCH(Page path, '.*resources/new.*')) THEN "New Item Curation"
+WHEN (REGEXP_MATCH(Page path, '.*/new')) THEN "New Exhibit Curation"
+WHEN (REGEXP_MATCH(Page path, '.*tags')) THEN "Tag Curation"
+WHEN (REGEXP_MATCH(Page path, '.*searches')) THEN "Browse Curation"
+WHEN (REGEXP_MATCH(Page path, '.*feature')) THEN "Feature Curation"
+WHEN (REGEXP_MATCH(Page path, '.*feature#add-new')) THEN "Feature Curation (new)"
+WHEN (REGEXP_MATCH(Page path, '.*about')) THEN "About Curation"
+WHEN (REGEXP_MATCH(Page path, '.*about#add-new')) THEN "About Curation (new)"
 ELSE "Public Pages"
 END
     FIELD
