@@ -156,6 +156,16 @@ body, header {
       flex: 0 0 66.66666667%;
       max-width: 66.66666667%;
     }
+
+    // 5, 6 or 9 items: creates rows of 3 instead of 4 on desktop
+    .box:first-child:nth-last-child(5),
+    .box:first-child:nth-last-child(5) ~ .box,
+    .box:first-child:nth-last-child(6),
+    .box:first-child:nth-last-child(6) ~ .box,
+    .box:first-child:nth-last-child(9),
+    .box:first-child:nth-last-child(9) ~ .box {
+        min-width: 200px;
+    }
   }
 }
 
