@@ -1,0 +1,5 @@
+<% if navigation.display? %>
+  <li class="nav-item">
+    <%= link_to(navigation.label_or_default, exhibit_bibliography_index_path, class: 'nav-link') %>
+  </li>
+<% end %>

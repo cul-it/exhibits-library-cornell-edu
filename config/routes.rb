@@ -34,9 +34,10 @@ Rails.application.routes.draw do
   get '/:exhibit_id/itempages' => 'spotlight/itempages#item_pages'
 
   ### TODO: Portal access is temporarily removed.  See Issue #35.
-  # resources :exhibits, only: [] do
-  #   resources :portal_resources, only: [:create, :update] do
-  #   end
-  # end
+  resources :exhibits, only: [], path: '/' do
+    # resources :portal_resources, only: [:create, :update] do
+    # end
+    resources :bibliography, only: :index
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

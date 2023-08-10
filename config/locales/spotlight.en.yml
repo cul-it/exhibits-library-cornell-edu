@@ -13,6 +13,8 @@ en:
         destroy: Remove from exhibit creator role
         instructions: Existing exhibit creators
         update: Make user an exhibit creator
+    main_navigation:
+      bibliography: Bibliography
     search:
       fields:
         spotlight_copyright_tesim: Copyright

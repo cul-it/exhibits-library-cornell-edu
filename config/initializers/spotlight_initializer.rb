@@ -10,7 +10,7 @@
 # Spotlight::Engine.config.default_blacklight_config = nil
 
 # ==> Appearance configuration
-# Spotlight::Engine.config.exhibit_main_navigation = [:curated_features, :browse, :about]
+Spotlight::Engine.config.exhibit_main_navigation = [:curated_features, :browse, :about, :bibliography]
 Spotlight::Engine.config.resource_partials = [
   # 'spotlight/resources/external_resources_form',
   'spotlight/resources/upload/form',
