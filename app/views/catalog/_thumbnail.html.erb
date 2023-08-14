@@ -1,0 +1,7 @@
+<!--
+Fixes WAVE checker errors:
+- Adds accessible alt text for thumbnail images in search results due to WAVE checker errors
+-->
+
+<% image_options = { alt: document[:full_title_tesim] || document[:id] } %>
+<%= render Blacklight::Document::ThumbnailComponent.new(presenter: document_presenter(document), counter: document_counter_with_offset(document_counter), image_options: image_options) -%>

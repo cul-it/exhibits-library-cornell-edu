@@ -8,6 +8,19 @@
   src: font-url('Mutable-SemiBold.otf');
 }
 
+// Background color
+body, header {
+  background: #fcf9ee;
+}
+
+#exhibit-navbar, footer {
+  background: #ecbb35;
+}
+
+.navbar, #blacklight-modal {
+  background: white;
+}
+
 // Masthead
 .masthead {
   background-color: #dee78f;
@@ -98,10 +111,6 @@
   }
 }
 
-#exhibit-navbar, footer {
-  background: #ecbb35;
-}
-
 // Hackily override col-lg-3 bootstrap styling set in html
 // Roughly equivalent of col-lg-2
 #sidebar.col-lg-3 {
@@ -147,6 +156,16 @@
       flex: 0 0 66.66666667%;
       max-width: 66.66666667%;
     }
+
+    // 5, 6 or 9 items: creates rows of 3 instead of 4 on desktop
+    .box:first-child:nth-last-child(5),
+    .box:first-child:nth-last-child(5) ~ .box,
+    .box:first-child:nth-last-child(6),
+    .box:first-child:nth-last-child(6) ~ .box,
+    .box:first-child:nth-last-child(9),
+    .box:first-child:nth-last-child(9) ~ .box {
+        min-width: 200px;
+    }
   }
 }
 
@@ -159,6 +178,21 @@
     background-position: 0% 0%;
     padding-left: 2rem;
   }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case1.svg') no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 
 #games-content {
@@ -167,6 +201,21 @@
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
+  }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case2.svg') no-repeat;
+      background-size: 80%;
+    }
   }
 }
 
@@ -177,6 +226,21 @@
     background-position: 0% 0%;
     padding-left: 2rem;
   }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case3.svg') no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 
 #radio-content {
@@ -185,6 +249,21 @@
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
+  }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case4.svg') no-repeat;
+      background-size: 80%;
+    }
   }
 }
 
@@ -195,6 +274,21 @@
     background-position: 0% 0%;
     padding-left: 2rem;
   }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case5.svg') no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 
 #fashion-content {
@@ -203,6 +297,21 @@
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
+  }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case6.svg') no-repeat;
+      background-size: 80%;
+    }
   }
 }
 
@@ -213,6 +322,21 @@
     background-position: 0% 0%;
     padding-left: 2rem;
   }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case7.svg') no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 
 #books-content {
@@ -221,6 +345,21 @@
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
+  }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case8.svg') no-repeat;
+      background-size: 80%;
+    }
   }
 }
 
@@ -231,6 +370,21 @@
     background-position: 0% 0%;
     padding-left: 2rem;
   }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case9.svg') no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 
 #activities-content {
@@ -240,6 +394,21 @@
     background-position: 0% 0%;
     padding-left: 2rem;
   }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case10.svg') no-repeat;
+      background-size: 80%;
+    }
+  }
 }
 
 #legacy-content {
@@ -248,5 +417,20 @@
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
+  }
+
+  #sidebar::before {
+    @media (min-width: breakpoint-min('lg')) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: calc(100% - 28em);
+      width: 100%;
+      opacity: 0.6;
+      // Change to repeat-y to create a repeating vertical border under sidebar menu
+      background: image-url('spotlight/themes/joyce/Case11.svg') no-repeat;
+      background-size: 80%;
+    }
   }
 }

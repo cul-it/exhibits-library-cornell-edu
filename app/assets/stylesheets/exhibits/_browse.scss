@@ -1,5 +1,4 @@
 .caption-area {
-  background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
   text-align: center;
   line-height: 17px;
@@ -9,6 +8,15 @@
   .caption {
     header {
       background: inherit;
+    }
+  }
+}
+
+.documents-gallery {
+  .document-metadata {
+    dd {
+      padding-left: 0.5em;
+      padding-bottom: 0.5em;
     }
   }
 }
