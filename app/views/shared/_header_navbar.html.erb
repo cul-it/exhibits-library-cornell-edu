@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<nav class="navbar navbar-expand-md navbar-light <%= nav_env_bkgnd %> topbar" role="navigation" aria-label="<%= t('spotlight.topbar.label') %>">
+<nav class="navbar navbar-expand-md navbar-light <%= nav_env_bkgnd %> topbar" aria-label="<%= t('spotlight.topbar.label') %>">
   <div class="<%= container_classes %>">
     <div class="row header_full_row">
       <div class="col-8">
@@ -52,7 +52,7 @@
   </div>
 </nav>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Site index navigation">
   <div class="<%= container_classes %>">
     <div class="site-title-brand">
       <% unless current_exhibit # Addresses accessibility missing <h1> on non-exhibit pages %>

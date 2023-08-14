@@ -1,0 +1,45 @@
+<% solr_documents_block.with_solr_helper(self) %>
+
+<div class="content-block items-block row d-block clearfix">
+  <% if solr_documents_block.documents? %>
+    <div class="items-col spotlight-flexbox <%= solr_documents_block.text? ? "col-md-6" : "col-md-12" %> <%= solr_documents_block.content_align == 'right' ? 'float-right' : 'float-left' %>">
+      <% solr_documents_block.each_document.each_with_index do |(block_options, document), i| %>
+        <% doc_presenter = document_presenter(document) %>
+        <% image_alt_text = block_options[:alt].present? ? block_options[:alt] : doc_presenter.heading %>
+        <div class="box" data-id="<%= document.id %>">
+          <div class="contents">
+            <% if block_options[:thumbnail_image_url].present? %>
+              <%= link_to_document(document, image_tag(block_options[:thumbnail_image_url], class: 'img-thumbnail', alt: image_alt_text, skip_pipeline: true), counter: -1) %>
+            <% elsif block_options[:iiif_tilesource_base].present?  %>
+              <%= link_to_document(document, image_tag(block_options[:iiif_tilesource_base] + '/full/!400,400/0/default.jpg', class: 'img-thumbnail', alt: image_alt_text, skip_pipeline: true), counter: -1) %>
+            <% elsif doc_presenter.thumbnail.exists? %>
+              <%= doc_presenter.thumbnail.thumbnail_tag({ class: 'img-thumbnail', alt: image_alt_text }, document_counter: -1) %>
+            <% end %>
+            <% if solr_documents_block.primary_caption? %>
+              <div class="caption primary-caption">
+                <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.primary_caption_field) %>
+              </div>
+            <% end %>
+            <% if solr_documents_block.secondary_caption? %>
+              <div class="caption secondary-caption">
+                <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.secondary_caption_field) %>
+              </div>
+            <% end %>
+            <% if solr_documents_block.zpr_link? && block_options[:iiif_tilesource].present? %>
+              <button class="btn btn-secondary zpr-link" data-iiif-tilesource="<%= block_options[:iiif_tilesource] %>"><%= t('.zpr_link_html', title: doc_presenter.heading) %></button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if solr_documents_block.text? %>
+    <div class="text-col col-md-6 mw-100">
+      <% unless solr_documents_block.title.blank? %>
+        <h3><%= solr_documents_block.title %></h3>
+      <% end %>
+      <%= sir_trevor_markdown solr_documents_block.text %>
+    </div>
+  <% end %>
+</div>
