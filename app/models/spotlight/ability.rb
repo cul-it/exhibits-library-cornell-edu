@@ -51,6 +51,8 @@ module Spotlight
       can :read, Spotlight::Search, published: true
       can :read, Spotlight::Group, published: true
       can :read, Spotlight::Language, public: true
+
+      can :read, Spotlight::Exhibit, id: user.viewer_roles.pluck(:resource_id)
     end
     # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
   end
