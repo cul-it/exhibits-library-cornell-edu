@@ -67,5 +67,23 @@ RSpec.configure do |config|
     Warden.test_reset!
   end
 
-  Capybara.javascript_driver = :selenium_chrome_headless
+  if ENV['SELENIUM_DRIVER_URL'].present?
+    Capybara.server_host =
+      begin
+        IPSocket.getaddress(Socket.gethostname)
+      rescue SocketError
+        'webapp'
+      end
+    Capybara.server_port = 4000
+
+    Capybara.register_driver :chrome_remote do |app|
+      Capybara::Selenium::Driver.new app,
+        browser: :remote,
+        url: ENV['SELENIUM_DRIVER_URL'],
+        options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
+    end
+    Capybara.javascript_driver = :chrome_remote
+  else
+    Capybara.javascript_driver = :selenium_chrome_headless
+  end
 end
