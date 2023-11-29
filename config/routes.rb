@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   mount OkComputer::Engine, at: "/syscheck"
 
+  devise_for :users
+
   mount Spotlight::Engine, at: '/' # as opposed to `at: 'spotlight'` which was generated
   mount Blacklight::Engine => '/'
   # root to: "catalog#index" # replaced by spotlight root path
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
   end
-  devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do

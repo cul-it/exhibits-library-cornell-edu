@@ -54,4 +54,36 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Set up Devise and Warden helpers for login
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Warden::Test::Helpers
+
+  config.before(:each, type: :feature) do
+    Warden.test_mode!
+  end
+
+  config.after(:each, type: :feature) do
+    Warden.test_reset!
+  end
+
+  if ENV['SELENIUM_DRIVER_URL'].present?
+    Capybara.server_host =
+      begin
+        IPSocket.getaddress(Socket.gethostname)
+      rescue SocketError
+        'webapp'
+      end
+    Capybara.server_port = 4000
+
+    Capybara.register_driver :chrome_remote do |app|
+      Capybara::Selenium::Driver.new app,
+        browser: :remote,
+        url: ENV['SELENIUM_DRIVER_URL'],
+        options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
+    end
+    Capybara.javascript_driver = :chrome_remote
+  else
+    Capybara.javascript_driver = :selenium_chrome_headless
+  end
 end
