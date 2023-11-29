@@ -54,4 +54,18 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Set up Devise and Warden helpers for login
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Warden::Test::Helpers
+
+  config.before(:each, type: :feature) do
+    Warden.test_mode!
+  end
+
+  config.after(:each, type: :feature) do
+    Warden.test_reset!
+  end
+
+  Capybara.javascript_driver = :selenium_chrome_headless
 end
