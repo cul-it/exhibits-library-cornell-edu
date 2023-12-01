@@ -9,10 +9,11 @@ development:
   adapter: mysql2
   encoding: utf8
   database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_development" %>
-  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+  username: <%= ENV['DATABASE_RAILS_USER'] %>
+  password: <%= ENV['DATABASE_RAILS_USER_PW'] %>
   pool: 5
-  socket: /tmp/mysql.sock
+  host: <%= ENV['DATABASE_HOST'] %>
+  socket: <%= ENV['MYSQL_SOCKET'] %>
 
 test:
   adapter: sqlite3

@@ -12,4 +12,4 @@ until nc -z -v -w30 $DATABASE_HOST $DATABASE_PORT; do
  echo "Waiting for MySQL... (checking status with $CMD)"
  sleep 1
 done
-echo "MySQL is up and running with ${DATABASE_NAME_PREFIX}_docker database at ${DATABASE_HOST}:${DATABASE_PORT}!"
+echo "MySQL is up and running with ${DATABASE_NAME_PREFIX}_${RAILS_ENV} database at ${DATABASE_HOST}:${DATABASE_PORT}!"
