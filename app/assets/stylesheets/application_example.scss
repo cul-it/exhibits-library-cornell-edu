@@ -1,0 +1,38 @@
+@import 'base';
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Lato&family=Open+Sans&display=swap');
+
+#exhibit-navbar {
+  background-color: darkolivegreen;
+
+  button#search {
+    background: gray;
+    border-color: gray;
+  }
+}
+
+#main-container {
+  h1 {
+    font-family: 'Gloria Hallelujah';
+    color: red;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  // Yikes
+  @keyframes example {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
+
+  .st__content-block--text {
+    border: 2px solid black;
+    background-color: lightgray;
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
+}

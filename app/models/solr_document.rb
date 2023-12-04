@@ -21,4 +21,17 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  # If no Spotlight::FeaturedImage, create one and reindex resource
+  # Called from SolrDocument#update
+  def update_exhibit_resource(resource_attributes)
+    return unless resource_attributes && resource_attributes['url']
+
+    if uploaded_resource.upload
+      uploaded_resource.upload.update image: resource_attributes['url']
+    else
+      uploaded_resource.build_upload image: resource_attributes['url']
+      uploaded_resource.save_and_index
+    end
+  end
 end

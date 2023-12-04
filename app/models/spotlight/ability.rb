@@ -31,6 +31,7 @@ module Spotlight
         can :manage, [
           Spotlight::Attachment,
           Spotlight::Search,
+          Spotlight::Group,
           Spotlight::Resource,
           Spotlight::Page,
           Spotlight::Contact,
@@ -49,7 +50,10 @@ module Spotlight
       can :read, Spotlight::Exhibit, published: true
       can :read, Spotlight::Page, published: true
       can :read, Spotlight::Search, published: true
+      can :read, Spotlight::Group, published: true
       can :read, Spotlight::Language, public: true
+
+      can :read, Spotlight::Exhibit, id: user.viewer_roles.pluck(:resource_id)
     end
     # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
   end

@@ -9,6 +9,7 @@ FROM ruby:$RUBY_VERSION-alpine
 ## - tzdata: add time zone support
 ## - mariadb-dev: To allow use of MySQL gem
 ## - imagemagick: for image processing
+## - chromium-chromedriver: for js-enabled tests
 RUN apk add --update --no-cache \
       bash \
       build-base \
@@ -17,7 +18,8 @@ RUN apk add --update --no-cache \
       sqlite-dev \
       tzdata \
       mariadb-dev \
-      imagemagick
+      imagemagick \
+      chromium-chromedriver
 
 
 WORKDIR /app/cul-it/exhibits-webapp
