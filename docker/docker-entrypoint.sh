@@ -7,16 +7,15 @@ echo '====================================================================='
 
 set -e
 
-# Wait for DB services
-sh ./bin/db-wait.sh
-
 # Prepare DB (Migrate if exists; else Create db & Migrate)
-sh ./bin/db-prepare.sh
+sh ./docker/db-prepare.sh
 
-# Remove a potentially pre-existing server.pid for Rails
-rm -f /app/tmp/pids/server.pid
-
-# Run the command defined in docker-compose.yml
+# Run the command defined in compose.yaml
 exec "$@"
 
+# Start sidekiq
 bundle exec sidekiq -d -L log/sidekiq.log -e development
+
+# Start the web server
+mkdir -p ./tmp/pids
+bundle exec puma -C config/puma.rb

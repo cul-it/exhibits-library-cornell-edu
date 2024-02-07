@@ -1,33 +1,23 @@
 services:
-  app:
+  webapp:
     build:
       context: .
     image: cul-it/exhibits:v1
     stdin_open: true
     tty: true
-    user: root
     env_file:
       - '.env'
     volumes:
-      # - .:/exhibits # use for debugging
-      - app_src:/webapp # use when not debugging
-      - rails-public:/webapp/public
-      - rails-tmp:/webapp/tmp
+      - .:/exhibits
       - gems:/usr/local/bundle
     ports:
       - 3000:3000
-    # command:
-    #   - /bin/bash
-    #   - -c
-    #   - rake db:migrate
     depends_on:
       - mysql
       - redis
       - solr
       - chrome
 
-  # Using mariadb instead of mysql:5.7 because not supported on linux/arm64/v8
-  # https://stackoverflow.com/questions/65456814/docker-apple-silicon-m1-preview-mysql-no-matching-manifest-for-linux-arm64-v8
   mysql:
     image: mariadb:10.6
     restart: always
@@ -35,12 +25,11 @@ services:
       - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
       - MYSQL_USER=${DATABASE_RAILS_USER}
       - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
-      # Couldn't read $RAILS_ENV?
       - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_development
     ports:
       - 3306:3306
     volumes:
-      - db-mysql-data:/var/lib/mysql/data
+      - db-data:/var/lib/mysql/data
 
   solr:
     image: solr:8.11.1
@@ -70,11 +59,8 @@ services:
       - 4444:4444
 
 volumes:
-  app_src: # comment out when debugging and using . volume for webapp
-  db-mysql-data:
+  db-data:
   gems:
-  rails-public:
-  rails-tmp:
   redis:
   solr_home:
   chrome:
