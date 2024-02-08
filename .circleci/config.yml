@@ -9,7 +9,7 @@ jobs:
       - run: docker compose build
       - run: docker compose up -d
       - run: docker compose exec webapp sh -c "bundle exec rubocop"
-      - run: docker compose run -e "RAILS_ENV=test" webapp bundle exec rspec
+      - run: docker compose run --user="root" -e "RAILS_ENV=test" webapp bundle exec rspec
       # This line is to be able to access failing screenshots in the
       # artifacts section in CircleCI
       - store_artifacts:
