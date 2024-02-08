@@ -1,7 +1,7 @@
 ARG RUBY_VERSION=3.0.5
 
 ################################################################################
-# Base stage for building base image
+# Stage for building base image
 # Debian 11
 # Includes critical vulnerability:
 #    cgi 0.2.2 - https://scout.docker.com/vulnerabilities/id/CVE-2021-41816
@@ -21,21 +21,34 @@ RUN apt-get install -y --no-install-recommends \
     imagemagick
 
 ################################################################################
-# Final stage for running application
-FROM ruby_base AS final
+# Build test environment
+FROM ruby_base as test
+ENV RAILS_ENV=test \
+    APP_PATH=/exhibits
 
-# Separate stages for different rails envs
+# Install application gems
+WORKDIR $APP_PATH
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+COPY . .
+
+ENTRYPOINT [ "docker/build_test.sh" ]
+
+################################################################################
+# Build development environment
+FROM ruby_base as development
+
 ENV RAILS_ENV=development \
     APP_PATH=/exhibits \
     USER=crunner \
-    GROUP=crunnergrp \
-    BUNDLE_PATH=/usr/local/bundle
+    GROUP=crunnergrp
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
 RUN groupadd -r $GROUP && useradd -r -g $GROUP $USER && \
-    mkdir -p /home/crunner && \
-    chown ${USER}:${GROUP} /home/crunner
+    mkdir -p /home/${USER} && \
+    chown ${USER}:${GROUP} /home/${USER}
 USER $USER
 
 # Install application gems
@@ -45,7 +58,6 @@ RUN bundle install
 
 COPY --chown=${USER}:${GROUP} . .
 
-EXPOSE 3000
-
-# Script runs when container starts
-ENTRYPOINT [ "docker/docker-entrypoint.sh" ]
+# Run the web server
+EXPOSE 9292
+ENTRYPOINT [ "docker/puma.sh" ]

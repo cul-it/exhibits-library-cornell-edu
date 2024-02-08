@@ -2,54 +2,39 @@ services:
   webapp:
     build:
       context: .
-    image: cul-it/exhibits:v1
+      target: test
+    image: exhibits-test
     stdin_open: true
     tty: true
     env_file:
-      - '.env'
+      - .env
+    environment:
+      - PORT=3010
     volumes:
       - .:/exhibits
-      - gems:/usr/local/bundle
     ports:
-      - 3000:3000
+      - 3010:3010
     depends_on:
-      - mysql
       - redis
       - solr
       - chrome
 
-  mysql:
-    image: mariadb:10.6
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
-      - MYSQL_USER=${DATABASE_RAILS_USER}
-      - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
-      - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_development
-    ports:
-      - 3306:3306
-    volumes:
-      - db-data:/var/lib/mysql/data
-
   solr:
     image: solr:8.11.1
     ports:
-      - 8983:8983
+      - 8984:8983
     command:
       - solr-precreate
       - blacklight-core
       - /opt/solr/server/configsets/exhibitsconf
     volumes:
-      - solr_home:/opt/solr/server/solr
       - ./solr/config:/opt/solr/server/configsets/exhibitsconf
 
   # This doesn't even match current redis, I don't think? Gemfile.lock has it at 4.5 - but sidekiq is overdue for an upgrade
   redis:
     image: redis:5-alpine
-    volumes:
-      - redis:/data
     ports:
-      - 6379:6379
+      - 6479:6379
     command:
       - redis-server
 
@@ -57,15 +42,6 @@ services:
     image: seleniarm/standalone-chromium
     ports:
       - 4444:4444
-
-volumes:
-  db-data:
-  gems:
-  redis:
-  solr_home:
-  chrome:
-
-
 
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Docker compose reference guide at
