@@ -10,7 +10,28 @@
 
 ## QuickStart
 
-### OPTION 1: Start app manually
+### OPTION 1: Start with Docker
+
+```
+$ docker compose -f compose.dev.yaml up
+```
+
+Web server: http://localhost:9292
+Solr: http://localhost:8983
+
+Run full test suite:
+```
+$ ./docker/run_test.sh
+```
+
+Open the test container in interactive mode and run tests individually:
+
+```
+$ ./docker/run_test.sh -i
+$ bundle exec rspec spec/models/solr_document_spec.rb:20
+```
+
+### OPTION 2: Start app manually
 
 1. Clone this repo
    ```sh
@@ -62,28 +83,25 @@
    >
    > Visit the Sidekiq dashboard at [http://localhost:3000/sidekiq](http://localhost:3000/sidekiq)
 
+## Linting
 
-### OPTION 2: Start with Docker (EXPERIMENTAL)
+This project uses RuboCop to ensure consistency in code style/formatting.
 
-```sh
-$ docker-compose build
-$ docker-compose up -d
+To output rubocop issues with docker:
+
+```
+# Open an interactive bash session:
+$ docker compose -f compose.dev.yaml exec -it webapp bash
+
+# Run rubocop:
+$ bundle exec rubocop
 ```
 
-Access through browser: http://localhost:3000
+To output rubocop issues with manual setup:
 
-Run tests:
-```sh
-$ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
 ```
-
-## Linting/Testing
-
-1. RuboCop: ensure consistency in code style/formatting
-
-   ```sh
-   bin/rubocop
-   ```
+$ bundle exec rubocop
+```
 
 ## Circle/CI
 Go to https://circleci.com and pick "log in" and the "Login with GitHub" option.  This will allow you to select this repository.  Once you are logged in, you should be able to see CircleCI builds and messages.   
