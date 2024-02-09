@@ -10,6 +10,18 @@
 
 ## Local Development Setup
 
+1. Clone this repo
+   ```sh
+   $ git clone git@github.com:cul-it/exhibits-library-cornell-edu.git
+   ```
+
+1. Copy example dotenv file and update `CHANGEME` values
+   ```sh
+   $ cp .env.example .env
+   ```
+
+1. Choose your path for setting up your dev environment: [start with Docker](#option-1-start-with-docker) or [start app manually](#option-2-start-app-manually).
+
 ### OPTION 1: Start with Docker
 
 ```
@@ -52,20 +64,10 @@ $ exit
 
 ### OPTION 2: Start app manually
 
-1. Clone this repo
-   ```sh
-   $ git clone git@github.com:cul-it/exhibits-library-cornell-edu.git
-   ```
-
 1. Install gems
    ```sh
    $ cd <clone>
    $ bundle install
-   ```
-
-1. Copy example dotenv file and update `CHANGEME` values
-   ```sh
-   $ cp .env.example .env
    ```
 
 1. Create the database and run migrations
