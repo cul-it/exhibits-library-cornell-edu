@@ -8,16 +8,19 @@
 * [Solr](https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html)
 * Optional: [Docker](https://docs.docker.com/get-docker/)
 
-## QuickStart
+## Local Development Setup
 
 ### OPTION 1: Start with Docker
 
 ```
-$ docker compose -f compose.dev.yaml up
+$ docker compose up -d
 ```
 
 Web server: http://localhost:9292
+
 Solr: http://localhost:8983
+
+#### Testing in Docker
 
 Run full test suite:
 ```
@@ -29,6 +32,22 @@ Open the test container in interactive mode and run tests individually:
 ```
 $ ./docker/run_test.sh -i
 $ bundle exec rspec spec/models/solr_document_spec.rb:20
+```
+
+#### Linting in Docker
+
+This project uses RuboCop to ensure consistency in code style/formatting. To output rubocop issues:
+
+```
+$ docker compose exec webapp bundle exec rubocop
+```
+
+Or open an interactive bash session to run rubocop:
+
+```
+$ docker compose exec webapp bash
+$ bundle exec rubocop
+$ exit
 ```
 
 ### OPTION 2: Start app manually
@@ -83,21 +102,15 @@ $ bundle exec rspec spec/models/solr_document_spec.rb:20
    >
    > Visit the Sidekiq dashboard at [http://localhost:3000/sidekiq](http://localhost:3000/sidekiq)
 
-## Linting
-
-This project uses RuboCop to ensure consistency in code style/formatting.
-
-To output rubocop issues with docker:
+#### Testing with manual setup
 
 ```
-# Open an interactive bash session:
-$ docker compose -f compose.dev.yaml exec -it webapp bash
-
-# Run rubocop:
-$ bundle exec rubocop
+$ bundle exec rspec
 ```
 
-To output rubocop issues with manual setup:
+#### Linting with manual setup
+
+This project uses RuboCop to ensure consistency in code style/formatting. To output rubocop issues:
 
 ```
 $ bundle exec rubocop

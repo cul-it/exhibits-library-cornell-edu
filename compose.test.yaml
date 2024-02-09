@@ -1,3 +1,6 @@
+# Docker compose file for test environment
+# Run with: docker compose -f compose.test.yaml up
+
 services:
   webapp:
     build:

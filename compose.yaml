@@ -1,3 +1,6 @@
+# Docker compose file for development environment
+# Run with: docker compose up
+
 services:
   webapp:
     build:
