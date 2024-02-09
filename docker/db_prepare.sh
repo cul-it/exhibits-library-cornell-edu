@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
 # If the database exists, migrate. Otherwise setup (create and migrate)
 echo "Preparing Database..."
