@@ -41,7 +41,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 4.2.0'
 
 # Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '~> 7.33.1'
+gem 'blacklight', '~> 7.36.1'
 gem 'blacklight-gallery', '~> 4.0'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'blacklight-spotlight', '~> 3.5'
