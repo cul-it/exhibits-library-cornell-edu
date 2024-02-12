@@ -1,4 +1,4 @@
-version: 2.1
+version: 3
 jobs:
   build:
     machine: true # Use a Linux VM instead of docker environment
@@ -6,10 +6,9 @@ jobs:
     steps:
       - checkout
       - run: bin/create_cci_env
-      - run: docker-compose build
-      - run: docker-compose up -d
-      - run: docker-compose exec app sh -c "bundle exec rubocop"
-      - run: docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
+      - run: docker compose -p exhibits-test -f compose.test.yaml run webapp bundle exec rubocop
+      - run: docker compose -p exhibits-test -f compose.test.yaml run webapp bundle exec rspec
+
       # This line is to be able to access failing screenshots in the
       # artifacts section in CircleCI
       - store_artifacts:

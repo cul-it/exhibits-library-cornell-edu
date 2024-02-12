@@ -1,0 +1,62 @@
+# Docker compose file for development environment
+# Run with: docker compose up
+
+services:
+  webapp:
+    build:
+      context: .
+      target: development
+    image: exhibits
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+    environment:
+      - PORT=9292
+    volumes:
+      - .:/exhibits
+      - gems:/usr/local/bundle
+    ports:
+      - 9292:9292
+    depends_on:
+      - mysql
+      - redis
+      - solr
+
+  mysql:
+    image: mariadb:10.6
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
+      - MYSQL_USER=${DATABASE_RAILS_USER}
+      - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
+      - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_development
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql/data
+
+  solr:
+    extends:
+      file: compose.base.yaml
+      service: solr
+    ports:
+      - 8983:8983
+    volumes:
+      - solr_home:/opt/solr/server/solr
+      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+
+  redis:
+    extends:
+      file: compose.base.yaml
+      service: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+
+volumes:
+  db-data:
+  gems:
+  redis:
+  solr_home:

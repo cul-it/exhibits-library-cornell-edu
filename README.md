@@ -8,24 +8,66 @@
 * [Solr](https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html)
 * Optional: [Docker](https://docs.docker.com/get-docker/)
 
-## QuickStart
-
-### OPTION 1: Start app manually
+## Local Development Setup
 
 1. Clone this repo
    ```sh
    $ git clone git@github.com:cul-it/exhibits-library-cornell-edu.git
    ```
 
+1. Copy example dotenv file and update `CHANGEME` values
+   ```sh
+   $ cp .env.example .env
+   ```
+
+1. Choose your path for setting up your dev environment: [start with Docker](#option-1-start-with-docker) or [start app manually](#option-2-start-app-manually).
+
+### OPTION 1: Start with Docker
+
+```
+$ docker compose up -d
+```
+
+Web server: http://localhost:9292
+
+Solr: http://localhost:8983
+
+#### Testing in Docker
+
+Run full test suite:
+```
+$ ./docker/run_test.sh
+```
+
+Open the test container in interactive mode and run tests individually:
+
+```
+$ ./docker/run_test.sh -i
+$ bundle exec rspec spec/models/solr_document_spec.rb:20
+```
+
+#### Linting in Docker
+
+This project uses RuboCop to ensure consistency in code style/formatting. To output rubocop issues:
+
+```
+$ docker compose exec webapp bundle exec rubocop
+```
+
+Or open an interactive bash session to run rubocop:
+
+```
+$ docker compose exec webapp bash
+$ bundle exec rubocop
+$ exit
+```
+
+### OPTION 2: Start app manually
+
 1. Install gems
    ```sh
    $ cd <clone>
    $ bundle install
-   ```
-
-1. Copy example dotenv file and update `CHANGEME` values
-   ```sh
-   $ cp .env.example .env
    ```
 
 1. Create the database and run migrations
@@ -62,28 +104,19 @@
    >
    > Visit the Sidekiq dashboard at [http://localhost:3000/sidekiq](http://localhost:3000/sidekiq)
 
+#### Testing with manual setup
 
-### OPTION 2: Start with Docker (EXPERIMENTAL)
-
-```sh
-$ docker-compose build
-$ docker-compose up -d
+```
+$ bundle exec rspec
 ```
 
-Access through browser: http://localhost:3000
+#### Linting with manual setup
 
-Run tests:
-```sh
-$ docker-compose run -e "RAILS_ENV=test" app bundle exec rspec
+This project uses RuboCop to ensure consistency in code style/formatting. To output rubocop issues:
+
 ```
-
-## Linting/Testing
-
-1. RuboCop: ensure consistency in code style/formatting
-
-   ```sh
-   bin/rubocop
-   ```
+$ bundle exec rubocop
+```
 
 ## Circle/CI
 Go to https://circleci.com and pick "log in" and the "Login with GitHub" option.  This will allow you to select this repository.  Once you are logged in, you should be able to see CircleCI builds and messages.   
