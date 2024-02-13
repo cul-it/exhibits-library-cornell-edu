@@ -1,9 +1,12 @@
-<%= render(
-  Blacklight::DocumentMetadataComponent.new(
-    fields: document_presenter(document).field_presenters,
-    show: true
-  )
-) %>
+<% document_presenter(document).field_presenters.each do |field_presenter| %>
+  <% custom_presenter = CustomFieldPresenter.new(field_presenter.view_context, field_presenter.document, field_presenter.field_config, field_presenter.options) %>
+  <%= render(
+    Blacklight::DocumentMetadataComponent.new(
+      fields: [custom_presenter],
+      show: true
+    )
+  ) %>
+<% end %>
 <% ### BEGIN CUSTOMIZATION %>
 <%
   doc_id = document['id'] || ''
