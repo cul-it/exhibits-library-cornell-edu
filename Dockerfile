@@ -16,7 +16,11 @@ RUN apt-get install -y --no-install-recommends \
     mariadb-server \
     libsqlite3-dev \
     nodejs \
-    imagemagick
+    imagemagick ghostscript
+
+# Update ImageMagick policy to allow PDFs
+ARG IMAGEMAGICK_POLICY=/etc/ImageMagick-6/policy.xml
+RUN if [ -f $IMAGEMAGICK_POLICY ] ; then sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' $IMAGEMAGICK_POLICY ; else echo did not see file $IMAGEMAGICK_POLICY ; fi
 
 ################################################################################
 # Build test environment
