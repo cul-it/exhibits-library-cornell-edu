@@ -11,6 +11,6 @@ if [ $interactive = true ]
   then
     docker compose -p exhibits-test -f compose.test.yaml run --entrypoint=bash webapp
   else
-    docker compose -p exhibits-test -f compose.test.yaml run webapp bundle exec rspec
+    docker compose -p exhibits-test -f compose.test.yaml run --build webapp bundle exec rspec
 fi
 docker compose -p exhibits-test -f compose.test.yaml down --remove-orphans
