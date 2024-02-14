@@ -50,3 +50,22 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.carousel-block .carousel-caption {
+  .primary a, .secondary a {
+    color: #fff;
+  }
+}
+/* Static Carousel Items */
+.list-group-item {
+  color: #000;
+  a {
+    color: #006699;
+  }
+  &.active {
+    color: #fff;
+    a {
+      color: inherit;
+      }
+  }
+}
