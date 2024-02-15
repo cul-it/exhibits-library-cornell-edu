@@ -29,11 +29,17 @@
                     <% caption_text = solr_documents_features_block.document_caption(doc_presenter, solr_documents_features_block.primary_caption_field, default: Spotlight::PageConfigurations::DOCUMENT_TITLE_KEY) %>
                   <% end %>
 
-                  <%# count and truncate the text length only, not the html tags %>
-                  <a href="#" title="<%= caption_text %>">
-                    <%= truncate(strip_tags(caption_text), length: 95) %>
-                  </a>
-                  
+                  <%# Count and truncate the text length only, do not consider any markdown links
+                      don't render the link since this is the primary caption %>
+                  <% stripped_caption_text = strip_tags(caption_text) %>
+                    <a href="#" title="<%= stripped_caption_text %>">
+                      <% if stripped_caption_text.length > 95 %>
+                        <%= truncate(stripped_caption_text, length: 92) + '...' %>
+                      <% else %>
+                        <%= stripped_caption_text %>
+                      <% end %>
+                    </a>
+
                   <% if solr_documents_features_block.secondary_caption? %>
                     <% if solr_documents_features_block.secondary_caption_field == 'spotlight_upload_description_tesim' %>
                       <% secondary_caption = CustomFieldPresenter.new(self, doc_presenter.document, Blacklight::Configuration::Field.new(field: solr_documents_features_block.secondary_caption_field)).render %>
