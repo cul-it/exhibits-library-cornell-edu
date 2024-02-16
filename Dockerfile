@@ -1,20 +1,18 @@
-ARG RUBY_VERSION=3.0.5
+ARG RUBY_VERSION=3.2.2
 
 ################################################################################
 # Stage for building base image
-# Debian 11
-# Includes critical vulnerability:
-#    cgi 0.2.2 - https://scout.docker.com/vulnerabilities/id/CVE-2021-41816
+# Debian 12
+# Includes high vulnerability:
+#    GnuTLS - https://scout.docker.com/vulnerabilities/id/CVE-2024-0567
 #    Check container-discovery for examples of patching CVEs
-# Should upgrade to latest Debian when ruby is upgraded
-FROM ruby:$RUBY_VERSION-slim-bullseye as ruby_base
+FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
 
 RUN apt-get update -qq && apt-get install -y build-essential
 
 # Install other packages required for rails app
-# Only install chrome in test?
 RUN apt-get install -y --no-install-recommends \
-    default-libmysqlclient-dev=1.0.7 \
+    default-libmysqlclient-dev=1.1.0 \
     mariadb-server \
     libsqlite3-dev \
     nodejs \
@@ -53,7 +51,7 @@ USER $USER
 
 # Install application gems
 WORKDIR $APP_PATH
-COPY Gemfile Gemfile.lock ./
+COPY --chown=${USER}:${GROUP} Gemfile Gemfile.lock ./
 RUN bundle install
 
 COPY --chown=${USER}:${GROUP} . .

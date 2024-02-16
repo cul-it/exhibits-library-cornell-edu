@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.5'
+ruby '3.2.2'
 
 gem 'rails', '~> 7.0.4'
 
@@ -23,10 +23,12 @@ gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
 # Use Puma as the app server
 gem 'puma', '< 7'
+gem 'rdoc', require: false
 gem 'riiif'
 gem 'rsolr'
 gem 'ruby-oembed'
 # Use SCSS for stylesheets
+gem 'sassc', '~> 2.1', '< 2.2'
 gem 'sassc-rails'
 gem 'sidekiq', '~> 5.2' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
@@ -41,7 +43,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 4.2.0'
 
 # Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '~> 7.33.1'
+gem 'blacklight', '~> 7.36.1'
 gem 'blacklight-gallery', '~> 4.0'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'blacklight-spotlight', '~> 3.5'
