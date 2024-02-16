@@ -1,0 +1,12 @@
+<%# render(Blacklight::DocumentMetadataComponent.new(fields: document_presenter(document).field_presenters)) #%>
+
+<%# Use a custom field presenter to render the document metadata LP-481 %>
+<% document_presenter(document).field_presenters.each do |field_presenter| %>
+    <% custom_presenter = CustomFieldPresenter.new(field_presenter.view_context, field_presenter.document, field_presenter.field_config, field_presenter.options) %>
+    <%= render(
+      Blacklight::DocumentMetadataComponent.new(
+        fields: [custom_presenter],
+        show: true
+      )
+    ) %>
+<% end %>

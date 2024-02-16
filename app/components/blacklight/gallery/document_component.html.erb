@@ -1,0 +1,30 @@
+<% component = Blacklight::VERSION > '8' ?
+  Blacklight::DocumentComponent.new(classes: 'col', component: :div, document: @presenter, counter: @counter) :
+  Blacklight::DocumentComponent.new(classes: 'col', component: :div, document: @document, presenter: @presenter, counter: @counter)
+%>
+<%= render(component) do |component| %>
+  <% component.with_body do %>
+    <div class="thumbnail-container">
+      <%= thumbnail %>
+ 
+      <div class="caption-area">
+        <div class="caption container">
+          <%= title %>
+          <%= content %>
+
+          <%# Use a custom field presenter to render the document metadata LP-481 %>
+          <% @presenter.field_presenters.each do |field_presenter| %>
+            <% custom_presenter = CustomFieldPresenter.new(field_presenter.view_context, field_presenter.document, field_presenter.field_config, field_presenter.options) %>
+            <%= render(
+              Blacklight::DocumentMetadataComponent.new(
+                fields: [custom_presenter],
+                show: true
+              )
+            ) %>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

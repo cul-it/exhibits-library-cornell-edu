@@ -12,7 +12,6 @@ RSpec.describe CustomFieldPresenter, type: :presenter do
   end
 
   describe '#render' do
-
     # tests for the field 'spotlight_upload_description_tesim'
     context 'when field is spotlight_upload_description_tesim' do
       let(:field) { 'spotlight_upload_description_tesim' }
@@ -78,6 +77,5 @@ RSpec.describe CustomFieldPresenter, type: :presenter do
         expect(presenter.render).to eq('&lt;b&gt;bold&lt;/b&gt;')
       end
     end
-
   end
 end
