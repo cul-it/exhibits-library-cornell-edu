@@ -16,12 +16,12 @@
               <%= doc_presenter.thumbnail.thumbnail_tag({ class: 'img-thumbnail', alt: image_alt_text }, document_counter: -1) %>
             <% end %>
             <% if solr_documents_block.primary_caption? %>
-              <div class="caption primary-caption"> helper render:
+              <div class="caption primary-caption">
                <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.primary_caption_field) %>
               </div>
             <% end %>
             <% if solr_documents_block.secondary_caption? %>
-              <div class="caption secondary-caption"> helper rendred:
+              <div class="caption secondary-caption">
                 <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.secondary_caption_field) %>
               </div>
             <% end %>
