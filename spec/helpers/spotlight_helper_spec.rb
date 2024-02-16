@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# in the SpotlightHelper test the module for the render_markdown_links method
+# SpotlightHelper tests the module for the render_markdown_links method
 # which is used to render the markdown links as HTML links LP-481
 
 RSpec.describe SpotlightHelper, type: :helper do
@@ -13,7 +13,7 @@ RSpec.describe SpotlightHelper, type: :helper do
         expect(result).to eq('Here is my sample description. <a href="https://www.google.com">Google</a>')
       end
     end
-å
+
     context 'when the value is a Markdown link with HTML' do
       let(:options) { { value: ['Here is my sample description. [Google](https://www.google.com) <b>bold</b>'] } }
 
