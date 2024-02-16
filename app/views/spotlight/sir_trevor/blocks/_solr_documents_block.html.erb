@@ -16,21 +16,15 @@
               <%= doc_presenter.thumbnail.thumbnail_tag({ class: 'img-thumbnail', alt: image_alt_text }, document_counter: -1) %>
             <% end %>
             <% if solr_documents_block.primary_caption? %>
-              <div class="caption primary-caption">
-                <% if solr_documents_block.primary_caption_field == 'spotlight_upload_description_tesim' %>
-                  <%= CustomFieldPresenter.new(self, document, Blacklight::Configuration::Field.new(field: solr_documents_block.primary_caption_field)).render %>
-                <% else %>
-                  <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.primary_caption_field) %>
-                <% end %>
+              <div class="caption primary-caption"> helper render:
+               <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.primary_caption_field) %>
+                
               </div>
             <% end %>
             <% if solr_documents_block.secondary_caption? %>
-              <div class="caption secondary-caption">
-                <% if solr_documents_block.secondary_caption_field == 'spotlight_upload_description_tesim' %>
-                  <%= CustomFieldPresenter.new(self, document, Blacklight::Configuration::Field.new(field: solr_documents_block.secondary_caption_field)).render %>
-                <% else %>
-                  <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.secondary_caption_field) %>
-                <% end %>
+              <div class="caption secondary-caption"> helper rendred:
+                <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.secondary_caption_field) %>
+               
               </div>
             <% end %>
             <% if solr_documents_block.zpr_link? && block_options[:iiif_tilesource].present? %>

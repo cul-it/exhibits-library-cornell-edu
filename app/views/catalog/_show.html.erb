@@ -1,10 +1,6 @@
-<% custom_presenters = document_presenter(document).field_presenters.map do |field_presenter| 
-  CustomFieldPresenter.new(field_presenter.view_context, field_presenter.document, field_presenter.field_config, field_presenter.options)
-end %>
-
 <%= render(
   Blacklight::DocumentMetadataComponent.new(
-    fields: custom_presenters,
+    fields: document_presenter(document).field_presenters,
     show: true
   )
 ) %>

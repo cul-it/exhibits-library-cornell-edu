@@ -19,20 +19,12 @@
         <div class="carousel-caption">
           <% if solr_documents_carousel_block.primary_caption? %>
             <h3 class="primary">
-              <% if solr_documents_features_block.primary_caption_field == 'spotlight_upload_description_tesim' %>
-                <%= CustomFieldPresenter.new(self, document, Blacklight::Configuration::Field.new(field: solr_documents_carousel_block.primary_caption_field)).render %>
-              <% else %>
-                <%= solr_documents_carousel_block.document_caption(doc_presenter, solr_documents_carousel_block.primary_caption_field) %>
-              <% end %>
+              <%= solr_documents_carousel_block.document_caption(doc_presenter, solr_documents_carousel_block.primary_caption_field) %>
             </h3>
           <% end %>
           <% if solr_documents_carousel_block.secondary_caption? %>
             <div class="secondary">
-              <% if solr_documents_features_block.secondary_caption_field == 'spotlight_upload_description_tesim' %>
-                <%= CustomFieldPresenter.new(self, doc_presenter.document, Blacklight::Configuration::Field.new(field: solr_documents_features_block.secondary_caption_field)).render %>
-              <% else %>
-                <%= solr_documents_carousel_block.document_caption(doc_presenter, solr_documents_carousel_block.secondary_caption_field) %>
-              <% end %>
+              <%= solr_documents_carousel_block.document_caption(doc_presenter, solr_documents_carousel_block.secondary_caption_field) %>
             </div>
           <% end %>
         </div>

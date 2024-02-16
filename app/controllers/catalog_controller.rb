@@ -49,5 +49,11 @@ class CatalogController < ApplicationController
     config.add_results_collection_tool(:view_type_group)
 
     config.view.masonry.title_only_by_default = true
+
+    config.add_index_field(
+      'spotlight_upload_description_tesim', 
+      label: I18n.t(:"spotlight.search.fields.#{Spotlight::Engine.config.upload_description_field}"), 
+      helper_method: :render_markdown_links
+    )
   end
 end
