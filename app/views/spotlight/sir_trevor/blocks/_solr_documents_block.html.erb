@@ -18,13 +18,11 @@
             <% if solr_documents_block.primary_caption? %>
               <div class="caption primary-caption"> helper render:
                <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.primary_caption_field) %>
-                
               </div>
             <% end %>
             <% if solr_documents_block.secondary_caption? %>
               <div class="caption secondary-caption"> helper rendred:
                 <%= solr_documents_block.document_caption(doc_presenter, solr_documents_block.secondary_caption_field) %>
-               
               </div>
             <% end %>
             <% if solr_documents_block.zpr_link? && block_options[:iiif_tilesource].present? %>
