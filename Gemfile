@@ -23,10 +23,12 @@ gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
 # Use Puma as the app server
 gem 'puma', '< 7'
+gem 'rdoc', require: false
 gem 'riiif'
 gem 'rsolr'
 gem 'ruby-oembed'
 # Use SCSS for stylesheets
+gem 'sassc', '~> 2.1', '< 2.2'
 gem 'sassc-rails'
 gem 'sidekiq', '~> 5.2' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
