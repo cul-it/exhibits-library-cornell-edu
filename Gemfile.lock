@@ -615,6 +615,7 @@ GEM
       nokogiri (>= 1.3.2)
     thor (1.3.0)
     tilt (2.3.0)
+    timecop (0.9.8)
     timeout (0.4.1)
     tins (1.32.1)
       sync
@@ -719,6 +720,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   sqlite3
+  timecop
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
