@@ -1,51 +1,61 @@
-ARG RUBY_VERSION=3.0.5
-FROM ruby:$RUBY_VERSION-alpine
+ARG RUBY_VERSION=3.2.2
 
-## Install dependencies:
-## - build-base: To ensure certain gems can be compiled
-## - git: Allow bundler to fetch and install ruby gems
-## - nodejs: Required by Rails
-## - sqlite-dev: For running tests in the container
-## - tzdata: add time zone support
-## - mariadb-dev: To allow use of MySQL gem
-## - imagemagick: for image processing
-## - chromium-chromedriver: for js-enabled tests
-RUN apk add --update --no-cache \
-      bash \
-      build-base \
-      git \
-      nodejs \
-      sqlite-dev \
-      tzdata \
-      mariadb-dev \
-      imagemagick \
-      chromium-chromedriver
+################################################################################
+# Stage for building base image
+# Debian 12
+# Includes high vulnerability:
+#    GnuTLS - https://scout.docker.com/vulnerabilities/id/CVE-2024-0567
+#    Check container-discovery for examples of patching CVEs
+FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
 
+RUN apt-get update -qq && apt-get install -y build-essential
 
-WORKDIR /app/cul-it/exhibits-webapp
+# Install other packages required for rails app
+RUN apt-get install -y --no-install-recommends \
+    default-libmysqlclient-dev=1.1.0 \
+    mariadb-server \
+    libsqlite3-dev \
+    nodejs \
+    imagemagick
 
-RUN gem install bundler:2.4.8
+################################################################################
+# Build test environment
+FROM ruby_base as test
+ENV RAILS_ENV=test \
+    APP_PATH=/exhibits
 
-ENV PATH="/app/cul-it/exhibits-webapp:$PATH"
-ENV RAILS_ROOT="/app/cul-it/exhibits-webapp"
-
+# Install application gems
+WORKDIR $APP_PATH
 COPY Gemfile Gemfile.lock ./
-RUN gem update --system
 RUN bundle install
 
 COPY . .
-RUN mkdir -p /app/cul-it/exhibits-webapp/log
-RUN echo "" > /app/cul-it/exhibits-webapp/log/debug.log
-RUN chmod 666 /app/cul-it/exhibits-webapp/log/debug.log
-RUN echo "" > /app/cul-it/exhibits-webapp/log/sidekiq.log
-RUN chmod 666 /app/cul-it/exhibits-webapp/log/sidekiq.log
 
-#RUN bundle exec rake assets:precompile
+ENTRYPOINT [ "docker/build_test.sh" ]
 
-ENV PATH=./bin:$PATH
+################################################################################
+# Build development environment
+FROM ruby_base as development
 
-EXPOSE 3000
+ENV RAILS_ENV=development \
+    APP_PATH=/exhibits \
+    USER=crunner \
+    GROUP=crunnergrp
 
-## Script runs when container first starts
-ENTRYPOINT [ "bin/docker-entrypoint.sh" ]
-CMD ["bundle", "exec", "puma", "-v", "-b", "tcp://0.0.0.0:3000"]
+# Create a non-privileged user that the app will run under.
+# See https://docs.docker.com/go/dockerfile-user-best-practices/
+RUN groupadd -r $GROUP && useradd -r -g $GROUP $USER && \
+    mkdir -p /home/${USER} && \
+    chown ${USER}:${GROUP} /home/${USER}
+USER $USER
+
+# Install application gems
+WORKDIR $APP_PATH
+COPY --chown=${USER}:${GROUP} Gemfile Gemfile.lock ./
+RUN bundle install
+
+COPY --chown=${USER}:${GROUP} . .
+
+# Run the web server
+EXPOSE 9292
+ENTRYPOINT [ "docker/puma.sh" ]

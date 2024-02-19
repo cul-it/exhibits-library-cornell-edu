@@ -8,48 +8,41 @@ default: &default
 development:
   adapter: mysql2
   encoding: utf8
-  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_development" %>
-  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+  database: <%= ENV['DATABASE_NAME_PREFIX'] %>_development
+  username: <%= ENV['DATABASE_RAILS_USER'] %>
+  password: <%= ENV['DATABASE_RAILS_USER_PW'] %>
   pool: 5
-  socket: /tmp/mysql.sock
+  host: <%= ENV['DATABASE_HOST'] %>
 
 test:
   adapter: sqlite3
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
-#  <<: *default
-#  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_docker" %>
-#  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-#  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
-#  host:     <%= "#{ENV['DATABASE_HOST']}" %>
-#  pool: 5
-#  timeout: 5000
 
 integration:
   <<: *default
-  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_integration" %>
-  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
-  host:     <%= "#{ENV['DATABASE_HOST']}" %>
-  pool:     <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+  database: <%= ENV['DATABASE_NAME_PREFIX'] %>_integration
+  username: <%= ENV['DATABASE_RAILS_USER'] %>
+  password: <%= ENV['DATABASE_RAILS_USER_PW'] %>
+  host:     <%= ENV['DATABASE_HOST'] %>
+  pool:     <%= ENV['DB_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
 
 staging:
   <<: *default
-  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}_staging" %>
-  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
-  host:     <%= "#{ENV['DATABASE_HOST']}" %>
-  pool:     <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+  database: <%= ENV['DATABASE_NAME_PREFIX'] %>_staging
+  username: <%= ENV['DATABASE_RAILS_USER'] %>
+  password: <%= ENV['DATABASE_RAILS_USER_PW'] %>
+  host:     <%= ENV['DATABASE_HOST'] %>
+  pool:     <%= ENV['DB_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000
 
 production:
   <<: *default
-  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}" %>
-  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
-  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
-  host:     <%= "#{ENV['DATABASE_HOST']}" %>
-  pool:     <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+  database: <%= ENV['DATABASE_NAME_PREFIX'] %>
+  username: <%= ENV['DATABASE_RAILS_USER'] %>
+  password: <%= ENV['DATABASE_RAILS_USER_PW'] %>
+  host:     <%= ENV['DATABASE_HOST'] %>
+  pool:     <%= ENV['DB_POOL'] || ENV['RAILS_MAX_THREADS'] || 5 %>
   timeout: 5000

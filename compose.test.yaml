@@ -1,0 +1,42 @@
+# Docker compose file for test environment
+# Run with: docker compose -f compose.test.yaml up
+
+services:
+  webapp:
+    build:
+      context: .
+      target: test
+    image: exhibits-test
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+    environment:
+      - PORT=3010
+    volumes:
+      - .:/exhibits
+    ports:
+      - 3010:3010
+    depends_on:
+      - redis
+      - solr
+      - chrome
+
+  solr:
+    extends:
+      file: compose.base.yaml
+      service: solr
+    ports:
+      - 8984:8983
+
+  redis:
+    extends:
+      file: compose.base.yaml
+      service: redis
+    ports:
+      - 6479:6379
+
+  chrome:
+    image: seleniarm/standalone-chromium
+    ports:
+      - 4444:4444

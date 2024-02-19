@@ -6,11 +6,17 @@ module Cul
     extend ActiveSupport::Concern
 
     included do
-      before_save :set_published_at
+      before_save :set_published
     end
 
-    def set_published_at
-      self.published_at = Time.zone.now if published? && published_changed?
+    def set_published
+      return unless published? && published_changed?
+
+      # Don't reset weight if previously published
+      self.weight = 0 unless published_at
+
+      # Set published_at date
+      self.published_at = Time.zone.now
     end
   end
 end
