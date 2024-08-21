@@ -1,3 +1,5 @@
+require 'English'
+
 namespace :riiif do
   desc 'Clear the riiif cache if it exceeds 50GB'
   task clear_cache: :environment do
@@ -11,9 +13,16 @@ namespace :riiif do
       oldest_file = `ls -t tmp/network_files | tail -n 1`.chomp
       # Delete the oldest file
       `rm tmp/network_files/#{oldest_file}`
-      deleted_file_count += 1
-      # Get the new size of the tmp/network_files directory
-      size = `du -sh tmp/network_files`.split("\t").first
+
+      if $CHILD_STATUS.success?
+        deleted_file_count += 1
+        # Get the new size of the tmp/network_files directory
+        size = `du -sh tmp/network_files`.split("\t").first
+      else
+        # If removing the oldest file fails, there's something unexpected in the directory
+        Rails.logger.error("Failed to delete tmp/network_files/#{oldest_file} while running riiif:clear_cache rake task.")
+        break
+      end
     end
     Rails.logger.info("Completed riiif:clear_cache rake task. Cleared #{deleted_file_count} files from tmp/network_files.")
   end
