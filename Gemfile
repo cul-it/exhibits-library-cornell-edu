@@ -41,6 +41,7 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 4.2.0'
+gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
 gem 'blacklight', '~> 7.36.1'
