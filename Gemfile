@@ -87,4 +87,5 @@ end
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
+  gem 'irb'
 end
