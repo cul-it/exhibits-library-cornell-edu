@@ -19,7 +19,7 @@ Metrics/BlockLength:
   ExcludedMethods: ['included']
   Exclude:
     - 'spec/**/*'
-    - 'tasks/**/*'
+    - 'lib/tasks/**/*'
     - 'db/schema.rb'
     - 'Rakefile'
     - '*.gemspec'
