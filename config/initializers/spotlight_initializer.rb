@@ -77,7 +77,7 @@ Spotlight::Engine.config.upload_fields = [
 # ]
 # Spotlight::Engine.config.upload_title_field = nil # UploadFieldConfig.new(...)
 Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
-Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
+Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif pdf)
 
 # Spotlight::Engine.config.featured_image_thumb_size = [400, 300]
 # Spotlight::Engine.config.featured_image_square_size = [400, 400]
