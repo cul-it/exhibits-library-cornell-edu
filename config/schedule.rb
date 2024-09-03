@@ -19,6 +19,17 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# Clean up anonymous search records > 7 days
+every :day, at: '1:00am' do
+  rake 'blacklight:delete_old_searches[7]'
+end
+
+# Clean up tmp/network_files > 50GB
 every :day, at: '2:05am' do
-  rake 'riiif:clear_cache'
+  rake 'spotlight:riiif:clear_cache'
+end
+
+# Clean up PaperTrail versions > 365 days
+every :day, at: '3:00am' do
+  rake 'spotlight:paper_trail:clear[365]'
 end

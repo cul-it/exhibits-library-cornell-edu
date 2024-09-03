@@ -3,6 +3,7 @@
 ##
 # Global Spotlight helpers
 module SpotlightHelper
+  include Blacklight::OpenseadragonHelper
   include ::BlacklightHelper
   include Spotlight::MainAppHelpers
 
@@ -19,5 +20,10 @@ module SpotlightHelper
       ERB::Util.html_escape(value).gsub(/\[([^\[]+)\]\(([^\)]+)\)/, '<a href="\2">\1</a>')
     end.join
     sanitize(safe_html)
+  end
+
+  # Overrides osd_container_class of "col-md-6" from blacklight-gallery
+  def osd_container_class
+    ''
   end
 end
