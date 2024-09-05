@@ -1,0 +1,21 @@
+# Docker compose file for integration environment
+# Run with: docker compose up
+
+services:
+  webapp:
+    build:
+      context: .
+      args:
+        BUNDLE_WITHOUT: "development test"
+        RACK_ENV: integration
+        RAILS_ENV: integration
+    image: exhibits_integration
+    stdin_open: true
+    tty: true
+    environment:
+      - PORT=9292
+    # To run integration image locally, specify where the .env file is located
+    # volumes:
+    #   - ABSOLUTE_PATH_TO_YOUR_RAILS_ENV_FILE:/exhibits/.env:ro
+    ports:
+      - 9292:9292

@@ -1,0 +1,21 @@
+# Docker compose file for production environment
+# Run with: docker compose up
+
+services:
+  webapp:
+    build:
+      context: .
+      args:
+        BUNDLE_WITHOUT: "development integration test"
+        RACK_ENV: production
+        RAILS_ENV: production
+    image: exhibits_production
+    stdin_open: true
+    tty: true
+    environment:
+      - PORT=9292
+    # To run production image locally, specify where the .env file is located
+    # volumes:
+    #   - ABSOLUTE_PATH_TO_YOUR_RAILS_ENV_FILE:/exhibits/.env:ro
+    ports:
+      - 9292:9292
