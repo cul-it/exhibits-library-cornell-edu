@@ -1,0 +1,2 @@
+* * * * * root find /tmp -type f -atime +7 -delete
+# * * * * * root echo "stuff" >> /var/log/cron.log
