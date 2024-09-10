@@ -3,6 +3,8 @@
 
 services:
   webapp:
+    # Set platform to linux/amd64 when building on ARM based system to push to ECR
+    # platform: linux/amd64
     build:
       context: .
       args:
