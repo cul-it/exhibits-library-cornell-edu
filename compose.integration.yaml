@@ -16,8 +16,5 @@ services:
     tty: true
     environment:
       - PORT=9292
-    # To run integration image locally, specify where the .env file is located
-    # volumes:
-    #   - ABSOLUTE_PATH_TO_YOUR_RAILS_ENV_FILE:/exhibits/.env:ro
     ports:
       - 9292:9292
