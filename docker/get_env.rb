@@ -15,8 +15,6 @@ if PROD.casecmp(environment) == 0
     env = "prod"
 elsif STAGING.casecmp(environment) == 0
     env = "staging"
-# elsif DEV.casecmp(environment)
-#     env = "dev"
 elsif INTEGRATION.casecmp(environment) == 0
     env = "int"
 else

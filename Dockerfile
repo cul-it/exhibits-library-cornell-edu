@@ -7,11 +7,9 @@ ARG RUBY_VERSION=3.2.2
 #    GnuTLS - https://scout.docker.com/vulnerabilities/id/CVE-2024-0567
 #    Check container-discovery for examples of patching CVEs
 FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
-# FROM --platform=linux/amd64 ruby:$RUBY_VERSION-slim-bookworm as ruby_base
 
 RUN apt-get update -qq && apt-get install -y build-essential
 
-# Fixes for expat, nodejs not available for bookworm at this time
 # Install packages required for rails app
 RUN apt-get install -y --no-install-recommends \
     default-libmysqlclient-dev=1.1.0 \
