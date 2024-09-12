@@ -5,7 +5,7 @@ set -e
 WORKDIR="/exhibits"
 ENVFILE="${WORKDIR}/.env"
 if [ ! -f "$ENVFILE" ]; then
-    ruby docker/get_env.rb $RAILS_ENV $WORKDOR
+    ruby docker/get_env.rb $RAILS_ENV $WORKDIR
 fi
 
 export RAILS_LOG_TO_STDOUT="1"
