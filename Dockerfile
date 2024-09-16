@@ -8,10 +8,9 @@ ARG RUBY_VERSION=3.2.2
 #    Check container-discovery for examples of patching CVEs
 FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
 
-RUN apt-get update -qq && apt-get install -y build-essential
-
 # Install packages required for rails app
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+    build-essential \
     default-libmysqlclient-dev=1.1.0 \
     cron=3.0pl1-162 \
     nodejs=18.19.0+dfsg-6~deb12u2 \
