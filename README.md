@@ -32,6 +32,14 @@ Web server: http://localhost:9292
 
 Solr: http://localhost:8983
 
+Sidekiq: http://localhost:9292/sidekiq
+
+#### Set up initial data
+
+1. Set up admin user using the SITE_ADMINS email set in your dotenv file: `bundle exec rake spotlight:initialize`
+
+1. Set up initial exhibit: `bundle exec rake spotlight:exhibit`
+
 #### Testing in Docker
 
 Run full test suite:

@@ -15,6 +15,7 @@ gem 'devise_invitable'
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'friendly_id'
+gem 'irb'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -87,5 +88,4 @@ end
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
-  gem 'irb'
 end
