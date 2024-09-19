@@ -15,6 +15,9 @@ body, header {
 
 #exhibit-navbar, footer {
   background: #ecbb35;
+  a {
+    color: #005094;
+  }
 }
 
 .navbar, #blacklight-modal {
@@ -69,7 +72,7 @@ body, header {
   }
 
   #exhibit-navbar .nav-link {
-    color: #4b5474;
+    color: #464f6f;
   }
 }
 

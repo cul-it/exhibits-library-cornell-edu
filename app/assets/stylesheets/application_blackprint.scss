@@ -1,0 +1,106 @@
+/*
+ Stylesheet used for Black Print exhibit theme
+*/
+
+@import 'base';
+@font-face {
+  font-family: 'VictorianDecade-Extrude';
+  src: font-url('VictorianDecade-Extrude.otf');
+}
+
+body, header {
+  background: #fff
+}
+
+#exhibit-navbar {
+  background: #764d29;
+}
+
+footer {
+  background: #efe2ce;
+}
+
+//menu and menu link color
+.navbar, #blacklight-modal {
+  background: white;
+  .dropdown-item {
+    color: #0068ac;
+  }
+}
+
+.masthead {
+  background-color: #2f2e2f;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  // background books right side
+  .background-container {
+    position: absolute;
+    left: 50%; 
+    background: image-url('spotlight/themes/blackprint/Books2.png') no-repeat !important;
+    background-position: 50% 0% !important; 
+    filter: opacity(0.8);
+    @media (max-width: breakpoint-max('md')) {
+      background-image: none !important;
+    }
+  }
+
+  // background books left side
+  .background-container-gradient {
+    position: absolute;
+    right: 50%; 
+    background: image-url('spotlight/themes/blackprint/Books1.png') no-repeat !important;
+    background-position: 50% 0% !important; 
+    filter: opacity(0.8);
+    @media (max-width: breakpoint-max('md')) {
+      background-image: none !important;
+    }
+  }
+
+  .site-title-container {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    .site-title-wrapper {
+      text-align: center;
+      background: none;
+
+      // exhibit title
+      h1 {
+        font-family: 'VictorianDecade-Extrude';
+        color: #f1cb88;
+        font-size: 4.8rem;
+
+        &::first-letter {
+          font-size: 5.5rem; 
+        }
+      }
+
+      // exhibit subtitle
+      small {
+        font-family: 'Athelas', serif;
+        color: #f1cb88;
+        padding-top: 0 !important;
+      }
+    }
+  }
+}
+
+// feature page titles 
+#content {
+  h1.page-title {
+    font-family: 'Athelas', serif;
+  }
+  .page-title {
+    background: image-url('spotlight/themes/blackprint/Swirl5.png') no-repeat;
+    background-position: 0% 30%;
+    padding-left: 3rem;
+    color: #2f2e2f;
+    height: 60px;
+  }
+  
+}
