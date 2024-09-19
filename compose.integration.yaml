@@ -1,0 +1,20 @@
+# Docker compose file for integration environment
+# Run with: docker compose up
+
+services:
+  webapp:
+    # Set platform to linux/amd64 when building on ARM based system to push to ECR
+    # platform: linux/amd64
+    build:
+      context: .
+      args:
+        BUNDLE_WITHOUT: "development test"
+        RACK_ENV: integration
+        RAILS_ENV: integration
+    image: exhibits_integration
+    stdin_open: true
+    tty: true
+    environment:
+      - PORT=9292
+    ports:
+      - 9292:9292

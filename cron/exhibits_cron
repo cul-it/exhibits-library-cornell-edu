@@ -1,0 +1,1 @@
+0 2 * * * root find /tmp -type f -atime +7 -delete
