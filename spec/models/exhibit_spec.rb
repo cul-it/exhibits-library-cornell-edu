@@ -56,28 +56,32 @@ describe Spotlight::Exhibit, type: :model do
     let(:non_custom_theme) { Spotlight::Engine.config.exhibit_themes.first }
     let(:custom_theme) { Spotlight::Engine.config.exhibit_themes.last }
 
+    # define test exhibits
+    let(:ex_non_custom) { Spotlight::Exhibit.new(slug: non_custom_theme) }
+    let(:ex_non_custom_wip) { Spotlight::Exhibit.new(slug: non_custom_theme + '-WIP') }
+    let(:ex_custom) { Spotlight::Exhibit.new(slug: custom_theme) }
+    let(:ex_custom_wip) { Spotlight::Exhibit.new(slug: custom_theme + '-WIP') }
+    let(:ex_custom_similar) { Spotlight::Exhibit.new(slug: custom_theme + '-WIP-butnotreally') }
+
+    # helper method to count the number of themes for a given test exhibit
+    def theme_count(exhibit)
+      exhibit.themes_selector.call(exhibit).count
+    end
+
     it 'returns the same number of themes for non-custom and WIP non-custom exhibit' do
-      exhibit1 = Spotlight::Exhibit.new(slug: non_custom_theme)
-      exhibit2 = Spotlight::Exhibit.new(slug: non_custom_theme + '-WIP')
-      expect(exhibit1.themes_selector.call(exhibit1).count).to eq(exhibit2.themes_selector.call(exhibit2).count)
+      expect(theme_count(ex_non_custom)).to eq(theme_count(ex_non_custom_wip))
     end
 
     it 'returns 1 more theme for custom exhibit than for non-custom exhibit' do
-      exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
-      exhibit2 = Spotlight::Exhibit.new(slug: non_custom_theme)
-      expect(exhibit1.themes_selector.call(exhibit1).count - 1).to eq(exhibit2.themes_selector.call(exhibit2).count)
+      expect(theme_count(ex_custom) - 1).to eq(theme_count(ex_non_custom))
     end
 
     it 'returns the same number of themes for custom exhibit and WIP custom exhibit' do
-      exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
-      exhibit2 = Spotlight::Exhibit.new(slug: custom_theme + '-WIP')
-      expect(exhibit1.themes_selector.call(exhibit1).count).to eq(exhibit2.themes_selector.call(exhibit2).count)
+      expect(theme_count(ex_custom)).to eq(theme_count(ex_custom_wip))
     end
 
     it 'returns 1 more theme choices for a custom exhibit than one with a similar WIP name' do
-      exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
-      exhibit2 = Spotlight::Exhibit.new(slug: custom_theme + '-WIP-butnotreally')
-      expect(exhibit1.themes_selector.call(exhibit1).count - 1).to eq(exhibit2.themes_selector.call(exhibit2).count)
+      expect(theme_count(ex_custom) - 1).to eq(theme_count(ex_custom_similar))
     end
   end
 end
