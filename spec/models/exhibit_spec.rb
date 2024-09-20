@@ -49,7 +49,7 @@ describe Spotlight::Exhibit, type: :model do
       end
     end
   end
-  
+
   describe '#themes_selector' do
     # assuming that the first theme in the list will be a default theme
     # and the last theme will be a custom theme
@@ -61,7 +61,7 @@ describe Spotlight::Exhibit, type: :model do
       exhibit2 = Spotlight::Exhibit.new(slug: non_custom_theme + '-WIP')
       expect(exhibit1.themes_selector.call(exhibit1).count).to eq(exhibit2.themes_selector.call(exhibit2).count)
     end
-   
+
     it 'returns 1 more theme for custom exhibit than for non-custom exhibit' do
       exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
       exhibit2 = Spotlight::Exhibit.new(slug: non_custom_theme)
