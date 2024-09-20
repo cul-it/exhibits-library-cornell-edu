@@ -49,4 +49,35 @@ describe Spotlight::Exhibit, type: :model do
       end
     end
   end
+  
+  describe '#themes_selector' do
+    # assuming that the first theme in the list will be a default theme
+    # and the last theme will be a custom theme
+    let(:non_custom_theme) { Spotlight::Engine.config.exhibit_themes.first }
+    let(:custom_theme) { Spotlight::Engine.config.exhibit_themes.last }
+
+    it 'returns the same number of themes for non-custom and WIP non-custom exhibit' do
+      exhibit1 = Spotlight::Exhibit.new(slug: non_custom_theme)
+      exhibit2 = Spotlight::Exhibit.new(slug: non_custom_theme + '-WIP')
+      expect(exhibit1.themes_selector.call(exhibit1).count).to eq(exhibit2.themes_selector.call(exhibit2).count)
+    end
+   
+    it 'returns 1 more theme for custom exhibit than for non-custom exhibit' do
+      exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
+      exhibit2 = Spotlight::Exhibit.new(slug: non_custom_theme)
+      expect(exhibit1.themes_selector.call(exhibit1).count - 1).to eq(exhibit2.themes_selector.call(exhibit2).count)
+    end
+
+    it 'returns the same number of themes for custom exhibit and WIP custom exhibit' do
+      exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
+      exhibit2 = Spotlight::Exhibit.new(slug: custom_theme + '-WIP')
+      expect(exhibit1.themes_selector.call(exhibit1).count).to eq(exhibit2.themes_selector.call(exhibit2).count)
+    end
+
+    it 'returns 1 more theme choices for a custom exhibit than one with a similar WIP name' do
+      exhibit1 = Spotlight::Exhibit.new(slug: custom_theme)
+      exhibit2 = Spotlight::Exhibit.new(slug: custom_theme + '-WIP-butnotreally')
+      expect(exhibit1.themes_selector.call(exhibit1).count - 1).to eq(exhibit2.themes_selector.call(exhibit2).count)
+    end
+  end
 end

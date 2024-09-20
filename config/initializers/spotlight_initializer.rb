@@ -110,12 +110,12 @@ Spotlight::Engine.config.ga_debug_mode = false
 #   'my-local-config': ->(context) { context.my_custom_data_path(context.current_exhibit) }
 # }
 
-Spotlight::Engine.config.exhibit_themes = %w[default example dr-joyce-brothers blackprint]
+default_themes = %w[default example]
+custom_themes = %w[dr-joyce-brothers blackprint]
+Spotlight::Engine.config.exhibit_themes = default_themes + custom_themes
 
 Exhibits::Application.config.after_initialize do
   Spotlight::Exhibit.themes_selector = ->(exhibit) do
-    default_themes = %w[default example]
-    custom_themes = %w[dr-joyce-brothers blackprint]
     theme_slug = exhibit.slug
     theme_slug = theme_slug.chomp('-WIP') if theme_slug.end_with?('-WIP')
     
