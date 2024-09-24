@@ -1,0 +1,18 @@
+# Docker compose file for staging environment
+# Run with: docker compose up
+
+services:
+  webapp:
+    build:
+      context: .
+      args:
+        BUNDLE_WITHOUT: "development test"
+        RACK_ENV: staging
+        RAILS_ENV: staging
+    image: exhibits_staging
+    stdin_open: true
+    tty: true
+    environment:
+      - PORT=9292
+    ports:
+      - 9292:9292

@@ -8,19 +8,25 @@ ARG RUBY_VERSION=3.2.2
 #    Check container-discovery for examples of patching CVEs
 FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
 
-RUN apt-get update -qq && apt-get install -y build-essential
-
-# Install other packages required for rails app
-RUN apt-get install -y --no-install-recommends \
+# Install packages required for rails app
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+    build-essential \
     default-libmysqlclient-dev=1.1.0 \
-    mariadb-server \
-    libsqlite3-dev \
-    nodejs \
-    imagemagick
+    cron=3.0pl1-162 \
+    nodejs=18.19.0+dfsg-6~deb12u2 \
+    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u1
+
+################################################################################
+# Install additional libraries for development
+FROM ruby_base as dev_base
+
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+    mariadb-server=1:10.11.6-0+deb12u1 \
+    libsqlite3-dev=3.40.1-2
 
 ################################################################################
 # Build test environment
-FROM ruby_base as test
+FROM dev_base as test
 ENV RAILS_ENV=test \
     APP_PATH=/exhibits
 
@@ -35,7 +41,7 @@ ENTRYPOINT [ "docker/build_test.sh" ]
 
 ################################################################################
 # Build development environment
-FROM ruby_base as development
+FROM dev_base as development
 
 ENV RAILS_ENV=development \
     APP_PATH=/exhibits \
@@ -55,6 +61,68 @@ COPY --chown=${USER}:${GROUP} Gemfile Gemfile.lock ./
 RUN bundle install
 
 COPY --chown=${USER}:${GROUP} . .
+
+# Run the web server
+EXPOSE 9292
+ENTRYPOINT [ "docker/puma.sh" ]
+
+################################################################################
+# Bundle production/integration/staging environment
+FROM ruby_base as prod_bundler
+ARG BUNDLE_WITHOUT
+ARG RAILS_ENV
+
+ENV RAILS_ENV=${RAILS_ENV} \
+    RAILS_LOG_TO_STDOUT="1" \
+    BUNDLE_WITHOUT=${BUNDLE_WITHOUT} \
+    BUNDLE_PATH=/usr/local/bundle \
+    APP_PATH=/exhibits
+
+WORKDIR ${APP_PATH}
+COPY ./Gemfile ./Gemfile.lock ./
+RUN bundle config set --local with "${RAILS_ENV}" && \
+    bundle config set --local without "${BUNDLE_WITHOUT}" && \
+    bundle install && \
+    gem install aws-sdk-s3 && \
+    rm -rf ${BUNDLE_PATH}/cache/*.gem && \
+    find ${BUNDLE_PATH}/ -name "*.c" -delete && \
+    find ${BUNDLE_PATH}/ -name "*.o" -delete
+
+COPY . .
+RUN bundle exec rake assets:precompile && rm .env
+
+################################################################################
+# Final image for integration/staging/production
+FROM prod_bundler
+ARG RAILS_ENV=production
+
+ENV RAILS_ENV=${RAILS_ENV} \
+    APP_PATH=/exhibits \
+    USER=crunner \
+    GROUP=crunnergrp \
+    AWS_DEFAULT_REGION=us-east-1
+
+# Can we run this clean up cron as crunner instead of root?
+# exhibits_cron - .ebextentions/tmp_cleanup.config
+# localtime adjustment - .ebextentions/system_time.config
+COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
+RUN groupadd -r $GROUP && useradd -r -g $GROUP $USER && \
+    mkdir -p /home/${USER} && \
+    chown ${USER}:${GROUP} /home/${USER} && \
+    chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \
+    crontab -u root /etc/cron.d/exhibits_cron && \
+    ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# Copy application code from builder
+COPY --from=prod_bundler --chown=${USER}:${GROUP} ${BUNDLE_PATH} ${BUNDLE_PATH}
+COPY --from=prod_bundler --chown=${USER}:${GROUP} ${APP_PATH} ${APP_PATH}
+RUN chown ${USER}:${GROUP} ${APP_PATH}
+
+# Debugging tools, don't use on production use
+# RUN apt-get install -y --no-install-recommends vim
+
+USER ${USER}
+WORKDIR ${APP_PATH}
 
 # Run the web server
 EXPOSE 9292

@@ -1,4 +1,8 @@
 en:
+  activerecord:
+    help:
+      spotlight/exhibit:
+        tag_list: Cmd+click or Ctrl+click to select multiple tags.
   spotlight:
     confirmation_mailer:
       confirmation_instructions:

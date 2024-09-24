@@ -4,6 +4,10 @@
 	padding: 5px 0;
 }
 
+.browse-category {
+  overflow: hidden;
+}
+
 // Tile sizing
 // Override Spotlight to enable multiple rows if tiles >5
 // Fixes: https://github.com/cul-it/exhibits-library-cornell-edu/issues/448
@@ -30,8 +34,8 @@
       }
 
       @media (min-width: breakpoint-min("lg")) {
-        width: $lg-five-tile-width;
-        height: $lg-five-tile-width * $aspect-ratio-factor-4x3;
+        width: $lg-three-tile-width;
+        height: $lg-three-tile-width * $aspect-ratio-factor-4x3;
       }
 
       @media (min-width: breakpoint-min("xl")) {
