@@ -23,8 +23,8 @@ sh ./docker/db_prepare.sh
 exec "$@"
 
 # Start sidekiq
-bundle exec sidekiq -d -L log/sidekiq.log -e $RAILS_ENV
+bundle exec sidekiq -L log/sidekiq.log -e $RAILS_ENV -C config/sidekiq.yml -d
 
 # Start the web server
 mkdir -p ./tmp/pids
-bundle exec puma -C config/puma.rb
+bundle exec puma -C config/puma.rb -e $RAILS_ENV
