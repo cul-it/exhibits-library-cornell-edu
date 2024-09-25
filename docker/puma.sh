@@ -23,7 +23,7 @@ sh ./docker/db_prepare.sh
 exec "$@"
 
 # Start sidekiq
-bundle exec sidekiq -d -L log/sidekiq.log -e development
+bundle exec sidekiq -d -L log/sidekiq.log -e $RAILS_ENV
 
 # Start the web server
 mkdir -p ./tmp/pids
