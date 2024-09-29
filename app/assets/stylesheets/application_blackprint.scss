@@ -19,10 +19,13 @@ body, header {
 
 footer {
   background: #efe2ce;
+  a {
+    color: #004466;
+  }
 }
 
 a {
-  color: #006699;
+  color: #005A8D;
 }
 
 //menu and menu link color
@@ -32,7 +35,7 @@ a {
     min-width: 250px;
   }
   .dropdown-item {
-    color: #006699;
+    color: #005A8D;
   }
 }
 
@@ -173,9 +176,10 @@ a {
 
 // for quotes, remove the background color
 .quote__cite.blockquote-footer {
-    background-color: #fff !important;
-    padding-top: 0.5rem;
-    padding-right: 2.5rem;
-    margin-right: 2.5rem;
-    text-align: right;
+  background-color: #fff !important;
+  color: #4b545b;
+  padding-top: 0.5rem;
+  padding-right: 2.5rem;
+  margin-right: 2.5rem;
+  text-align: right;
 }
