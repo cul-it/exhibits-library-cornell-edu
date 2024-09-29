@@ -21,6 +21,10 @@ footer {
   background: #efe2ce;
 }
 
+a {
+  color: #006699;
+}
+
 //menu and menu link color
 .navbar, #blacklight-modal {
   background: #fff;
@@ -28,7 +32,7 @@ footer {
     min-width: 250px;
   }
   .dropdown-item {
-    color: #0068ac;
+    color: #006699;
   }
 }
 
@@ -136,6 +140,16 @@ footer {
     color: #764d29;
     font-size: .65em;
   }
+
+  // override the 3 column layout, just show 1 col for author biography
+  @media (min-width: 768px) {
+    .very-long-description-text {
+      -moz-column-gap: normal;
+      column-gap: normal;
+      -moz-column-width: auto;
+      column-width: auto;
+    }
+  }
 }
 
 // Author section of the exhibit, show the leaders in the masthead background
@@ -155,4 +169,13 @@ footer {
       background-image: none !important;
     }
   }
+}
+
+// for quotes, remove the background color
+.quote__cite.blockquote-footer {
+    background-color: #fff !important;
+    padding-top: 0.5rem;
+    padding-right: 2.5rem;
+    margin-right: 2.5rem;
+    text-align: right;
 }
