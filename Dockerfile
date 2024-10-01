@@ -9,12 +9,19 @@ ARG RUBY_VERSION=3.2.2
 FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
 
 # Install packages required for rails app
+# TODO: Specify ghostscript version
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     build-essential \
     default-libmysqlclient-dev=1.1.0 \
     cron=3.0pl1-162 \
     nodejs=18.19.0+dfsg-6~deb12u2 \
-    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u1
+    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u1 \
+    ghostscript
+
+# Update ImageMagick policy to allow PDFs
+ARG IMAGEMAGICK_POLICY=/etc/ImageMagick-6/policy.xml
+RUN if [ -f $IMAGEMAGICK_POLICY ] ; then sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' $IMAGEMAGICK_POLICY ; else echo did not see file $IMAGEMAGICK_POLICY ; fi
+
 
 ################################################################################
 # Install additional libraries for development

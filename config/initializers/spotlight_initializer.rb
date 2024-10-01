@@ -12,12 +12,14 @@
 # ==> Appearance configuration
 # Spotlight::Engine.config.exhibit_main_navigation = [:curated_features, :browse, :about]
 Spotlight::Engine.config.resource_partials = [
-  # 'spotlight/resources/external_resources_form',
+  'spotlight/resources/external_resources_form',
   'spotlight/resources/upload/form',
-  'spotlight/resources/csv_upload/form'
+  'spotlight/resources/csv_upload/form',
   # 'spotlight/resources/json_upload/form'
-  # 'spotlight/resources/iiif/form'
+  'spotlight/resources/iiif/form'
 ]
+Spotlight::Engine.config.external_resources_partials = []
+# Spotlight::Engine.config.external_resources_partials = ['digital_collections_resources/form']
 # Spotlight::Engine.config.external_resources_partials = ["portal_resources/form"]
 # Spotlight::Engine.config.default_browse_index_view_type = :gallery
 # Spotlight::Engine.config.default_contact_email = nil
@@ -77,7 +79,7 @@ Spotlight::Engine.config.upload_fields = [
 # ]
 # Spotlight::Engine.config.upload_title_field = nil # UploadFieldConfig.new(...)
 Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
-Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
+Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif pdf)
 
 # Spotlight::Engine.config.featured_image_thumb_size = [400, 300]
 # Spotlight::Engine.config.featured_image_square_size = [400, 400]
@@ -95,6 +97,9 @@ Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
 # Spotlight::Engine.config.ga_analytics_options = {}
 # Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
 Spotlight::Engine.config.ga_debug_mode = false
+
+# Hide from indexing job list in exhibit dashboard
+Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight::AddUploadsFromCsv]
 
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,

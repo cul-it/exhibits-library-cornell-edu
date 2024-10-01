@@ -5,24 +5,28 @@ module Spotlight
   # Process a CSV upload into new Spotlight::Resource::Upload objects
   class AddUploadsFromCsv < Spotlight::ApplicationJob
     include Spotlight::JobTracking
+    with_job_tracking(resource: ->(job) { job.arguments[1] })
+
     attr_reader :count
     attr_reader :errors
 
     after_perform do |job|
       csv_data, exhibit, user = job.arguments
-      Spotlight::IndexingCompleteMailer.documents_indexed(
-        csv_data,
-        exhibit,
-        user,
-        indexed_count: job.count,
-        errors: job.errors
-      ).deliver_now
-    ### BEGIN CUSTOMIZATION elr37 - catch exceptions from notification to prevent job from repeating if email fails
-    # NOTE: Cannot use prepend to override after_perform
-    rescue RuntimeError => e
-      Rails.application.config.debug_logger.warn("********************** EMAIL FAILURE  => exception #{e.class.name} : #{e.message}")
+      ### BEGIN CUSTOMIZATION - catch exceptions from notification to prevent job from repeating if email fails
+      # NOTE: Cannot use prepend to override after_perform
+      begin
+        Spotlight::IndexingCompleteMailer.documents_indexed(
+          csv_data,
+          exhibit,
+          user,
+          indexed_count: job.count,
+          errors: job.errors
+        ).deliver_now
+      rescue StandardError => e
+        Rails.logger.error("********************** EMAIL FAILURE  => exception #{e.class.name} : #{e.message}")
+      end
+      ### END CUSTOMIZATION
     end
-    ### END CUSTOMIZATION
 
     def perform(csv_data, exhibit, _user)
       @count = 0
@@ -37,20 +41,22 @@ module Spotlight
       end
     end
 
-  private
+    private
 
     def resources(csv_data, exhibit)
       return to_enum(:resources, csv_data, exhibit) unless block_given?
 
       encoded_csv(csv_data).each do |row|
         url = row.delete('url')
-        next if url.blank?
+        next unless url.present?
 
         resource = Spotlight::Resources::Upload.new(
           data: row,
           exhibit: exhibit
         )
-        resource.build_upload(remote_image_url: url) unless url == '~'
+        ### BEGIN CUSTOMIZATION - Updated resource to has_many uploads association
+        resource.uploads.build(remote_image_url: url) unless url == '~'
+        ### END CUSTOMIZATION
 
         yield resource
       end
@@ -62,10 +68,6 @@ module Spotlight
           [label, column.encode('UTF-8', invalid: :replace, undef: :replace, replace: "\uFFFD")] if column.present?
         end.compact.to_h
       end.compact
-    end
-
-    def job_tracking_resource
-      arguments[1]
     end
   end
 end
