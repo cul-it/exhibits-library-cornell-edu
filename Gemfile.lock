@@ -356,8 +356,6 @@ GEM
       railties (>= 4.2.0)
     legato (0.7.0)
       multi_json
-    letter_opener (1.8.1)
-      launchy (>= 2.2, < 3)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -713,7 +711,6 @@ DEPENDENCIES
   irb
   jbuilder (~> 2.5)
   jquery-rails
-  letter_opener
   listen
   mina
   mysql2
