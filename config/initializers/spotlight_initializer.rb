@@ -98,6 +98,9 @@ Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
 # Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
 Spotlight::Engine.config.ga_debug_mode = false
 
+# Hide from indexing job list in exhibit dashboard
+Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight::AddUploadsFromCsv]
+
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,
 # but you can customize them here, or in the SirTrevorRails::Block#custom_block_types method

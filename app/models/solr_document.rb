@@ -22,16 +22,39 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
-  # If no Spotlight::FeaturedImage, create one and reindex resource
+  # Overrides Spotlight::SolrDocument::UploadedResource included in Spotlight::SolrDocument to handle multiple uploads
+  use_extension(Cul::UploadedResource, &:uploaded_resource?)
+
+  # If no uploads, create an upload for each url
+  # If more uploads than new urls, delete extra uploads
+  # Reindex resource to update thumbnail and etc
   # Called from SolrDocument#update
   def update_exhibit_resource(resource_attributes)
-    return unless resource_attributes && resource_attributes['url']
+    return unless resource_attributes && resource_attributes['url'].present?
 
-    if uploaded_resource.upload
-      uploaded_resource.upload.update image: resource_attributes['url']
-    else
-      uploaded_resource.build_upload image: resource_attributes['url']
-      uploaded_resource.save_and_index
+    urls = resource_attributes['url']
+    current_uploads = uploaded_resource.uploads
+    current_upload_ids = current_uploads.pluck(:id)
+    upload_updates = Hash[[*0..(urls.count-1)].zip(current_upload_ids)]
+    new_uploads_attributes = []
+    urls.each_with_index do |url, i|
+      upload_id = upload_updates[i]
+      if upload_id.nil?
+        new_uploads_attributes << { image: url }
+      else
+        # Update existing uploads
+        current_uploads.find(upload_id).update(image: url)
+      end
     end
+
+    # Build new uploads
+    uploaded_resource.uploads.build(new_uploads_attributes)
+
+    # Delete extra uploads
+    extra_upload_ids = current_upload_ids - upload_updates.values
+    uploaded_resource.uploads.where(id: extra_upload_ids).destroy_all
+
+    # Save uploaded_resource and any new uploads and reindex
+    uploaded_resource.save_and_index
   end
 end

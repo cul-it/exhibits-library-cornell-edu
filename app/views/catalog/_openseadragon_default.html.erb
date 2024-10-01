@@ -1,11 +1,13 @@
 <%#
   Overrides _openseadragon_default.html.erb from blacklight-gallery
-  Adds sequenceMode to showReferenceStrip for images with count > 1
+  Sets sequenceMode to true for images with count > 1
+  Sets initialPage if block with selected iiif_tilesource is present, defaults to first image
 %>
-
 <%
   image = document.to_openseadragon(blacklight_config.view_config(:show))
   id_prefix = osd_html_id_prefix
+  block_options = block_options || {}
+  initial_page = initial_page(document, block_options)
 %>
 <%
   osd_config = {
@@ -21,6 +23,7 @@
   osd_config_referencestrip = {
     sequenceMode:                   true,
     showReferenceStrip:             true,
+    initialPage:                    initial_page,
     referenceStripPosition:         'OUTSIDE',
     referenceStripScroll:           'vertical',
     referenceStripWidth:            100,
@@ -36,7 +39,7 @@
         <% if count > 1 %>
           <% osd_config = osd_config_referencestrip.merge(osd_config) %>
             <a id="<%= id_prefix %>-previous"><%= render Blacklight::Gallery::Icons::ChevronLeftComponent.new %></a>
-            <span id="<%= id_prefix %>-page">1</span>  of <%= count %>
+            <span id="<%= id_prefix %>-currentpage"><%= initial_page + 1%></span>&nbsp;of <%= count %>
             <a id="<%= id_prefix %>-next"><%= render Blacklight::Gallery::Icons::ChevronRightComponent.new  %></a>
         <% end %>
       </div>

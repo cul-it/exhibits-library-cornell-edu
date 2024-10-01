@@ -20,6 +20,7 @@ en:
     search:
       fields:
         spotlight_copyright_tesim: Copyright
+        spotlight_upload_description_tesim: Description
   shared:
     site_sidebar:
       documentation: Spotlight curator documentation

@@ -26,4 +26,14 @@ module SpotlightHelper
   def osd_container_class
     ''
   end
+
+  # Gets initialPage for OpenSeadragon viewer
+  # Document tilesources are in the format: /images/{TILESOURCE ID}/info.json
+  # Selected tilesource from block is in the format: {DOMAIN}/images/{TILESOURCE ID}/info.json
+  def initial_page(document, block_options = {})
+    selected_image_tile_source = block_options.fetch(:iiif_tilesource, '')
+    selected_image_tile_source = URI::parse(block_options.fetch(:iiif_tilesource, '')).path
+    doc_tile_source = document.fetch(blacklight_config.show.tile_source_field, default: [])
+    doc_tile_source.find_index(selected_image_tile_source) || 0
+  end
 end
