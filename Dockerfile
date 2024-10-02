@@ -30,11 +30,7 @@ FROM dev_base as test
 ENV RAILS_ENV=test \
     APP_PATH=/exhibits
 
-# Install application gems
 WORKDIR $APP_PATH
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
 COPY . .
 
 ENTRYPOINT [ "docker/build_test.sh" ]
