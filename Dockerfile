@@ -60,7 +60,7 @@ COPY --chown=${USER}:${GROUP} . .
 
 # Run the web server
 EXPOSE 9292
-ENTRYPOINT [ "docker/puma.sh" ]
+ENTRYPOINT [ "docker/run_dev.sh" ]
 
 ################################################################################
 # Bundle production/integration/staging environment
@@ -122,4 +122,4 @@ WORKDIR ${APP_PATH}
 
 # Run the web server
 EXPOSE 9292
-ENTRYPOINT [ "docker/puma.sh" ]
+ENTRYPOINT [ "docker/run.sh" ]
