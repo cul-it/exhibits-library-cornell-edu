@@ -2,8 +2,13 @@
 
 set -e
 
-# Prepare DB (Migrate if exists; else Create db & Migrate)
-sh ./docker/db_prepare.sh
+# Install gems
+bundle install
 
-# Run the command defined in compose.test.yaml
+# If the database exists, migrate. Otherwise setup (create and migrate)
+echo "Preparing Database..."
+bundle exec rake db:environment:set RAILS_ENV=test db:migrate 2>/dev/null || bundle exec rake db:environment:set RAILS_ENV=test db:create db:schema:load
+echo "Database Migration Done!"
+
+# Run commands
 exec "$@"

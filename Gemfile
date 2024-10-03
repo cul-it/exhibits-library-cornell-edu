@@ -53,7 +53,6 @@ gem 'blacklight-spotlight', '~> 3.5'
 group :development do
   gem 'better_errors' # add command line in browser when errors
   gem 'binding_of_caller' # deeper stack trace used by better errors
-  gem 'letter_opener' # show emails in browser
   gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

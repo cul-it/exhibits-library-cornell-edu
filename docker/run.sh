@@ -16,11 +16,10 @@ then
   cron
 fi
 
-# Prepare DB (Migrate if exists; else Create db & Migrate)
-sh ./docker/db_prepare.sh
-
-# Run the command defined in compose.yaml
-exec "$@"
+# Run db migrations
+echo "Preparing Database..."
+bundle exec rake db:migrate RAILS_ENV=$RAILS_ENV 
+echo "Database Migration Done!"
 
 # Start sidekiq
 bundle exec sidekiq -L log/sidekiq.log -e $RAILS_ENV -C config/sidekiq.yml -d
@@ -28,3 +27,6 @@ bundle exec sidekiq -L log/sidekiq.log -e $RAILS_ENV -C config/sidekiq.yml -d
 # Start the web server
 mkdir -p ./tmp/pids
 bundle exec puma -C config/puma.rb -e $RAILS_ENV
+
+# Run commands
+exec "$@"

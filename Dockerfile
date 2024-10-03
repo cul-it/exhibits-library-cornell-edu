@@ -30,11 +30,7 @@ FROM dev_base as test
 ENV RAILS_ENV=test \
     APP_PATH=/exhibits
 
-# Install application gems
 WORKDIR $APP_PATH
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
 COPY . .
 
 ENTRYPOINT [ "docker/build_test.sh" ]
@@ -64,7 +60,7 @@ COPY --chown=${USER}:${GROUP} . .
 
 # Run the web server
 EXPOSE 9292
-ENTRYPOINT [ "docker/puma.sh" ]
+ENTRYPOINT [ "docker/run_dev.sh" ]
 
 ################################################################################
 # Bundle production/integration/staging environment
@@ -126,4 +122,4 @@ WORKDIR ${APP_PATH}
 
 # Run the web server
 EXPOSE 9292
-ENTRYPOINT [ "docker/puma.sh" ]
+ENTRYPOINT [ "docker/run.sh" ]
