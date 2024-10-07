@@ -36,7 +36,9 @@ module Spotlight
         if resource.save_and_index
           @count += 1
         else
-          @errors[index + 1] = resource.errors.full_messages + resource.upload&.errors&.full_messages
+          ### BEGIN CUSTOMIZATION - Handle has_many uploads association
+          @errors[index + 1] = (resource.errors.full_messages + (resource.uploads.map { |u| u.errors&.full_messages })).flatten
+          ### END CUSTOMIZATION
         end
       end
     end
@@ -48,13 +50,17 @@ module Spotlight
 
       encoded_csv(csv_data).each do |row|
         url = row.delete('url')
-        next unless url.present?
+        ### BEGIN CUSTOMIZATION - to appease rubocop
+        next if url.blank?
+        ### END CUSTOMIZATION
 
         resource = Spotlight::Resources::Upload.new(
           data: row,
           exhibit: exhibit
         )
-        resource.build_upload(remote_image_url: url) unless url == '~'
+        ### BEGIN CUSTOMIZATION - Updated resource to has_many uploads association
+        resource.uploads.build(remote_image_url: url) unless url == '~'
+        ### END CUSTOMIZATION
 
         yield resource
       end
