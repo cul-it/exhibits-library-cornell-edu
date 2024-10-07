@@ -44,7 +44,10 @@ Spotlight::Engine.config.upload_fields = [
   Spotlight::UploadFieldConfig.new(
      field_name: Spotlight::Engine.config.upload_description_field,
      label: -> { I18n.t(:"spotlight.search.fields.#{Spotlight::Engine.config.upload_description_field}") },
-     form_field_type: :text_area
+     form_field_type: :text_area,
+     blacklight_options: {
+      helper_method: :render_markdown_links
+     }
    ),
   Spotlight::UploadFieldConfig.new(
      field_name: :spotlight_upload_attribution_tesim,
