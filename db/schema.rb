@@ -188,7 +188,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_20_151533) do
     t.string "iiif_image_id"
     t.string "iiif_tilesource"
     t.bigint "spotlight_resource_id"
-    t.index ["spotlight_resource_id"], name: "index_spotlight_featured_images_on_spotlight_resource_id"
+    t.index ["spotlight_resource_id"], name: "fk_rails_b71c330668"
   end
 
   create_table "spotlight_filters", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

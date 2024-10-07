@@ -1,6 +1,10 @@
 class AddResourceIdToSpotlightFeaturedImages < ActiveRecord::Migration[7.0]
   def change
-    add_reference :spotlight_featured_images, :spotlight_resource, foreign_key: true
+    # This is a bit of a hack to get around the fact that PKs are still integers in int/stg/prod
+    # https://culibrary.atlassian.net/browse/LP-1144
+    id_data_type = Rails.env.test? || Rails.env.development? ? :bigint : :integer
+    add_column :spotlight_featured_images, :spotlight_resource_id, id_data_type
+    add_foreign_key :spotlight_featured_images, :spotlight_resources
 
     reversible do |direction|
       direction.up do    
