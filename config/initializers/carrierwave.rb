@@ -11,4 +11,10 @@ if ENV['S3_KEY_ID'].present?
       region: ENV['S3_BUCKET_REGION']
     }
   end
+elsif Rails.env.test? || Rails.env.cucumber?
+  CarrierWave.configure do |config|
+    config.root = Rails.root.join('spec/uploads')
+    config.storage = :file
+    config.enable_processing = false
+  end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Based on the Module#prepend pattern in ruby.
-# Uses the to_prepare Rails hook in application.rb to inject this module to override Spotlight::Exhibit
+# Uses the to_prepare Rails hook in application.rb to inject this module to override Spotlight::ExhibitsController
 module PrependedControllers::ExhibitsController
   # Overrides published exhibit order in so that exhibits are ordered first by asc weight, then by most recently published
   def index

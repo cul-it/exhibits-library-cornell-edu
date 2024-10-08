@@ -24,7 +24,17 @@ module Exhibits
     config.to_prepare do
       # for each prepended class
       # OriginalApp::OriginalClassName.prepend PrependedModuleName::OriginalClassName
+      # Controllers
       Spotlight::ExhibitsController.prepend PrependedControllers::ExhibitsController
+      Spotlight::Resources::UploadController.prepend PrependedControllers::UploadController
+      Spotlight::CatalogController.prepend PrependedControllers::CatalogController
+
+      # Models
+      Spotlight::FeaturedImage.prepend PrependedModels::FeaturedImage
+      Spotlight::Resources::Upload.prepend PrependedModels::Upload
+
+      # Services
+      Spotlight::ExhibitImportExportService.prepend PrependedServices::ExhibitImportExportService
     end
   end
 end

@@ -56,6 +56,24 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+  end
+
+  config.after(:each) do
+    # Clear solr
+    Blacklight.default_index.connection.delete_by_query('*:*', params: { commit: true })
+  end
+
+  config.after(:suite) do
+    # Delete uploaded carrierwave files
+    FileUtils.rm_rf(Dir[Rails.root.join('spec', 'uploads')])
+  end
+
   # The settings below are suggested to provide a good initial experience
   # with RSpec, but feel free to customize to your heart's content.
   #   # This allows you to limit a spec run to individual examples or groups

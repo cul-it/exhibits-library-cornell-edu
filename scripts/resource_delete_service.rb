@@ -32,10 +32,9 @@ class ResourceDeleteService
     # @param [Integer] limit the number of image ids returned (default: 1000)
     # @return [Array<Integer>] resource_ids - list of ids of resources with image=NULL
     def find_null_images(exhibit: nil, limit: 1000)
-      puts "Resources where upload_id is NULL"
-      where_clause = { upload_id: nil }
-      where_clause[:exhibit_id] = exhibit if exhibit
-      resource_ids = Spotlight::Resource.where(where_clause).limit(limit).map(&:id)
+      puts "Resources with no associated Spotlight::FeaturedImage"
+      where_clause = exhibit ? { exhibit_id:  exhibit.id } : {}
+      resource_ids = Spotlight::Resources::Upload.where(where_clause).missing(:uploads).pluck(:id)
       delete_resources(resource_ids, pretest: true) # just lists info about resources when pretest: true
       resource_ids
     end
@@ -45,15 +44,6 @@ class ResourceDeleteService
     def find_resources_for_exhibit(exhibit:, limit: 1000)
       puts "Resources for exhibit #{exhibit}"
       resource_ids = Spotlight::Resource.where(exhibit_id: exhibit).limit(limit).map(&:id)
-      delete_resources(resource_ids, pretest: true) # just lists info about resources when pretest: true
-      resource_ids
-    end
-
-    # @param [Integer] upload_id - id for an uploaded file
-    # @return [Array<Integer>] resource_ids - list of ids of resources with the upload_id (Should be at most 1.  More than that is an error.)
-    def find_resources_with_upload_id(upload_id:, limit: 10)
-      puts "Resources with upload_id #{upload_id}"
-      resource_ids = Spotlight::Resource.where(upload_id: upload_id).limit(limit).map(&:id)
       delete_resources(resource_ids, pretest: true) # just lists info about resources when pretest: true
       resource_ids
     end
@@ -87,22 +77,22 @@ class ResourceDeleteService
       resource = find_resource(resource_id)
       return if resource.blank?
 
-      featured_image = find_featured_image(resource)
-      thumbnails = find_thumbnails(featured_image)
+      featured_images = find_featured_images(resource)
+      thumbnails = featured_images.each_with_object([]) { |i, arr| arr << find_thumbnails(i) }.flatten
       solr_document_sidecars = find_solr_document_sidecars(resource)
       bookmarks = find_bookmarks(solr_document_sidecars)
 
-      perform_pretest(resource: resource, featured_image: featured_image, thumbnails: thumbnails,
+      perform_pretest(resource: resource, featured_images: featured_images, thumbnails: thumbnails,
                       solr_document_sidecars: solr_document_sidecars, bookmarks: bookmarks)
       return if pretest
       return unless delete?
-      perform_deletes(resource: resource, featured_image: featured_image, thumbnails: thumbnails,
+      perform_deletes(resource: resource, featured_images: featured_images, thumbnails: thumbnails,
                       solr_document_sidecars: solr_document_sidecars, bookmarks: bookmarks)
     end
 
     private
 
-      def perform_deletes(resource:, featured_image:, thumbnails: [], solr_document_sidecars: [], bookmarks: [])
+      def perform_deletes(resource:, featured_images: [], thumbnails: [], solr_document_sidecars: [], bookmarks: [])
         bookmarks.each { |b| b.delete }
         solr_document_sidecars.each do |d|
           Blacklight.default_index.connection.delete_by_id d.document_id
@@ -110,21 +100,19 @@ class ResourceDeleteService
           d.delete
         end
         thumbnails.each { |t| t.delete }
-        featured_image.remove_image! if featured_image
-        featured_image.delete if featured_image
+        featured_images.each do |i|
+          i.remove_image!
+          i.delete
+        end
         resource.delete
         puts("DELETE Complete!")
       end
 
-      def perform_pretest(resource:, featured_image:, thumbnails: [], solr_document_sidecars: [], bookmarks: [])
+      def perform_pretest(resource:, featured_images: [], thumbnails: [], solr_document_sidecars: [], bookmarks: [])
         puts "-----------------------------------"
         puts("Will DELETE...")
-        puts("    resource - id: #{resource.id}    type: #{resource.type}    upload_id: #{resource.upload_id}    exhibit_id: #{resource.exhibit_id}")
-        puts("    featured image - id: #{featured_image.id}    type: #{featured_image.type}    image: #{featured_image.image}") if featured_image
-        Spotlight::Resource.where(upload_id: resource.upload_id).each do |r|
-          next if r.id == resource.id || resource.upload_id.blank?
-          puts("       ALT resource with upload_id: #{resource.upload_id}   resource - id: #{r.id}    exhibit_id: #{r.exhibit_id}")
-        end unless resource.upload_id.blank?
+        puts("    resource - id: #{resource.id}    type: #{resource.type}    exhibit_id: #{resource.exhibit_id}")
+        featured_images.each { |i| puts("    featured image - id: #{i.id}    type: #{i.type}    image: #{i.image}") }
         thumbnails.each { |t| puts("    thumbnail - id: #{t.id}    type: #{t.type}    image: #{t.image}    iiif_tilesource: #{t.iiif_tilesource}") }
         solr_document_sidecars.each { |d| puts("    solr_document_sidecar - id: #{d.id}    document_id: #{d.document_id}    document_type: #{d.document_type}    resource_id: #{d.resource_id}    exhibit_id: #{d.exhibit_id}") }
         bookmarks.each { |b| puts("    bookmark - id: #{b.id}") }
@@ -137,11 +125,9 @@ class ResourceDeleteService
         puts("resource NOT FOUND - id: #{resource_id}")
       end
 
-      def find_featured_image(resource)
-        return nil if resource.blank?
-        featured_image_id = resource.upload_id
-        return nil if featured_image_id.blank?
-        Spotlight::FeaturedImage.find(featured_image_id)
+      def find_featured_images(resource)
+        return [] if resource.blank?
+        Spotlight::FeaturedImage.where(spotlight_resource_id: resource.id)
       end
 
       def find_thumbnails(featured_image)

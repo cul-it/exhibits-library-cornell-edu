@@ -15,6 +15,26 @@ AllCops:
     - 'scripts/**/*'
     - 'tmp/**/*'
 
+Metrics/AbcSize:
+  Exclude:
+    - 'app/prepends/prepended_services/exhibit_import_export_service.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/prepends/prepended_services/exhibit_import_export_service.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'app/prepends/prepended_services/exhibit_import_export_service.rb'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'app/prepends/prepended_services/exhibit_import_export_service.rb'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'app/prepends/prepended_services/exhibit_import_export_service.rb'
+
 Metrics/BlockLength:
   ExcludedMethods: ['included']
   Exclude:
