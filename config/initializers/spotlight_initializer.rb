@@ -44,7 +44,10 @@ Spotlight::Engine.config.upload_fields = [
   Spotlight::UploadFieldConfig.new(
      field_name: Spotlight::Engine.config.upload_description_field,
      label: -> { I18n.t(:"spotlight.search.fields.#{Spotlight::Engine.config.upload_description_field}") },
-     form_field_type: :text_area
+     form_field_type: :text_area,
+     blacklight_options: {
+      helper_method: :render_markdown_links
+     }
    ),
   Spotlight::UploadFieldConfig.new(
      field_name: :spotlight_upload_attribution_tesim,
@@ -95,6 +98,9 @@ Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
 # Spotlight::Engine.config.ga_analytics_options = {}
 # Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
 Spotlight::Engine.config.ga_debug_mode = false
+
+# Hide from indexing job list in exhibit dashboard
+Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight::AddUploadsFromCsv]
 
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,

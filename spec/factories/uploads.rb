@@ -12,5 +12,10 @@ FactoryBot.define do
       }
     end
     association :exhibit, factory: :exhibit
+    uploads { @overrides[:uploads] || [create(:featured_image)] }
+
+    factory :upload_with_multiple_images do
+      uploads { [create(:featured_image), create(:featured_image_alternate)] }
+    end
   end
 end
