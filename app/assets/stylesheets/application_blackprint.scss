@@ -9,16 +9,16 @@
 }
 
 body, header {
-  background: #fff;
+  background: #f4eee5;
   color: #2f2e2f;
+}
+
+a {
+  color: #005A8D;
 }
 
 #exhibit-navbar {
   background: #764d29;
-}
-
-footer {
-  background: #efe2ce;
 }
 
 //menu and menu link color
@@ -28,7 +28,7 @@ footer {
     min-width: 250px;
   }
   .dropdown-item {
-    color: #0068ac;
+    color: #005A8D;
   }
 }
 
@@ -105,6 +105,11 @@ footer {
     padding-left: 3rem;
     height: 60px;
   } 
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 }
 
 // Browse - Authors, the subtitle is date range
@@ -136,6 +141,16 @@ footer {
     color: #764d29;
     font-size: .65em;
   }
+
+  // override the 3 column layout, just show 1 col for author biography
+  @media (min-width: 768px) {
+    .very-long-description-text {
+      -moz-column-gap: normal;
+      column-gap: normal;
+      -moz-column-width: auto;
+      column-width: auto;
+    }
+  }
 }
 
 // Author section of the exhibit, show the leaders in the masthead background
@@ -155,4 +170,22 @@ footer {
       background-image: none !important;
     }
   }
+}
+
+// for quotes, remove the background color
+.quote__cite.blockquote-footer {
+  background-color: #f4eee5 !important;
+  color: #4b545b;
+  padding-top: 0.5rem;
+  padding-right: 2.5rem;
+  margin-right: 2.5rem;
+  text-align: right;
+}
+
+.list-group-item.active, 
+.list-group-item.active:hover {
+  z-index: 2;
+  color: #fff;
+  background-color: #004466;
+  border-color: #004466;
 }

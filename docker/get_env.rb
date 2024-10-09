@@ -4,25 +4,20 @@
 
 require 'aws-sdk-s3'
 
-PROD = "production"
-STAGING = "staging"
-DEV = "development"
-INTEGRATION = "integration"
-environment = ARGV.shift || DEV
-workdir = ARGV.shift || "/exhibits"
-env = ""
-if PROD.casecmp(environment) == 0
-    env = "prod"
-elsif STAGING.casecmp(environment) == 0
-    env = "staging"
-elsif INTEGRATION.casecmp(environment) == 0
-    env = "int"
-else
-    env = "dev"
-end
+environment = ARGV.shift || 'development'
+workdir = ARGV.shift || '/exhibits'
+
+env_map = {
+  'production' => 'prod',
+  'staging' => 'staging',
+  'integration' => 'int',
+  'development' => 'dev'
+}
+env = env_map[environment.downcase] || 'dev'
+
 BUCKET = 'exhibits-container'
 ENV_KEY = "exhibits-#{env}.env"
+TARGET = "#{workdir}/.env"
 
 client = Aws::S3::Client.new(region: 'us-east-1')
-target = "#{workdir}/.env"
-client.get_object({ bucket: BUCKET, key: ENV_KEY }, target:)
+client.get_object({ bucket: BUCKET, key: ENV_KEY }, target: TARGET)

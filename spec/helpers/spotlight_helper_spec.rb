@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-# SpotlightHelper tests the module for the render_markdown_links method
-# which is used to render the markdown links as HTML links LP-481
-
-RSpec.describe SpotlightHelper, type: :helper do
+describe SpotlightHelper do
+  # Used to render the markdown links as HTML links LP-481
   describe '#render_markdown_links' do
     context 'when the value is a Markdown link' do
       let(:options) { { value: ['Here is my sample description. [Google](https://www.google.com)'] } }
@@ -47,6 +45,51 @@ RSpec.describe SpotlightHelper, type: :helper do
       it 'will return an empty string' do
         result = helper.render_markdown_links(options)
         expect(result).to eq('')
+      end
+    end
+  end
+
+  describe '#initial_page' do
+    let(:solr_doc) do
+      SolrDocument.new(
+        content_metadata_image_iiif_info_ssm: [
+          '/images/1-alphanumericgibberish/info.json',
+          '/images/2-alphanumericgibberish/info.json'
+        ]
+      )
+    end
+    let(:block_options) { { iiif_tilesource: 'http://www.example.com/images/2-alphanumericgibberish/info.json' } }
+    let(:config) { Spotlight::CatalogController.blacklight_config }
+
+    before do
+      without_partial_double_verification do
+        allow(helper).to receive(:blacklight_config) { config }
+      end
+    end
+
+    context 'when a tilesource is selected' do
+      it 'returns the index of the selected image tile source' do
+        expect(helper.initial_page(solr_doc, block_options)).to eq(1)
+      end
+    end
+
+    context 'when block options with selected tilesource are not provided' do
+      it 'returns 0' do
+        expect(helper.initial_page(solr_doc, nil)).to eq(0)
+      end
+    end
+
+    context 'when the tilesource from block options are not in the document' do
+      it 'returns 0' do
+        block_options = { iiif_tilesource: 'http://www.example.com/images/NOPE/info.json' }
+        expect(helper.initial_page(solr_doc, block_options)).to eq(0)
+      end
+    end
+
+    context 'when the tilesource from block options are in an unexpected format' do
+      it 'returns 0' do
+        block_options = { iiif_tilesource: 'boop' }
+        expect(helper.initial_page(solr_doc, block_options)).to eq(0)
       end
     end
   end
