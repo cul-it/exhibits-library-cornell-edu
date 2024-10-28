@@ -488,8 +488,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     retriable (3.1.2)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.9)
     riiif (2.5.0)
       deprecation (>= 1.0.0)
       iiif-image-api (>= 0.1.0)
@@ -619,7 +618,6 @@ GEM
     sqlite3 (1.7.2-x86_64-linux)
     ssrf_filter (1.1.2)
     stringio (3.1.1)
-    strscan (3.1.0)
     sync (0.5.0)
     term-ansicolor (1.7.1)
       tins (~> 1.0)
