@@ -1,15 +1,11 @@
 #sidebar {
-	ol.sidenav {
-		li:first-child {
-			h4 {
-				margin-top: 0;
-			}
-		}
-		.active {
-			h4 {
-				font-weight: 700;
-			}
-		}
+	//  Override default .h6 class styling
+	ol.sidenav li h2 {
+		font-size: 1.1rem;
+	}
+	// Highlight current page in sidebar list
+	ol.sidenav li.active h2, ol.subsection li.active {
+		font-weight: bold;
 	}
 }
 
