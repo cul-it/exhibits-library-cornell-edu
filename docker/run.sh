@@ -21,6 +21,11 @@ echo "Preparing database..."
 bundle exec rake db:migrate RAILS_ENV=$RAILS_ENV 
 echo "Database migration done!"
 
+# Precompile assets
+echo "Compiling assets..."
+bundle exec rake assets:precompile
+echo "Compiling assets done!"
+
 # Start the web server
 mkdir -p ./tmp/pids
 bundle exec puma -C config/puma.rb -e $RAILS_ENV
