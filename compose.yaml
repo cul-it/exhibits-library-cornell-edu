@@ -22,6 +22,7 @@ services:
       - mysql
       - redis
       - solr
+      - sidekiq
 
   mysql:
     image: mariadb:10.6
@@ -54,6 +55,16 @@ services:
       - 6379:6379
     volumes:
       - redis:/data
+
+  sidekiq:
+    build:
+      context: .
+      target: development
+    entrypoint: docker/run_sidekiq.sh
+    depends_on:
+      - redis
+    env_file:
+      - .env
 
 volumes:
   db-data:
