@@ -103,9 +103,7 @@ ENV RAILS_ENV=${RAILS_ENV} \
 # exhibits_cron - .ebextentions/tmp_cleanup.config
 # localtime adjustment - .ebextentions/system_time.config
 COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
-RUN groupadd -r $GROUP && useradd -r -g $GROUP $USER && \
-    mkdir -p /home/${USER} && \
-    chown ${USER}:${GROUP} /home/${USER} && \
+RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER && \
     chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \
     crontab -u root /etc/cron.d/exhibits_cron && \
     ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
