@@ -86,7 +86,6 @@ RUN bundle config set --local with "${RAILS_ENV}" && \
     find ${BUNDLE_PATH}/ -name "*.o" -delete
 
 COPY . .
-RUN bundle exec rake assets:precompile && rm .env
 
 ################################################################################
 # Final image for integration/staging/production
