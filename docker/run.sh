@@ -17,12 +17,9 @@ then
 fi
 
 # Run db migrations
-echo "Preparing Database..."
+echo "Preparing database..."
 bundle exec rake db:migrate RAILS_ENV=$RAILS_ENV 
-echo "Database Migration Done!"
-
-# Start sidekiq
-bundle exec sidekiq -L log/sidekiq.log -e $RAILS_ENV -C config/sidekiq.yml -d
+echo "Database migration done!"
 
 # Start the web server
 mkdir -p ./tmp/pids

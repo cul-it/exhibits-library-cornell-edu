@@ -78,6 +78,7 @@ WORKDIR ${APP_PATH}
 COPY ./Gemfile ./Gemfile.lock ./
 RUN bundle config set --local with "${RAILS_ENV}" && \
     bundle config set --local without "${BUNDLE_WITHOUT}" && \
+    bundle config set --local path "${BUNDLE_PATH}" && \
     bundle install && \
     gem install aws-sdk-s3 && \
     rm -rf ${BUNDLE_PATH}/cache/*.gem && \
