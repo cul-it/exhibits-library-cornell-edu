@@ -22,7 +22,7 @@ FROM ruby_base as dev_base
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     mariadb-server=1:10.11.6-0+deb12u1 \
-    libsqlite3-dev=3.40.1-2
+    libsqlite3-dev=3.40.1-2+deb12u1
 
 ################################################################################
 # Build test environment
