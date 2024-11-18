@@ -28,7 +28,6 @@ a {
 	}
 }
 
-
 p, li {
 	font-size: 1.1rem;
 }
@@ -74,6 +73,12 @@ p, li {
 }
 .breadcrumb-item.active {
 	color: inherit;
+}
+
+// Add clearer focus indicator to carousel previous and next buttons; uses default bootstrap color variable
+a.carousel-control-prev:focus > span, 
+a.carousel-control-next:focus > span {
+	outline: $link-hover-color auto 5px;
 }
 
 // MEDIA QUERIES

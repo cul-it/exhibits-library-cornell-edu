@@ -8,32 +8,64 @@
   src: font-url('VictorianDecade-Extrude.otf');
 }
 
+//colors
+
+$blackprint-background: #f4eee5; 
+$blackprint-brown: #764d29; 
+$blackprint-dark-gray: #2f2e2f;
+$blackprint-dark-blue: #004466; 
+$blackprint-light-blue: #005A8D; 
+$blackprint-yellow: #f1cb88;
+
 body, header {
-  background: #f4eee5;
-  color: #2f2e2f;
+  background: $blackprint-background;
+  color: $blackprint-dark-gray;
 }
 
-a {
-  color: #005A8D;
+//links
+
+a, .page-link {
+  color: $blackprint-light-blue;
 }
+
+//buttons
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-outline-secondary:hover, 
+.btn-outline-secondary:active,
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-secondary.dropdown-toggle,
+.nav-pills .nav-link.active,
+.page-item.active .page-link {
+  background-color: $blackprint-dark-blue;
+  border-color: $blackprint-dark-blue; 
+}
+
+.btn-outline-secondary {
+  border-color: $blackprint-dark-blue;
+  color: $blackprint-dark-blue;
+}
+
+//navbar 
 
 #exhibit-navbar {
-  background: #764d29;
+  background: $blackprint-brown;
 }
 
-//menu and menu link color
 .navbar, #blacklight-modal {
-  background: #fff;
+  background: $white;
   .dropdown-menu {
     min-width: 250px;
   }
   .dropdown-item {
-    color: #005A8D;
+    color: $blackprint-light-blue;
   }
 }
 
 .masthead {
-  background-color: #2f2e2f;
+  background-color: $blackprint-dark-gray;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -76,7 +108,7 @@ a {
       // exhibit title
       h1 {
         font-family: 'VictorianDecade-Extrude';
-        color: #f1cb88;
+        color: $blackprint-yellow;
         font-size: 4.8rem;
 
         &::first-letter {
@@ -87,7 +119,7 @@ a {
       // exhibit subtitle
       small {
         font-family: 'Freight Text Pro bold', serif;
-        color: #f1cb88;
+        color: $blackprint-yellow;
         padding-top: 0 !important;
       }
     }
@@ -108,6 +140,11 @@ a {
 
   h2 {
     font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.1rem;
     font-weight: bold;
   }
 }
@@ -138,7 +175,7 @@ a {
   }
 
   .item-count {
-    color: #764d29;
+    color: $blackprint-brown;
     font-size: .65em;
   }
 
@@ -172,9 +209,19 @@ a {
   }
 }
 
+// for Authors browse cards, increase contrast between text and background image
+
+.browse-landing .text-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+
+  .browse-category-title {
+    font-size: 1.5rem !important;
+  }
+}
+
 // for quotes, remove the background color
 .quote__cite.blockquote-footer {
-  background-color: #f4eee5 !important;
+  background-color: $blackprint-background !important;
   color: #4b545b;
   padding-top: 0.5rem;
   padding-right: 2.5rem;
@@ -182,10 +229,34 @@ a {
   text-align: right;
 }
 
+// for slideshow display, update colors
+.list-group-item {
+  background-color: $blackprint-background; 
+}
+
 .list-group-item.active, 
 .list-group-item.active:hover {
   z-index: 2;
   color: #fff;
-  background-color: #004466;
-  border-color: #004466;
+  background-color: $blackprint-dark-blue;
+  border-color: $blackprint-dark-blue;
+}
+
+// pagination
+
+.pagination {
+  .page-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+  }
+}
+
+// About - Gallery & Behind Scenes
+
+.blacklight-about_pages-show {
+  .box {
+        padding-top: 0px;
+        padding-left: 0px;
+  }
+  
 }

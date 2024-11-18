@@ -4,7 +4,7 @@ set -e
 
 # If the database exists, migrate. Otherwise setup (create and migrate)
 echo "Preparing Database..."
-bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:create db:schema:load
+bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:environment:set RAILS_ENV=development db:create db:schema:load
 echo "Database Migration Done!"
 
 # Start sidekiq
