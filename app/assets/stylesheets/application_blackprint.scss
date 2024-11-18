@@ -209,6 +209,16 @@ a, .page-link {
   }
 }
 
+// for Authors browse cards, increase contrast between text and background image
+
+.browse-landing .text-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+
+  .browse-category-title {
+    font-size: 1.5rem !important;
+  }
+}
+
 // for quotes, remove the background color
 .quote__cite.blockquote-footer {
   background-color: $blackprint-background !important;
