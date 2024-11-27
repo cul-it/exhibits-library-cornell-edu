@@ -1,5 +1,8 @@
 # Docker compose file for integration environment
-# Run with: docker compose up
+# Run with: docker compose -f compose.integration.yaml up
+#
+# For local development testing of the integration container:
+# consider setting up a redis container, instead of connecting to the remote redis host.
 
 services:
   webapp:
