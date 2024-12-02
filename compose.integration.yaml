@@ -1,5 +1,8 @@
 # Docker compose file for integration environment
-# Run with: docker compose up
+# Run with: docker compose -f compose.integration.yaml up
+#
+# For local development testing of the integration container:
+# consider setting up a redis container, instead of connecting to the remote redis host.
 
 services:
   webapp:
@@ -18,3 +21,16 @@ services:
       - PORT=9292
     ports:
       - 9292:9292
+    depends_on:
+      - sidekiq
+
+  sidekiq:
+    build:
+      context: .
+      args:
+        BUNDLE_WITHOUT: "development test"
+        RACK_ENV: integration
+        RAILS_ENV: integration
+    entrypoint: docker/run_sidekiq.sh
+    env_file:
+      - .env
