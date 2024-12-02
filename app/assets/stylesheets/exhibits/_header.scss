@@ -120,6 +120,11 @@ header {
 	}
 }
 
+// Remove default blur filter
+.image-masthead .background-container {
+	filter: blur(0);
+}
+
 // Utilities navbar
 // --------------------
 .navbar-toggler {

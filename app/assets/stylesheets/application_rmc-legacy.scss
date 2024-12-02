@@ -11,7 +11,7 @@
 
     @media (min-width: breakpoint-max('md')) {
       // For larger screen sizes, hide title text (except for screen readers)
-      height: 178px;
+      height: 180px;
       .site-title {
         @include sr-only;
         }
@@ -19,10 +19,10 @@
   }
 
   .background-container {
-    // Remove blur filter and center masthead image
-    filter: none;
+    // Center masthead image
     background-position: center;
-    height: 178px;
+    border: none;
+    height: 180px;
 
     @media (max-width: breakpoint-max('md')) {
       // For smaller screen sizes, zoom in on solid background color on left side of modified RMC masthead image
