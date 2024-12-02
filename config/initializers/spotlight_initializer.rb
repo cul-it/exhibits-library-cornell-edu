@@ -116,7 +116,7 @@ Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight
 #   'my-local-config': ->(context) { context.my_custom_data_path(context.current_exhibit) }
 # }
 
-default_themes = %w[default example]
+default_themes = %w[default example rmc-legacy]
 custom_themes = %w[dr-joyce-brothers blackprint]
 Spotlight::Engine.config.exhibit_themes = default_themes + custom_themes
 
