@@ -78,6 +78,7 @@ WORKDIR ${APP_PATH}
 COPY ./Gemfile ./Gemfile.lock ./
 RUN bundle config set --local with "${RAILS_ENV}" && \
     bundle config set --local without "${BUNDLE_WITHOUT}" && \
+    bundle config set --local path "${BUNDLE_PATH}" && \
     bundle install && \
     gem install aws-sdk-s3 && \
     rm -rf ${BUNDLE_PATH}/cache/*.gem && \
@@ -85,7 +86,7 @@ RUN bundle config set --local with "${RAILS_ENV}" && \
     find ${BUNDLE_PATH}/ -name "*.o" -delete
 
 COPY . .
-RUN bundle exec rake assets:precompile && rm .env
+RUN rm .env
 
 ################################################################################
 # Final image for integration/staging/production
@@ -102,9 +103,7 @@ ENV RAILS_ENV=${RAILS_ENV} \
 # exhibits_cron - .ebextentions/tmp_cleanup.config
 # localtime adjustment - .ebextentions/system_time.config
 COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
-RUN groupadd -r $GROUP && useradd -r -g $GROUP $USER && \
-    mkdir -p /home/${USER} && \
-    chown ${USER}:${GROUP} /home/${USER} && \
+RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER && \
     chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \
     crontab -u root /etc/cron.d/exhibits_cron && \
     ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
