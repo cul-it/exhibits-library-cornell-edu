@@ -10,7 +10,6 @@ services:
     volumes:
       - ./solr/config:/opt/solr/server/configsets/exhibitsconf
 
-  # This doesn't even match current redis, I don't think? Gemfile.lock has it at 4.5 - but sidekiq is overdue for an upgrade
   redis:
     image: redis:5-alpine
     command:

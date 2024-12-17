@@ -31,7 +31,7 @@ gem 'ruby-oembed'
 # Use SCSS for stylesheets
 gem 'sassc', '~> 2.1', '< 2.2'
 gem 'sassc-rails'
-gem 'sidekiq', '~> 5.2' # TODO: NEEDS UPGRADE
+gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

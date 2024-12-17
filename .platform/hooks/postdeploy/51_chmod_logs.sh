@@ -5,7 +5,6 @@
 
 EB_APP_DEPLOY_DIR=$(/opt/elasticbeanstalk/bin/get-config platformconfig -k AppDeployDir)
 APP_LOG_DIR=$EB_APP_DEPLOY_DIR/log
-SIDEKIQ_LOG=$APP_LOG_DIR/sidekiq.log
 DEBUG_LOG=$APP_LOG_DIR/debug.log
 
 RACK_ENV=$(/opt/elasticbeanstalk/bin/get-config environment -k RACK_ENV)
@@ -22,8 +21,6 @@ case $RACK_ENV in
   ;;
 esac
 
-touch $SIDEKIQ_LOG
-chmod 0664 $SIDEKIQ_LOG
 touch $RAILS_LOG
 chmod 0664 $RAILS_LOG
 
