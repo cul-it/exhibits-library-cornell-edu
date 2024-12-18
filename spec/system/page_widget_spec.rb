@@ -1,11 +1,6 @@
 require 'rails_helper'
 
-# Gem::Specificationfind_by_name is not a rails dynamic finder
-require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
-
 describe 'Editing spotlight pages', type: :system do
-  include Spotlight::TestFeaturesHelpers
-
   let(:exhibit) { create(:exhibit) }
   let(:user) { exhibit.users.first }
   let!(:item) { create(:upload_with_multiple_images, exhibit: exhibit) }
