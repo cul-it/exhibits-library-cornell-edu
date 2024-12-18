@@ -2,6 +2,26 @@ require 'rails_helper'
 
 # Tests overrides in PrependedModels::Upload
 describe Spotlight::Resources::Upload, type: :model do
+  describe 'validations' do
+    let(:exhibit) { create(:exhibit) }
+    let(:upload_resource) { Spotlight::Resources::Upload.new(exhibit: exhibit) }
+    let(:file) { Rack::Test::UploadedFile.new(File.expand_path('../../fixtures/grey.png', __dir__)) }
+
+    it 'is invalid when more than 30 upload files are associated' do
+      uploads_attributes = Array.new(31, { image: file })
+      upload_resource.uploads.build(uploads_attributes)
+      expect(upload_resource).to be_invalid
+      expect(upload_resource.errors[:uploads]).to include('You are not allowed to upload more than 30 files for a single exhibit item.')
+    end
+
+    it 'is valid when 30 upload files are associated' do
+      uploads_attributes = Array.new(30, { image: file })
+      upload_resource.uploads.build(uploads_attributes)
+      expect(upload_resource).to be_valid
+      expect(upload_resource.errors).to be_empty
+    end
+  end
+
   describe '#to_solr' do
     let(:upload_resource) { create(:upload_with_multiple_images) }
 

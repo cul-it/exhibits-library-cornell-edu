@@ -12,6 +12,8 @@ module PrependedModels::Upload
 
   Spotlight::Resources::Upload.accepts_nested_attributes_for :uploads
 
+  Spotlight::Resources::Upload.validates :uploads, length: { maximum: 30 }
+
   # Overrides to_solr method to handle multiple uploads
   # rubocop:disable Metrics/AbcSize
   def to_solr

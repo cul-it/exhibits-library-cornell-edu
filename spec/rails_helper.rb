@@ -59,6 +59,8 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers
 
+  config.include Rails.application.routes.url_helpers
+
   config.before(:each, type: :feature) do
     Warden.test_mode!
   end
