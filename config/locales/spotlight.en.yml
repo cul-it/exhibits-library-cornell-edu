@@ -4,11 +4,29 @@ en:
       spotlight/exhibit:
         tag_list: Cmd+click or Ctrl+click to select multiple tags.
   spotlight:
+    catalog:
+      edit_default:
+        url-field:
+          help: 'Valid file types: %{extensions}. Files should be less than 10MB in size.'
     confirmation_mailer:
       confirmation_instructions:
         welcome: "Welcome %{email}!"
         instructions: "You recently requested an account on the Library's Online Exhibitions website. Please click the link below to confirm your account:"
         confirm: Confirm my account
+    contacts:
+      form:
+        source:
+          remote:
+            help: File should be less than 10MB in size.
+    featured_images:
+      form:
+        source:
+          remote:
+            help: File should be less than 10MB in size.
+      upload_form:
+        source:
+          remote:
+            help: File should be less than 10MB in size.
     header_links:
       login: Admin Login
     admin_users:
@@ -17,6 +35,12 @@ en:
         destroy: Remove from exhibit creator role
         instructions: Existing exhibit creators
         update: Make user an exhibit creator
+    resources:
+      upload:
+        error: Your item could not be added.
+        form:
+          url-field:
+            help: 'Valid file types: %{extensions}. Files should be less than 10MB in size.'
     search:
       fields:
         spotlight_copyright_tesim: Copyright

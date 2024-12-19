@@ -35,6 +35,9 @@ module Exhibits
 
       # Services
       Spotlight::ExhibitImportExportService.prepend PrependedServices::ExhibitImportExportService
+
+      # Uploaders
+      Spotlight::FeaturedImageUploader.prepend PrependedUploaders::FeaturedImageUploader
     end
   end
 end
