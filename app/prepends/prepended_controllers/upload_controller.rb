@@ -9,7 +9,9 @@ module PrependedControllers::UploadController
       flash[:notice] = t('spotlight.resources.upload.success')
       return redirect_to new_exhibit_resource_path(@resource.exhibit, tab: :upload) if params['add-and-continue']
     else
-      flash[:error] = @resource.errors.messages.values.flatten.join(' ')
+      general_error = t('spotlight.resources.upload.error')
+      specific_errors = @resource.errors.messages.values
+      flash[:error] = [general_error, specific_errors].flatten.join(' ')
     end
 
     redirect_to admin_exhibit_catalog_path(@resource.exhibit, sort: :timestamp)

@@ -65,12 +65,13 @@ describe Spotlight::Resources::UploadController, type: :controller do
 
         it 'displays error messages when image is too large' do
           post :create, params: { exhibit_id: exhibit, resources_upload: { url: [too_large_image], data: item_data } }
-          expect(flash[:error]).to eq('File size should be less than 10 MB.')
+          expect(flash[:error]).to eq('Your item could not be added. File size should be less than 10 MB.')
           expect(response).to redirect_to admin_exhibit_catalog_path(exhibit, sort: :timestamp)
         end
 
         it 'displays multiple errors messages, when multiple invalid files' do
           post :create, params: { exhibit_id: exhibit, resources_upload: { url: [too_large_image, invalid_file_type], data: item_data } }
+          expect(flash[:error]).to include('Your item could not be added.')
           expect(flash[:error]).to include('File size should be less than 10 MB.')
           expect(flash[:error]).to include('You are not allowed to upload "txt" files, allowed types:')
         end

@@ -37,6 +37,7 @@ en:
         update: Make user an exhibit creator
     resources:
       upload:
+        error: Your item could not be added.
         form:
           url-field:
             help: 'Valid file types: %{extensions}. Files should be less than 10MB in size.'
