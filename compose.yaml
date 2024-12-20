@@ -61,10 +61,15 @@ services:
       context: .
       target: development
     entrypoint: docker/run_sidekiq.sh
-    depends_on:
-      - redis
+    image: exhibits
+    stdin_open: true
+    tty: true
     env_file:
       - .env
+    volumes:
+      - .:/exhibits
+    depends_on:
+      - redis
 
 volumes:
   db-data:

@@ -31,9 +31,20 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        spotlight/resource:
+          attributes:
+            uploads:
+              too_long: You are not allowed to upload more than 30 files for a single exhibit item.
   portal_resources:
     form:
       add_item: "Add results of portal search"
   dashboard: Dashboard
+  errors:
+    messages:
+      extension_allowlist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}."
+      min_size_error: "File size should be greater than %{min_size}."
+      max_size_error: "File size should be less than %{max_size}."
   local_documentation: Cornell curator documentation
-
