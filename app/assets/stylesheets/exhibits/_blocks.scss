@@ -78,3 +78,13 @@
 .thumbs-list {
 	overflow-x: auto;
 }
+
+// Balance caption text over multiple lines for item block
+.items-block .items-col .caption {
+  text-wrap: balance;
+}
+
+// Align tops of items column and text column for item block
+.items-block .items-col .box {
+  padding-top: 0; 
+}
