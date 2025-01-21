@@ -21,12 +21,14 @@ describe 'Adding exhibit items', type: :system do
       page.attach_file('resources_upload[url][]', [File.expand_path('../fixtures/grey.png', __dir__)], make_visible: true)
       fill_in 'Title', with: 'A new item?!'
       fill_in 'Description', with: 'A new item description'
+      fill_in 'Physical Location', with: 'A physical location'
       click_button 'Add item and continue adding'
 
       # Add item #2
       page.attach_file('resources_upload[url][]', [File.expand_path('../fixtures/white.png', __dir__), File.expand_path('../fixtures/red.png', __dir__)], make_visible: true)
       fill_in 'Title', with: 'Item with multiple images'
       fill_in 'Description', with: 'This item has so many images, you would not believe.'
+      fill_in 'Physical Location', with: 'Some other physical location'
       click_button 'Add item'
 
       # Verify that the items were added
@@ -37,6 +39,7 @@ describe 'Adding exhibit items', type: :system do
         click_link 'Item with multiple images'
       end
       expect(page).to have_text('This item has so many images, you would not believe.')
+      expect(page).to have_text('Some other physical location')
       expect(page).to have_text('1 of 2', normalize_ws: true)
     end
   end
@@ -49,7 +52,8 @@ describe 'Adding exhibit items', type: :system do
         'spotlight_upload_description_tesim' => 'My item description',
         'spotlight_upload_attribution_tesim' => '',
         'spotlight_upload_date_tesim' => '',
-        'spotlight_copyright_tesim' => ''
+        'spotlight_copyright_tesim' => '',
+        'spotlight_physicallocation_tesim' => 'My item physical location'
       }
     end
 
@@ -66,6 +70,7 @@ describe 'Adding exhibit items', type: :system do
       page.attach_file('solr_document_uploaded_resource_url', [File.expand_path('../fixtures/white.png', __dir__), File.expand_path('../fixtures/red.png', __dir__)], make_visible: true)
       expect(page).to have_field('Title', with: 'My item title')
       expect(page).to have_field('Description', with: 'My item description')
+      expect(page).to have_field('Physical Location', with: 'My item physical location')
       fill_in 'Description', with: 'A new item description'
       click_button 'Save changes'
 

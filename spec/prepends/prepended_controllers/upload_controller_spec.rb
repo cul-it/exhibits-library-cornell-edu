@@ -13,7 +13,8 @@ describe Spotlight::Resources::UploadController, type: :controller do
         'spotlight_upload_description_tesim' => 'A nice description',
         'spotlight_upload_attribution_tesim' => '',
         'spotlight_upload_date_tesim' => '',
-        'spotlight_copyright_tesim' => ''
+        'spotlight_copyright_tesim' => '',
+        'spotlight_physicallocation_tesim' => ''
       }
     end
     let(:exhibit) { create(:exhibit) }

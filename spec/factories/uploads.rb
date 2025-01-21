@@ -8,7 +8,8 @@ FactoryBot.define do
         'spotlight_upload_description_tesim' => '',
         'spotlight_upload_attribution_tesim' => '',
         'spotlight_upload_date_tesim' => '',
-        'spotlight_copyright_tesim' => ''
+        'spotlight_copyright_tesim' => '',
+        'spotlight_physicallocation_tesim' => ''
       }
     end
     association :exhibit, factory: :exhibit
