@@ -44,6 +44,7 @@ en:
     search:
       fields:
         spotlight_copyright_tesim: Copyright
+        spotlight_physicallocation_tesim: Physical Location
   shared:
     site_sidebar:
       documentation: Spotlight curator documentation
