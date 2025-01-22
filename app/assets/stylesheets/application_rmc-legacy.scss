@@ -7,7 +7,7 @@
     @media (min-width: breakpoint-max('md')) {
       // For larger screen sizes, hide title text (except for screen readers)
       height: 180px;
-      .site-title {
+      .site-title, small {
         @include sr-only;
       }
       .site-title-wrapper {

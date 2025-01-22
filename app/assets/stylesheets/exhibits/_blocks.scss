@@ -50,16 +50,23 @@
   margin: 0.75em;
 }
 
-.carousel-block .carousel-caption .secondary {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
+// Move carousel caption position and adjust gradient/colors
+.carousel-block {
+  .carousel-caption {
+      position: relative;
+      color: black;
+      @include gradient-y($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.1));
+      .secondary {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+  }
 
-.carousel-block .carousel-caption {
-  .primary a, .secondary a {
-    color: #fff;
+  .carousel-indicators li {
+      background-color: black;
   }
 }
+
 /* Static Carousel Items */
 .list-group-item {
   color: #000;
@@ -77,4 +84,14 @@
 // Multi-image selection for item widgets
 .thumbs-list {
 	overflow-x: auto;
+}
+
+// Balance caption text over multiple lines for item block
+.items-block .items-col .caption {
+  text-wrap: balance;
+}
+
+// Align tops of items column and text column for item block
+.items-block .items-col .box {
+  padding-top: 0; 
 }

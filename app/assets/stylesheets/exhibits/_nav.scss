@@ -1,10 +1,18 @@
-#sidebar {
+#sidebar ol.sidenav {
 	//  Override default .h6 class styling
-	ol.sidenav li h2 {
+	li h2 {
 		font-size: 1.1rem;
 	}
+	// Adjust size and padding for subsection
+	ol.subsection {
+		padding-left: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	ol.subsection li {
+		font-size: 1.05rem;
+	}
 	// Highlight current page in sidebar list
-	ol.sidenav li.active h2, ol.subsection li.active {
+	li.active h2, ol.subsection li.active {
 		font-weight: bold;
 	}
 }
