@@ -1,3 +1,5 @@
+<%# Overrides catalog/_show.html.erb from blacklight %>
+
 <%= render(
   Blacklight::DocumentMetadataComponent.new(
     fields: document_presenter(document).field_presenters,

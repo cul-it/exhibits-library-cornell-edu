@@ -225,11 +225,12 @@ export default class Crop {
     if(this.iiifManifestField.val() === '') {
       return;
     }
-  
+
     var input = $('[data-behavior="autocomplete"]', this.cropTool);
     var panel = $(input.data('target-panel'));
-    // This is defined in search_typeahead.js
+
     // BEGIN CUSTOMIZATION
+    console.log('do I get in crop.es6?');
     addImageSelector(input, panel, this.iiifManifestField.val(), !this.iiifUrlField.val());
     // END CUSTOMIZATION
   }

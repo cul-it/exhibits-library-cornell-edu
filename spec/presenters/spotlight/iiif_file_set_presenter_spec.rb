@@ -55,8 +55,7 @@ describe Spotlight::IiifFileSetPresenter do
 
     describe '#iiif_url' do
       it 'returns the info_url from the Riiif engine routes, minus the trailing .json' do
-        riiif_route_helper = double(info_url: 'https://iiif.test/path/info.json')
-        allow(controller).to receive(:riiif).and_return(riiif_route_helper)
+        allow(Spotlight::RiiifService).to receive(:info_url).and_return('https://iiif.test/path/info.json')
 
         expect(subject.send(:iiif_url)).to eq('https://iiif.test/path')
       end

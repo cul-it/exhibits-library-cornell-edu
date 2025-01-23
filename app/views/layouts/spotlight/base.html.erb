@@ -11,33 +11,30 @@
     <% if current_exhibit %>
       <%= exhibit_stylesheet_link_tag "application" %>
     <% else %>
-      <% ### BEGIN CUSTOMIZATION (jcolt) add 'data-turbolinks-track' reload (forces page reload) %>
-      <%= stylesheet_link_tag    "application",'data-turbolinks-track': 'reload' %>
-      <% ### END CUSTOMIZATION %>
+      <%= stylesheet_link_tag "application" %>
     <% end %>
-    <% ### BEGIN CUSTOMIZATION (jcolt) add 'data-turbolinks-track' reload (forces page reload) %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload'%>
-    <% ### END CUSTOMIZATION %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
     <%= description %>
     <%= twitter_card %>
     <%= opengraph %>
+    <%= javascript_tag "Spotlight.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
     <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
   </head>
   <body class="<%= render_body_class %>">
     <%= render partial: 'shared/body_preamble' %>
     <div id="skip-link" role="navigation" aria-label="Skip links">
       <% if should_render_spotlight_search_bar? %>
-        <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+        <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3' %>
       <% end %>
-      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3' %>
       <%= content_for(:skip_links) %>
     </div>
 
-  <%= render partial: 'shared/header_navbar' %>
-  <%= render partial: 'shared/masthead' %>
-  <%= content_for?(:header_content) ? yield(:header_content) : "" %>
+    <%= render partial: 'shared/header_navbar' %>
+    <%= render partial: 'shared/masthead' %>
+    <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
     <main id="main-container" class="<%= container_classes %>" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>
