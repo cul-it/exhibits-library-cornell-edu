@@ -22,6 +22,9 @@ Spotlight::Engine.config.resource_partials = [
 # Spotlight::Engine.config.default_browse_index_view_type = :gallery
 # Spotlight::Engine.config.default_contact_email = nil
 
+# ==> IIIF configuration
+# Spotlight::Engine.config.iiif_service = Spotlight::RIIIFService
+
 # ==> Solr configuration
 # Spotlight::Engine.config.writable_index = true
 # Spotlight::Engine.config.solr_batch_size = 20
@@ -96,13 +99,15 @@ Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 #     (https://github.com/tpitale/legato/wiki/OAuth2-and-Google#registering-for-api-access)
 # b) download the pkcs12 key and make it accessible to your application
 # c) set ga_web_property_id below to your site's property id
-# Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
-# Spotlight::Engine.config.ga_pkcs12_key_path = nil
-Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
-# Spotlight::Engine.config.ga_email = nil
-# Spotlight::Engine.config.ga_analytics_options = {}
-# Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
-Spotlight::Engine.config.ga_debug_mode = false
+Rails.application.config.to_prepare do
+  # Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
+  # Spotlight::Engine.config.ga_pkcs12_key_path = nil
+  Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
+  # Spotlight::Engine.config.ga_email = 'test@example.com'
+  # Spotlight::Engine.config.ga_analytics_options = {}
+  # Spotlight::Engine.config.ga_page_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 5)
+  Spotlight::Engine.config.ga_debug_mode = false
+end
 
 # Hide from indexing job list in exhibit dashboard
 Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight::AddUploadsFromCsv]

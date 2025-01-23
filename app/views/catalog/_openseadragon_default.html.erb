@@ -4,7 +4,8 @@
   Sets initialPage if block with selected iiif_tilesource is present, defaults to first image
 %>
 <%
-  image = document.to_openseadragon(blacklight_config.view_config(:show))
+  view_config = local_assigns[:view_config] || blacklight_config&.view_config(:show)
+  image = document.to_openseadragon(view_config)
   id_prefix = osd_html_id_prefix
   ### BEGIN CUSTOMIZATION
   block_options = block_options || {}
