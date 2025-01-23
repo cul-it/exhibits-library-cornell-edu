@@ -1,5 +1,5 @@
-require 'prepends/iiif'
+require 'migration/iiif'
 
 Rails.application.config.to_prepare do
-  Migration::IIIF.prepend IIIFPrepend
+  Migration::IIIF.prepend PrependedLib::Iiif
 end

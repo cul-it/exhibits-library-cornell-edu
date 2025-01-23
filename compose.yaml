@@ -45,7 +45,7 @@ services:
       - 8983:8983
     volumes:
       - solr_home:/opt/solr/server/solr
-      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+      - ./solr/conf:/opt/solr/server/configsets/exhibitsconf
 
   redis:
     extends:
