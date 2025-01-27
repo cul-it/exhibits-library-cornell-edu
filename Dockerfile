@@ -46,9 +46,7 @@ ENV RAILS_ENV=development \
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
-RUN groupadd -r $GROUP && useradd -r -g $GROUP $USER && \
-    mkdir -p /home/${USER} && \
-    chown ${USER}:${GROUP} /home/${USER}
+RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER
 USER $USER
 
 # Install application gems
