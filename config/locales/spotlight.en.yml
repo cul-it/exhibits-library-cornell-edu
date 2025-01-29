@@ -52,3 +52,5 @@ en:
     action:
       spotlight/role:
         destroy: Remove from exhibit
+  locales:
+    id: Indonesian
