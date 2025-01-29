@@ -1,5 +1,5 @@
 # Docker compose file for production environment
-# Run with: docker compose up
+# Run with: docker compose -f compose.production.yaml up
 
 services:
   webapp:
