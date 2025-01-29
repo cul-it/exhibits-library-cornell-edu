@@ -28,7 +28,7 @@ services:
     build:
       context: .
       args:
-        BUNDLE_WITHOUT: "development test"
+        BUNDLE_WITHOUT: "development test production"
         RACK_ENV: integration
         RAILS_ENV: integration
     entrypoint: docker/run_sidekiq.sh
