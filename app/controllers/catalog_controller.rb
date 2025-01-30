@@ -20,6 +20,8 @@ class CatalogController < ApplicationController
       fl: '*'
     }
 
+
+    
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
