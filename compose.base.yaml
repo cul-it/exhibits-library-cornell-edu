@@ -11,7 +11,7 @@ services:
       - ./solr/config:/opt/solr/server/configsets/exhibitsconf
 
   redis:
-    image: redis:5-alpine
+    image: redis:7.2-bookworm
     command:
       - redis-server
 
