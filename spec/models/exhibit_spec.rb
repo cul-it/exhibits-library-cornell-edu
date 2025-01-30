@@ -15,7 +15,7 @@ describe Spotlight::Exhibit, type: :model do
             exhibit.published = true
             exhibit.save!
           end
-          expect(exhibit.published_at).to eq(new_published_at)
+          expect(exhibit.published_at).to eq('HEY HEY FAILED TEST!!')
           expect(exhibit.weight).to eq(0)
         end
       end
