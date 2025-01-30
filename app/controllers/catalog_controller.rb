@@ -20,17 +20,11 @@ class CatalogController < ApplicationController
       fl: '*'
     }
 
-
-    
-    
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
-
-
-
 
     config.add_search_field 'all_fields', label: I18n.t('spotlight.search.fields.search.all_fields')
 
