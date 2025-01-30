@@ -20,6 +20,8 @@ class CatalogController < ApplicationController
       fl: '*'
     }
 
+
+    
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
@@ -28,7 +30,7 @@ class CatalogController < ApplicationController
 
 
 
-    
+
     config.add_search_field 'all_fields', label: I18n.t('spotlight.search.fields.search.all_fields')
 
     config.add_sort_field 'relevance', sort: 'score desc, id asc', label: I18n.t('spotlight.search.fields.sort.relevance')
