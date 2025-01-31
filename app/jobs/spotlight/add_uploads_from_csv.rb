@@ -14,12 +14,12 @@ module Spotlight
     # NOTE: Cannot use prepend to override after_perform
     after_perform do |job|
       csv_data, exhibit, user, csv_file_name = job.arguments
+      csv_info = { csv_data: csv_data, csv_file_name: csv_file_name }
       begin
         Spotlight::IndexingCompleteMailer.documents_indexed(
-          csv_data,
+          csv_info,
           exhibit,
           user,
-          csv_file_name,
           indexed_count: job.count,
           errors: job.errors
         ).deliver_now
@@ -32,6 +32,7 @@ module Spotlight
     def perform(csv_data, exhibit, _user, csv_file_name)
       @count = 0
       @errors = {}
+      @csv_file_name = csv_file_name
 
       resources(csv_data, exhibit).each_with_index do |resource, index|
         if resource.save_and_index
