@@ -138,4 +138,8 @@ Exhibits::Application.config.after_initialize do
   end
 
   Spotlight::Exhibit.send :include, Cul::ExhibitDefaults
+
+  # Extend Spotlight's i18n_locales configuration to include Indonesian
+  Spotlight::Engine.config.i18n_locales[:id] = 'Indonesian'
+  Spotlight::Engine.config.i18n.available_locales += [:id]
 end

@@ -20,13 +20,7 @@ module Exhibits
     #
     config.time_zone = "Eastern Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-  
-    # Extend Spotlight's i18n_locales configuration to include Indonesian
-    config.after_initialize do
-      Spotlight::Engine.config.i18n_locales[:id] = 'Indonesian'
-      Spotlight::Engine.config.i18n.available_locales += [:id]
-    end
-    
+
     # I18n support for Indonesian
     config.i18n.available_locales = Spotlight::Engine.config.i18n_locales.keys + [:id]
     config.i18n.default_locale = :en
