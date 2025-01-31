@@ -4,7 +4,7 @@ module Spotlight
   ##
   # Notify the curator that we're finished processing a
   # batch upload
-  class IndexingCompleteMailer < ActionMailer::Base
+  class IndexingCompleteMailer < ApplicationMailer
     def documents_indexed(csv_data, exhibit, user, csv_file_name, indexed_count: nil, errors: [])
       @number = indexed_count || csv_data.length
       @exhibit = exhibit

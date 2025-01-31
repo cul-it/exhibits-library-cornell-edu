@@ -11,7 +11,7 @@ module Spotlight
     attr_reader :errors
 
     ### BEGIN CUSTOMIZATION - catch exceptions from notification to prevent job from repeating if email fails
-      # NOTE: Cannot use prepend to override after_perform
+    # NOTE: Cannot use prepend to override after_perform
     after_perform do |job|
       csv_data, exhibit, user, csv_file_name = job.arguments
       begin
