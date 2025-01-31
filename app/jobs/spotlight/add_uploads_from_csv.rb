@@ -10,25 +10,26 @@ module Spotlight
     attr_reader :count
     attr_reader :errors
 
-    after_perform do |job|
-      csv_data, exhibit, user = job.arguments
-      ### BEGIN CUSTOMIZATION - catch exceptions from notification to prevent job from repeating if email fails
+    ### BEGIN CUSTOMIZATION - catch exceptions from notification to prevent job from repeating if email fails
       # NOTE: Cannot use prepend to override after_perform
+    after_perform do |job|
+      csv_data, exhibit, user, csv_file_name = job.arguments
       begin
         Spotlight::IndexingCompleteMailer.documents_indexed(
           csv_data,
           exhibit,
           user,
+          csv_file_name,
           indexed_count: job.count,
           errors: job.errors
         ).deliver_now
       rescue StandardError => e
         Rails.logger.error("********************** EMAIL FAILURE  => exception #{e.class.name} : #{e.message}")
       end
-      ### END CUSTOMIZATION
     end
+    ### END CUSTOMIZATION
 
-    def perform(csv_data, exhibit, _user)
+    def perform(csv_data, exhibit, _user, csv_file_name)
       @count = 0
       @errors = {}
 

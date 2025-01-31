@@ -27,6 +27,7 @@ module Exhibits
       # Controllers
       Spotlight::ExhibitsController.prepend PrependedControllers::ExhibitsController
       Spotlight::Resources::UploadController.prepend PrependedControllers::UploadController
+      Spotlight::Resources::CsvUploadController.prepend PrependedControllers::CsvUploadController
       Spotlight::CatalogController.prepend PrependedControllers::CatalogController
 
       # Models

@@ -45,6 +45,9 @@ en:
       fields:
         spotlight_copyright_tesim: Copyright
         spotlight_physicallocation_tesim: Physical Location
+    indexing_complete_mailer:
+      documents_indexed:
+        title: "Your CSV file '%{csv_file_name}' has just finished being processed."
   shared:
     site_sidebar:
       documentation: Spotlight curator documentation
