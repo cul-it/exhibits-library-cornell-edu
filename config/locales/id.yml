@@ -1,0 +1,22 @@
+id:
+  hello: "Halo dunia"
+  activerecord:
+    errors:
+      models:
+        spotlight/resource:
+          attributes:
+            uploads:
+              too_long: Anda tidak diizinkan mengunggah lebih dari 30 file untuk satu item pameran.
+    help:
+      spotlight/exhibit:
+        tag_list: Cmd+click atau Ctrl+click untuk memilih beberapa tag.
+  portal_resources:
+    form:
+      add_item: "Tambahkan hasil pencarian portal"
+  dashboard: Dasbor Analitik
+  errors:
+    messages:
+      extension_allowlist_error: "Anda tidak diizinkan mengunggah file %{extension}, jenis yang diizinkan: %{allowed_types}."
+      min_size_error: "Ukuran file harus lebih besar dari %{min_size}."
+      max_size_error: "Ukuran file harus kurang dari %{max_size}."
+  local_documentation: Dokumentasi kurator Cornell

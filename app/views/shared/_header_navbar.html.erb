@@ -1,4 +1,9 @@
 <% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
+<% # Show user utility links in the navbar only if:
+   # User is logged in
+   # or Exhibit has a feedback form
+   # or Exhibit has published additional language support %>  
+
 <% default_nav_env_bkgnd = Rails.env == "production" ? "" : "#{Rails.env}_env" %>
 <%
   nav_env_bkgnd = if ENV["BANNER_BACKGROUND"]
@@ -38,7 +43,7 @@
         </div>
       </div>
       <div class="col-4">
-        <% if current_user || (current_exhibit && show_contact_form?) %>
+        <% if show_user_util_links?(current_user, current_exhibit, current_ability) %>
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

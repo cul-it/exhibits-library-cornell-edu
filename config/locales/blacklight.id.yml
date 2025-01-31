@@ -1,0 +1,243 @@
+id:
+  views:
+    pagination:
+      first: 'Pertama'
+      last: 'Terakhir'
+      previous: 'Sebelumnya'
+      next: 'Berikutnya'
+      truncate: '…'
+      aria:
+        container_label: 'tautan paginasi'
+        current_page: 'Halaman Saat Ini, Halaman %{page}'
+        go_to_page: 'Pergi ke halaman %{page}'
+        go_to_previous_page: 'Halaman sebelumnya'
+        go_to_next_page: 'Halaman berikutnya'
+        go_to_first_page: 'Halaman pertama'
+        go_to_last_page: 'Halaman terakhir'
+
+    pagination_compact:
+      previous: '&laquo; Sebelumnya'
+      next: 'Berikutnya &raquo;'
+
+  blacklight:
+    application_name: 'Pameran Online'
+    icon:
+      add_circle: Perbesar
+      remove_circle: Perkecil
+    skip_links:
+      label: 'lewati tautan'
+      main_content: 'Pergi ke konten utama'
+      search_field: 'Pergi ke pencarian'
+      first_result: 'Pergi ke hasil pencarian pertama'
+    header_links:
+      login: 'Masuk'
+      logout: 'Keluar'
+      bookmarks: 'Favorit'
+      search_history: 'Riwayat Pencarian'
+
+    welcome: 'Selamat datang!'
+    and: 'dan'
+    or: 'atau'
+
+    modal:
+      close: "Tutup"
+
+    bookmarks:
+      title: 'Favorit'
+      page_title: 'Favorit - %{application_name}'
+      no_bookmarks: 'Anda tidak memiliki favorit'
+      add:
+        button: 'Tambahkan ke Favorit'
+        success:
+          one: 'Favorit berhasil ditambahkan.'
+          other: 'Favorit berhasil ditambahkan.'
+        failure:  'Maaf, ada masalah saat menyimpan favorit.'
+      remove:
+        button: 'Hapus dari Favorit'
+        success: 'Favorit berhasil dihapus.'
+        failure: 'Maaf, ada masalah saat menghapus favorit.'
+        action_confirm: 'Hapus favorit ini?'
+      clear:
+        action_title: 'Kosongkan Favorit'
+        action_confirm: 'Kosongkan Favorit?'
+        success: 'Favorit berhasil dikosongkan.'
+        failure: 'Maaf, ada masalah saat mengosongkan favorit.'
+      need_login: 'Silakan masuk untuk melihat dan mengelola favorit Anda.'
+      list_title: 'Favorit Anda'
+      delete: 'Hapus'
+
+    search_history:
+      clear:
+        action_title: 'Kosongkan riwayat pencarian'
+        action_confirm: 'Kosongkan riwayat pencarian?'
+        success: 'Riwayat pencarian berhasil dikosongkan.'
+        failure: 'Ada masalah saat mengosongkan riwayat pencarian Anda.'
+      title: 'Riwayat Pencarian'
+      page_title: 'Riwayat Pencarian - %{application_name}'
+      no_history: 'Anda tidak memiliki riwayat pencarian'
+      recent: 'Pencarian terbaru Anda.'
+      forget: 'lupakan'
+      save: 'simpan'
+
+    tools:
+      title: 'Alat'
+      citation: 'Kutip'
+      email: 'Email'
+      sms: 'SMS ini'
+      clear: 'Kosongkan'
+
+    citation:
+      mla: 'MLA'
+      apa: 'APA'
+      chicago: 'Chicago'
+
+    email:
+      form:
+        title: 'Email ini'
+        to: 'Email:'
+        message: 'Pesan:'
+        submit: 'Kirim'
+      text:
+        default_title: 'N/A'
+        title: 'Judul: %{value}'
+        author: 'Penulis: %{value}'
+        format: 'Format: %{value}'
+        language: 'Bahasa: %{value}'
+        subject:
+          one: 'Rekaman Item: %{title}'
+          other: 'Rekaman item'
+        url: 'URL: %{url}'
+        message: 'Pesan: %{message}'
+
+      success: "Email Terkirim"
+
+      errors:
+        to:
+          invalid: 'Anda harus memberikan alamat email yang valid.'
+          blank: 'Anda harus memberikan penerima untuk pesan ini.'
+    sms:
+      form:
+        title: 'SMS ini'
+        to: 'Nomor Telepon:'
+        carrier: 'Operator'
+        carrier_prompt: 'Silakan pilih operator Anda.'
+        submit: 'Kirim'
+      text:
+        title: '%{value}'
+        author: ' oleh %{value}'
+        url: 'Tautan: %{url}'
+      success: "SMS Terkirim"
+      errors:
+        to:
+          invalid: 'Anda harus memberikan nomor telepon 10 digit yang valid.'
+          blank: "Anda harus memberikan nomor telepon penerima untuk mengirim pesan ini."
+        carrier:
+          blank: 'Anda harus memilih operator'
+          invalid: "Anda harus memberikan operator yang valid"
+
+    back_to_search: 'Kembali ke pencarian'
+    back_to_bookmarks: 'Kembali ke favorit'
+
+    search:
+      page_title:
+        title: '%{constraints} - %{application_name} Hasil pencarian'
+        constraint: '%{label}: %{value}'
+        many_constraint_values: '%{values} dipilih'
+      header: 'Pencarian'
+      search_constraints_header: 'Filter pencarian'
+      search_results: 'Hasil pencarian'
+      errors:
+        request_error: "Maaf, saya tidak dapat memahami permintaan pencarian Anda."
+        invalid_solr_id: "Maaf, Anda meminta rekaman yang tidak ada."
+      per_page:
+        label: '%{count}<span class="sr-only visually-hidden"> per halaman</span>'
+        button_label: '%{count} per halaman'
+        button_label_html: '%{count}<span class="d-none d-sm-inline"> per halaman</span>'
+        title: 'Tampilkan jumlah hasil pencarian per halaman'
+        submit: 'Perbarui'
+        aria_label: 'Navigasi hasil'
+      sort:
+        label: 'Urutkan berdasarkan %{field}'
+        label_html: 'Urutkan<span class="d-none d-sm-inline"> berdasarkan %{field}</span>'
+        submit: 'urutkan hasil'
+      form:
+        search_field:
+          label: 'Cari di'
+          title: 'Opsi pencarian terfokus'
+          post_label: 'untuk'
+        search:
+          label: 'cari di'
+          placeholder: 'Cari...'
+        submit: 'Cari'
+      pagination:
+        title: 'Navigasi pencarian'
+      pagination_info:
+        no_items_found: 'Tidak ada %{entry_name} ditemukan'
+        single_item_found: '<strong>1</strong> %{entry_name} ditemukan'
+        pages:
+          one: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> dari <strong>%{total_num}</strong>'
+          other: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> dari <strong>%{total_num}</strong>'
+      entry_pagination_info:
+        one: '<strong>1 dari 1</strong>'
+        other: '<strong>%{current}</strong> dari <strong>%{total}</strong>'
+      documents:
+        aria:
+          search_results: 'Hasil pencarian'
+          limit_search: 'Persempit pencarian Anda'
+        counter: '%{counter}. '
+      facets:
+        title: 'Persempit pencarian Anda'
+        clear: 'Kosongkan filter'
+        all: 'Semua'
+        sort:
+          count: 'Urutkan secara numerik'
+          index: 'Urutkan A-Z'
+        count: '%{number}'
+        more_html: 'Lebih <span class="sr-only visually-hidden">%{field_name}</span> »'
+        selected:
+          remove: '[hapus]'
+        missing: "[Hilang]"
+        pivot:
+          show: Buka
+          hide: Tutup
+        group:
+          toggle: 'lebih »'
+      group:
+        more: 'lebih »'
+      filters:
+        title: 'Anda mencari:'
+        label: '%{label}:'
+        remove:
+          value: 'Hapus filter pencarian %{value}'
+          label_value: 'Hapus filter pencarian %{label}: %{value}'
+      start_over: 'Mulai Ulang'
+      index:
+        label: '%{label}:'
+      show:
+        title: '%{document_title} - %{application_name}'
+        label: '%{label}:'
+      rss_feed: 'RSS untuk hasil pencarian'
+      atom_feed: 'Atom untuk hasil pencarian'
+      bookmarks:
+        present: "Dalam Favorit"
+        absent: "Favorit"
+        inprogress: "Menyimpan..."
+      zero_results:
+        title: "Tidak ada hasil yang ditemukan untuk pencarian Anda..."
+        modify_search: "Coba sesuaikan pencarian Anda"
+        use_fewer_keywords: "Coba gunakan kata kunci yang lebih sedikit. Persempit pencarian Anda menggunakan tautan di kolom kiri."
+        search_fields: "Anda mencari di %{search_fields}"
+        search_everything: "coba cari di semua"
+      view_title: "Lihat hasil sebagai: "
+      view:
+        list: "Daftar"
+    entry_name:
+      default: 'entri'
+      grouped:
+        default: 'hasil dikelompokkan'
+
+    did_you_mean: 'Maksud Anda: %{options}?'
+
+    main:
+      aria:
+        main_container: 'Konten utama'
