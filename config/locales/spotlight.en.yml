@@ -41,7 +41,7 @@ en:
         form:
           url-field:
             help: 'Valid file types: %{extensions}. Files should be less than 10MB in size.'
-        malformed_non_UTF8_csv_data: CSV contains Malformed or non-UTF8 data.
+        malformed_non_UTF8_csv_data: CSV contains malformed or non-UTF8 data.
         invalid_csv_headers: CSV headers do not match the expected headers.
     search:
       fields:
