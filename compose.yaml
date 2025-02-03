@@ -15,7 +15,7 @@ services:
       - PORT=9292
     volumes:
       - .:/exhibits
-      - gems:/usr/local/bundle
+      # - gems:/usr/local/bundle
     ports:
       - 9292:9292
     depends_on:
@@ -73,6 +73,7 @@ services:
 
 volumes:
   db-data:
-  gems:
+  # Uncomment gems volume if installing gems locally and you want to persist gems across builds
+  # gems:
   redis:
   solr_home:

@@ -1,0 +1,19 @@
+id:
+  blacklight:
+    icon:
+      chevron_left_previous_image: 'gambar sebelumnya'
+      chevron_right_next_image: 'gambar berikutnya'
+    search:
+      view:
+        gallery: "Galeri"
+        slideshow: "Tayangan Slide"
+        masonry: "Masonry"
+  blacklight_gallery:
+    catalog:
+      grid_slideshow:
+        missing_image: 'Hilang'
+      modal_slideshow:
+        counter: "%{counter} dari %{count}"
+      slideshow:
+        pause: Jeda tayangan slide
+        start: Mulai tayangan slide

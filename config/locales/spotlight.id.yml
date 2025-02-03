@@ -1,0 +1,40 @@
+id:
+  activemodel:
+    attributes:
+      spotlight/contact_form:
+        email: Alamat Email
+        message: Pesan
+        name: Nama
+  helpers:
+    action:
+      cancel: Batal
+    submit:
+      contact_form:
+        create: Kirim
+        created: Terima kasih. Umpan balik Anda telah dikirim.
+  spotlight:
+    about_pages:
+      contacts:
+        header: Kontak
+    header_links:
+      contact: Umpan Balik
+    shared:
+      report_a_problem:
+        honeypot_field_explanation: Abaikan kolom teks ini. Ini digunakan untuk mendeteksi spam. Jika Anda memasukkan sesuatu di sini, pesan Anda tidak akan dikirim.
+        title: Hubungi Kami
+    browse:
+      search:
+        item_count:
+          one: "%{count} hasil pencarian"
+          other: "%{count} hasil pencarian"
+      search_box:
+        label: Cari dalam kategori ini
+        placeholder: Cari…
+        reset: Atur Ulang
+        submit: Cari dalam kategori ini
+        success:
+          expand_html: Perluas pencarian <a href="%{expand_search_url}">"%{browse_query}"</a>.
+          result_number_html: <strong> %{search_size} hasil pencarian dari %{parent_search_count} total item dalam kategori pencarian ini ditemukan</strong>.
+        zero_results:
+          expand_html: <a href="%{clear_search_url}">Atur ulang pencarian</a> atau <a href="%{expand_search_url}"> perluas "%{browse_query}"</a>.
+          result_number: Tidak ada hasil pencarian yang ditemukan.

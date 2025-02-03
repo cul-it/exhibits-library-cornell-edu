@@ -21,6 +21,11 @@ module Exhibits
     config.time_zone = "Eastern Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    # I18n support for Indonesian
+    config.i18n.available_locales = Spotlight::Engine.config.i18n_locales.keys + [:id]
+    config.i18n.default_locale = :en
+    config.i18n.fallbacks = { id: :en }
+
     config.to_prepare do
       # for each prepended class
       # OriginalApp::OriginalClassName.prepend PrependedModuleName::OriginalClassName
