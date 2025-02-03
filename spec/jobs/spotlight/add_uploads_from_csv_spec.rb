@@ -2,10 +2,11 @@ require 'rails_helper'
 
 # Tweaks add_uploads_from_csv_spec.rb from blacklight-spotlight gem since we're overriding the whole job
 describe Spotlight::AddUploadsFromCsv do
-  subject(:job) { described_class.new(data, exhibit, user) }
+  subject(:job) { described_class.new(data, exhibit, user, csv_file_name) }
 
   let(:exhibit) { create(:exhibit) }
   let(:user) { exhibit.users.first }
+  let(:csv_file_name) { 'test.csv' }
   let(:data) do
     [
       { 'url' => 'x' },
@@ -19,6 +20,17 @@ describe Spotlight::AddUploadsFromCsv do
 
   before do
     allow(Spotlight::IndexingCompleteMailer).to receive(:documents_indexed).and_return(double(deliver_now: true))
+  end
+
+  it 'sends the user an email when the job is finished processing and includes the csv file name' do
+    expect(Spotlight::IndexingCompleteMailer).to receive(:documents_indexed).with(
+      { csv_data: data, csv_file_name: csv_file_name },
+      exhibit,
+      user,
+      indexed_count: anything,
+      errors: anything
+    ).and_return(double(deliver_now: true))
+    job.perform_now
   end
 
   context 'with empty data' do
@@ -47,7 +59,9 @@ describe Spotlight::AddUploadsFromCsv do
       allow(Spotlight::IndexingCompleteMailer).to receive(:documents_indexed).and_return(double(deliver_now: true))
       job.perform_now
       expect(Spotlight::IndexingCompleteMailer).to have_received(:documents_indexed).with(
-        data, exhibit, user,
+        { csv_data: data, csv_file_name: csv_file_name },
+        exhibit,
+        user,
         indexed_count: 1,
         errors: {
           1 => array_including(match(Regexp.union(/relative URI: x/, /URI scheme '' not in whitelist:/))),
