@@ -1,7 +1,5 @@
 // Replaces _itemPanel from https://github.com/projectblacklight/spotlight/blob/v4.0.3/app/javascript/spotlight/admin/blocks/resources_block.js
 //   Adds optional "Alt text" input for resource image display
-// Replaces afterPanelRender from https://github.com/projectblacklight/spotlight/blob/v4.0.3/app/javascript/spotlight/admin/blocks/solr_documents_base_block.js
-//   Passes iiif tilesource to multiImageSelector instead of imageid
 
 solrDocumentBlockItemPanel = function(data) {
   var index = "item_" + this.globalIndex++;
@@ -96,45 +94,4 @@ SirTrevor.Blocks.SolrDocumentsGrid = (function(){
   return SirTrevor.Blocks.SolrDocumentsGrid.extend({
     _itemPanel: solrDocumentBlockItemPanel,
   });
-})();
-
-SirTrevor.Blocks.SolrDocumentsBase = (function(){
-
-  return SirTrevor.Blocks.SolrDocumentsBase.extend({
-
-    afterPanelRender: function(data, panel) {
-      var context = this;
-      var manifestUrl = data.iiif_manifest || data.iiif_manifest_url;
-
-      if (!manifestUrl) {
-        $(panel).find('[name$="[thumbnail_image_url]"]').val(data.thumbnail_image_url || data.thumbnail);
-        $(panel).find('[name$="[full_image_url]"]').val(data.full_image_url);
-
-        return;
-      }
-
-      $.ajax(manifestUrl).done(
-        function(manifest) {
-          var Iiif = spotlightAdminIiif;
-          var iiifManifest = new Iiif(manifestUrl, manifest);
-
-          var thumbs = iiifManifest.imagesArray();
-
-          // BEGIN CUSTOMIZATION
-          if (!data.iiif_tilesource) {
-            context.setIiifFields(panel, thumbs[0], !!data.iiif_manifest_url);
-          }
-
-          if(thumbs.length > 1) {
-            panel.multiImageSelector(thumbs, function(selectorImage) {
-              context.setIiifFields(panel, selectorImage, false);
-            }, data.iiif_tilesource);
-          }
-          // END CUSTOMIZATION
-        }
-      );
-    }
-
-  });
-
 })();
