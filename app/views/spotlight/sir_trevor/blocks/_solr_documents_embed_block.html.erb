@@ -11,13 +11,12 @@
         <% end %>
       <% end %>
       <div class="spotlight-flexbox">
+      <%# Render the openseadragon viewer from blacklight-gallery.
+        # Settings in blacklight_configuration.rb %>
         <% solr_documents_embed_block.each_document do |block_options, document| %>
-          <div class="box" data-id="<%= document.id %>">
-            <%# BEGIN CUSTOMIZATION - Add block_options to view locals %>
-            <% locals = (blacklight_config.view.embed.locals || {}).reverse_merge(block: solr_documents_embed_block, block_options: block_options) %>
-            <%= render_document_partials document, blacklight_config.view.embed.partials, locals %>
-            <%# END CUSTOMIZATION %>
-          </div>
+          <%# BEGIN CUSTOMIZATION - Add block_options to view locals %>
+          <%= render '/spotlight/sir_trevor/blocks/embedded_document', document: document, block: solr_documents_embed_block, block_options: block_options %>
+          <%# END CUSTOMIZATION %>
         <% end %>
       </div>
     </div>
