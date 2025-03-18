@@ -30,7 +30,7 @@
                   <%# BEGIN CUSTOMIZATION - Render markdown links in item descriptions %>
                   <%# Count and truncate the text length only, do not consider any markdown links
                       don't render the link since this is the primary caption %>
-                  <% stripped_caption_text = strip_tags(caption_text) %>
+                  <% stripped_caption_text = strip_tags(caption_text.to_s) %>
                     <a href="#" title="<%= stripped_caption_text %>">
                       <% if stripped_caption_text.length > 95 %>
                         <%= truncate(stripped_caption_text, length: 92) + '...' %>
