@@ -72,21 +72,21 @@ Spotlight::Engine.config.upload_fields = [
 ]
 # ==> Uploaded item configuration
 # Spotlight::Engine.config.upload_fields = [
-#   UploadFieldConfig.new(
-#     field_name: config.upload_description_field,
-#     label: -> { I18n.t(:"spotlight.search.fields.#{config.upload_description_field}") },
+#   Spotlight::UploadFieldConfig.new(
+#     field_name: Spotlight::Engine.config.upload_description_field,
+#     label: -> { I18n.t(:"spotlight.search.fields.#{Spotlight::Engine.config.upload_description_field}") },
 #     form_field_type: :text_area
 #   ),
-#   UploadFieldConfig.new(
+#   Spotlight::UploadFieldConfig.new(
 #     field_name: :spotlight_upload_attribution_tesim,
 #     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_attribution_tesim') }
 #   ),
-#   UploadFieldConfig.new(
+#   Spotlight::UploadFieldConfig.new(
 #     field_name: :spotlight_upload_date_tesim,
 #     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
 #   )
 # ]
-# Spotlight::Engine.config.upload_title_field = nil # UploadFieldConfig.new(...)
+# Spotlight::Engine.config.upload_title_field = nil # Spotlight::UploadFieldConfig.new(...)
 Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 
@@ -95,17 +95,21 @@ Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 
 # ==> Google Analytics integration
 # After creating a property for your site on Google Analytics, you need to:
-# a) register an OAuth service account with access to your analytics property:
-#     (https://github.com/tpitale/legato/wiki/OAuth2-and-Google#registering-for-api-access)
-# b) download the pkcs12 key and make it accessible to your application
-# c) set ga_web_property_id below to your site's property id
+# a) Enable Google Analytics API in https://console.cloud.google.com/
+# b) generate and download the JSON key and make it accessible to your application
+# (https://console.cloud.google.com/iam-admin/iam -> Service accounts -> click on service account -> keys)
+# c) set ga_property_id below to your site's property id (located in admin -> Property -> Property details upper right hand corner)
+# d) Set the ga_web_property_id. (located in admin -> Data collection and modification -> Web stream details and begins with G-)
+# ga_property_id is used for fetching analytics data from google's api, ga_web_property_id is used for sending events to GA analtyics
+# ga_web_property_id will probably change in V5 to ga_measurement_id for clarity
 Rails.application.config.to_prepare do
   # Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
-  # Spotlight::Engine.config.ga_pkcs12_key_path = nil
+  # Spotlight::Engine.config.ga_json_key_path = nil
   Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
-  # Spotlight::Engine.config.ga_email = 'test@example.com'
+  # Spotlight::Engine.config.ga_property_id = '12345678'
   # Spotlight::Engine.config.ga_analytics_options = {}
   # Spotlight::Engine.config.ga_page_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 5)
+  # Spotlight::Engine.config.ga_search_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 11)
   Spotlight::Engine.config.ga_debug_mode = false
 end
 

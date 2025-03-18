@@ -47,9 +47,9 @@ gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
 gem 'blacklight', '~> 7.40.0'
-gem 'blacklight-gallery', '~> 4.5.0'
+gem 'blacklight-gallery', '~> 4.6.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 4.0.0'
+gem 'blacklight-spotlight', '~> 4.1.0'
 
 gem 'openseadragon', '~> 0.7.0'
 
