@@ -32,9 +32,9 @@ module PrependedControllers::ExhibitsController
 
   # new private method to send email notification when an exhibit is published
   def send_publish_notification(exhibit)
-      Spotlight::ContactMailer.exhibit_published(exhibit).deliver_later
-    rescue StandardError => e
-      Rails.logger.error("**** EMAIL FAILURE on publish notification for exhibit #{exhibit.id} #{exhibit.title}: #{e.message}")
+    Spotlight::ContactMailer.exhibit_published(exhibit).deliver_later
+  rescue StandardError => e
+    Rails.logger.error("**** EMAIL FAILURE on publish notification for exhibit #{exhibit.id} #{exhibit.title}: #{e.message}")
   end
 
   protected
