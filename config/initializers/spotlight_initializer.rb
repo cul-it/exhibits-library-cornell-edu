@@ -116,6 +116,18 @@ end
 # Hide from indexing job list in exhibit dashboard
 Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight::AddUploadsFromCsv]
 
+# ==> Customizable settings for site tags
+# When set the free text tag list field becomes multiple selection checklist
+Spotlight::Engine.config.site_tags = [
+  'Arts and Design',
+  'Food and Agriculture',
+  'Gender and Sexuality',
+  'Humanities and Social Science',
+  'Industry and Labor',
+  'Science and Technology',
+  'Cornelliana'
+]
+
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,
 # but you can customize them here, or in the SirTrevorRails::Block#custom_block_types method
