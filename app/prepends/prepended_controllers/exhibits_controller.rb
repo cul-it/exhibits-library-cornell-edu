@@ -35,7 +35,6 @@ module PrependedControllers::ExhibitsController
       Spotlight::ContactMailer.exhibit_published(exhibit).deliver_later
     rescue StandardError => e
       Rails.logger.error("**** EMAIL FAILURE on publish notification for exhibit #{exhibit.id} #{exhibit.title}: #{e.message}")
-    end
   end
 
   protected
