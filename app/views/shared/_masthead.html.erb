@@ -51,4 +51,4 @@
 
 </header>
 
-<%= render 'shared/breadcrumbs' unless resource_masthead? %>
+<%= render Spotlight::BreadcrumbsComponent.new(breadcrumbs:) %>
