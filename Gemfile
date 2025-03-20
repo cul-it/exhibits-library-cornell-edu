@@ -36,13 +36,13 @@ gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Use Terser as compressor for JavaScript assets
+gem 'terser'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 4.2.0'
 gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
