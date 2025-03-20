@@ -1,0 +1,38 @@
+<style>
+    .container {
+
+        width: 100%;
+
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        padding: 20px;
+
+        border: 1px solid #ddd;
+
+        border-radius: 5px;
+
+      }
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .footer {
+        border: 0px;
+        font-size: smaller;
+    }
+</style>
+<div class="container">
+    <p>An online exhibit has just been published, please update the analytics dashboard.</p>
+    <hr>
+    <div>
+    <p><strong>Title:</strong> <%= @exhibit.title %></p>
+    <p><strong>Subtitle:</strong> <%= @exhibit.subtitle %></p>
+    <p><strong>Description:</strong> <%= @exhibit.description %></p>
+    <p><strong>Published at:</strong> <%= @exhibit.published_at %></p>
+    <p><strong>View the exhibit:</strong> <%= link_to @exhibit.title, spotlight.exhibit_url(@exhibit.slug) %></p>
+    </div>
+</div>
+<div class="container footer">
+  This is an automated email from the Cornell University Library - Online Exhibits.
+</div>
