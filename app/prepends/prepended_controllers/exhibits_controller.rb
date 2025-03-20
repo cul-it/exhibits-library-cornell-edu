@@ -32,6 +32,7 @@ module PrependedControllers::ExhibitsController
 
   private
 
+  # new private method to send email notification when an exhibit is published
   def send_publish_notification(exhibit)
     begin
       Spotlight::ContactMailer.exhibit_published(exhibit).deliver_later
