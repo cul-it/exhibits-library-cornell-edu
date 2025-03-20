@@ -5,8 +5,9 @@ require_dependency File.join(spotlight_path, 'app/controllers/spotlight/pages_co
 module Spotlight
   # Override the upstream PagesController in order to override the pages.json implementation
   class PagesController
-    # GET /exhibits/1/pageslist
+    # GET /exhibits/1/pages
     def index
+      # set up a model the inline "add a new page" form
       @page = CanCan::ControllerResource.new(self).send(:build_resource)
 
       # Using current_exhibit instead of @pages shows the full list of pages for the exhibit, including unpublished ones,
