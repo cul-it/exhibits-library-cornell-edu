@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Overrides Spotlight::BulkUpdatesUploader storage configuration to prevent use of AWS S3 storage when configured as Spotlight::Engine.config.uploader_storage
-# Fixes broken Spotlight processing job /app/jobs/spotlight/process_bulk_updates_csv_job.rb, which assumes local filepath (not S3) 
+# Fixes broken Spotlight processing job /app/jobs/spotlight/process_bulk_updates_csv_job.rb, which assumes local filepath (not S3)
 # Customizes storage location to tmp directory
 module Spotlight
   # :nodoc:
