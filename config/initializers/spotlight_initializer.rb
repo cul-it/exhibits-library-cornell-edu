@@ -103,13 +103,13 @@ Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 # ga_property_id is used for fetching analytics data from google's api, ga_web_property_id is used for sending events to GA analtyics
 # ga_web_property_id will probably change in V5 to ga_measurement_id for clarity
 Rails.application.config.to_prepare do
-  # Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
-  # Spotlight::Engine.config.ga_json_key_path = nil
+  Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
+  Spotlight::Engine.config.ga_json_key_path = ENV['GA_JSON_KEY_PATH']
   Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
-  # Spotlight::Engine.config.ga_property_id = '12345678'
-  # Spotlight::Engine.config.ga_analytics_options = {}
-  # Spotlight::Engine.config.ga_page_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 5)
-  # Spotlight::Engine.config.ga_search_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 11)
+  Spotlight::Engine.config.ga_property_id = ENV['GA_PROPERTY_ID']
+  Spotlight::Engine.config.ga_analytics_options = {}
+  Spotlight::Engine.config.ga_page_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 5)
+  Spotlight::Engine.config.ga_search_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 11)
   Spotlight::Engine.config.ga_debug_mode = false
 end
 
