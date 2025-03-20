@@ -18,9 +18,7 @@ module PrependedControllers::ExhibitsController
   def update
     was_published = @exhibit.published
     if @exhibit.update(exhibit_params)
-      if @exhibit.published? && !was_published
-        send_publish_notification(@exhibit)
-      end
+      send_publish_notification(@exhibit) if @exhibit.published? && !was_published
       redirect_to edit_exhibit_path(@exhibit, tab: @tab),
                   notice: t(:'helpers.submit.exhibit.updated',
                             model: @exhibit.class.model_name.human.downcase)
@@ -34,7 +32,6 @@ module PrependedControllers::ExhibitsController
 
   # new private method to send email notification when an exhibit is published
   def send_publish_notification(exhibit)
-    begin
       Spotlight::ContactMailer.exhibit_published(exhibit).deliver_later
     rescue StandardError => e
       Rails.logger.error("**** EMAIL FAILURE on publish notification for exhibit #{exhibit.id} #{exhibit.title}: #{e.message}")

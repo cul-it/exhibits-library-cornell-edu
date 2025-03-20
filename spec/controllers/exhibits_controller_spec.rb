@@ -29,7 +29,7 @@ describe Spotlight::ExhibitsController, type: :controller do
       end
     end
   end
-  
+
   describe 'PATCH update' do
     let(:exhibit) { create(:exhibit, title: 'Test Exhibit', slug: 'test', published: true, weight: 10, published_at: nil) }
     let(:user) { create(:user) }
@@ -50,7 +50,7 @@ describe Spotlight::ExhibitsController, type: :controller do
     end
 
     context 'when an unpublished exhibit is published again' do
-      before { exhibit.update(published: false, published_at: 3.day.ago) }
+      before { exhibit.update(published: false, published_at: 3.days.ago) }
       it 'sends a notification' do
         expect(controller).to receive(:send_publish_notification).with(exhibit)
         post :update, params: { id: exhibit.id, exhibit: { published: true } }

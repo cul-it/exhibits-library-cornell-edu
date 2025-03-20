@@ -9,5 +9,5 @@ module PrependedMailers::ContactMailer
     mail(to: 'help-exhibits-library@cornell.edu', subject: 'Online exhibit was published') do |format|
       format.html { render 'spotlight/contact_mailer/exhibit_published' }
     end
-  end 
+  end
 end
