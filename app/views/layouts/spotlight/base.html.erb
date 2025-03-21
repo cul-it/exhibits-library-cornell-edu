@@ -11,7 +11,9 @@
     <% if current_exhibit %>
       <%= exhibit_stylesheet_link_tag "application" %>
     <% else %>
-      <%= stylesheet_link_tag "application" %>
+      <%# BEGIN CUSTOMIZATION - forces page reload so back button doesn't transfer themes %>
+      <%= stylesheet_link_tag "application", "data-turbolinks-track": "reload" %>
+      <%# END CUSTOMIZAITON %>
     <% end %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -24,7 +26,9 @@
   </head>
   <body class="<%= render_body_class %>">
     <%= render partial: 'shared/body_preamble' %>
+    <%# BEGIN CUSTOMIZATION - Add accessibility tags %>
     <div id="skip-link" role="navigation" aria-label="Skip links">
+    <%# END CUSTOMIZATION %>
       <% if should_render_spotlight_search_bar? %>
         <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'btn btn-link bg-light sr-only sr-only-focusable visually-hidden-focusable' %>
       <% end %>
@@ -36,16 +40,17 @@
     <%= render partial: 'shared/masthead' %>
     <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
-    <main id="main-container" class="<%= container_classes %>" aria-label="<%= t('blacklight.main.aria.main_container') %>">
+    <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>
 
       <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
-    <!-- content_row_id is used as css selectors in exhibit themes -->
+    <%# BEGIN CUSTOMIZATION - content_row_id is used as css selectors in exhibit themes %>
     <% content_row_id = @page.try(:slug) ? "#{@page.try(:slug)}-content" : nil %>
     <%= tag.div class: 'row', id: content_row_id do %>
       <%= content_for?(:content) ? yield(:content) : yield %>
     <% end %>
+    <%# END CUSTOMIZATION %>
     </main>
 
     <%= render partial: 'shared/footer' %>
