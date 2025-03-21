@@ -1,0 +1,33 @@
+// Bootstrap overrides
+// ---------------------- //
+// See _item_carousel_block.scss for carousel overrides
+// See _header.scss for nav and navbar overrides
+
+.breadcrumb {
+	padding: 0;
+	background: inherit;
+	margin-bottom: 3em;
+	li {
+		font-size: .9rem;
+	}
+}
+
+// #433 - color contrast is insufficient 
+.breadcrumb-item.active {
+	color: inherit;
+}
+
+// #433 - color contrast is insufficient
+.page-item.active .page-link {
+	border-color: $almost-black;
+	background-color: $almost-black;
+}
+
+// #500 - update blockquote style
+.blockquote {
+	font-size: 1.1rem;
+	padding: 1rem 0 .5rem 1rem;
+	border-left: 5px solid #eee;
+}
+
+
