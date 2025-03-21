@@ -44,9 +44,6 @@ module Exhibits
 
       # Uploaders
       Spotlight::FeaturedImageUploader.prepend PrependedUploaders::FeaturedImageUploader
-
-      # Mailers
-      Spotlight::ContactMailer.prepend PrependedMailers::ContactMailer
     end
   end
 end
