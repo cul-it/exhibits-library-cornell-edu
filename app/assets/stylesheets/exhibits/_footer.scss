@@ -1,18 +1,19 @@
 footer {
-	padding: 3em 0;
-	border-top: 1px solid $warm-gray;
-	p, li {
-		font-size: .9rem;
-	}
-    p.version {
-      margin: -5px 0px;
-    }
+  padding: 3em 0;
+  border-top: 1px solid $warm-gray;
+  p, li {
+    font-size: .9rem;
+  }
+  p.version {
+    margin: -5px 0px;
+  }
 }
+
 /* copyright statement is shown on the Home page only */
 .copyright {
-  	display: none;
+  display: none;
 }
 .blacklight-home_pages.blacklight-home_pages-show .copyright {
-  	display: block;
-	padding: 20px;
+  display: block;
+  padding: 20px;
 }
