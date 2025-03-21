@@ -8,3 +8,11 @@ footer {
       margin: -5px 0px;
     }
 }
+/* copyright statement is shown on the Home page only */
+.copyright {
+  	display: none;
+}
+.blacklight-home_pages.blacklight-home_pages-show .copyright {
+  	display: block;
+	padding: 20px;
+}
