@@ -14,29 +14,6 @@ module PrependedControllers::ExhibitsController
     end
   end
 
-  # override update method to send email notification when exhibit is published
-  def update
-    was_published = @exhibit.published
-    if @exhibit.update(exhibit_params)
-      send_publish_notification(@exhibit) if @exhibit.published? && !was_published
-      redirect_to edit_exhibit_path(@exhibit, tab: @tab),
-                  notice: t(:'helpers.submit.exhibit.updated',
-                            model: @exhibit.class.model_name.human.downcase)
-    else
-      flash[:alert] = @exhibit.errors.full_messages.join('<br>'.html_safe)
-      render action: :edit
-    end
-  end
-
-  private
-
-  # new private method to send email notification when an exhibit is published
-  def send_publish_notification(exhibit)
-    ExhibitStatusMailer.exhibit_published(exhibit).deliver_later
-  rescue StandardError => e
-    Rails.logger.error("**** EMAIL FAILURE on publish notification for exhibit #{exhibit.id} #{exhibit.title}: #{e.message}")
-  end
-
   protected
 
   # override exhibit_params method to convert tag_list params from array to comma separated list
