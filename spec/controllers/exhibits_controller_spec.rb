@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Spotlight::ExhibitsController, type: :controller do
-  routes { Spotlight::Engine.routes }
 
   describe 'GET index' do
     context 'multiple published exhibits' do
