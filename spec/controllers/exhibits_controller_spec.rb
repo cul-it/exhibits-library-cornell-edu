@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Spotlight::ExhibitsController, type: :controller do
-
   describe 'GET index' do
     context 'multiple published exhibits' do
       it 'orders published exhibits by asc weight first, then desc published_dat dates' do
