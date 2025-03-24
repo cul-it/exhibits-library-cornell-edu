@@ -1,3 +1,22 @@
+// #542 - better spacing for text area H2; may need adjustment if this effects other system elements
+.blacklight-feature_pages-show {
+	#content {
+		h2 {
+			margin: 2rem 0 1rem;
+		}
+	}
+}
+
+// Page Title
+// ---------------------- //
+
+.page-title {
+	margin-bottom: 1.5rem;
+}
+
+// Page Sidebar 
+// ---------------------- //
+
 #sidebar ol.sidenav {
 	//  Override default .h6 class styling
 	li h2 {

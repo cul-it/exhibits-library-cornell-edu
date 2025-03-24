@@ -5,6 +5,10 @@
 	}
 }
 
+.search-widgets {
+	margin-bottom: .5em;
+}
+
 // #433 - Increase contrast of selected facet - change from green to black
 .facet-values {
 	li {
@@ -13,3 +17,39 @@
 		}
 	}
 }
+
+// Blacklight Gallery Overrides
+// ------------------- //
+
+.documents-gallery {
+    .document-metadata {
+      dd {
+        padding-left: 0.5em;
+        padding-bottom: 0.5em;
+      }
+    }
+  }
+
+// masonry caption area
+.caption-area {
+  width: 100%;
+  text-align: center;
+  line-height: 17px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  .caption {
+    header {
+      background: inherit;
+    }
+  }
+}
+  
+// #471 - fix contrast of masonry captions
+  .documents-masonry {
+    .document {
+      .caption-area {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+      }
+    }
+  }

@@ -59,7 +59,14 @@ header {
 			color: $gray-dark;
 		}
 	}
-	
+}
+
+// #433 - color contrast is insufficient
+.image-masthead .exhibit-navbar {
+	background: black;
+}
+.navbar-dark .navbar-nav .nav-link, .image-masthead .exhibit-navbar .navbar-nav .nav-link, .masthead .exhibit-navbar .navbar-nav .nav-link {
+	color: white;
 }
 
 // Rules are kinda specific to exhibits that don't have a masthead image, see Circus Fashion

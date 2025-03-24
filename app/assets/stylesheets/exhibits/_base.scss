@@ -4,81 +4,17 @@ body {
 	font-family: $font-family-sans-serif;
 }
 
-// Links
-// ------------------- //
-
 a { 
 	color: $link-primary;
 	text-decoration: underline;
-}
-
-// Typography
-// ------------------- //
-
-.page-title {
-	margin-bottom: 1.5rem;
-}
-
-// #542 - better spacing for text area H2; may need adjustment if this effects other system elements
-.blacklight-feature_pages-show {
-	#content {
-		h2 {
-			margin: 2rem 0 1rem;
-		}
-	}
 }
 
 p, li {
 	font-size: 1.1rem;
 }
 
-// Bootstrap overrides
-// ---------------------- //
-
-.breadcrumb {
-	padding: 0;
-	background: inherit;
-	margin-bottom: 3em;
-	li {
-		font-size: .9rem;
-	}
-}
-
-// #500 - update blockquote style
-.blockquote {
-	font-size: 1.1rem;
-	padding: 1rem 0 .5rem 1rem;
-	border-left: 5px solid #eee;
-}
-
-// #571 - border to text form fields, and font size adjustment
-.st-block [contenteditable="true"]
-{
-	border: 1px solid #d4d4d4;
-	p {
-    	font-size: 1rem;
-	}
-}
-
-// #433 - color contrast is insufficient for all of the following:
-.page-item.active .page-link {
-	border-color: $almost-black;
-	background-color: $almost-black;
-}
-.image-masthead .exhibit-navbar {
-	background: black;
-}
-.navbar-dark .navbar-nav .nav-link, .image-masthead .exhibit-navbar .navbar-nav .nav-link, .masthead .exhibit-navbar .navbar-nav .nav-link {
-	color: white;
-}
-.breadcrumb-item.active {
-	color: inherit;
-}
-
-// Add clearer focus indicator to carousel previous and next buttons; uses default bootstrap color variable
-a.carousel-control-prev:focus > span, 
-a.carousel-control-next:focus > span {
-	outline: $link-hover-color auto 5px;
+#main-container {
+	padding-bottom: 3em;
 }
 
 // MEDIA QUERIES
