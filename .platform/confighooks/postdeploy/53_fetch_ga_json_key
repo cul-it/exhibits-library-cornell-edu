@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Gets Google Analytics JSON key from S3
+
+EB_APP_DEPLOY_DIR=$(/opt/elasticbeanstalk/bin/get-config platformconfig -k AppDeployDir)
+GA_JSON_KEY_PATH=$(/opt/elasticbeanstalk/bin/get-config environment -k GA_JSON_KEY_PATH)
+S3_BUCKET=$(/opt/elasticbeanstalk/bin/get-config environment -k S3_BUCKET)
+
+cd $EB_APP_DEPLOY_DIR
+
+set -xe
+export $(cat /opt/elasticbeanstalk/deployment/env | xargs)
+
+aws s3 cp s3://$S3_BUCKET/$GA_JSON_KEY_PATH $GA_JSON_KEY_PATH

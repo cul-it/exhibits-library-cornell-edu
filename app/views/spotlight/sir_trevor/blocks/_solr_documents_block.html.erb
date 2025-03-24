@@ -2,7 +2,9 @@
 
 <div class="content-block items-block row d-block clearfix">
   <% if solr_documents_block.documents? %>
-    <div class="items-col spotlight-flexbox <%= solr_documents_block.text? ? "col-md-6" : "col-md-12" %> <%= solr_documents_block.content_align == 'right' ? 'float-right' : 'float-left' %>">
+
+    <div class="items-col spotlight-flexbox <%= solr_documents_block.text? ? "col-md-6" : "col-md-12" %> <%= solr_documents_block.content_align == 'right' ? 'float-right float-end' : 'float-left float-start' %>">
+      <%# BEGIN CUSTOMIZATION - Add alt text %>
       <% solr_documents_block.each_document.each_with_index do |(block_options, document), i| %>
         <% doc_presenter = document_presenter(document) %>
         <% image_alt_text = block_options[:alt].present? ? block_options[:alt] : doc_presenter.heading %>
@@ -14,6 +16,7 @@
               <%= link_to_document(document, image_tag(block_options[:iiif_tilesource_base] + '/full/!400,400/0/default.jpg', class: 'img-thumbnail', alt: image_alt_text, skip_pipeline: true), counter: -1) %>
             <% elsif doc_presenter.thumbnail.exists? %>
               <%= doc_presenter.thumbnail.thumbnail_tag({ class: 'img-thumbnail', alt: image_alt_text }, document_counter: -1) %>
+      <%# END CUSTOMIZATION %>
             <% end %>
             <% if solr_documents_block.primary_caption? %>
               <div class="caption primary-caption">
