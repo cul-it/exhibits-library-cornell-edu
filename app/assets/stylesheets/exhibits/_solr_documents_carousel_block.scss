@@ -1,0 +1,54 @@
+// Move carousel caption position and adjust gradient/colors
+.carousel-block {
+    .carousel-caption {
+        position: relative;
+        color: black;
+        @include gradient-y($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.1));
+        .secondary {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+    }
+  
+    .carousel-indicators li {
+        background-color: black;
+    }
+  }
+  
+  /* Static Carousel Items */
+  .list-group-item {
+    color: #000;
+    a {
+      color: #006699;
+    }
+    &.active {
+      color: #fff;
+      a {
+        color: inherit;
+        }
+    }
+  }
+
+// Add clearer focus indicator to carousel previous and next buttons; uses default bootstrap color variable
+a.carousel-control-prev:focus > span, 
+a.carousel-control-next:focus > span {
+	outline: $link-hover-color auto 5px;
+}
+
+// Fix for bad aspect ratio on carousel on mobile devices
+.carousel-block.carousel-height-medium .carousel-inner > .item > a > img {
+	height: 300px;
+	width: auto;
+}
+
+// MEDIA QUERIES
+// -------------------------
+
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {
+	// Fix for bad aspect ratio on carousel on mobile devices
+	.carousel-block.carousel-height-medium .carousel-inner > .item > a > img {
+		height: 500px;
+		width: auto;
+	}
+}

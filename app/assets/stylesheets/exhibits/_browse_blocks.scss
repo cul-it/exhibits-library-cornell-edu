@@ -1,3 +1,7 @@
+// Browse Blocks
+// ---------------------- //
+// Includes Browse Categories and Browse Group Categories blocks; also impacts Pages block
+
 .category-caption {
 	bottom: 0 !important;
 	background: rgba(0,0,0,.5);
@@ -46,52 +50,3 @@
   }
 }
 
-.items-block .items-col button {
-  margin: 0.75em;
-}
-
-// Move carousel caption position and adjust gradient/colors
-.carousel-block {
-  .carousel-caption {
-      position: relative;
-      color: black;
-      @include gradient-y($start-color: rgba(0,0,0,.0001), $end-color: rgba(0,0,0,.1));
-      .secondary {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-  }
-
-  .carousel-indicators li {
-      background-color: black;
-  }
-}
-
-/* Static Carousel Items */
-.list-group-item {
-  color: #000;
-  a {
-    color: #006699;
-  }
-  &.active {
-    color: #fff;
-    a {
-      color: inherit;
-      }
-  }
-}
-
-// Multi-image selection for item widgets
-.thumbs-list {
-	overflow-x: auto;
-}
-
-// Balance caption text over multiple lines for item block
-.items-block .items-col .caption {
-  text-wrap: balance;
-}
-
-// Align tops of items column and text column for item block
-.items-block .items-col .box {
-  padding-top: 0; 
-}
