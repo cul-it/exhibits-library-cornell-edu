@@ -15,5 +15,8 @@ footer {
 }
 .blacklight-home_pages.blacklight-home_pages-show .copyright {
   display: block;
-  padding: 20px;
+  p {
+    font-size: 1rem;
+    padding: 5px;
+  }
 }
