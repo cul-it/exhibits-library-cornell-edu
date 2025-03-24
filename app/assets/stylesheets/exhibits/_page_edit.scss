@@ -1,0 +1,13 @@
+// #571 - border to text form fields, and font size adjustment
+.st-block [contenteditable="true"]
+{
+	border: 1px solid #d4d4d4;
+	p {
+    	font-size: 1rem;
+	}
+}
+
+// Multi-image selection for item widgets
+.thumbs-list {
+	overflow-x: auto;
+}
