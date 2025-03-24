@@ -49,66 +49,51 @@ describe Spotlight::Exhibit, type: :model do
       end
     end
 
-    describe '#check_publish_change' do
+    describe '#send_publish_notification' do
       before do
         allow(ExhibitStatusMailer).to receive_message_chain(:exhibit_published, :deliver_later)
-        # disable set_published callback so @was_published can be manually set
-        Spotlight::Exhibit.skip_callback(:save, :before, :set_published)
       end
 
-      after do
-        # re-enable set_published callback
-        Spotlight::Exhibit.set_callback(:save, :before, :set_published)
-      end
+      context 'when an unpublished exhibit is saved but is not published' do
+        let!(:test_exhibit) { create(:exhibit, published: false, published_at: nil, description: 'hello world') }
 
-      let(:test_exhibit) { create(:exhibit, published: false, published_at: nil) }
-
-      context '1. when an unpublished exhibit is saved but is not published' do
-        before do
-          test_exhibit.instance_variable_set(:@was_published, false)
-          test_exhibit.update(published: false)
-        end
         it 'does not send a notification' do
+          test_exhibit.subtitle = 'description was updated but still unpublished'
+          test_exhibit.save!
+          expect(test_exhibit.subtitle).to eq('description was updated but still unpublished')
           expect(ExhibitStatusMailer).not_to have_received(:exhibit_published)
         end
       end
 
-      context '2. when the unpublished exhibit is published for the first time' do
-        before do
-          test_exhibit.instance_variable_set(:@was_published, false)
-          test_exhibit.update(published: true)
-        end
+      context 'when an exhibit is published for the first time' do
+        let!(:test_exhibit) { create(:exhibit, published: false, published_at: nil) }
+
         it 'sends a notification' do
+          test_exhibit.published = true
+          test_exhibit.save!
           expect(ExhibitStatusMailer).to have_received(:exhibit_published).with(test_exhibit)
         end
-      end
 
-      context '3. when the published exhibit is unpublished' do
-        before do
-          test_exhibit.instance_variable_set(:@was_published, true)
-          test_exhibit.update(published: false)
-        end
-        it 'does not send a notification' do
+        it 'but does not send a notification when unpublished' do
+          test_exhibit.published = false
+          test_exhibit.save!
           expect(ExhibitStatusMailer).not_to have_received(:exhibit_published)
         end
       end
 
-      context '4. when the unpublished exhibit is published a second time' do
-        before do
-          test_exhibit.instance_variable_set(:@was_published, false)
-          test_exhibit.update(published: true)
-        end
+      context 'when an unpublished exhibit is published a second time' do
+        let!(:test_exhibit) { create(:exhibit, published: false, published_at: 5.days.ago) }
+
         it 'sends a notification' do
+          test_exhibit.published = true
+          test_exhibit.save!
           expect(ExhibitStatusMailer).to have_received(:exhibit_published).with(test_exhibit)
         end
-      end
 
-      context '5. when the published exhibit is saved and remains published' do
-        before do
-          test_exhibit.instance_variable_set(:@was_published, true)
-          test_exhibit.update(published: true)
-        end
-        it 'does not send a notification' do
+        it 'but does not send a notification after another save' do
+          test_exhibit.subtitle = 'Subtitle was updated'
+          test_exhibit.save!
+          expect(test_exhibit.subtitle).to eq('Subtitle was updated')
           expect(ExhibitStatusMailer).not_to have_received(:exhibit_published)
         end
       end
