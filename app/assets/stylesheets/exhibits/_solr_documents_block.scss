@@ -1,0 +1,13 @@
+.items-block .items-col button {
+    margin: 0.75em;
+}
+
+// Balance caption text over multiple lines for items block
+.items-block .items-col .caption {
+    text-wrap: balance;
+}
+  
+  // Align tops of items column and text column for items block
+.items-block .items-col .box {
+    padding-top: 0; 
+}
