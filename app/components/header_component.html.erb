@@ -1,0 +1,60 @@
+<% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
+<% # Show user utility links in the navbar only if:
+   # User is logged in
+   # or Exhibit has a feedback form
+   # or Exhibit has published additional language support %>
+
+<!-- Cornell mobile header -->
+<div class="mobile-cornell-wrapper d-block d-sm-none" role="navigation" aria-label="Mobile Cornell logo">
+  <div class="container">
+    <a class="mobile-cornell-logo" href="http://www.cornell.edu">Cornell University</a>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-md navbar-light <%= nav_env_bkgnd %> topbar" aria-label="<%= t('spotlight.topbar.label') %>">
+  <div class="<%= container_classes %>">
+    <div class="row header_full_row">
+      <div class="col-8">
+        <div class="logo d-none d-sm-block">
+          <a href="http://www.cornell.edu" class="insignia">Cornell University</a>
+          <div class="library-brand">
+            <a href="http://www.library.cornell.edu">Library</a>
+          </div>
+        </div>
+        <div class="mobile-logo d-block d-sm-none">
+          <a class="library-brand-mobile" href="http://www.library.cornell.edu">Library</a>
+        </div>
+      </div>
+      <div class="col-4">
+        <% if show_user_util_links?(current_user, current_exhibit, current_ability) %>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#user-util-collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+            <%= render partial: 'shared/user_util_links' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="site-nav" aria-label="Site index navigation">
+  <div class="<%= container_classes %>">
+    <div class="site-title-brand">
+      <% unless current_exhibit # Addresses accessibility missing <h1> on non-exhibit pages %>
+        <h1 class="site-title-brand"><a href="/"><%= I18n.t(:'blacklight.application_name') %></a></h1>
+      <% else %>
+        <a href="/"><%= I18n.t(:'blacklight.application_name') %></a>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<% if current_user && AccessModeService.limit_access_to_site_admins? %>
+  <div class="maintenance-message">
+    Exhibits are in maintenance mode.  Editing is unavailable at this time.
+  </div>
+<% end %>
+<% ### END CUSTOMIZATION %>

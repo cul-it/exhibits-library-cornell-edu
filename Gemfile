@@ -3,11 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.6'
+gem 'bootstrap_form', '~> 4.5'
 gem 'carrierwave-aws'
 gem 'devise'
 gem 'devise-guests'
@@ -25,7 +26,7 @@ gem 'okcomputer', '~> 1.18'
 # Use Puma as the app server
 gem 'puma', '< 7'
 gem 'rdoc', require: false
-gem 'riiif'
+gem 'riiif', '~> 2.6.0'
 gem 'rsolr'
 gem 'ruby-oembed'
 # Use SCSS for stylesheets
@@ -35,28 +36,27 @@ gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Use Terser as compressor for JavaScript assets
+gem 'terser'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 4.2.0'
 gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '~> 7.36.1'
-gem 'blacklight-gallery', '~> 4.0'
+gem 'blacklight', '~> 7.40.0'
+gem 'blacklight-gallery', '~> 4.6.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 3.5'
+gem 'blacklight-spotlight', '~> 4.2.0'
+
+gem 'openseadragon', '~> 0.8.0'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors
   gem 'binding_of_caller' # deeper stack trace used by better errors
   gem 'listen'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console'
 end
@@ -76,7 +76,6 @@ group :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'timecop'
-  gem 'webdrivers'
   gem 'webmock'
 end
 

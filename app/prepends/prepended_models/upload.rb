@@ -19,18 +19,15 @@ module PrependedModels::Upload
   def to_solr
     return {} unless uploads.present? && uploads.all?(&:file_present?)
 
-    spotlight_routes = Spotlight::Engine.routes.url_helpers
-    riiif = Riiif::Engine.routes.url_helpers
-
     upload_ids = uploads.pluck(:id)
-    dimensions = upload_ids.map { |upload_id| Riiif::Image.new(upload_id).info }
+    dimensions = upload_ids.map { |upload_id| Spotlight::Engine.config.iiif_service.info(upload_id) }
 
     {
       spotlight_full_image_width_ssm: dimensions.map(&:width),
       spotlight_full_image_height_ssm: dimensions.map(&:height),
-      Spotlight::Engine.config.thumbnail_field => riiif.image_path(uploads[0], size: '!400,400'),
-      Spotlight::Engine.config.iiif_manifest_field => spotlight_routes.manifest_exhibit_solr_document_path(exhibit, compound_id),
-      exhibit.blacklight_config.show.tile_source_field => uploads.map { |upload| riiif.info_path(upload) }
+      Spotlight::Engine.config.thumbnail_field => Spotlight::Engine.config.iiif_service.thumbnail_url(uploads[0]),
+      Spotlight::Engine.config.iiif_manifest_field => Spotlight::Engine.config.iiif_service.manifest_url(exhibit, self),
+      exhibit.blacklight_config.show.tile_source_field => uploads.map { |upload| Spotlight::Engine.config.iiif_service.info_url(upload) }
     }
   end
   # rubocop:enable Metrics/AbcSize

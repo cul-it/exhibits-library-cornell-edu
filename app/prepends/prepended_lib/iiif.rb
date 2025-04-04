@@ -2,9 +2,7 @@
 # Uses the to_prepare Rails hook in lib_prepends initializer to inject this module
 # to override Migration::IIIF in spotlight
 
-require 'migration/iiif'
-
-module IIIFPrepend
+module PrependedLib::Iiif
   def copy_upload_to_featured_image(upload)
     return unless upload.exhibit # We need exhibit context to re-index, and you can't find an item not in an exhibit
 
@@ -14,7 +12,7 @@ module IIIFPrepend
 
     old_file = File.new(filepath)
     image = upload.uploads.create { |i| i.image.store!(old_file) }
-    iiif_tilesource = riiif.info_path(image)
+    iiif_tilesource = Spotlight::Engine.config.iiif_service.info_url(image)
     image.update(iiif_tilesource: iiif_tilesource)
     upload.save_and_index
   end
