@@ -1,5 +1,17 @@
 <% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
 <% require 'version' %>
+<div class="container copyright">
+  <hr/>
+  <p>The materials included within this site are intended for educational uses only. Unless stated otherwise, 
+  all graphics and text presented in this exhibit are protected by U.S. copyright law. Persons wishing to 
+  use any portion of this exhibit’s content are responsible for obtaining all necessary consent and/or 
+  permissions as required by copyright law and bear sole responsibility for any infringing reuses.</p>
+  <% if current_exhibit && show_contact_form? %>
+   <p>
+    For questions or more information, please use the <%= t('spotlight.header_links.contact') %> form at the top of the page.
+    </p>
+  <% end %>
+</div>
 <footer>
   <div class="container">
     <div class="row">
