@@ -100,6 +100,8 @@ Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 # (https://console.cloud.google.com/iam-admin/iam -> Service accounts -> click on service account -> keys)
 # c) set ga_property_id below to your site's property id (located in admin -> Property -> Property details upper right hand corner)
 # d) Set the ga_web_property_id. (located in admin -> Data collection and modification -> Web stream details and begins with G-)
+# e) (optional) set ga_date_range. This allows you throttle the dates the user can filter by.
+# ga_date_range values should use a Date object i.e. (Date.new(YYYY, MM, DD)).
 # ga_property_id is used for fetching analytics data from google's api, ga_web_property_id is used for sending events to GA analtyics
 # ga_web_property_id will probably change in V5 to ga_measurement_id for clarity
 Rails.application.config.to_prepare do
@@ -107,6 +109,7 @@ Rails.application.config.to_prepare do
   Spotlight::Engine.config.ga_json_key_path = ENV['GA_JSON_KEY_PATH']
   Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
   Spotlight::Engine.config.ga_property_id = ENV['GA_PROPERTY_ID']
+  Spotlight::Engine.config.ga_date_range = { 'start_date' => Date.new(2023, 04, 04), 'end_date' => nil }
   Spotlight::Engine.config.ga_analytics_options = {}
   Spotlight::Engine.config.ga_page_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 5)
   Spotlight::Engine.config.ga_search_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 11)

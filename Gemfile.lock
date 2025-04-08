@@ -134,11 +134,11 @@ GEM
       blacklight (>= 7.0, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.2.0)
+    blacklight-spotlight (4.3.6)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
-      blacklight (>= 7.19, < 9)
+      blacklight (>= 7.40, < 9)
       blacklight-gallery (>= 3.0, < 5)
       bootstrap_form (>= 4.1, < 6)
       cancancan
@@ -219,7 +219,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    csv (3.3.2)
+    csv (3.3.3)
     date (3.4.1)
     debug_inspector (1.2.0)
     declarative (0.0.20)
@@ -307,11 +307,11 @@ GEM
     google-protobuf (4.30.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    googleapis-common-protos (1.6.0)
+    googleapis-common-protos (1.7.0)
       google-protobuf (>= 3.18, < 5.a)
       googleapis-common-protos-types (~> 1.7)
       grpc (~> 1.41)
-    googleapis-common-protos-types (1.18.0)
+    googleapis-common-protos-types (1.19.0)
       google-protobuf (>= 3.18, < 5.a)
     googleauth (1.14.0)
       faraday (>= 1.0, < 3.a)
@@ -716,7 +716,7 @@ DEPENDENCIES
   blacklight (~> 7.40.0)
   blacklight-gallery (~> 4.6.0)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 4.2.0)
+  blacklight-spotlight (~> 4.3.0)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.6)
   bootstrap_form (~> 4.5)
