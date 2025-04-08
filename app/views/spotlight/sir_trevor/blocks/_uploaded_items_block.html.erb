@@ -10,12 +10,13 @@
             <% if file[:link].present? %>
               <%= link_to file[:link], rel: 'ugc' do %>
                 <% ### BEGIN CUSTOMIZATION elr - use patched url %>
-                <%= image_tag url, class: 'img-thumbnail', alt: file[:caption] %>
+                <%= image_tag url, class: 'img-thumbnail', alt: resource_alt_text(file, file[:caption]) %>
                 <% ### END CUSTOMIZATION %>
               <% end %>
             <% else %>
               <% ### BEGIN CUSTOMIZATION use patched url, set caption as alt text %>
-              <%= image_tag url, class: 'img-thumbnail', alt: file[:caption], role: 'presentation' %>
+              <% alt_text = resource_alt_text(file, '') %>
+              <%= image_tag url, class: 'img-thumbnail', alt: alt_text, role: alt_text.present? ? nil : 'presentation' %>
               <% ### END CUSTOMIZATION %>
             <% end %>
             <% if file[:caption].present? %>

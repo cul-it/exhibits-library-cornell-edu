@@ -13,7 +13,7 @@ module PrependedLib::Iiif
     old_file = File.new(filepath)
     image = upload.uploads.create { |i| i.image.store!(old_file) }
     iiif_tilesource = Spotlight::Engine.config.iiif_service.info_url(image)
-    image.update(iiif_tilesource: iiif_tilesource)
+    image.update(iiif_tilesource:)
     upload.save_and_index
   end
 end

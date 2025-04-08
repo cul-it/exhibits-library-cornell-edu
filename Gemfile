@@ -49,7 +49,7 @@ gem 'whenever', require: false
 gem 'blacklight', '~> 7.40.0'
 gem 'blacklight-gallery', '~> 4.6.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 4.2.0'
+gem 'blacklight-spotlight', '~> 4.3.0'
 
 gem 'openseadragon', '~> 0.8.0'
 

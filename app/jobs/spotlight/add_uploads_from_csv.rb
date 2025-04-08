@@ -55,7 +55,7 @@ module Spotlight
 
         resource = Spotlight::Resources::Upload.new(
           data: row,
-          exhibit: exhibit
+          exhibit:
         )
         ### BEGIN CUSTOMIZATION - Updated resource to has_many uploads association
         resource.uploads.build(remote_image_url: url) unless url == '~'
