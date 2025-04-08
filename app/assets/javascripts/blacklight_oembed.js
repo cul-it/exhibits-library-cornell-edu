@@ -1,5 +1,5 @@
-//= require 'blacklight_oembed/jquery.oembed.js'
+//= require blacklight_oembed/oembed
 
 Blacklight.onLoad(function() {
-  $('[data-embed-url]').oEmbed();
+  oembed(document.querySelectorAll('[data-embed-url]'));
 });
