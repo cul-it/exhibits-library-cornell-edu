@@ -7,4 +7,5 @@
 //= link application_example.css
 //= link application_rmc-legacy.css
 //= link openseadragon-assets.js
+//= link blacklight-oembed/oembed.js
 //= link spotlight/manifest.js
