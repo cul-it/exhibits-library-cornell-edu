@@ -6,6 +6,7 @@
 //= link application_blackprint.css
 //= link application_example.css
 //= link application_rmc-legacy.css
-//= link openseadragon-assets.js
 //= link blacklight-oembed/oembed.js
+//= link blacklight_gallery/manifest.js
 //= link spotlight/manifest.js
+//= link_tree ../../../node_modules/openseadragon/build/openseadragon/images
