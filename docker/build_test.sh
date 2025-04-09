@@ -5,6 +5,9 @@ set -e
 # Install gems
 bundle install
 
+# Install node modules
+yarn install
+
 # If the database exists, migrate. Otherwise setup (create and migrate)
 echo "Preparing Database..."
 bundle exec rake db:environment:set RAILS_ENV=test db:migrate 2>/dev/null || bundle exec rake db:environment:set RAILS_ENV=test db:create db:schema:load
