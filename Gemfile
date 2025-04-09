@@ -47,11 +47,10 @@ gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
 gem 'blacklight', '~> 7.40.0'
-gem 'blacklight-gallery', '~> 4.6.0'
+gem 'blacklight-gallery', '~> 4.8.0'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'blacklight-spotlight', '~> 4.7.0'
-
-gem 'openseadragon', '~> 0.8.0'
+gem 'openseadragon', '~> 1.0.0'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors

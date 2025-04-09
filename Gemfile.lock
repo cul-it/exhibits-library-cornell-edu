@@ -127,7 +127,7 @@ GEM
       rails (>= 6.1, < 7.3)
       view_component (>= 2.74, < 4)
       zeitwerk
-    blacklight-gallery (4.6.4)
+    blacklight-gallery (4.8.4)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 9)
     blacklight-oembed (1.4.2)
@@ -435,7 +435,7 @@ GEM
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
     okcomputer (1.18.5)
-    openseadragon (0.8.0)
+    openseadragon (1.0.17)
       rails (> 6.1.0)
     orm_adapter (0.5.0)
     os (1.1.4)
@@ -714,7 +714,7 @@ DEPENDENCIES
   binding_of_caller
   bixby
   blacklight (~> 7.40.0)
-  blacklight-gallery (~> 4.6.0)
+  blacklight-gallery (~> 4.8.0)
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 4.7.0)
   bootsnap (>= 1.1.0)
@@ -741,7 +741,7 @@ DEPENDENCIES
   mina
   mysql2
   okcomputer (~> 1.18)
-  openseadragon (~> 0.8.0)
+  openseadragon (~> 1.0.0)
   puma (< 7)
   rails (~> 7.2.0)
   rails-controller-testing

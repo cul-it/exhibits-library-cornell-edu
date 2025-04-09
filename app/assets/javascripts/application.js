@@ -21,7 +21,9 @@
 //= require twitter/typeahead
 //= require bootstrap
 //= require blacklight/blacklight
-//= require blacklight_gallery
+//= require blacklight_gallery/blacklight-gallery
+//= require openseadragon
+//= require openseadragon-rails/openseadragon-rails
 //
 //= require leaflet
 //= require leaflet-iiif
