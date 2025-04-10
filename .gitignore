@@ -39,3 +39,6 @@
 
 # Ignore redis binary dump (dump.rdb) files
 *.rdb
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

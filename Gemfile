@@ -7,8 +7,8 @@ gem 'rails', '~> 7.2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.6'
-gem 'bootstrap_form', '~> 4.5'
+gem 'bootstrap', '~> 5.0'
+gem 'bootstrap_form', '~> 5.0'
 gem 'carrierwave-aws'
 gem 'devise'
 gem 'devise-guests'
@@ -19,19 +19,17 @@ gem 'friendly_id'
 gem 'irb'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
+gem 'jsbundling-rails'
 gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
+gem 'propshaft'
 # Use Puma as the app server
 gem 'puma', '< 7'
 gem 'rdoc', require: false
 gem 'riiif', '~> 2.6.0'
 gem 'rsolr'
 gem 'ruby-oembed'
-# Use SCSS for stylesheets
-gem 'sassc', '~> 2.1', '< 2.2'
-gem 'sassc-rails'
 gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
@@ -39,17 +37,17 @@ gem 'sqlite3'
 # Use Terser as compressor for JavaScript assets
 gem 'terser'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
-gem 'blacklight', '~> 7.40.0'
+gem "blacklight", ">= 8.7.0", "< 9"
 gem 'blacklight-gallery', '~> 4.8.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 4.7.0'
+gem 'blacklight-spotlight', '~> 5.0.0'
 gem 'openseadragon', '~> 1.0.0'
 
 group :development do
@@ -80,9 +78,12 @@ end
 
 group :development, :test do
   gem 'bixby' # style guide enforcement with rubocop
-  gem 'solr_wrapper'
+  gem "solr_wrapper", ">= 0.3"
 end
 
 group :development, :integration, :test do
   gem 'byebug' # debugging
 end
+
+gem "cssbundling-rails", "~> 1.4"
+gem 'stimulus-rails'

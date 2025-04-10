@@ -1,10 +1,8 @@
-@import 'bootstrap';
-@import 'bootstrap-reboot';
-@import 'bootstrap-tagsinput';
-@import "font-awesome";
-@import 'blacklight';
-@import 'blacklight_gallery';
-@import 'spotlight';
+// TODO: Do I need to figure out font-awesome? Also, test themes in general
+// @import "font-awesome";
+@import "blacklight";
+@import "blacklight_gallery";
+@import "spotlight";
 @import "openseadragon";
 
 @import "exhibits/variables_exhibitions";

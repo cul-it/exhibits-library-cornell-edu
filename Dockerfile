@@ -56,7 +56,6 @@ USER $USER
 WORKDIR $APP_PATH
 COPY --chown=${USER}:${GROUP} Gemfile Gemfile.lock ./
 RUN bundle install
-RUN yarn install
 
 COPY --chown=${USER}:${GROUP} . .
 

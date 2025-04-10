@@ -1,17 +1,7 @@
 <% if show_contact_form? && (current_exhibit.nil? || !current_page?(spotlight.new_exhibit_contact_form_path(current_exhibit))) %>
-  <div id="report-problem-form">
+  <div id="report-problem-form" class="collapse">
     <%= render 'spotlight/shared/report_a_problem' %>
   </div>
-<% end %>
-
-<%- masthead_navbar = capture do %>
-  <% if content_for? :masthead_navbar %>
-    <%= content_for :masthead_navbar %>
-  <% elsif current_exhibit %>
-    <%= render 'shared/exhibit_navbar' %>
-  <% else %>
-    <%= render 'shared/site_navbar' %>
-  <% end %>
 <% end %>
 
 <header class="masthead <%= 'image-masthead' if current_masthead %> <%= 'resource-masthead' if resource_masthead? %>">
@@ -20,35 +10,13 @@
     <span class='background-container-gradient'></span>
   <% end %>
 
-  <% # Adds page name and search bar %>
-  <%= masthead_navbar if resource_masthead? %>
-
-  <% ### BEGIN CUSTOMIZATION elr - only show title area for exhibit pages %>
+  <%### BEGIN CUSTOMIZAITON - only show title area for exhibit pages ###%>
   <% if current_exhibit %>
-  <% ### END CUSTOMIZATION %>
-  <div class="container site-title-container">
-    <div class="site-title-wrapper">
-      <% if content_for? :masthead %>
-        <h1 class="site-title h2">
-          <%= content_for :masthead %>
-        </h1>
-      <% else %>
-        <h1 class="site-title h2">
-          <%= masthead_heading_content %>
-        </h1>
-        <% if masthead_subheading_content %>
-          <small class="d-none d-md-block py-2 fs-4"><%= masthead_subheading_content %></small>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <% ### BEGIN CUSTOMIZATION elr - only show title area for exhibit pages %>
+    <%= render current_exhibit ? 'shared/exhibit_navbar' : 'shared/site_navbar' if resource_masthead? %>
+    <%= render Spotlight::Engine.config.spotlight.title_component.new(title: content_for(:masthead) || masthead_heading_content, subtitle: masthead_subheading_content) %>
+    <%= render current_exhibit ? 'shared/exhibit_navbar' : 'shared/site_navbar' unless resource_masthead? %>
   <% end %>
-  <% ### END CUSTOMIZATION %>
-
-  <% # Adds page name and search bar %>
-  <%= masthead_navbar unless resource_masthead? %>
-
+  <%### END CUSTOMIZAITON ###%>
 </header>
 
 <%= render Spotlight::BreadcrumbsComponent.new(breadcrumbs:) %>
