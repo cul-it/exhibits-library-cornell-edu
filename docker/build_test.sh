@@ -5,8 +5,8 @@ set -e
 # Install gems
 bundle install
 
-# Install node modules
-yarn install
+# Prepare assets
+bundle exec rails test:prepare
 
 # If the database exists, migrate. Otherwise setup (create and migrate)
 echo "Preparing Database..."
