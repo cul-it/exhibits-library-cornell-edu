@@ -1,4 +1,4 @@
-<ul class="navbar-nav mr-auto me-auto">
+<ul class="navbar-nav me-auto">
   <% ### BEGIN CUSTOMIZATION elr - only show header links to logged in users %>
   <% if current_user %>
     <%= render_nav_actions do |config, action|%>
@@ -12,7 +12,7 @@
   <%= render '/spotlight/shared/locale_picker' %>
   <% if current_user %>
     <li class="nav-item dropdown">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown"><%=current_user%></a>
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><%=current_user%></a>
       <ul class="dropdown-menu">
         <% if can? :manage, Spotlight::Site.instance %>
           <li><%= link_to t(:'spotlight.header_links.edit_site'), spotlight.edit_site_path, class: 'dropdown-item' %></li>
@@ -48,7 +48,9 @@
   <% end %>
   <% if current_exhibit && show_contact_form? %>
     <li class="nav-item">
-      <%= link_to t('spotlight.header_links.contact'), spotlight.new_exhibit_contact_form_path(current_exhibit), data: {behavior: 'contact-link', target: 'report-problem-form' }, class: 'nav-link' %>
+      <%= link_to t('spotlight.header_links.contact'), spotlight.new_exhibit_contact_form_path(current_exhibit),
+        data: { bs_toggle: 'collapse', bs_target: '#report-problem-form' },
+        class: 'nav-link' %>
     </li>
   <% end %>
 </ul>

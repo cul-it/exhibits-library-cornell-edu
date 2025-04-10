@@ -12,30 +12,39 @@
       <%= exhibit_stylesheet_link_tag "application" %>
     <% else %>
       <%# BEGIN CUSTOMIZATION - forces page reload so back button doesn't transfer themes %>
-      <%= stylesheet_link_tag "application", "data-turbolinks-track": "reload" %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
       <%# END CUSTOMIZAITON %>
     <% end %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_tag "window.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <%= javascript_tag 'L.Icon.Default.prototype.options.imagePath = "https://unpkg.com/leaflet@1.9.4/dist/images/"' %>
+    <%= javascript_include_tag 'leaflet-iiif', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'Leaflet.Editable', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'Path.Drag', "data-turbo-track": "reload", defer: true %>
+    <% if defined? Importmap %>
+      <%= javascript_importmap_tags %>
+    <% else %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
-    <%= description %>
-    <%= twitter_card %>
-    <%= opengraph %>
-    <%= javascript_tag "Spotlight.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
-    <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
+    <% if @document %>
+      <% add_document_meta_content(@document) %>
+    <% elsif current_exhibit %>
+      <% description(current_exhibit.description) if current_exhibit %>
+      <% add_exhibit_meta_content %>
+    <% end %>
+    <%= yield(:meta) %>
+    <%= javascript_tag "window.addEventListener('load', () => $.fx.off = true)" if Rails.env.test? %>
   </head>
   <body class="<%= render_body_class %>">
     <%= render partial: 'shared/body_preamble' %>
-    <%# BEGIN CUSTOMIZATION - Add accessibility tags %>
-    <div id="skip-link" role="navigation" aria-label="Skip links">
-    <%# END CUSTOMIZATION %>
-      <% if should_render_spotlight_search_bar? %>
-        <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'btn btn-link bg-light sr-only sr-only-focusable visually-hidden-focusable' %>
-      <% end %>
-      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'btn btn-link bg-light sr-only sr-only-focusable visually-hidden-focusable' %>
+    <%= render blacklight_config.skip_link_component.new(render_search_link: should_render_spotlight_search_bar?) do %>
       <%= content_for(:skip_links) %>
-    </div>
-
+    <% end %>
     <%= render partial: 'shared/header_navbar' %>
     <%= render partial: 'shared/masthead' %>
     <%= content_for?(:header_content) ? yield(:header_content) : "" %>
