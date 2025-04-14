@@ -22,14 +22,15 @@ describe 'Adding exhibit items', type: :system do
       fill_in 'Title', with: 'A new item?!'
       fill_in 'Description', with: 'A new item description'
       fill_in 'Physical Location', with: 'A physical location'
-      click_button 'Add item and continue adding'
+      find('input[name="add-and-continue"]').click
+      sleep 1
 
       # Add item #2
       page.attach_file('resources_upload[url][]', [File.expand_path('../fixtures/white.png', __dir__), File.expand_path('../fixtures/red.png', __dir__)], make_visible: true)
       fill_in 'Title', with: 'Item with multiple images'
       fill_in 'Description', with: 'This item has so many images, you would not believe.'
       fill_in 'Physical Location', with: 'Some other physical location'
-      click_button 'Add item'
+      find('input[name="commit"]').click
 
       # Verify that the items were added
       expect(page).to have_text('Object uploaded successfully.')
