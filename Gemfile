@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.0'
 gem 'carrierwave-aws'
+gem "cssbundling-rails", "~> 1.4"
 gem 'devise'
 gem 'devise-guests'
 gem 'devise_invitable'
@@ -34,9 +35,9 @@ gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'stimulus-rails'
 # Use Terser as compressor for JavaScript assets
 gem 'terser'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbo-rails'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -84,6 +85,3 @@ end
 group :development, :integration, :test do
   gem 'byebug' # debugging
 end
-
-gem "cssbundling-rails", "~> 1.4"
-gem 'stimulus-rails'
