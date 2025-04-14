@@ -1,7 +1,6 @@
 <%#
   Overrides _openseadragon_default.html.erb from blacklight-gallery to pass in initial page from block_options
   Sets initialPage if block with selected iiif_tilesource is present, defaults to first image
-  TODO: Just threw the related pages code in this file - find a better place for this? New partial in catalogcontroller?
 %>
 
 <%
@@ -9,9 +8,3 @@
   initial_page = initial_page(document, block_options)
 %>
 <%= render OpenseadragonEmbedComponent.new(document: document, presenter: document_presenter(document), view_config: local_assigns[:view_config], classes: [osd_container_class], initial_page: initial_page) %>
-
-<%
-  doc_id = document['id'] || ''
-  exhibit_slug = (document.has_key?('spotlight_exhibit_slugs_ssim')) && (document['spotlight_exhibit_slugs_ssim'].length > 0) ? document['spotlight_exhibit_slugs_ssim'][0] : ''
-%>
-<div id="related-pages" docid="<%= doc_id %>" exhibitslug="<%= exhibit_slug %>" rooturl="<%= root_url %>"></div>
