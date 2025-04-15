@@ -2,10 +2,10 @@
  Stylesheet used for joyce exhibit theme
 */
 
-@import 'base';
+@import 'application.bootstrap';
 @font-face {
   font-family: 'Mutable-SemiBold';
-  src: font-url('Mutable-SemiBold.otf');
+  src: url('Mutable-SemiBold.otf');
 }
 
 // Background color
@@ -175,7 +175,7 @@ body, header {
 // Ids are distinct per page: "page-slug-content"
 #early-life-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case1.svg');
+    background-image: url('spotlight/themes/joyce/Case1.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -191,7 +191,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case1.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case1.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -199,7 +199,7 @@ body, header {
 
 #games-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case2.svg');
+    background-image: url('spotlight/themes/joyce/Case2.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -215,7 +215,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case2.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case2.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -223,7 +223,7 @@ body, header {
 
 #sports-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case3.svg');
+    background-image: url('spotlight/themes/joyce/Case3.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -239,7 +239,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case3.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case3.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -247,7 +247,7 @@ body, header {
 
 #radio-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case4.svg');
+    background-image: url('spotlight/themes/joyce/Case4.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -263,7 +263,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case4.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case4.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -271,7 +271,7 @@ body, header {
 
 #television-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case5.svg');
+    background-image: url('spotlight/themes/joyce/Case5.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -287,7 +287,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case5.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case5.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -295,7 +295,7 @@ body, header {
 
 #fashion-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case6.svg');
+    background-image: url('spotlight/themes/joyce/Case6.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -311,7 +311,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case6.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case6.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -319,7 +319,7 @@ body, header {
 
 #awards-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case7.svg');
+    background-image: url('spotlight/themes/joyce/Case7.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -335,7 +335,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case7.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case7.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -343,7 +343,7 @@ body, header {
 
 #books-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case8.svg');
+    background-image: url('spotlight/themes/joyce/Case8.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -359,7 +359,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case8.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case8.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -367,7 +367,7 @@ body, header {
 
 #publications-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case9.svg');
+    background-image: url('spotlight/themes/joyce/Case9.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -383,7 +383,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case9.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case9.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -391,7 +391,7 @@ body, header {
 
 #activities-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case10.svg');
+    background-image: url('spotlight/themes/joyce/Case10.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -407,7 +407,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case10.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case10.svg') no-repeat;
       background-size: 80%;
     }
   }
@@ -415,7 +415,7 @@ body, header {
 
 #legacy-content {
   .page-title {
-    background-image: image-url('spotlight/themes/joyce/Case11.svg');
+    background-image: url('spotlight/themes/joyce/Case11.svg');
     background-repeat: no-repeat;
     background-position: 0% 0%;
     padding-left: 2rem;
@@ -431,7 +431,7 @@ body, header {
       width: 100%;
       opacity: 0.6;
       // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: image-url('spotlight/themes/joyce/Case11.svg') no-repeat;
+      background: url('spotlight/themes/joyce/Case11.svg') no-repeat;
       background-size: 80%;
     }
   }
