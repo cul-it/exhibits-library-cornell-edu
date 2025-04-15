@@ -145,8 +145,9 @@ Spotlight::Engine.config.site_tags = [
 #   'my-local-config': ->(context) { context.my_custom_data_path(context.current_exhibit) }
 # }
 
-default_themes = %w[default example rmc-legacy]
-custom_themes = %w[dr-joyce-brothers blackprint]
+themes = YAML.load_file(Rails.root.join('config', 'spotlight_themes.yml'))
+default_themes = ['default'] + themes['defaults'].split
+custom_themes = themes['customs'].split
 Spotlight::Engine.config.exhibit_themes = default_themes + custom_themes
 
 Exhibits::Application.config.after_initialize do
