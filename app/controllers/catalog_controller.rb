@@ -6,14 +6,18 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config| # rubocop:disable Metrics/BlockLength
     config.show.oembed_field = :oembed_url_ssm
-    config.show.partials.insert(1, :oembed)
 
     config.view.gallery(document_component: Blacklight::Gallery::DocumentComponent)
     config.view.masonry(document_component: Blacklight::Gallery::DocumentComponent)
     config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
-    config.show.partials.insert(1, :openseadragon)
+
+    # Displays OSD viewer above item metadata
+    config.show.embed_component = OpenseadragonEmbedComponent
+    # Displays OSD viewer below item metadata
+    # config.show.partials.insert(1, :openseadragon)
     config.show.partials.insert(2, :related_pages)
+
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
