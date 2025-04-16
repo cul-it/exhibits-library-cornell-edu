@@ -94,7 +94,7 @@ body, header {
 
       // Hackily override col-md-6 bootstrap styling set in html
       // Roughly equivalent of col-md-4
-      &.float-right.col-md-6 {
+      &.float-end.col-md-6 {
         @media (min-width: breakpoint-min('md')) {
           flex: 0 0 33.33333333%;
           max-width: 33.33333333%;
@@ -138,7 +138,7 @@ body, header {
 }
 
 .items-block {
-  .items-col.float-left .box {
+  .items-col.float-start .box {
     min-width: 300px;
   }
 
@@ -153,7 +153,7 @@ body, header {
 
   // Hackily override col-md-6 bootstrap styling set in html
   // Roughly equivalent of col-md-8
-  .items-col.float-right.col-md-6 {
+  .items-col.float-end.col-md-6 {
     @media (min-width: breakpoint-min('md')) {
       flex: 0 0 66.66666667%;
       max-width: 66.66666667%;
@@ -180,19 +180,13 @@ body, header {
     background-position: 0% 0%;
     padding-left: 2rem;
   }
-
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case1.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case1.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -205,18 +199,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case2.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case2.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -229,18 +218,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case3.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case3.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -253,18 +237,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case4.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case4.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -277,18 +256,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case5.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case5.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -301,18 +275,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case6.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case6.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -325,18 +294,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case7.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case7.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -349,18 +313,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case8.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case8.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -373,18 +332,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case9.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case9.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -397,18 +351,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case10.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case10.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
@@ -421,18 +370,13 @@ body, header {
     padding-left: 2rem;
   }
 
-  #sidebar::before {
+  #sidebar::after {
     @media (min-width: breakpoint-min('lg')) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: calc(100% - 28em);
-      width: 100%;
+      content: url('spotlight/themes/joyce/Case11.svg');
+      display: inline-block;
+      height: calc(80% - 28em);
+      width: 80%;
       opacity: 0.6;
-      // Change to repeat-y to create a repeating vertical border under sidebar menu
-      background: url('spotlight/themes/joyce/Case11.svg') no-repeat;
-      background-size: 80%;
     }
   }
 }
