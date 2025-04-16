@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 8.0.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -28,7 +28,7 @@ gem 'propshaft'
 # Use Puma as the app server
 gem 'puma', '< 7'
 gem 'rdoc', require: false
-gem 'riiif', '~> 2.6.0'
+gem 'riiif'
 gem 'rsolr'
 gem 'ruby-oembed'
 gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
