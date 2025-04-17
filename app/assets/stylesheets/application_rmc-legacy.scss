@@ -8,7 +8,7 @@
       // For larger screen sizes, hide title text (except for screen readers)
       height: 180px;
       .site-title, small {
-        @include sr-only;
+        @include visually-hidden;
       }
       .site-title-wrapper {
         background: none;
