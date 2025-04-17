@@ -26,11 +26,11 @@ themes="${theme_defaults} ${theme_customs}"
 themes_arr=(${themes})
 
 # Compile CSS
-sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules
+sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --quiet-deps --load-path=node_modules
 
 for i in "${themes_arr[@]}"
 do
-   sass ./app/assets/stylesheets/application_$i.scss:./app/assets/builds/application_$i.css --no-source-map --load-path=node_modules
+   sass ./app/assets/stylesheets/application_$i.scss:./app/assets/builds/application_$i.css --no-source-map --quiet-deps --load-path=node_modules
 done
 
 # Prefix CSS
