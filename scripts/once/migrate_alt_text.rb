@@ -48,7 +48,7 @@ class AltTextMigrator
         if [SirTrevorRails::Blocks::SolrDocumentsBlock,
             SirTrevorRails::Blocks::SolrDocumentsFeaturesBlock,
             SirTrevorRails::Blocks::SolrDocumentsGridBlock,
-            SirTrevorRails::Blocks::SolrDocumentsCarouselBlock].include?(block.class)
+            SirTrevorRails::Blocks::SolrDocumentsCarouselBlock].include?(block.class) && block.item.present?
           block.item.each do |item_num, item_data|
             if item_num.include?('item_') && block.item[item_num]['alt'].present? && block.item[item_num]['alt_text'].blank? && block.item[item_num]['alt_text_backup'].blank?
               page_with_solr_document_blocks_with_alt_text = true
