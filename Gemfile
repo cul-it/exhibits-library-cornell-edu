@@ -31,7 +31,7 @@ gem 'rdoc', require: false
 gem 'riiif'
 gem 'rsolr'
 gem 'ruby-oembed'
-gem 'sidekiq', '~> 6' # TODO: NEEDS UPGRADE
+gem 'sidekiq', '~> 7'
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

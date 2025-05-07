@@ -21,16 +21,3 @@ services:
       - PORT=9292
     ports:
       - 9292:9292
-    depends_on:
-      - sidekiq
-
-  sidekiq:
-    build:
-      context: .
-      args:
-        BUNDLE_WITHOUT: "development test"
-        RACK_ENV: integration
-        RAILS_ENV: integration
-    entrypoint: docker/run_sidekiq.sh
-    env_file:
-      - .env
