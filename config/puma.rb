@@ -27,6 +27,27 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
+workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+
+# preloading the application is necessary to ensure
+# the configuration in your initializer runs before
+# the boot callback below.
+preload_app!
+
+x = nil
+on_worker_boot do
+  x = Sidekiq.configure_embed do |config|
+    # config.logger.level = Logger::DEBUG
+    config.queues = %w[default]
+    config.concurrency = 2
+  end
+  x.run
+end
+
+on_worker_shutdown do
+  x&.stop
+end
+
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port ENV.fetch("PORT", 9292)
 
