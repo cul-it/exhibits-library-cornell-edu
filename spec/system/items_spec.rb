@@ -37,7 +37,8 @@ describe 'Adding exhibit items', type: :system do
       within '#documents' do
         expect(page).to have_link('A new item?!')
         expect(page).to have_link('Item with multiple images')
-        click_link 'Item with multiple images'
+        # Can't just click link by text because another hidden link exists with matching alt text
+        find('.index_title a', text: 'Item with multiple images').click
       end
       expect(page).to have_text('This item has so many images, you would not believe.')
       expect(page).to have_text('Some other physical location')
