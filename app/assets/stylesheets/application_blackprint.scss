@@ -28,26 +28,6 @@ a, .page-link {
   color: $blackprint-light-blue;
 }
 
-//buttons
-
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-outline-secondary:hover, 
-.btn-outline-secondary:active,
-.btn-outline-secondary:not(:disabled):not(.disabled).active,
-.show > .btn-outline-secondary.dropdown-toggle,
-.nav-pills .nav-link.active,
-.page-item.active .page-link {
-  background-color: $blackprint-dark-blue;
-  border-color: $blackprint-dark-blue; 
-}
-
-.btn-outline-secondary {
-  border-color: $blackprint-dark-blue;
-  color: $blackprint-dark-blue;
-}
-
 //navbar 
 
 #exhibit-navbar {
