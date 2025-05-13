@@ -4,7 +4,7 @@
 
 <div class="content-block carousel-block item-features">
   <% if solr_documents_features_block.documents? %>
-    <div id="<%= html_id %>" class="carousel" data-ride="carousel"  data-interval="false">
+    <div id="<%= html_id %>" class="carousel">
       <div class="row">
         <div class="col-sm-6">
           <div class="carousel-inner">
@@ -13,21 +13,22 @@
               <% image_alt_text = block_options[:alt].present? ? block_options[:alt] : doc_presenter.heading %>
               <div class="carousel-item <%= 'active' if index == 0 %>" data-id="<%= document.id %>">
                 <% if block_options[:full_image_url].present? %>
-                  <%= link_to_document(document, image_tag(block_options[:full_image_url], alt: image_alt_text, skip_pipeline: true), counter: -1) %>
+                  <%= link_to_document(document, image_tag(block_options[:full_image_url], alt: resource_alt_text(block_options, doc_presenter.heading), skip_pipeline: true), counter: -1) %>
                 <% elsif block_options[:iiif_tilesource_base].present?  %>
-                  <%= link_to_document(document, image_tag(block_options[:iiif_tilesource_base] + '/full/!800,800/0/default.jpg', alt: image_alt_text, skip_pipeline: true), counter: -1) %>
+                  <%= link_to_document(document, image_tag(block_options[:iiif_tilesource_base] + '/full/!800,800/0/default.jpg', alt: resource_alt_text(block_options, doc_presenter.heading), skip_pipeline: true), counter: -1) %>
                 <% elsif doc_presenter.thumbnail.exists? %>
-                  <%= doc_presenter.thumbnail.thumbnail_tag({ alt: image_alt_text }, document_counter: -1) %>
+                  <%= doc_presenter.thumbnail.thumbnail_tag({ alt: resource_alt_text(block_options, doc_presenter.heading) }, document_counter: -1) %>
                 <% end %>
               </div>
 
               <% indicators << capture do %>
-                <li data-target="#<%= html_id %>" data-slide-to="<%= index %>" class="list-group-item <%= 'active' if index == 0 %>">
+                <li data-bs-target="#<%= html_id %>" data-bs-slide-to="<%= index %>" class="list-group-item <%= 'active' if index == 0 %>">
                   <% caption_text = solr_documents_features_block.document_caption(doc_presenter, solr_documents_features_block.primary_caption_field, default: Spotlight::PageConfigurations::DOCUMENT_TITLE_KEY) %>
                   
+                  <%# BEGIN CUSTOMIZATION - Render markdown links in item descriptions %>
                   <%# Count and truncate the text length only, do not consider any markdown links
                       don't render the link since this is the primary caption %>
-                  <% stripped_caption_text = strip_tags(caption_text) %>
+                  <% stripped_caption_text = strip_tags(caption_text.to_s) %>
                     <a href="#" title="<%= stripped_caption_text %>">
                       <% if stripped_caption_text.length > 95 %>
                         <%= truncate(stripped_caption_text, length: 92) + '...' %>
@@ -35,6 +36,7 @@
                         <%= stripped_caption_text %>
                       <% end %>
                     </a>
+                  <%# END CUSTOMIZATION %>
 
                   <% if solr_documents_features_block.secondary_caption? %>
                     <p><%= solr_documents_features_block.document_caption(doc_presenter, solr_documents_features_block.secondary_caption_field) %></p>

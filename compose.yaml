@@ -22,7 +22,6 @@ services:
       - mysql
       - redis
       - solr
-      - sidekiq
 
   mysql:
     image: mariadb:10.6
@@ -45,7 +44,7 @@ services:
       - 8983:8983
     volumes:
       - solr_home:/opt/solr/server/solr
-      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+      - ./solr/conf:/opt/solr/server/configsets/exhibitsconf
 
   redis:
     extends:
@@ -55,21 +54,6 @@ services:
       - 6379:6379
     volumes:
       - redis:/data
-
-  sidekiq:
-    build:
-      context: .
-      target: development
-    entrypoint: docker/run_sidekiq.sh
-    image: exhibits
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env
-    volumes:
-      - .:/exhibits
-    depends_on:
-      - redis
 
 volumes:
   db-data:

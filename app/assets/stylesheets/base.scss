@@ -1,20 +1,20 @@
-@import 'bootstrap';
-@import 'bootstrap-reboot';
-@import 'bootstrap-tagsinput';
-@import "font-awesome";
-@import 'blacklight';
-@import 'blacklight_gallery';
-@import 'spotlight';
+@import "exhibits/variables_overrides";
+
+@import "blacklight";
+@import "blacklight_gallery";
+@import "spotlight";
 @import "openseadragon";
 
 @import "exhibits/variables_exhibitions";
 @import "exhibits/variables_bootstrap";
+@import "exhibits/admin";
 @import "exhibits/base";
 @import "exhibits/bootstrap_overrides";
 @import "exhibits/browse_blocks";
 @import "exhibits/catalog_show";
 @import "exhibits/footer";
 @import "exhibits/header";
+@import "exhibits/openseadragon_overrides";
 @import "exhibits/page_edit";
 @import "exhibits/page_show";
 @import "exhibits/search";

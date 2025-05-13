@@ -10,9 +10,13 @@ echo "Preparing Database..."
 bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:environment:set RAILS_ENV=development db:create db:schema:load
 echo "Database Migration Done!"
 
+# Install node modules
+bin/yarn
+
 # Start the web server
 mkdir -p ./tmp/pids
-bundle exec puma -C config/puma.rb -e $RAILS_ENV
+rm -f ./tmp/pids/*
+bin/dev
 
 # Run commands
 exec "$@"

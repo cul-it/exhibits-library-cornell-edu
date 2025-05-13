@@ -127,11 +127,6 @@ header {
 	}
 }
 
-// Remove default blur filter
-.image-masthead .background-container {
-	filter: blur(0);
-}
-
 // Utilities navbar
 // --------------------
 .navbar-toggler {
@@ -178,7 +173,6 @@ header {
 // Small devices (landscape phones, 576px and up)
 @include media-breakpoint-up(sm) {
 	header {
-		padding: .5em 0 0 0;
 		.tab-content {
 			height: 80px;
 		}
@@ -190,20 +184,6 @@ header {
 		border-top: 1px solid #e7e7e7;
 	}
 }
-
-// Medium devices (tablets, 768px and up)
-@include media-breakpoint-up(md) {
-	header {
-		padding: 1em 0;
-	}
-}
-
-// Large devices (desktops, 992px and up)
-// @include media-breakpoint-up(lg) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-// @include media-breakpoint-up(xl) { ... }
-
 
 // Header colors to identify Rails environment that is running
 nav div.header_full_row {

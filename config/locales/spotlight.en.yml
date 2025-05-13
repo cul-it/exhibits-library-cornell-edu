@@ -1,9 +1,8 @@
 en:
-  activerecord:
-    help:
-      spotlight/exhibit:
-        tag_list: Cmd+click or Ctrl+click to select multiple tags.
   spotlight:
+    accessibility:
+      alt_text:
+        total_items: Of the items displayed via widgets, <b>%{has_alt_text} of %{total_alt_items}</b> have entered alt text (or a checked decorative box). Items with no entered alt text or checked decorative box will default their alt text to item title.
     catalog:
       edit_default:
         url-field:

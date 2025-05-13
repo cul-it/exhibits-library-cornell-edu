@@ -150,7 +150,7 @@ id:
         request_error: "Maaf, saya tidak dapat memahami permintaan pencarian Anda."
         invalid_solr_id: "Maaf, Anda meminta rekaman yang tidak ada."
       per_page:
-        label: '%{count}<span class="sr-only visually-hidden"> per halaman</span>'
+        label: '%{count}<span class="visually-hidden"> per halaman</span>'
         button_label: '%{count} per halaman'
         button_label_html: '%{count}<span class="d-none d-sm-inline"> per halaman</span>'
         title: 'Tampilkan jumlah hasil pencarian per halaman'
@@ -193,7 +193,7 @@ id:
           count: 'Urutkan secara numerik'
           index: 'Urutkan A-Z'
         count: '%{number}'
-        more_html: 'Lebih <span class="sr-only visually-hidden">%{field_name}</span> »'
+        more_html: 'Lebih <span class="visually-hidden">%{field_name}</span> »'
         selected:
           remove: '[hapus]'
         missing: "[Hilang]"
