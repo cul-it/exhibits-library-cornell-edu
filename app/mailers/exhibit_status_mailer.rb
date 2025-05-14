@@ -2,15 +2,16 @@
 
 # Custom mailer to send email notification to dev team when an exhibit has changed
 class ExhibitStatusMailer < ApplicationMailer
-  # send email notification when an exhibit is published
-  def exhibit_published(exhibit)
+  def send_exhibit_status_email(exhibit)
     @exhibit = exhibit
+    subject = @exhibit.published ? 'Online exhibit was published' : 'Online exhibit was unpublished'
+
     begin
-      mail(to: 'help-exhibits-library@cornell.edu', subject: 'Online exhibit was published') do |format|
-        format.html { render 'exhibit_status_mailer/exhibit_published' }
+      mail(to: 'help-exhibits-library@cornell.edu', subject: subject) do |format|
+        format.html { render 'exhibit_status_mailer/exhibit_publish_status' }
       end
     rescue StandardError => e
-      Rails.logger.error("**** EMAIL FAILURE on publish notification: #{e.message}")
+      Rails.logger.error("**** EMAIL FAILURE on notification '#{subject}': #{e.message}")
     end
   end
 end
