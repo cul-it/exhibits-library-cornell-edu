@@ -276,7 +276,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "type"
     t.string "slug"
     t.string "scope"
-    t.text "content"
+    t.text "content", size: :medium
     t.integer "weight", default: 1000
     t.boolean "published"
     t.integer "exhibit_id"
@@ -371,7 +371,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "document_type"
     t.integer "resource_id"
     t.string "resource_type"
-    t.binary "index_status"
+    t.binary "index_status", size: :medium
     t.index ["document_type", "document_id"], name: "spotlight_solr_document_sidecars_solr_document"
     t.index ["exhibit_id", "document_type", "document_id"], name: "by_exhibit_and_doc", unique: true
     t.index ["exhibit_id", "document_type", "document_id"], name: "spotlight_solr_document_sidecars_exhibit_document"
@@ -451,7 +451,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.integer "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object"
+    t.text "object", size: :long
     t.datetime "created_at", precision: nil
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end

@@ -10,7 +10,7 @@ describe Spotlight::Exhibit, type: :model do
           expect(exhibit.weight).to eq(50)
 
           # Publish exhibit
-          new_published_at = Time.zone.now
+          new_published_at = Time.zone.now.round
           Timecop.freeze(new_published_at) do
             exhibit.published = true
             exhibit.save!
@@ -25,7 +25,7 @@ describe Spotlight::Exhibit, type: :model do
 
         it 'resets published_at only, not weight' do
           # Publish exhibit
-          new_published_at = Time.zone.now
+          new_published_at = Time.zone.now.round
           Timecop.freeze(new_published_at) do
             exhibit.published = true
             exhibit.save!
