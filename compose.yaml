@@ -24,8 +24,9 @@ services:
       - solr
 
   mysql:
-    image: mariadb:10.6
-    restart: always
+    extends:
+      file: compose.base.yaml
+      service: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${DATABASE_RAILS_ROOT_PW}
       - MYSQL_USER=${DATABASE_RAILS_USER}
