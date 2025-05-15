@@ -71,7 +71,6 @@ header {
 
 // Rules are kinda specific to exhibits that don't have a masthead image, see Circus Fashion
 .masthead {
-	border-top: 1px solid #e7e7e7;
 	background: black;
 	.site-title {
 		white-space: normal;
@@ -81,8 +80,8 @@ header {
 		color: white;
 	}
 }
-.image-masthead,
-.mastheed {
+
+.image-masthead {
 	.h2 {
 		font-size: 2.4rem;
 	}
@@ -95,12 +94,10 @@ header {
 		}
 	}
 	.background-container {
-		height: 180px;
+		border: none;
+		height: calc(100% - 3.5rem);
 	}
-}
-
-// background treatment only for mastheads with images
-.image-masthead {
+	// background treatment only for mastheads with images
 	.site-title-wrapper {
 		display: inline-block;
 		background: rgba(0,0,0,.7);
@@ -108,13 +105,13 @@ header {
 		padding: .5rem 1rem;
 	}
 }
+
 .site-title-container {
 	max-height: none;
 	padding: 1rem 1.2rem !important;
 }
 
 .site-nav {
-	border-top: 1px solid #e7e7e7;
 	background: $pale-gray;
 }
 

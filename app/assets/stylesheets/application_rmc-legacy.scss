@@ -20,7 +20,7 @@
   .background-container {
     // Center masthead image
     background-position: center;
-    border: none;
+    height: 180px;
 
     @media (max-width: breakpoint-max('md')) {
       // For smaller screen sizes, zoom in on solid background color on left side of modified RMC masthead image

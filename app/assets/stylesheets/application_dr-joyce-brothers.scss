@@ -31,7 +31,6 @@ body, header {
   .background-container {
     background-position: center;
     height: 180px;
-    border: none;
 
     @media (max-width: breakpoint-max('md')) {
       background-image: none !important;
