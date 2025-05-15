@@ -15,6 +15,10 @@ services:
     command:
       - redis-server
 
+  mysql:
+    image: mariadb:10.6
+    restart: always
+
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Docker compose reference guide at
 # https://docs.docker.com/compose/compose-file/

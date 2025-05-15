@@ -16,13 +16,23 @@
     }
 </style>
 <div class="container">
-    <p>An online exhibit has just been published, please update the analytics dashboard.</p>
+    <% if @exhibit.published? %>
+      <p>An online exhibit has just been published, please update the analytics dashboard.</p>
+    <% else %>
+      <p>An online exhibit has just been unpublished.</p>
+    <% end %>
     <hr>
     <div>
     <p><strong>Title:</strong> <%= @exhibit.title %></p>
     <p><strong>Subtitle:</strong> <%= @exhibit.subtitle %></p>
     <p><strong>Description:</strong> <%= @exhibit.description %></p>
-    <p><strong>Published at:</strong> <%= @exhibit.published_at %></p>
+    <p><strong>Published:</strong> <%= @exhibit.published_at %></p>
+    <% if !@exhibit.published? %>
+        <p><strong>Unpublished:</strong> <%= @exhibit.updated_at %></p>
+        <p><strong>Length of time exhibit was published:</strong> 
+          <%= distance_of_time_in_words(@exhibit.published_at, @exhibit.updated_at) %>
+        </p>
+    <% end %>
     <p><strong>View the exhibit:</strong> <%= link_to @exhibit.title, spotlight.exhibit_url(@exhibit.slug) %></p>
     </div>
 </div>
