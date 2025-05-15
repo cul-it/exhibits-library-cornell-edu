@@ -55,6 +55,7 @@ a, .page-link {
   .background-container {
     position: absolute;
     left: 50%; 
+    top: 0;
     background: url('spotlight/themes/blackprint/Books2.png') no-repeat !important;
     background-position: 50% 0% !important; 
     filter: opacity(0.8);
@@ -67,6 +68,7 @@ a, .page-link {
   .background-container-gradient {
     position: absolute;
     right: 50%; 
+    top: 0;
     background: url('spotlight/themes/blackprint/Books1.png') no-repeat !important;
     background-position: 50% 0% !important; 
     filter: opacity(0.8);
@@ -173,11 +175,17 @@ a, .page-link {
 // Author section of the exhibit, show the leaders in the masthead background
 .blacklight-browse .masthead {
   .background-container {
+    position: absolute;
+    left: 50%;
+    top: 0;
     background: url('spotlight/themes/blackprint/Leaders2.png') no-repeat !important;
     background-position: 60% 0% !important; 
     opacity: 0.7 !important;
   }
   .background-container-gradient {
+    position: absolute;
+    right: 50%;
+    top: 0;
     background: url('spotlight/themes/blackprint/Leaders1.png') no-repeat !important;
     background-position: 40% 0% !important; 
     opacity: 0.7 !important;
