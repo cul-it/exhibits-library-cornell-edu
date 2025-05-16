@@ -80,7 +80,7 @@ describe 'Adding exhibit items', type: :system do
       fill_in 'Description', with: 'A new item description'
       click_button 'Save changes'
 
-      sleep 1
+      sleep 2
       expect(page).to have_text('Description: A new item description', normalize_ws: true)
       expect(page).to have_text('My item title')
       expect(page).to have_text('1 of 2', normalize_ws: true)
