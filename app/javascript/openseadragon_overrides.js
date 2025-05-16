@@ -5,6 +5,15 @@
   const originalOpenseadragon = HTMLCollection.prototype.openseadragon;
 
   const overriddenOpenseadragon = function() {
+    // Remove the openseadragon-container element if it exists
+    this.forEach(function(picture) {
+      const existingContainer = picture.querySelector('div.openseadragon-container');
+      if (existingContainer) {
+        console.log('removing openseadragon-container');
+        existingContainer.remove();
+      }
+    });
+
     // Call original function
     originalOpenseadragon.call(this);
 
@@ -26,5 +35,18 @@
   HTMLElement.prototype.openseadragon = function() {
     return overriddenOpenseadragon.call([this]);
   };
+  console.log('HELLO HELLO!!');
+
+  function initOpenSeadragonAgain() {
+    document.querySelectorAll('picture[data-openseadragon]:has(.openseadragon-container)').openseadragon();
+  }
+
+  if (typeof Turbo !== 'undefined') {
+    addEventListener("turbo:load", () => initOpenSeadragonAgain())
+    addEventListener("turbo:frame-load", () => initOpenSeadragonAgain())
+  } else {
+    addEventListener('load', () => initOpenSeadragonAgain())
+  }
+
 
 })();
