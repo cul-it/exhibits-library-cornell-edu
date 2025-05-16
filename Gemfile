@@ -63,7 +63,6 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
   gem 'capybara-screenshot'
-  gem 'coveralls', require: false
   gem 'factory_bot'
   gem 'factory_bot_rails', require: false
   gem 'faker'
@@ -73,6 +72,8 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
   gem 'timecop'
   gem 'webmock'
 end
