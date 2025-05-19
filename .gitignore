@@ -29,7 +29,7 @@
 
 /node_modules
 
-# Local coveralls reports
+# Local simplecov reports
 /coverage
 
 # Elastic Beanstalk Files
