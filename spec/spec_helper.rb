@@ -1,5 +1,8 @@
-require 'coveralls'
-Coveralls.wear!('rails')
+require 'simplecov'
+require 'simplecov-rcov'
+
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+SimpleCov.start 'rails'
 
 require 'factory_bot'
 FactoryBot.definition_file_paths = [File.expand_path("../factories", __FILE__)]

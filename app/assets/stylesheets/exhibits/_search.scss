@@ -53,3 +53,10 @@
       }
     }
   }
+
+// Overrides blacklight-gallery
+.slideshow-modal .modal-dialog .modal-header .close {
+  font-size: inherit;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

@@ -8,12 +8,16 @@ services:
       - blacklight-core
       - /opt/solr/server/configsets/exhibitsconf
     volumes:
-      - ./solr/config:/opt/solr/server/configsets/exhibitsconf
+      - ./solr/conf:/opt/solr/server/configsets/exhibitsconf
 
   redis:
     image: redis:7.2-bookworm
     command:
       - redis-server
+
+  mysql:
+    image: mariadb:10.6
+    restart: always
 
 # Comments are provided throughout this file to help you get started.
 # If you need more help, visit the Docker compose reference guide at

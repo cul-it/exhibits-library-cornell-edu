@@ -56,7 +56,7 @@ class PageBlockUpdater
             SirTrevorRails::Blocks::SolrDocumentsEmbedBlock,
             SirTrevorRails::Blocks::SolrDocumentsFeaturesBlock,
             SirTrevorRails::Blocks::SolrDocumentsGridBlock,
-            SirTrevorRails::Blocks::SolrDocumentsCarouselBlock].include?(block.class)
+            SirTrevorRails::Blocks::SolrDocumentsCarouselBlock].include?(block.class) && block.item.present?
           page_with_solr_document_blocks = true
           block.item.each do |item_num, item_data|
             if item_num.include?('item_') && block.item[item_num]['iiif_canvas_id'].present?

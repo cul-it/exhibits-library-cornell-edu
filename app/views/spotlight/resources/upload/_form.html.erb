@@ -14,8 +14,8 @@
   <div class="form-actions">
     <div class="primary-actions">
       <%= hidden_field_tag :tab, 'upload', id: nil %>
-      <%= cancel_link @resource, :back, class: 'btn-sizing' %>
-      <%= f.submit t('.add_item_and_continue'), name: 'add-and-continue', class: 'btn btn-secondary' %>
+      <%= cancel_link @resource, :back, class: 'btn btn-link', role: 'button' %>
+      <%= f.submit t('.add_item_and_continue'), name: 'add-and-continue', class: 'btn btn-outline-primary' %>
       <%= f.submit t('.add_item'), class: 'btn btn-primary' %>
     </div>
   </div>

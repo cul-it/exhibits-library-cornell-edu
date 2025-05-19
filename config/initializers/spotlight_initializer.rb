@@ -22,6 +22,9 @@ Spotlight::Engine.config.resource_partials = [
 # Spotlight::Engine.config.default_browse_index_view_type = :gallery
 # Spotlight::Engine.config.default_contact_email = nil
 
+# ==> IIIF configuration
+# Spotlight::Engine.config.iiif_service = Spotlight::RIIIFService
+
 # ==> Solr configuration
 # Spotlight::Engine.config.writable_index = true
 # Spotlight::Engine.config.solr_batch_size = 20
@@ -69,21 +72,21 @@ Spotlight::Engine.config.upload_fields = [
 ]
 # ==> Uploaded item configuration
 # Spotlight::Engine.config.upload_fields = [
-#   UploadFieldConfig.new(
-#     field_name: config.upload_description_field,
-#     label: -> { I18n.t(:"spotlight.search.fields.#{config.upload_description_field}") },
+#   Spotlight::UploadFieldConfig.new(
+#     field_name: Spotlight::Engine.config.upload_description_field,
+#     label: -> { I18n.t(:"spotlight.search.fields.#{Spotlight::Engine.config.upload_description_field}") },
 #     form_field_type: :text_area
 #   ),
-#   UploadFieldConfig.new(
+#   Spotlight::UploadFieldConfig.new(
 #     field_name: :spotlight_upload_attribution_tesim,
 #     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_attribution_tesim') }
 #   ),
-#   UploadFieldConfig.new(
+#   Spotlight::UploadFieldConfig.new(
 #     field_name: :spotlight_upload_date_tesim,
 #     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
 #   )
 # ]
-# Spotlight::Engine.config.upload_title_field = nil # UploadFieldConfig.new(...)
+# Spotlight::Engine.config.upload_title_field = nil # Spotlight::UploadFieldConfig.new(...)
 Spotlight::Engine.config.uploader_storage = :aws if ENV['S3_KEY_ID'].present?
 Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 
@@ -92,20 +95,41 @@ Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png tiff tif)
 
 # ==> Google Analytics integration
 # After creating a property for your site on Google Analytics, you need to:
-# a) register an OAuth service account with access to your analytics property:
-#     (https://github.com/tpitale/legato/wiki/OAuth2-and-Google#registering-for-api-access)
-# b) download the pkcs12 key and make it accessible to your application
-# c) set ga_web_property_id below to your site's property id
-# Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
-# Spotlight::Engine.config.ga_pkcs12_key_path = nil
-Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
-# Spotlight::Engine.config.ga_email = nil
-# Spotlight::Engine.config.ga_analytics_options = {}
-# Spotlight::Engine.config.ga_page_analytics_options = config.ga_analytics_options.merge(limit: 5)
-Spotlight::Engine.config.ga_debug_mode = false
+# a) Enable Google Analytics API in https://console.cloud.google.com/
+# b) generate and download the JSON key and make it accessible to your application
+# (https://console.cloud.google.com/iam-admin/iam -> Service accounts -> click on service account -> keys)
+# c) set ga_property_id below to your site's property id (located in admin -> Property -> Property details upper right hand corner)
+# d) Set the ga_web_property_id. (located in admin -> Data collection and modification -> Web stream details and begins with G-)
+# e) (optional) set ga_date_range. This allows you throttle the dates the user can filter by.
+# ga_date_range values should use a Date object i.e. (Date.new(YYYY, MM, DD)).
+# ga_property_id is used for fetching analytics data from google's api, ga_web_property_id is used for sending events to GA analtyics
+# ga_web_property_id will probably change in V5 to ga_measurement_id for clarity
+Rails.application.config.to_prepare do
+  Spotlight::Engine.config.analytics_provider = Spotlight::Analytics::Ga
+  Spotlight::Engine.config.ga_json_key_path = ENV['GA_JSON_KEY_PATH']
+  Spotlight::Engine.config.ga_web_property_id = ENV['GA_TRACKING_ID']
+  Spotlight::Engine.config.ga_property_id = ENV['GA_PROPERTY_ID']
+  Spotlight::Engine.config.ga_date_range = { 'start_date' => Date.new(2023, 04, 04), 'end_date' => nil }
+  Spotlight::Engine.config.ga_analytics_options = {}
+  Spotlight::Engine.config.ga_page_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 5)
+  Spotlight::Engine.config.ga_search_analytics_options = Spotlight::Engine.config.ga_analytics_options.merge(limit: 11)
+  Spotlight::Engine.config.ga_debug_mode = false
+end
 
 # Hide from indexing job list in exhibit dashboard
 Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight::AddUploadsFromCsv]
+
+# ==> Customizable settings for site tags
+# When set the free text tag list field becomes multiple selection checklist
+Spotlight::Engine.config.site_tags = [
+  'Arts and Design',
+  'Food and Agriculture',
+  'Gender and Sexuality',
+  'Humanities and Social Science',
+  'Industry and Labor',
+  'Science and Technology',
+  'Cornelliana'
+]
 
 # ==> Sir Trevor Widget Configuration
 # These are set by default by Spotlight's configuration,
@@ -121,8 +145,9 @@ Spotlight::Engine.config.hidden_job_classes = %w[Spotlight::ReindexJob Spotlight
 #   'my-local-config': ->(context) { context.my_custom_data_path(context.current_exhibit) }
 # }
 
-default_themes = %w[default example rmc-legacy]
-custom_themes = %w[dr-joyce-brothers blackprint]
+themes = YAML.load_file(Rails.root.join('config', 'spotlight_themes.yml'))
+default_themes = ['default'] + themes['defaults'].split
+custom_themes = themes['customs'].split
 Spotlight::Engine.config.exhibit_themes = default_themes + custom_themes
 
 Exhibits::Application.config.after_initialize do

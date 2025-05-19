@@ -15,7 +15,7 @@ Fixes WAVE checker errors:
     <% end %>
     <div class="card-img-overlay pb-0">
       <% unless exhibit.published? %>
-        <div class="badge badge-warning unpublished"><%= t('.unpublished') %></div>
+        <div class="badge bg-warning unpublished"><%= t('.unpublished') %></div>
       <% end %>
 
       <%= content_tag :h2, class: 'card-title h5 text-center', aria: { describedby: ("exhibit-description-#{exhibit.to_param}" if exhibit.subtitle || exhibit.description) } do %>

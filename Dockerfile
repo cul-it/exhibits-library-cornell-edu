@@ -14,7 +14,10 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     default-libmysqlclient-dev=1.1.0 \
     cron=3.0pl1-162 \
     nodejs=18.19.0+dfsg-6~deb12u2 \
+    npm=9.2.0~ds1-1 \
     imagemagick=8:6.9.11.60+dfsg-1.6+deb12u1
+
+RUN npm install --global yarn@1.22.22
 
 ################################################################################
 # Install additional libraries for development
@@ -49,7 +52,7 @@ ENV RAILS_ENV=development \
 RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER
 USER $USER
 
-# Install application gems
+# Install application gems and node modules
 WORKDIR $APP_PATH
 COPY --chown=${USER}:${GROUP} Gemfile Gemfile.lock ./
 RUN bundle install

@@ -4,7 +4,7 @@ body {
 	font-family: $font-family-sans-serif;
 }
 
-a { 
+a, a.nav-link {
 	color: $link-primary;
 	text-decoration: underline;
 }

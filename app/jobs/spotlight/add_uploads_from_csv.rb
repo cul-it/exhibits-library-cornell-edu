@@ -7,8 +7,7 @@ module Spotlight
     include Spotlight::JobTracking
     with_job_tracking(resource: ->(job) { job.arguments[1] })
 
-    attr_reader :count
-    attr_reader :errors
+    attr_reader :count, :errors
 
     ### BEGIN CUSTOMIZATION - catch exceptions from notification to prevent job from repeating if email fails
     # NOTE: Cannot use prepend to override after_perform
@@ -52,13 +51,11 @@ module Spotlight
 
       encoded_csv(csv_data).each do |row|
         url = row.delete('url')
-        ### BEGIN CUSTOMIZATION - to appease rubocop
         next if url.blank?
-        ### END CUSTOMIZATION
 
         resource = Spotlight::Resources::Upload.new(
           data: row,
-          exhibit: exhibit
+          exhibit:
         )
         ### BEGIN CUSTOMIZATION - Updated resource to has_many uploads association
         resource.uploads.build(remote_image_url: url) unless url == '~'

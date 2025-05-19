@@ -4,7 +4,7 @@ require 'rails_helper'
 describe Spotlight::Resources::Upload, type: :model do
   describe 'validations' do
     let(:exhibit) { create(:exhibit) }
-    let(:upload_resource) { Spotlight::Resources::Upload.new(exhibit: exhibit) }
+    let(:upload_resource) { Spotlight::Resources::Upload.new(exhibit:) }
     let(:file) { Rack::Test::UploadedFile.new(File.expand_path('../../fixtures/grey.png', __dir__)) }
 
     it 'is invalid when more than 30 upload files are associated' do
