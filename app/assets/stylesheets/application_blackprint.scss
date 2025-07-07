@@ -100,7 +100,9 @@ a, .page-link {
 
       // exhibit subtitle
       small {
-        font-family: 'Freight Text Pro bold', serif;
+        font-family: freight-text-pro, serif;
+        font-weight: 700;
+        font-style: normal;
         color: $blackprint-yellow;
         padding-top: 0 !important;
       }
@@ -111,7 +113,9 @@ a, .page-link {
 // feature page titles 
 #content {
   h1.page-title {
-    font-family: 'Freight Text Pro bold', serif;
+    font-family: freight-text-pro, serif;
+    font-weight: 700;
+    font-style: normal;
   }
   .page-title {
     background: url('spotlight/themes/blackprint/Swirl5.png') no-repeat;
@@ -136,7 +140,9 @@ a, .page-link {
   
   .subtitle {
     font-size: .65em;
-    font-family: 'Freight Text Pro bold', serif;
+    font-family: freight-text-pro, serif;
+    font-weight: 700;
+    font-style: normal;
 
     &::before {
       content: "(";
@@ -150,7 +156,9 @@ a, .page-link {
   }
 
   .title {
-    font-family: 'Freight Text Pro bold', serif;
+    font-family: freight-text-pro, serif;
+    font-weight: 700;
+    font-style: normal;
     background: url('spotlight/themes/blackprint/Swirl5.png') no-repeat;
     background-position: 0% 30%;
     padding-left: 3rem;
