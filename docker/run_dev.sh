@@ -13,6 +13,9 @@ echo "Database Migration Done!"
 # Install node modules
 bin/yarn
 
+# TODO: This is just here temporarily to test out nginx serving static assets in development
+bundle exec rake assets:precompile
+
 # Start the web server
 mkdir -p ./tmp/pids
 rm -f ./tmp/pids/*

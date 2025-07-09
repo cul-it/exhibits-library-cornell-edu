@@ -16,6 +16,8 @@ services:
     volumes:
       - .:/exhibits
       # - gems:/usr/local/bundle
+    networks:
+      - proxy_network
     ports:
       - 9292:9292
     depends_on:
@@ -32,6 +34,8 @@ services:
       - MYSQL_USER=${DATABASE_RAILS_USER}
       - MYSQL_PASSWORD=${DATABASE_RAILS_USER_PW}
       - MYSQL_DATABASE=${DATABASE_NAME_PREFIX}_development
+    networks:
+      - proxy_network
     ports:
       - 3306:3306
     volumes:
@@ -41,6 +45,8 @@ services:
     extends:
       file: compose.base.yaml
       service: solr
+    networks:
+      - proxy_network
     ports:
       - 8983:8983
     volumes:
@@ -51,10 +57,30 @@ services:
     extends:
       file: compose.base.yaml
       service: redis
+    networks:
+      - proxy_network
     ports:
       - 6379:6379
     volumes:
       - redis:/data
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/web/templates:/etc/nginx/templates
+      - .:/exhibits
+    networks:
+      - proxy_network
+    depends_on:
+      - webapp
+    restart: always
+
+networks:
+  proxy_network:
 
 volumes:
   db-data:
