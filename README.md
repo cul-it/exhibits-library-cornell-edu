@@ -125,6 +125,3 @@ This project uses RuboCop to ensure consistency in code style/formatting. To out
 ```
 $ bundle exec rubocop
 ```
-
-## Circle/CI
-Go to https://circleci.com and pick "log in" and the "Login with GitHub" option.  This will allow you to select this repository.  Once you are logged in, you should be able to see CircleCI builds and messages.   

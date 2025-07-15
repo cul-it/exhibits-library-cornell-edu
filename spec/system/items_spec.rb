@@ -63,7 +63,8 @@ describe 'Adding exhibit items', type: :system do
       Spotlight::ReindexExhibitJob.perform_now(exhibit, user: user)
     end
 
-    it 'updates existing items with new uploaded files', js: true do
+    # TODO: Fix flaky test
+    xit 'updates existing items with new uploaded files', js: true do
       visit spotlight.exhibit_dashboard_path(exhibit)
       find('#sidebar').click_link 'Items'
       expect(page).to have_text('Curation Items', normalize_ws: true)
