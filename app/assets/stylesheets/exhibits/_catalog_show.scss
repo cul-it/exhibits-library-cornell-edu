@@ -1,7 +1,13 @@
-// Add space between metadata and viewer
 .blacklight-catalog-show {
+
+	// Add space between metadata and viewer
 	.document-metadata {
 		margin-top: 2rem;
+	}
+
+	// LP-172 Hide the constraints container (Start Over and Back to Search) on the show page
+	.constraints-container {
+		display: none;
 	}
 }
 

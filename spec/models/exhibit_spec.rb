@@ -10,7 +10,7 @@ describe Spotlight::Exhibit, type: :model do
           expect(exhibit.weight).to eq(50)
 
           # Publish exhibit
-          new_published_at = Time.zone.now
+          new_published_at = Time.zone.now.round
           Timecop.freeze(new_published_at) do
             exhibit.published = true
             exhibit.save!
@@ -25,7 +25,7 @@ describe Spotlight::Exhibit, type: :model do
 
         it 'resets published_at only, not weight' do
           # Publish exhibit
-          new_published_at = Time.zone.now
+          new_published_at = Time.zone.now.round
           Timecop.freeze(new_published_at) do
             exhibit.published = true
             exhibit.save!
@@ -45,6 +45,67 @@ describe Spotlight::Exhibit, type: :model do
           exhibit.save!
           expect(exhibit.published_at).to eq(published_at)
           expect(exhibit.weight).to eq(10)
+        end
+      end
+    end
+
+    describe '#send_status_notification' do
+      before do
+        allow(ExhibitStatusMailer).to receive(:send_exhibit_status_email).and_return(double(deliver_later: true))
+      end
+
+      context 'when an unpublished exhibit is saved but is not published' do
+        let(:test_exhibit) { create(:exhibit, published: false, published_at: nil, description: 'hello world') }
+
+        it 'does not send a notification' do
+          test_exhibit.subtitle = 'description was updated but still unpublished'
+          test_exhibit.save!
+          expect(test_exhibit.subtitle).to eq('description was updated but still unpublished')
+          expect(ExhibitStatusMailer).not_to have_received(:send_exhibit_status_email)
+        end
+      end
+
+      context 'when an exhibit is published for the first time' do
+        let(:test_exhibit) { create(:exhibit, published: false, published_at: nil) }
+
+        it 'sends a notification' do
+          test_exhibit.published = true
+          test_exhibit.save!
+          expect(test_exhibit.published_at).not_to be_nil
+          expect(ExhibitStatusMailer).to have_received(:send_exhibit_status_email).with(test_exhibit)
+        end
+
+        it 'but does not send a notification after another save' do
+          test_exhibit.subtitle = 'Subtitle was updated'
+          test_exhibit.save!
+          expect(test_exhibit.subtitle).to eq('Subtitle was updated')
+          expect(ExhibitStatusMailer).not_to have_received(:send_exhibit_status_email)
+        end
+      end
+
+      context 'when an unpublished exhibit is published a second time' do
+        let(:test_exhibit) { create(:exhibit, published: false, published_at: 5.days.ago) }
+
+        it 'sends a notification' do
+          test_exhibit.published = true
+          test_exhibit.save!
+          expect(ExhibitStatusMailer).to have_received(:send_exhibit_status_email).with(test_exhibit)
+        end
+
+        it 'but does not send a notification after another save' do
+          test_exhibit.subtitle = 'Subtitle was updated'
+          test_exhibit.save!
+          expect(test_exhibit.subtitle).to eq('Subtitle was updated')
+          expect(ExhibitStatusMailer).not_to have_received(:send_exhibit_status_email)
+        end
+      end
+
+      context 'when an exhibit is unpublished' do
+        let(:test_exhibit) { create(:exhibit, published: true, published_at: 5.days.ago) }
+
+        it 'sends a notification when unpublished' do
+          test_exhibit.published = false
+          expect(ExhibitStatusMailer).to have_received(:send_exhibit_status_email).with(test_exhibit)
         end
       end
     end

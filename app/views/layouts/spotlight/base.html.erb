@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="turbo-prefetch" content="false">
     <%= render partial: 'shared/analytics' %>
     <title><%= h(@page_title || application_name.to_s) %></title>
     <link href="<%= current_exhibit ? spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') : main_app.opensearch_catalog_url(format: 'xml') %>" title="<%= h(@page_title || application_name.to_str) %>" type="application/opensearchdescription+xml" rel="search"/>
@@ -11,44 +12,55 @@
     <% if current_exhibit %>
       <%= exhibit_stylesheet_link_tag "application" %>
     <% else %>
-      <% ### BEGIN CUSTOMIZATION (jcolt) add 'data-turbolinks-track' reload (forces page reload) %>
-      <%= stylesheet_link_tag    "application",'data-turbolinks-track': 'reload' %>
-      <% ### END CUSTOMIZATION %>
+      <%# BEGIN CUSTOMIZATION - forces page reload so back button doesn't transfer themes %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%# END CUSTOMIZAITON %>
     <% end %>
-    <% ### BEGIN CUSTOMIZATION (jcolt) add 'data-turbolinks-track' reload (forces page reload) %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload'%>
-    <% ### END CUSTOMIZATION %>
+    <%= javascript_tag "window.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <%= javascript_tag 'L.Icon.Default.prototype.options.imagePath = "https://unpkg.com/leaflet@1.9.4/dist/images/"' %>
+    <%= javascript_include_tag 'leaflet-iiif', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'Leaflet.Editable', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'Path.Drag', "data-turbo-track": "reload", defer: true %>
+    <% if defined? Importmap %>
+      <%= javascript_importmap_tags %>
+    <% else %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, type: :module %>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
-    <%= description %>
-    <%= twitter_card %>
-    <%= opengraph %>
-    <%= javascript_tag '$.fx.off = true;' if Rails.env.test? %>
+    <% if @document %>
+      <% add_document_meta_content(@document) %>
+    <% elsif current_exhibit %>
+      <% description(current_exhibit.description) if current_exhibit %>
+      <% add_exhibit_meta_content %>
+    <% end %>
+    <%= yield(:meta) %>
+    <%= javascript_tag "window.addEventListener('load', () => $.fx.off = true)" if Rails.env.test? %>
   </head>
   <body class="<%= render_body_class %>">
     <%= render partial: 'shared/body_preamble' %>
-    <div id="skip-link" role="navigation" aria-label="Skip links">
-      <% if should_render_spotlight_search_bar? %>
-        <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
-      <% end %>
-      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+    <%= render blacklight_config.skip_link_component.new(render_search_link: should_render_spotlight_search_bar?) do %>
       <%= content_for(:skip_links) %>
-    </div>
-
-  <%= render partial: 'shared/header_navbar' %>
-  <%= render partial: 'shared/masthead' %>
-  <%= content_for?(:header_content) ? yield(:header_content) : "" %>
+    <% end %>
+    <%= render partial: 'shared/header_navbar' %>
+    <%= render partial: 'shared/masthead' %>
+    <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
     <main id="main-container" class="<%= container_classes %>" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>
 
       <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
-    <!-- content_row_id is used as css selectors in exhibit themes -->
+    <%# BEGIN CUSTOMIZATION - content_row_id is used as css selectors in exhibit themes %>
     <% content_row_id = @page.try(:slug) ? "#{@page.try(:slug)}-content" : nil %>
     <%= tag.div class: 'row', id: content_row_id do %>
       <%= content_for?(:content) ? yield(:content) : yield %>
     <% end %>
+    <%# END CUSTOMIZATION %>
     </main>
 
     <%= render partial: 'shared/footer' %>

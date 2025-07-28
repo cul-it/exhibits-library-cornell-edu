@@ -1,9 +1,18 @@
 en:
-  activerecord:
-    help:
-      spotlight/exhibit:
-        tag_list: Cmd+click or Ctrl+click to select multiple tags.
   spotlight:
+    accessibility:
+      alt_text:
+        total_items: Of the items displayed via widgets, <b>%{has_alt_text} of %{total_alt_items}</b> have entered alt text (or a checked decorative box). Items with no entered alt text or checked decorative box will default their alt text to item title.
+    admin_users:
+      index:
+        create: Add new exhibit creator
+        destroy: Remove from exhibit creator role
+        instructions: Existing exhibit creators
+        update: Make user an exhibit creator
+    appearances: 
+      edit:
+        site_masthead:
+          help: You can select and crop an image to use as a background in your exhibit site's masthead. To reduce blur, use an image (jpg, jpeg, png, tiff) at least 180 pixels tall and 1800 pixels wide. You can crop larger images using the cropping tool below.
     catalog:
       edit_default:
         url-field:
@@ -28,13 +37,10 @@ en:
           remote:
             help: File should be less than 10MB in size.
     header_links:
-      login: Admin Login
-    admin_users:
-      index:
-        create: Add new exhibit creator
-        destroy: Remove from exhibit creator role
-        instructions: Existing exhibit creators
-        update: Make user an exhibit creator
+      login: Admin Login    
+    indexing_complete_mailer:
+      documents_indexed:
+        title: "Your CSV file '%{csv_file_name}' has just finished being processed."
     resources:
       upload:
         error: Your item could not be added.
@@ -47,9 +53,6 @@ en:
       fields:
         spotlight_copyright_tesim: Copyright
         spotlight_physicallocation_tesim: Physical Location
-    indexing_complete_mailer:
-      documents_indexed:
-        title: "Your CSV file '%{csv_file_name}' has just finished being processed."
   shared:
     site_sidebar:
       documentation: Spotlight curator documentation

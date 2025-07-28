@@ -12,7 +12,9 @@ OkComputer.mount_at = false # when false, expects mount to happen in routes
 
 OkComputer::Registry.register "cache", OkComputer::CacheCheck.new
 OkComputer::Registry.register "sidekiq", OkComputer::SidekiqLatencyCheck.new('default', 50)
-OkComputer::Registry.register "solr", OkComputer::HttpCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, '') + "/admin/ping")
+Rails.application.config.to_prepare do
+  OkComputer::Registry.register "solr", OkComputer::HttpCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, '') + "/admin/ping")
+end
 
 # do not fail syschecks pageload if any of the following checks fail; results will be displayed
 OkComputer.make_optional %w[cache]

@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if gem list --no-installed --exact --silent foreman; then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+# Default to port 9292 if not specified
+export PORT="${PORT:-9292}"
+
+# exec foreman start -f Procfile.dev --env /dev/null "$@"
+# Run with rails server in foreground to simplify debugging: https://github.com/rails/rails/issues/52459
+exec foreman start -f Procfile.dev -m all=1,web=0 <&0 &
+bundle exec puma -C config/puma.rb "$@"

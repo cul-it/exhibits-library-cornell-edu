@@ -16,7 +16,7 @@ describe 'Editing spotlight pages', type: :system do
 
     first('.st-block-replacer').click
     click_button('Item Embed')
-    fill_in_solr_document_block_typeahead_field(with: item.compound_id)
+    fill_in_typeahead_field(with: item.compound_id)
     expect(page).to have_css('[data-panel-image-pagination]', text: /Image 1 of 2/, visible: true)
 
     # Open the multi-image selector and choose the last one

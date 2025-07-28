@@ -6,13 +6,18 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config| # rubocop:disable Metrics/BlockLength
     config.show.oembed_field = :oembed_url_ssm
-    config.show.partials.insert(1, :oembed)
 
     config.view.gallery(document_component: Blacklight::Gallery::DocumentComponent)
     config.view.masonry(document_component: Blacklight::Gallery::DocumentComponent)
     config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
-    config.show.partials.insert(1, :openseadragon)
+
+    # Displays OSD viewer above item metadata
+    config.show.embed_component = OpenseadragonEmbedComponent
+    # Displays OSD viewer below item metadata
+    # config.show.partials.insert(1, :openseadragon)
+    config.show.partials.insert(2, :related_pages)
+
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
@@ -20,11 +25,16 @@ class CatalogController < ApplicationController
       fl: '*'
     }
 
+    # Blacklight 8 sets a default value to 'advanced'
+    config.json_solr_path = nil
+    config.header_component = HeaderComponent
+    config.exhibit_navbar_component = Spotlight::ExhibitNavbarComponent
     config.document_solr_path = 'get'
     config.document_unique_id_param = 'ids'
 
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
+    config.index.thumbnail_component = ThumbnailComponent
 
     config.add_search_field 'all_fields', label: "All Fields"
 
