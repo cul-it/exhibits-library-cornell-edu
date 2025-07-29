@@ -13,7 +13,6 @@ id:
   portal_resources:
     form:
       add_item: "Tambahkan hasil pencarian portal"
-  dashboard: Dasbor Analitik
   errors:
     messages:
       extension_allowlist_error: "Anda tidak diizinkan mengunggah file %{extension}, jenis yang diizinkan: %{allowed_types}."
