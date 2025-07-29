@@ -20,7 +20,7 @@ Spotlight::Engine.config.resource_partials = [
 ]
 # Spotlight::Engine.config.external_resources_partials = ["portal_resources/form"]
 # Spotlight::Engine.config.default_browse_index_view_type = :gallery
-# Spotlight::Engine.config.default_contact_email = nil
+Spotlight::Engine.config.default_contact_email = 'library-exhibits@cornell.edu'
 
 # ==> IIIF configuration
 # Spotlight::Engine.config.iiif_service = Spotlight::RIIIFService
