@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_28_190914) do
   create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "user_type"
@@ -49,13 +49,13 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "name"
     t.string "file"
     t.string "uid"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
   end
 
   create_table "spotlight_blacklight_configurations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.text "facet_fields"
     t.text "index_fields"
     t.text "search_fields"
@@ -73,14 +73,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
 
   create_table "spotlight_bulk_updates", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "file", null: false
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["exhibit_id"], name: "index_spotlight_bulk_updates_on_exhibit_id"
   end
 
   create_table "spotlight_contact_emails", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.string "email", default: "", null: false
     t.string "confirmation_token"
     t.datetime "confirmed_at", precision: nil
@@ -101,7 +101,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "telephone"
     t.boolean "show_in_sidebar"
     t.integer "weight", default: 50
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.text "contact_info"
@@ -116,7 +116,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
   end
 
   create_table "spotlight_custom_fields", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.string "slug"
     t.string "field"
     t.text "configuration"
@@ -131,16 +131,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "slug"
     t.string "field"
     t.text "configuration"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["exhibit_id"], name: "index_spotlight_custom_search_fields_on_exhibit_id"
   end
 
   create_table "spotlight_events", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.string "resource_type", null: false
-    t.integer "resource_id", null: false
+    t.bigint "resource_id", null: false
     t.string "type"
     t.string "collation_key"
     t.text "data"
@@ -166,8 +166,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.integer "weight", default: 50
     t.integer "site_id"
     t.string "theme"
+    t.index ["masthead_id"], name: "index_spotlight_exhibits_on_masthead_id"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_exhibits_on_thumbnail_id"
   end
 
   create_table "spotlight_featured_images", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -194,7 +196,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
   create_table "spotlight_filters", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "field"
     t.string "value"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["exhibit_id"], name: "index_spotlight_filters_on_exhibit_id"
@@ -203,7 +205,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
   create_table "spotlight_groups", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "slug"
     t.text "title"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.integer "weight", default: 50
     t.boolean "published"
     t.datetime "created_at", precision: nil, null: false
@@ -212,24 +214,24 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
   end
 
   create_table "spotlight_groups_members", id: false, charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "group_id"
+    t.bigint "group_id"
     t.string "member_type"
-    t.integer "member_id"
+    t.bigint "member_id"
     t.index ["group_id"], name: "index_spotlight_groups_members_on_group_id"
     t.index ["member_type", "member_id"], name: "index_spotlight_groups_members_on_member_type_and_member_id"
   end
 
   create_table "spotlight_job_trackers", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "on_type", null: false
-    t.integer "on_id", null: false
+    t.bigint "on_id", null: false
     t.string "resource_type", null: false
-    t.integer "resource_id", null: false
+    t.bigint "resource_id", null: false
     t.string "job_id"
     t.string "job_class"
     t.string "parent_job_id"
     t.string "parent_job_class"
     t.string "status"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.text "log"
     t.text "data"
     t.datetime "created_at", precision: nil, null: false
@@ -244,7 +246,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "locale", null: false
     t.boolean "public"
     t.string "text"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["exhibit_id"], name: "index_spotlight_languages_on_exhibit_id"
@@ -252,9 +254,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
 
   create_table "spotlight_locks", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "on_type"
-    t.integer "on_id"
+    t.bigint "on_id"
     t.string "by_type"
-    t.integer "by_id"
+    t.bigint "by_id"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.index ["on_id", "on_type"], name: "index_spotlight_locks_on_on_id_and_on_type", unique: true
@@ -264,7 +266,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.string "label"
     t.integer "weight", default: 20
     t.string "nav_type"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.boolean "display", default: true
@@ -279,7 +281,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.text "content", size: :medium
     t.integer "weight", default: 1000
     t.boolean "published"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.integer "created_by_id"
     t.integer "last_edited_by_id"
     t.datetime "created_at", precision: nil
@@ -289,13 +291,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.boolean "display_title"
     t.integer "thumbnail_id"
     t.string "locale", default: "en"
-    t.integer "default_locale_page_id"
+    t.bigint "default_locale_page_id"
     t.string "content_type"
     t.index ["default_locale_page_id"], name: "index_spotlight_pages_on_default_locale_page_id"
     t.index ["exhibit_id"], name: "index_spotlight_pages_on_exhibit_id"
     t.index ["locale"], name: "index_spotlight_pages_on_locale"
     t.index ["parent_page_id"], name: "index_spotlight_pages_on_parent_page_id"
     t.index ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_pages_on_thumbnail_id"
   end
 
   create_table "spotlight_reindexing_log_entries", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -304,14 +307,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.datetime "start_time", precision: nil
     t.datetime "end_time", precision: nil
     t.integer "job_status"
-    t.integer "exhibit_id"
-    t.integer "user_id"
+    t.bigint "exhibit_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
   end
 
   create_table "spotlight_resources", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.string "type"
     t.string "url"
     t.text "data"
@@ -326,7 +329,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
   end
 
   create_table "spotlight_roles", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "role"
     t.integer "resource_id"
     t.string "resource_type"
@@ -342,7 +345,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.text "query_params"
     t.integer "weight"
     t.boolean "published"
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.string "featured_item_id"
@@ -352,17 +355,19 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.boolean "search_box", default: false
     t.string "subtitle"
     t.index ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
+    t.index ["masthead_id"], name: "index_spotlight_searches_on_masthead_id"
     t.index ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_searches_on_thumbnail_id"
   end
 
   create_table "spotlight_sites", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
-    t.integer "masthead_id"
+    t.bigint "masthead_id"
   end
 
   create_table "spotlight_solr_document_sidecars", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.boolean "public", default: true
     t.text "data"
     t.datetime "created_at", precision: nil
@@ -380,11 +385,11 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
   end
 
   create_table "taggings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "tag_id"
+    t.bigint "tag_id"
     t.integer "taggable_id"
     t.string "taggable_type"
     t.string "tagger_type"
-    t.integer "tagger_id"
+    t.bigint "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at", precision: nil
     t.index ["context"], name: "index_taggings_on_context"
@@ -410,7 +415,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.text "value"
     t.text "interpolations"
     t.boolean "is_proc", default: false
-    t.integer "exhibit_id"
+    t.bigint "exhibit_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["exhibit_id", "key", "locale"], name: "index_translations_on_exhibit_id_and_key_and_locale", unique: true
@@ -437,7 +442,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.datetime "invitation_accepted_at", precision: nil
     t.integer "invitation_limit"
     t.string "invited_by_type"
-    t.integer "invited_by_id"
+    t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
