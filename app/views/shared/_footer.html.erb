@@ -1,5 +1,6 @@
 <% ### BEGIN CUSTOMIZATION (mhk) - UI theme %>
 <% require 'version' %>
+<% if current_exhibit && @page.is_a?(Spotlight::HomePage) %>
 <div class="container copyright">
   <hr/>
   <p>The materials included within this site are intended for educational uses only. Unless stated otherwise, 
@@ -12,6 +13,7 @@
     </p>
   <% end %>
 </div>
+<% end %>
 <footer>
   <div class="container">
     <div class="row">
