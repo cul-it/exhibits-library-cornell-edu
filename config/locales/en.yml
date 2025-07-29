@@ -41,7 +41,6 @@ en:
   portal_resources:
     form:
       add_item: "Add results of portal search"
-  dashboard: Dashboard
   errors:
     messages:
       extension_allowlist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}."
