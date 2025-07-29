@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_28_190656) do
   create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "user_type"
@@ -166,8 +166,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.integer "weight", default: 50
     t.integer "site_id"
     t.string "theme"
+    t.index ["masthead_id"], name: "index_spotlight_exhibits_on_masthead_id"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_exhibits_on_thumbnail_id"
   end
 
   create_table "spotlight_featured_images", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -296,6 +298,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.index ["locale"], name: "index_spotlight_pages_on_locale"
     t.index ["parent_page_id"], name: "index_spotlight_pages_on_parent_page_id"
     t.index ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_pages_on_thumbnail_id"
   end
 
   create_table "spotlight_reindexing_log_entries", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -352,7 +355,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_09_20_151533) do
     t.boolean "search_box", default: false
     t.string "subtitle"
     t.index ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
+    t.index ["masthead_id"], name: "index_spotlight_searches_on_masthead_id"
     t.index ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_searches_on_thumbnail_id"
   end
 
   create_table "spotlight_sites", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
