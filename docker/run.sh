@@ -12,7 +12,7 @@ export RAILS_LOG_TO_STDOUT="1"
 
 if [ "${RAILS_ENV}" != "development" ] && [ "${RAILS_ENV}" != "test" ]
 then
-  bundle exec whenever --update-crontab
+  bundle exec whenever --update-crontab --set "environment=${RAILS_ENV}"
   cron
 fi
 
