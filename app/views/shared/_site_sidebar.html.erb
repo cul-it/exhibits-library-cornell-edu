@@ -20,13 +20,6 @@
     <li class="nav-item"><%= link_to t(:'okcomputer.system_check'), File.join(ok_computer_path, 'all'), class: 'nav-link' %></li>
     <% ### END CUSTOMIZATION %>
   <% end %>
-
-  <% ### CUSTOM COMMENT elr - actions for exhibit creators %>
-  <% ### BEGIN CUSTOMIZATION elr - add link to dashboard %>
-  <% if can? :create, Spotlight::Exhibit %>
-    <li><%= link_to t(:'dashboard'), '/dashboard' %></li>
-  <% end %>
-  <% ### END CUSTOMIZATION %>
 </ul>
 
 <% ### CUSTOM COMMENT elr - create exhibit button for exhibit creators %>
