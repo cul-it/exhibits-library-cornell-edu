@@ -1,0 +1,2 @@
+<%# CUSTOMIZATION - adds style as an allowed attribute in the iframe block %>
+<%= sanitize iframe_block.code, tags: %w(iframe), attributes: %w(id aria-label title width height marginwidth marginheight src frameborder allowfullscreen sandbox seamless srcdoc scrolling style) %>
