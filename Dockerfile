@@ -120,6 +120,9 @@ RUN chown ${USER}:${GROUP} ${APP_PATH}
 USER ${USER}
 WORKDIR ${APP_PATH}
 
+# Copy imagemagick security policy
+COPY ./docker/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xml
+
 # Run the web server
 EXPOSE 9292
 ENTRYPOINT [ "docker/run.sh" ]
