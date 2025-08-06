@@ -1,5 +1,13 @@
-<% ### BEGIN CUSTOMIZATION elr - show upto 4 exhibits across based on the width of the screen %>
+<%# BEGIN CUSTOMIZATION elr - show upto 4 exhibits across based on the width of the screen %>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-<% ### END CUSTOMIZATION %>
+<%# END CUSTOMIZATION %>
   <%= render collection: exhibits, partial: 'exhibit_card', as: 'exhibit' %>
 </div>
+
+<%# LibWizard form - user survey (added 8/2025) %>
+<div id="form_button_8b9b567539972b5c14544a42a31bb827"></div>
+<script
+  type="text/javascript"
+  src="https://cornell.libwizard.com/embed_button.php?id=8b9b567539972b5c14544a42a31bb827&noheader=1&type=floatButton&open-button-text=Help%20us%20redesign!&open-button-color=%23b31b1b&text-color=%23ffffff&axis-position=25%25&button-location=right"
+  crossorigin="anonymous">
+</script>
