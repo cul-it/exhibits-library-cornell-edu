@@ -12,6 +12,29 @@
 	}
 }
 
+// Override btn-secondary - use blacklight-cornell styling and add white background
+.btn-secondary, .btn-outline-secondary.active {
+	background-color: $concrete;
+}
+.btn-secondary:hover {
+	background-color: $concrete-hover;
+}
+.btn-outline-secondary {
+	background-color: white;
+	border-color: $concrete;
+	color: $almost-black;
+}
+.btn-outline-secondary:hover {
+	background-color: $concrete-hover;
+	border-color: $concrete-hover;
+	color: white;
+}
+
+// Override btn-outline-primary - add white background
+.btn-outline-primary {
+	background-color: white;
+}
+
 // #433 - color contrast is insufficient 
 .breadcrumb-item.active {
 	color: inherit;
@@ -19,8 +42,8 @@
 
 // #433 - color contrast is insufficient
 .page-item.active .page-link {
-	border-color: $almost-black;
-	background-color: $almost-black;
+	border-color: $concrete;
+	background-color: $concrete;
 }
 
 // #500 - update blockquote style
@@ -29,5 +52,3 @@
 	padding: 1rem 0 .5rem 1rem;
 	border-left: 5px solid #eee;
 }
-
-
