@@ -12,7 +12,7 @@
 	}
 }
 
-// Override btn-secondary - use blacklight-cornell styling and add white background
+// Override btn-secondary / btn-outline-secondary - use blacklight-cornell styling and add white background for outlined button
 .btn-secondary, .btn-outline-secondary.active {
 	background-color: $concrete;
 }
