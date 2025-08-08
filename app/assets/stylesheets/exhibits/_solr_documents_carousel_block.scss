@@ -1,5 +1,5 @@
 // Move carousel caption position and adjust gradient/colors
-.carousel-block {
+.carousel-block .slide {
     .carousel-caption {
         position: relative;
         color: black;
@@ -14,21 +14,21 @@
         background-color: black;
         list-style: none;
     }
-  }
+}
   
   /* Static Carousel Items */
-  .list-group-item {
-    color: #000;
+.list-group-item {
+  color: #000;
     a {
       color: #006699;
     }
-    &.active {
-      color: #fff;
-      a {
-        color: inherit;
-        }
-    }
+  &.active {
+    color: #fff;
+    a {
+      color: inherit;
+      }
   }
+}
 
 // Add clearer focus indicator to carousel previous and next buttons; uses default bootstrap color variable
 a.carousel-control-prev:focus > span, 
