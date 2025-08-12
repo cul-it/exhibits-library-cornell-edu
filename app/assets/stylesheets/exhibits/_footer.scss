@@ -10,8 +10,11 @@ footer {
 }
 
 .copyright {
+  margin-bottom: 3rem;
+  hr {
+    margin: 0 0 3rem 0;
+  }
   p {
     font-size: 1rem;
-    padding: 5px;
   }
 }

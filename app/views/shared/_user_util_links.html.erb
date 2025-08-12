@@ -1,12 +1,16 @@
-<ul class="navbar-nav me-auto">
-  <% ### BEGIN CUSTOMIZATION elr - only show header links to logged in users %>
-  <% if current_user %>
-    <%= render_nav_actions do |config, action|%>
-      <li class="nav-item"><%= action %></li>
-    <% end %>
+<% nav_actions = capture do %>
+  <%= render_nav_actions do |config, action|%>
+    <li class="nav-item"><%= action %></li>
   <% end %>
-  <% ### END CUSTOMIZATION %>
-</ul>
+<% end %>
+
+<% ### BEGIN CUSTOMIZATION - only show header links to logged in users %>
+<% if nav_actions.present? && current_user %>
+  <ul class="navbar-nav me-auto'">
+    <%= nav_actions %>
+  </ul>
+<% end %>
+<% ### END CUSTOMIZATION %>
 
 <ul class="navbar-nav">
   <%= render '/spotlight/shared/locale_picker' %>
@@ -38,13 +42,13 @@
         </li>
       </ul>
     </li>
-  <% ### BEGIN CUSTOMIZATION elr - remove login link from header (see footer for new location) %>
-  <% # else % >
-     # <li class="nav-item">
-     #   < %= link_to t('spotlight.header_links.login'), main_app.new_user_session_path, class: 'nav-link' % >
-     # </li>
-  %>
-  <% ### END CUSTOMIZATION %>
+    <% ### BEGIN CUSTOMIZATION elr - remove login link from header (see footer for new location) %>
+    <% # else % >
+       # <li class="nav-item">
+       #   < %= link_to t('spotlight.header_links.login'), main_app.new_user_session_path, class: 'nav-link' % >
+       # </li>
+    %>
+    <% ### END CUSTOMIZATION %>
   <% end %>
   <% if current_exhibit && show_contact_form? %>
     <li class="nav-item">

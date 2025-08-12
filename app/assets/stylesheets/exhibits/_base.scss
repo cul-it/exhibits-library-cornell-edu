@@ -13,8 +13,20 @@ p, li {
 	font-size: 1.1rem;
 }
 
+hr {
+	margin: 1.2rem 0;
+}
+
 #main-container {
 	padding-bottom: 3em;
+}
+
+// LibWizard form - Help us redesign! button
+.lwz-btn {
+  font-size: 1.2rem !important;
+  width: 180px !important;
+  right: -181px !important; 
+  top: 10% !important;
 }
 
 // MEDIA QUERIES
