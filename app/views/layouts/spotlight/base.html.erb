@@ -41,7 +41,7 @@
     <%= yield(:meta) %>
     <%= javascript_tag "window.addEventListener('load', () => $.fx.off = true)" if Rails.env.test? %>
   </head>
-  <body class="<%= render_body_class %>" data-turbo="false">
+  <body class="<%= render_body_class %>">
     <%= render partial: 'shared/body_preamble' %>
     <%= render blacklight_config.skip_link_component.new(render_search_link: should_render_spotlight_search_bar?) do %>
       <%= content_for(:skip_links) %>
@@ -64,12 +64,9 @@
     </main>
 
     <%# LibWizard form - user survey (added 8/2025) %>
-    <div id="form_button_8b9b567539972b5c14544a42a31bb827"></div>
-    <script
-      type="text/javascript"
-      src="https://cornell.libwizard.com/embed_button.php?id=8b9b567539972b5c14544a42a31bb827&noheader=1&type=floatButton&open-button-text=Help%20us%20redesign!&open-button-color=%23b31b1b&text-color=%23ffffff&axis-position=25%25&button-location=right"
-      crossorigin="anonymous">
-    </script>
+    <a href="https://cornell.libwizard.com/f/cul-online-exhibits-feedback"
+      target="_blank" rel="noopener" class="lwz-btn">Help us redesign!
+    </a>
 
     <%= render partial: 'shared/footer' %>
     <%= render partial: 'shared/modal' %>
