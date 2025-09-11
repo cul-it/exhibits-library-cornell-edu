@@ -32,7 +32,7 @@ every :day, at: '1:00am' do
 end
 
 # Clean up anonymous search records > 7 days
-every 5.minutes do
+every :wednesday, at: '2:00am' do
   rake 'blacklight:delete_old_searches[7]'
 end
 
@@ -45,5 +45,3 @@ end
 every :wednesday, at: '4:00am' do
   rake 'devise_guests:delete_old_guest_users[2]'
 end
-
-
