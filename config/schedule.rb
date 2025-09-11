@@ -19,6 +19,13 @@
 
 # Learn more: http://github.com/javan/whenever
 
+
+# Ensure crunner has access to envs
+# Support for running rake via whenever on docker
+# https://stackoverflow.com/a/43832334
+# https://github.com/javan/whenever/issues/850
+ENV.each { |k, v| env(k, v) }
+
 # Clean up tmp/network_files > 50GB
 every :day, at: '1:00am' do
   rake 'spotlight:riiif:clear_cache'
