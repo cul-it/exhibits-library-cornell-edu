@@ -32,7 +32,7 @@ every :day, at: '1:00am' do
 end
 
 # Clean up anonymous search records > 7 days
-every :wednesday, at: '2:00am' do
+every 5.minutes do
   rake 'blacklight:delete_old_searches[7]'
 end
 
