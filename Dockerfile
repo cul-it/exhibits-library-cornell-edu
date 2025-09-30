@@ -13,9 +13,9 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     build-essential \
     default-libmysqlclient-dev=1.1.0 \
     cron=3.0pl1-162 \
-    nodejs=18.19.0+dfsg-6~deb12u2 \
+    nodejs=18.20.4+dfsg-1~deb12u1 \
     npm=9.2.0~ds1-1 \
-    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u1
+    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u4
 
 RUN npm install --global yarn@1.22.22
 
@@ -25,7 +25,7 @@ FROM ruby_base as dev_base
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     mariadb-server \
-    libsqlite3-dev=3.40.1-2+deb12u1
+    libsqlite3-dev=3.40.1-2+deb12u2
 
 ################################################################################
 # Build test environment
