@@ -12,11 +12,13 @@ class CatalogController < ApplicationController
     config.view.slideshow(document_component: Blacklight::Gallery::SlideshowComponent)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
-    # Displays OSD viewer above item metadata
+    # Displays customized OSD viewer above item metadata
     config.show.embed_component = OpenseadragonEmbedComponent
-    # Displays OSD viewer below item metadata
-    # config.show.partials.insert(1, :openseadragon)
     config.show.partials.insert(2, :related_pages)
+
+    # Displays customized OSD viewer in the item embed block
+    config.view.embed.partials = ['openseadragon']
+    config.view.embed.embed_component = OpenseadragonEmbedComponent
 
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {

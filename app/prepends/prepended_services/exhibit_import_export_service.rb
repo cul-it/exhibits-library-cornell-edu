@@ -144,12 +144,13 @@ module PrependedServices::ExhibitImportExportService
 
     hash[:custom_fields].each do |attr|
       ar = exhibit.custom_fields.find_or_initialize_by(slug: attr[:slug])
-      attr[:configuration] = attr[:configuration].clone.transform_keys(&:to_s)
+      attr[:configuration] = attr[:configuration].clone.deep_transform_keys(&:to_s) if attr[:configuration]
       ar.update(attr)
     end
 
     hash[:solr_document_sidecars].each do |attr|
       ar = exhibit.solr_document_sidecars.find_or_initialize_by(document_id: attr[:document_id])
+      attr[:data] = attr[:data].clone.deep_transform_keys(&:to_s) if attr[:data]
       ar.update(attr)
     end
 
@@ -160,6 +161,7 @@ module PrependedServices::ExhibitImportExportService
       # Include data attr for Spotlight::Resources::Uploads that don't have an identifying url
       # Spotlight::Resources::Uploads with the same data attr are considered duplicates (ignores uploaded imgs)
       ar = exhibit.resources.find_or_initialize_by(type: attr[:type], data: attr[:data], url: attr[:url])
+      attr[:data] = attr[:data].clone.deep_transform_keys(&:to_s) if attr[:data]
       ar.update(attr)
 
       uploads.each { |upload| deserialize_upload(ar, upload) } if uploads.present?

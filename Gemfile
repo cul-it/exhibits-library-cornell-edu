@@ -48,7 +48,7 @@ gem 'whenever', require: false
 gem "blacklight", ">= 8.7.0", "< 9"
 gem 'blacklight-gallery', '~> 4.8.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 5.1.0'
+gem 'blacklight-spotlight', '~> 5.2.0'
 gem 'openseadragon', '~> 1.0.0'
 
 group :development do
