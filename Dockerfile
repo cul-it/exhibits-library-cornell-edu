@@ -49,7 +49,11 @@ ENV RAILS_ENV=development \
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
-RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER
+# Can we run this clean up cron as crunner instead of root?
+COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
+RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER && \
+    chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \
+    crontab -u root /etc/cron.d/exhibits_cron
 USER $USER
 
 # Install application gems and node modules
@@ -100,9 +104,10 @@ ENV RAILS_ENV=${RAILS_ENV} \
     GROUP=crunnergrp \
     AWS_DEFAULT_REGION=us-east-1
 
+# Create a non-privileged user that the app will run under.
+# See https://docs.docker.com/go/dockerfile-user-best-practices/
 # Can we run this clean up cron as crunner instead of root?
-# exhibits_cron - .ebextentions/tmp_cleanup.config
-# localtime adjustment - .ebextentions/system_time.config
+# Includes localtime adjustment
 COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
 RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER && \
     chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \
