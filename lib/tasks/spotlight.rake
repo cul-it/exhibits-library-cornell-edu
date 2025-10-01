@@ -6,6 +6,7 @@ namespace :spotlight do
     task clear_cache: :environment do
       # Get the size of the tmp/network_files directory
       size = `du -sh tmp/network_files`.split("\t").first
+      Rails.logger.info("Size of tmp/network_files before cleanup is #{size}.")
 
       # If the size is over 50GB, delete the oldest files until under 50GB
       deleted_file_count = 0
@@ -25,7 +26,9 @@ namespace :spotlight do
           break
         end
       end
-      Rails.logger.info("Completed spotlight:riiif:clear_cache rake task. Cleared #{deleted_file_count} files from tmp/network_files.")
+      Rails.logger.info("Completed spotlight:riiif:clear_cache rake task." \
+        " Cleared #{deleted_file_count} files from tmp/network_files." \
+        " Directory size is now #{size}.")
     end
   end
 
