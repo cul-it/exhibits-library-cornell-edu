@@ -13,9 +13,9 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     build-essential \
     default-libmysqlclient-dev=1.1.0 \
     cron=3.0pl1-162 \
-    nodejs=18.19.0+dfsg-6~deb12u2 \
+    nodejs=18.20.4+dfsg-1~deb12u1 \
     npm=9.2.0~ds1-1 \
-    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u1
+    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u4
 
 RUN npm install --global yarn@1.22.22
 
@@ -25,7 +25,7 @@ FROM ruby_base as dev_base
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     mariadb-server \
-    libsqlite3-dev=3.40.1-2+deb12u1
+    libsqlite3-dev=3.40.1-2+deb12u2
 
 ################################################################################
 # Build test environment
@@ -49,7 +49,11 @@ ENV RAILS_ENV=development \
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
-RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER
+# Can we run this clean up cron as crunner instead of root?
+COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
+RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER && \
+    chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \
+    crontab -u root /etc/cron.d/exhibits_cron
 USER $USER
 
 # Install application gems and node modules
@@ -100,9 +104,10 @@ ENV RAILS_ENV=${RAILS_ENV} \
     GROUP=crunnergrp \
     AWS_DEFAULT_REGION=us-east-1
 
+# Create a non-privileged user that the app will run under.
+# See https://docs.docker.com/go/dockerfile-user-best-practices/
 # Can we run this clean up cron as crunner instead of root?
-# exhibits_cron - .ebextentions/tmp_cleanup.config
-# localtime adjustment - .ebextentions/system_time.config
+# Includes localtime adjustment
 COPY ./cron/exhibits_cron /etc/cron.d/exhibits_cron
 RUN groupadd -r $GROUP && useradd -mr -g $GROUP $USER && \
     chmod gu+rw /var/run && chmod gu+s /usr/sbin/cron && \

@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# Send the cron output to container STDOUT so its accessible in CloudWatch log streams
+set :output, '/proc/1/fd/1'
 
 # Ensure crunner has access to envs
 # Support for running rake via whenever on docker

@@ -46,7 +46,7 @@ module Spotlight
       end
 
       # public
-      can :read, Spotlight::HomePage
+      can :read, Spotlight::HomePage, published: true
       can :read, Spotlight::Exhibit, published: true
       can :read, Spotlight::Page, published: true
       can :read, Spotlight::Search, published: true
