@@ -5,6 +5,7 @@ ruby '3.2.2'
 
 gem 'rails', '~> 8.0.2'
 
+gem 'appsignal'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 5.0'
