@@ -112,14 +112,13 @@ a, .page-link {
 
 // feature page titles 
 #content {
-  h1.page-title {
-    font-family: freight-text-pro, serif;
-    font-weight: 700;
-    font-style: normal;
-  }
+
   .page-title {
     background: url('spotlight/themes/blackprint/Swirl5.png') no-repeat;
     background-position: 0 0.5rem;
+    font-family: freight-text-pro, serif;
+    font-size: 2.5rem;
+    font-style: normal;
     padding-bottom: 1rem;
     padding-left: 3rem;
   } 
