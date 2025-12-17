@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'spotlight/exhibits#index'
 
-  get '/exhibits_feed', to: 'spotlight/exhibits#index', defaults: { format: :rss }
+  get '/feed', to: 'spotlight/exhibits#index', defaults: { format: :rss }
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
