@@ -1,0 +1,175 @@
+/*
+ Stylesheet used for plant-based exhibit theme
+*/
+
+@import 'application.bootstrap';
+@font-face {
+    font-family: 'Mirosa-Regular';
+    src: url('Mirosa-Regular.otf');
+}
+
+@mixin page-title-icon($url: 'spotlight/themes/plant-based/1Clarkia.svg', $padding-left: 4.5rem) {
+    background-image: url($url);
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    padding: 0.5rem 0 0.5rem $padding-left;
+}
+
+$green-light: #d3d8b4; 
+$green-light-masthead: rgb(211, 216, 180, 0.8); // rgb version of #dsd8b4, with semi-transparency
+$green-lighter: #f8f8f2;
+$green-dark: #2c5402;
+
+// General
+
+body, header {
+    background-color: $green-lighter;
+}
+
+#exhibit-navbar {
+    background-color: $green-dark;
+}
+
+.navbar, #blacklight-modal, footer {
+    background-color: white;
+ }
+
+// Masthead
+
+.masthead {
+    .background-container-gradient {
+        display: none;
+    }
+
+    .site-title-container {  
+        .site-title-wrapper {
+            background: none;
+            background-color: $green-light-masthead;
+            box-shadow: 0 0 25px 25px $green-light-masthead;
+            padding: 0;
+
+            .site-title {
+                color: $green-dark;
+                font-family: 'Mirosa-Regular';
+                font-size: 3.2rem;
+                text-shadow: none;
+                text-transform: lowercase;
+
+                // Mirosa is an all-caps font, so we onlu need to use uppercase for special styling
+                &:first-letter {
+                    font-feature-settings: 'ss04';
+                    text-transform: uppercase;
+                }
+            }
+
+            small {
+                color: $green-dark;
+                padding-bottom: 0 !important;
+            }
+        }
+
+        @media (min-width: breakpoint-max('md')) {
+            height: 180px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+// Feature page titles, using mixin for custom icons
+
+.page-title {
+    color: $green-dark;
+    font-family: 'Mirosa-Regular';
+    font-size: 1.75rem;
+    text-transform: lowercase;
+
+    // Mirosa is an all-caps font, so we onlu need to use uppercase for special styling
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+#beaten-to-pulp-content {
+    .page-title {
+        @include page-title-icon;
+      }
+}
+
+#palm-reeding-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/2Periwinkle.svg');
+    }
+}
+
+#what-gall-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/3Mallow.svg');
+    }
+}
+
+#pressing-matters-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/4DogRose.svg', $padding-left: 4rem);
+    }
+}
+
+#direct-contact-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/5Primrose.svg');
+    }
+}
+
+#curative-nature-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/6Convolvolus.svg', $padding-left: 5rem);
+    }
+}
+
+#like-cures-like-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/7Iris.svg', $padding-left: 3rem);
+    }
+}
+
+#around-the-world-in-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/8WhiteLily.svg', $padding-left: 3rem);
+    }
+}
+
+#natural-beauty-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/9Honeysuckle.svg', $padding-left: 4rem);
+    }
+}
+
+#fabricated-flora-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/10ClosocomiaClematidea.svg', $padding-left: 5.5rem);
+    }
+}
+
+#florals-for-spring-groundbreaking-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/11Daffodil.svg', $padding-left: 2.5rem);
+    }
+}
+
+#when-every-leaf-s-a-flower-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/12LeycesteriaFormosa.svg', $padding-left: 2.5rem);
+    }
+}
+
+#what-s-your-poison-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/13MouseEar_1.svg', $padding-left: 3rem);
+    }
+}
+
+#temple-of-flora-content {
+    .page-title {
+        @include page-title-icon($url: 'spotlight/themes/plant-based/13MouseEar_2.svg', $padding-left: 3rem);
+    }
+}
