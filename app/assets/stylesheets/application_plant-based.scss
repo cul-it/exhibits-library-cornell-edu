@@ -34,12 +34,6 @@ body, header {
     background-color: white;
  }
 
-.page-title {
-    color: $green-dark;
-    font-family: 'Mirosa-Regular';
-    font-size: 1.75rem;
-}
-
 // Masthead
 
 .masthead {
@@ -57,12 +51,20 @@ body, header {
             .site-title {
                 color: $green-dark;
                 font-family: 'Mirosa-Regular';
-                font-size: 3.1rem;
+                font-size: 3.2rem;
+                text-shadow: none;
+                text-transform: lowercase;
+
+                // Mirosa is an all-caps font, so we onlu need to use uppercase for special styling
+                &:first-letter {
+                    font-feature-settings: 'ss04';
+                    text-transform: uppercase;
+                }
             }
 
             small {
                 color: $green-dark;
-                padding: 0 !important;
+                padding-bottom: 0 !important;
             }
         }
 
@@ -75,6 +77,18 @@ body, header {
 }
 
 // Feature page titles, using mixin for custom icons
+
+.page-title {
+    color: $green-dark;
+    font-family: 'Mirosa-Regular';
+    font-size: 1.75rem;
+    text-transform: lowercase;
+
+    // Mirosa is an all-caps font, so we onlu need to use uppercase for special styling
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
 
 #beaten-to-pulp-content {
     .page-title {
