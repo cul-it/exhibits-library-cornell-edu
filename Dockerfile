@@ -1,31 +1,29 @@
-ARG RUBY_VERSION=3.2.2
+ARG RUBY_VERSION=3.4.8
 
 ################################################################################
 # Stage for building base image
-# Debian 12
-# Includes high vulnerability:
-#    GnuTLS - https://scout.docker.com/vulnerabilities/id/CVE-2024-0567
-#    Check container-discovery for examples of patching CVEs
-FROM ruby:$RUBY_VERSION-slim-bookworm as ruby_base
+# Debian 13
+FROM ruby:$RUBY_VERSION-slim-trixie as ruby_base
 
 # Install packages required for rails app
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     build-essential \
-    default-libmysqlclient-dev=1.1.0 \
-    cron=3.0pl1-162 \
-    nodejs=18.20.4+dfsg-1~deb12u1 \
-    npm=9.2.0~ds1-1 \
-    imagemagick=8:6.9.11.60+dfsg-1.6+deb12u4
+    default-libmysqlclient-dev=1.1.* \
+    cron=3.* \
+    nodejs=20.19.* \
+    npm=9.2.* \
+    imagemagick=8:7.1.1.* \
+    libghc-libyaml-dev=0.1.*
 
-RUN npm install --global yarn@1.22.22
+RUN npm install --global yarn@1.22.*
 
 ################################################################################
 # Install additional libraries for development
 FROM ruby_base as dev_base
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
-    mariadb-server \
-    libsqlite3-dev=3.40.1-2+deb12u2
+    mariadb-server=1:11.8.* \
+    libsqlite3-dev=3.46.*
 
 ################################################################################
 # Build test environment
