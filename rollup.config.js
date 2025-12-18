@@ -1,4 +1,4 @@
-import resolve from "@rollup/plugin-node-resolve"
+import { nodeResolve } from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 
 export default {
@@ -10,7 +10,7 @@ export default {
     sourcemap: true
   },
   plugins: [
-    resolve(),
+    nodeResolve(),
     commonjs()
   ]
 }
