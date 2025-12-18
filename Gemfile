@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.4.8'
 
-gem 'rails', '~> 8.0.2'
+gem 'rails', '~> 8.1.0'
 
 gem 'appsignal'
 # Reduces boot times through caching; required in config/boot.rb
@@ -32,7 +32,7 @@ gem 'rdoc', require: false
 gem 'riiif'
 gem 'rsolr'
 gem 'ruby-oembed'
-gem 'sidekiq', '~> 7'
+gem 'sidekiq', '~> 8'
 gem 'sitemap_generator'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -47,7 +47,7 @@ gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
 gem "blacklight", ">= 8.7.0", "< 9"
-gem 'blacklight-gallery', '~> 4.8.0'
+gem 'blacklight-gallery', '~> 4.9.0'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'blacklight-spotlight', '~> 5.2.0'
 gem 'openseadragon', '~> 1.0.0'
