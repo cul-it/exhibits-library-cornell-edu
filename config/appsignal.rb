@@ -5,7 +5,7 @@ Appsignal.configure do |config|
   # Only activating monitoring for production, add :integration or :staging if testing
   config.activate_if_environment(:production)
   config.name = "Exhibits"
-  config.push_api_key = ENV.fetch("APPSIGNAL_PUSH_API_KEY")
+  config.push_api_key = ENV["APPSIGNAL_PUSH_API_KEY"]
 
   # Configure actions that should not be monitored by AppSignal.
   # For more information see our docs:
