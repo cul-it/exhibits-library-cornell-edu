@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+Rails.application.config.to_prepare do
+  Riiif::HttpFileResolver::RemoteFile.prepend PrependedResolvers::HttpFileResolver::RemoteFile
+end
+
 ActiveSupport::Reloader.to_prepare do
   ### START CUSTOMIZATION (elr) - new initializer for S3 storage support
   if S3.connected?
