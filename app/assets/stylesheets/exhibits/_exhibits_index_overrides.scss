@@ -1,0 +1,4 @@
+// override the spotlight default opacity level for the overlay on home page exhibit cards
+.exhibit-card .card-img-overlay {
+  --exhibit-card-overlay-opacity: 0.9;
+}
