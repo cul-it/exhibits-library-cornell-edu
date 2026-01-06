@@ -1,17 +1,17 @@
-// #542 - better spacing for text area H2; may need adjustment if this effects other system elements
-.blacklight-feature_pages-show {
-	#content {
-		h2 {
-			margin: 2rem 0 1rem;
-		}
-	}
-}
-
-// Page Title
+// Page Title and Headers
 // ---------------------- //
 
-.page-title {
-	margin-bottom: 1.5rem;
+.blacklight-about_pages-show, .blacklight-feature_pages-show, .blacklight-home_pages-show {
+	#content {
+		.page-title {
+			margin-top: 0;
+			margin-bottom: 1.5rem;
+		}
+		h2, h3, h4, h5, h6 {
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
+	}
 }
 
 // Page Sidebar 
