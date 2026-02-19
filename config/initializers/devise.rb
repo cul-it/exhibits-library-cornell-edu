@@ -227,7 +227,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  # config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -273,7 +273,7 @@ Devise.setup do |config|
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  # config.reset_password_within = 6.hours
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
@@ -320,7 +320,15 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :saml,
+  idp_cert: ENV['SAML_IDP_CERT'],
+  idp_sso_service_url: ENV['SAML_IDP_SSO_SERVICE_URL'],
+  sp_entity_id: ENV['SAML_SP_ENTITY_ID'],
+  assertion_consumer_service_url: ENV['SAML_SP_CALLBACK'],
+  attribute_statements: {
+    netid: ['urn:oid:0.9.2342.19200300.100.1.1'],
+    email: ['urn:oid:1.3.6.1.4.1.5923.1.1.1.6'],
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
