@@ -23,8 +23,9 @@ RSpec.describe Cul::ApplicationUploader do
         allow(application_uploader).to receive(:file).and_return(file)
       end
       
-      it 'return the default' do
-        expect(url).to eq(super())
+      it 'return nil' do
+        expect(url).to be_nil
       end
+    end
   end
 end
