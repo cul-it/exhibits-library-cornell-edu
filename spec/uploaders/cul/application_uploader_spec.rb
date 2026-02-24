@@ -22,7 +22,7 @@ RSpec.describe Cul::ApplicationUploader do
       before do
         allow(application_uploader).to receive(:file).and_return(file)
       end
-      
+
       it 'return nil' do
         expect(url).to be_nil
       end
