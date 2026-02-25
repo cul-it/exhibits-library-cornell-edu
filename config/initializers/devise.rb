@@ -322,6 +322,21 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :saml,
   idp_cert: ENV['SAML_IDP_CERT'],
+  certificate: ENV['SAML_CERTIFICATE'],
+  private_key: ENV['SAML_PRIVATE_KEY'],
+  security: {
+    authn_requests_signed: false,     # Enable or not signature on AuthNRequest
+    logout_requests_signed: true,      # Enable or not signature on Logout Request
+    logout_responses_signed: true,     # Enable or not signature on Logout Response
+    want_assertions_signed: false,     # Enable or not the requirement of signed assertion
+    want_assertions_encrypted: true,     # adds <md:KeyDescriptor use="encryption">
+    metadata_signed: false,     # Enable or not signature on Metadata
+    digest_method: XMLSecurity::Document::SHA1,
+    signature_method: XMLSecurity::Document::RSA_SHA1,
+    # Embeded signature or HTTP GET parameter signature
+    # Note that metadata signature is always embedded regardless of this value.
+    embed_sign: true
+  },
   idp_sso_service_url: ENV['SAML_IDP_SSO_SERVICE_URL'],
   sp_entity_id: ENV['SAML_SP_ENTITY_ID'],
   assertion_consumer_service_url: ENV['SAML_SP_CALLBACK'],
