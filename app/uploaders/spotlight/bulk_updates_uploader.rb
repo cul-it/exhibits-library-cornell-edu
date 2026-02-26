@@ -5,7 +5,7 @@
 # Customizes storage location to tmp directory
 module Spotlight
   # :nodoc:
-  class BulkUpdatesUploader < Cul::ApplicationUploader
+  class BulkUpdatesUploader < CarrierWave::Uploader::Base
     storage :file
 
     def store_dir
