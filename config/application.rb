@@ -33,10 +33,11 @@ module Exhibits
       # for each prepended class
       # OriginalApp::OriginalClassName.prepend PrependedModuleName::OriginalClassName
       # Controllers
+      Spotlight::CatalogController.prepend PrependedControllers::CatalogController
+      Spotlight::ConfirmationsController.prepend PrependedControllers::ConfirmationsController
       Spotlight::ExhibitsController.prepend PrependedControllers::ExhibitsController
       Spotlight::Resources::UploadController.prepend PrependedControllers::UploadController
       Spotlight::Resources::CsvUploadController.prepend PrependedControllers::CsvUploadController
-      Spotlight::CatalogController.prepend PrependedControllers::CatalogController
 
       # Models
       Spotlight::FeaturedImage.prepend PrependedModels::FeaturedImage
