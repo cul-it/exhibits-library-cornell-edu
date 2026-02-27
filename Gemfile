@@ -25,6 +25,8 @@ gem 'jsbundling-rails'
 gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-saml'
 gem 'propshaft'
 # Use Puma as the app server
 gem 'puma', '< 7'

@@ -1,0 +1,5 @@
+<h2><%= t('devise.sessions.new.header') %></h2>
+
+<%= button_to user_saml_omniauth_authorize_path, data: { turbo: false }, class: 'btn btn-primary btn-login' do %>
+  <%= t('devise.sessions.new.login_button') %>
+<% end %>

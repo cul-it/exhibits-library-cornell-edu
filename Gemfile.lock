@@ -440,6 +440,17 @@ GEM
       version_gem (~> 1.1, >= 1.1.9)
     okcomputer (1.19.1)
       benchmark
+    omniauth (2.1.4)
+      hashie (>= 3.4.6)
+      logger
+      rack (>= 2.2.3)
+      rack-protection
+    omniauth-rails_csrf_protection (2.0.1)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
+    omniauth-saml (2.2.4)
+      omniauth (~> 2.1)
+      ruby-saml (~> 1.18)
     openseadragon (1.0.17)
       rails (> 6.1.0)
     orm_adapter (0.5.0)
@@ -469,6 +480,10 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.5)
+    rack-protection (4.2.1)
+      base64 (>= 0.1.0)
+      logger (>= 1.6.0)
+      rack (>= 3.0.0, < 4)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -603,6 +618,9 @@ GEM
       rubocop (~> 1.19)
     ruby-oembed (0.18.1)
     ruby-progressbar (1.13.0)
+    ruby-saml (1.18.1)
+      nokogiri (>= 1.13.10)
+      rexml
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
@@ -705,7 +723,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-23
-  arm64-darwin-24
+  arm64-darwin-25
   x86_64-linux
 
 DEPENDENCIES
@@ -741,6 +759,8 @@ DEPENDENCIES
   mina
   mysql2
   okcomputer (~> 1.18)
+  omniauth-rails_csrf_protection
+  omniauth-saml
   openseadragon (~> 1.0.0)
   propshaft
   puma (< 7)

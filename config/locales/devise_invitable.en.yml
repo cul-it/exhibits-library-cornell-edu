@@ -13,8 +13,9 @@ en:
         header: "Send invitation"
         submit_button: "Send an invitation"
       edit:
-        header: "Set your password"
-        submit_button: "Set my password"
+        header: "Log in"
+        instructions: "Log in with your NetID to accept your invitation."
+        login_button: "Log in with your NetID"
     mailer:
       invitation_instructions:
         subject: "Invitation instructions"
