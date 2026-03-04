@@ -7,8 +7,7 @@ ActiveSupport::Reloader.to_prepare do
     Riiif::Image.file_resolver.id_to_uri = lambda do |id|
       aws_file = Spotlight::FeaturedImage.find(id).image.file
       raise Riiif::ImageNotFoundError, "unable to find file for #{id}" if aws_file.nil?
-
-      aws_file.file.presigned_url(:get)
+      aws_file.public_url
     end
   else
     Riiif::Image.file_resolver = Spotlight::CarrierwaveFileResolver.new
