@@ -2,6 +2,10 @@
 // ---------------------- //
 // Includes Browse Categories and Browse Group Categories blocks; also impacts Pages block
 
+.browse-categories {
+  margin: 0; 
+}
+
 .browse-category {
   overflow: hidden;
 }
@@ -12,6 +16,12 @@
 [data-sidebar="false"],
 [data-sidebar="true"] {
   &[class*="categories-"] {
+    justify-content: center;
+
+    .box {
+      margin: 1rem;
+    }
+
     .browse-category {
       max-width: $maximum-tile-width;
       max-height: $maximum-tile-width * $aspect-ratio-factor-4x3;
@@ -20,25 +30,40 @@
     }
   }
 	&[class*="categories-"]:not(.categories-1):not(.categories-2):not(.categories-3):not(.categories-4) {
-    .browse-category {
-      @media (min-width: breakpoint-min("sm")) {
+    
+    @media (min-width: breakpoint-min("sm")) {
+      .browse-category{
         width: $sm-three-tile-width;
         height: $sm-three-tile-width * $aspect-ratio-factor-4x3;
       }
+    }
 
-      @media (min-width: breakpoint-min("md")) {
+    @media (min-width: breakpoint-min("md")) {
+      .browse-category{
         width: $md-three-tile-width;
         height: $md-three-tile-width * $aspect-ratio-factor-4x3;
       }
+    }
 
-      @media (min-width: breakpoint-min("lg")) {
+    @media (min-width: breakpoint-min("lg")) {
+      .browse-category{
         width: $lg-three-tile-width;
         height: $lg-three-tile-width * $aspect-ratio-factor-4x3;
       }
+    }
 
-      @media (min-width: breakpoint-min("xl")) {
+    @media (min-width: breakpoint-min("xl")) {
+      .box {
+        margin: 0.25rem;
+      }
+      
+      .browse-category{
         width: $xl-five-tile-width;
         height: $xl-five-tile-width * $aspect-ratio-factor-4x3;
+      }
+
+      &.browse-categories {
+        margin: 0.75rem 0.25rem;
       }
     }
   }
