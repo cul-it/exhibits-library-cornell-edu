@@ -13,7 +13,10 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     nodejs=20.19.* \
     npm=9.2.* \
     imagemagick=8:7.1.1.* \
-    libghc-libyaml-dev=0.1.*
+    libghc-libyaml-dev=0.1.* \
+    libvips \
+    libvips-dev \
+    libvips-tools
 
 RUN npm install --global yarn@1.22.*
 
