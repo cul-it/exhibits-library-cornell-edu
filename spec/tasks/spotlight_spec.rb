@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'rake'
 
 RSpec.describe 'spotlight:paper_trail:clear' do
   let(:rake) { Rake::Application.new }
