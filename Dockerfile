@@ -12,7 +12,6 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     cron=3.* \
     nodejs=20.19.* \
     npm=9.2.* \
-    imagemagick=8:7.1.1.* \
     libghc-libyaml-dev=0.1.* \
     libvips \
     libvips-dev \
@@ -125,9 +124,6 @@ RUN chown ${USER}:${GROUP} ${APP_PATH}
 
 USER ${USER}
 WORKDIR ${APP_PATH}
-
-# Copy imagemagick security policy
-COPY ./docker/ImageMagick-6/policy.xml /etc/ImageMagick-6/policy.xml
 
 # Run the web server
 EXPOSE 9292
