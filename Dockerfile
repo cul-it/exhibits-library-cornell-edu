@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.4.8
+ARG RUBY_VERSION=3.4.9
 
 ################################################################################
 # Stage for building base image
