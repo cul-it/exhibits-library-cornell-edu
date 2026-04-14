@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.8'
+ruby '3.4.9'
 
 gem 'rails', '~> 8.1.0'
 
@@ -22,7 +22,6 @@ gem 'irb'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jsbundling-rails'
-gem 'mina' # deployment script generator -- is this used?  should this be used?
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
 gem 'propshaft'
