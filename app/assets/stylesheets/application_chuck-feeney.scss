@@ -1,0 +1,63 @@
+/*
+ Stylesheet used for chuck-feeney exhibit theme
+ Fonts are loaded from Adobe fonts library "cof6uoh"
+*/
+
+@import url('https://use.typekit.net/cof6uoh.css');
+@import 'application.bootstrap';
+
+// General
+#exhibit-navbar {
+    background-color: #aa4600;
+}
+
+// Masthead
+.masthead {
+    .background-container-gradient {
+        display: none;
+    }
+    background-color: #fff;
+
+    .site-title-container {  
+        .site-title-wrapper {
+            background: none;
+            .site-title {
+                color: #046476;
+                font-family: "trajan-pro-3", serif;
+                font-size: 4.5rem !important;
+                top: 18px !important;
+                position: relative;
+                @media (max-width: 992px) {
+                    font-size: 3.5rem !important;
+                }
+                @media (max-width: 768px) {
+                    font-size: 2.77rem !important;
+                }
+            }
+
+            small {
+                padding-top: 0 !important;
+                font-family: "freight-text-pro", serif;
+                font-style: italic;
+                font-size: 2.58rem !important;
+                color: #046476;
+                top: 0px !important;
+                position: relative;
+                @media (max-width: 992px) {
+                    font-size: 2rem !important;
+                }
+                @media (max-width: 768px) {
+                    font-size: 1.59rem !important;
+                    top: 10px !important;
+                    display: block !important; 
+                }
+            }
+        }
+
+        @media (min-width: breakpoint-max('md')) {
+            height: 180px;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
