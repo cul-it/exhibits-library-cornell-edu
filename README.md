@@ -4,7 +4,7 @@
 
 * [Ruby 3.2.2](https://www.ruby-lang.org/en/documentation/installation/)
 * [Bundler 2](https://bundler.io/)
-* [ImageMagick](https://imagemagick.org/script/download.php)
+* [Libvips](https://github.com/libvips/libvips)
 * [Solr](https://solr.apache.org/guide/solr/latest/deployment-guide/installing-solr.html)
 * Optional: [Docker](https://docs.docker.com/get-docker/)
 
