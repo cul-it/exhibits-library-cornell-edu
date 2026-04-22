@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jsbundling-rails'
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-saml'
 gem 'propshaft'
 # Use Puma as the app server
 gem 'puma', '< 7'

@@ -1,0 +1,6 @@
+<h2><%= t('devise.invitations.edit.header') %></h2>
+
+<p><%= t('devise.invitations.edit.instructions') %></p>
+<%= button_to user_saml_omniauth_authorize_path, data: { turbo: false }, class: 'btn btn-primary btn-login' do %>
+  <%= t('devise.invitations.edit.login_button') %>
+<% end %>

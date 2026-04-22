@@ -34,9 +34,11 @@
           <li class="dropdown-divider"></li>
         <% end %>
 
+        <%# BEGIN CUSTOMIZATION - Add link to Manage account %>
         <li>
-          <%= link_to "Change Password", main_app.edit_user_registration_path, class: 'dropdown-item' %>
+          <%= link_to "Manage account", main_app.edit_user_registration_path, class: 'dropdown-item' %>
         </li>
+        <%# END CUSTOMIZATION %>
         <li>
           <%= link_to t('spotlight.header_links.logout'), main_app.destroy_user_session_path, class: 'dropdown-item' %>
         </li>
