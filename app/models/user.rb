@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :registerable, :recoverable, :rememberable, :validatable
   devise :database_authenticatable, :trackable
   devise :invitable, require_password_on_accepting: false
   devise :omniauthable, omniauth_providers: %i[saml]
@@ -26,6 +27,7 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     find_or_create_by(email: auth.info.email) do |user|
       user.provider = auth.provider
+      user.password = SecureRandom.hex(20)
     end
   end
   ### END CUSTOMIZATION

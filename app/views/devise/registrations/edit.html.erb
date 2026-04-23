@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Manage Account</h2>
+
+  <%# unless current_user signed up via saml and never set a password %>
+  <% unless current_user.provider == 'saml' %>
+    <h3>Edit account</h3>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <h3>Delete account</h3>
+  <p>Deleting your account on Cornell University Library's Online Exhibitions is irreversible.</p>
+  <% user_exhibit_roles = current_user.exhibit_roles %>
+  <% if user_exhibit_roles.any? %>
+    <p>If you delete your account, you will no longer have the following exhibit permissions:</p>
+    <ul class="list-group">
+      <% user_exhibit_roles.each do |role| %>
+        <li class="list-group-item"><%= role.resource.title %> <strong>(<%= role.role %>)</strong></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="mt-3">
+    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>
