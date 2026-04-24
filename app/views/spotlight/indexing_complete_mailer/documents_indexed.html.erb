@@ -1,12 +1,16 @@
-<p><%= t :".title", csv_file_name: @csv_file_name %></p>
 
-<p><%= t :".body", count: @number, title: @exhibit.title %></p>
-
+<p style="margin: 0 0 6px 5px;"><%= t :".title", csv_file_name: @csv_file_name %></p>
+<p style="margin: 0 0 6px 5px;"><%= t :".body", count: @number, title: @exhibit.title %></p>
 <% if @errors.length > 0 %>
-  <p><%= t :".errors",  default: :'spotlight.catalog.reindex_progress_panel.error' %></p>
+  <p style="margin: 0 0 6px 5px;"><%= t :".errors", default: :'spotlight.catalog.reindex_progress_panel.error' %></p>
   <ul>
     <% @errors.each do |index, message| %>
-      <li><%= t :'.error', index: index, message: message.to_sentence %>
+      <li><%= t :'.error', index: index, message: message.to_sentence %></li>
     <% end %>
   </ul>
-<% end  %>
+<% end %>
+<hr>
+<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.title') %>:</strong> <%= @exhibit.title %></p>
+<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.subtitle') %>:</strong> <%= @exhibit.subtitle %></p>
+<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.mailers.status') %>:</strong> <%= @exhibit.published? ? t('spotlight.sites.exhibit.published') : t('spotlight.sites.exhibit.unpublished') %></p>
+<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.mailers.view_the_exhibit') %>:</strong> <%= link_to spotlight.exhibit_url(@exhibit.slug), spotlight.exhibit_url(@exhibit.slug) %></p>
