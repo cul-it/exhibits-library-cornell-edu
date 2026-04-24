@@ -33,6 +33,7 @@ describe 'Adding exhibit users', type: :system do
         expect(page).to have_content 'You are logged in as test123.'
       end
     end
+
     it 'invited feedback recipients can confirm their emails' do
       contact_email = create(:contact_email, exhibit:, confirmation_token: "TOKEN", confirmation_sent_at: Time.now.utc)
       visit spotlight.contact_email_confirmation_path(confirmation_token: contact_email.confirmation_token)
