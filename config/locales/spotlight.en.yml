@@ -42,6 +42,7 @@ en:
       documents_indexed:
         title: "Your CSV file '%{csv_file_name}' has just finished being processed."
     mailers:
+        environment: "Environment"
         view_the_exhibit: "View the exhibit"
         status: "Status"
         email_closing: "Please feel free to reach out with any feedback or questions"
