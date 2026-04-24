@@ -1,17 +1,18 @@
-
+<div style="margin-top:10px; margin-bottom:20px">
 <% if @exhibit.published? %>
-  <p style="margin: 0 0 6px 5px;"><%= t('spotlight.exhibit_status_mailer.published_message') %></p>
-  <p style="margin: 0 0 6px 5px;"><%= t('spotlight.exhibit_status_mailer.site_improve_reminder') %></p>
+  <p style="margin: 0 0 6px 0px;"><%= t('spotlight.exhibit_status_mailer.published_message') %></p>
+  <p style="margin: 0 0 6px 0px;"><%= t('spotlight.exhibit_status_mailer.site_improve_reminder') %></p>
 <% else %>
-  <p style="margin: 0 0 6px 5px;"><%= t('spotlight.exhibit_status_mailer.unpublished_message') %></p>
-  <p style="margin: 0 0 6px 5px;"><%= t('spotlight.exhibit_status_mailer.published_duration', duration: distance_of_time_in_words(@exhibit.published_at, @exhibit.updated_at)) %></p>
-<% end %>  
-<hr>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.title') %>:</strong> <%= @exhibit.title %></p>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.subtitle') %>:</strong> <%= @exhibit.subtitle %></p>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.description') %>:</strong> <%= @exhibit.description %></p>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.sites.exhibit.published') %>:</strong> <%= @exhibit.published_at %></p>
-<% if !@exhibit.published? %>
-    <p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.sites.exhibit.unpublished') %>:</strong> <%= @exhibit.updated_at %></p>
+  <p style="margin: 0 0 6px 0px;"><%= t('spotlight.exhibit_status_mailer.unpublished_message') %></p>
+  <p style="margin: 0 0 6px 0px;"><%= t('spotlight.exhibit_status_mailer.published_duration', duration: distance_of_time_in_words(@exhibit.published_at, @exhibit.updated_at)) %></p>
 <% end %>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.mailers.view_the_exhibit') %>:</strong> <%= link_to spotlight.exhibit_url(@exhibit.slug), spotlight.exhibit_url(@exhibit.slug) %></p>
+</div>
+-----
+<p style="margin: 20px 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.translations.general.basic_settings.title') %>:</span> <%= @exhibit.title %></p>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.translations.general.basic_settings.subtitle') %>:</span> <%= @exhibit.subtitle %></p>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.translations.general.basic_settings.description') %>:</span> <%= @exhibit.description %></p>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.sites.exhibit.published') %>:</span> <%= @exhibit.published_at %></p>
+<% if !@exhibit.published? %>
+    <p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.sites.exhibit.unpublished') %>:</span> <%= @exhibit.updated_at %></p>
+<% end %>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.mailers.view_the_exhibit') %>:</span> <%= link_to spotlight.exhibit_url(@exhibit.slug), spotlight.exhibit_url(@exhibit.slug) %></p>

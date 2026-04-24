@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Preview (feedback form) email on development: 
+# Preview (feedback form) email on development:
 # http://localhost:9292/rails/mailers/spotlight/contact_mailer/report_problem
 
 module Spotlight

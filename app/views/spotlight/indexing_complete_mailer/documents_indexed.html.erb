@@ -1,16 +1,17 @@
-
-<p style="margin: 0 0 6px 5px;"><%= t :".title", csv_file_name: @csv_file_name %></p>
-<p style="margin: 0 0 6px 5px;"><%= t :".body", count: @number, title: @exhibit.title %></p>
+<div style="margin-top:10px; margin-bottom:20px">
+<p style="margin: 0 0 6px 0px;"><%= t :".title", csv_file_name: @csv_file_name %></p>
+<p style="margin: 0 0 6px 0px;"><%= t :".body", count: @number, title: @exhibit.title %></p>
 <% if @errors.length > 0 %>
-  <p style="margin: 0 0 6px 5px;"><%= t :".errors", default: :'spotlight.catalog.reindex_progress_panel.error' %></p>
+  <p style="margin: 0 0 20px 0px;"><%= t :".errors", default: :'spotlight.catalog.reindex_progress_panel.error' %></p>
   <ul>
     <% @errors.each do |index, message| %>
       <li><%= t :'.error', index: index, message: message.to_sentence %></li>
     <% end %>
   </ul>
 <% end %>
-<hr>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.title') %>:</strong> <%= @exhibit.title %></p>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.translations.general.basic_settings.subtitle') %>:</strong> <%= @exhibit.subtitle %></p>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.mailers.status') %>:</strong> <%= @exhibit.published? ? t('spotlight.sites.exhibit.published') : t('spotlight.sites.exhibit.unpublished') %></p>
-<p style="margin: 0 0 6px 5px;"><strong><%= t('spotlight.mailers.view_the_exhibit') %>:</strong> <%= link_to spotlight.exhibit_url(@exhibit.slug), spotlight.exhibit_url(@exhibit.slug) %></p>
+</div>
+-----
+<p style="margin: 20px 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.translations.general.basic_settings.title') %>:</span> <%= @exhibit.title %></p>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.translations.general.basic_settings.subtitle') %>:</span> <%= @exhibit.subtitle %></p>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.mailers.status') %>:</span> <%= @exhibit.published? ? t('spotlight.sites.exhibit.published') : t('spotlight.sites.exhibit.unpublished') %></p>
+<p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.mailers.view_the_exhibit') %>:</span> <%= link_to spotlight.exhibit_url(@exhibit.slug), spotlight.exhibit_url(@exhibit.slug) %></p>
