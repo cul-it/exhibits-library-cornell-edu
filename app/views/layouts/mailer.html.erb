@@ -2,12 +2,31 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <% # if email client supports embedded CSS, definition lists in feedback email will be formatted %>
     <style>
       /* Email styles need to be inline */
+      dl { margin: 0; padding-top: 0px }
+      dt::after {
+        content: ":"; 
+        margin-right: 20px;
+      }
+      dd { margin-left: 0px; }
+      dl > dt, dl > dd { display: inline; }
+      dl > dt::before {
+        content: "\A";
+        white-space: pre;
+      }
     </style>
   </head>
 
-  <body>
+  <body style="margin: 20px; font-family: Arial, Helvetica, sans-serif; font-size: 1rem; line-height: 1.5;">
     <%= yield %>
+    <p style="margin: 0 0 6px 0px;"><span style="text-transform: uppercase;"><%= t('spotlight.mailers.environment') %>:</span> <%= Rails.env %></p>
+    <footer style="font-size: 0.9rem; margin-top: 40px;">
+      <p style="margin: 0 0 6px 5px;"><%= t('spotlight.mailers.email_closing') %>,</p>
+      <p style="margin: 0 0 6px 5px;">Online Exhibitions</p>
+      <p style="margin: 0 0 6px 5px;"><a href="mailto:help-exhibits-library@cornell.edu" style="color: #005588;text-decoration: none;">help-exhibits-library@cornell.edu</a></p>
+      <p style="margin: 0 0 6px 5px;"><img src="https://exhibits.library.cornell.edu/img/mailer-CULibraryRed.jpg" alt="Cornell University Library Logo" style="max-width: 150px; height: auto;"></p>
+    </footer>
   </body>
 </html>

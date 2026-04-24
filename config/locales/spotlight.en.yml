@@ -22,6 +22,11 @@ en:
         source:
           remote:
             help: File should be less than 10MB in size.
+    exhibit_status_mailer:
+      published_message: "An online exhibit has just been published."
+      site_improve_reminder: "Developers: add a group for this exhibit in Siteimprove."
+      unpublished_message: "An online exhibit has just been unpublished."
+      published_duration: "This exhibit was published for %{duration}."
     featured_images:
       form:
         source:
@@ -36,6 +41,11 @@ en:
     indexing_complete_mailer:
       documents_indexed:
         title: "Your CSV file '%{csv_file_name}' has just finished being processed."
+    mailers:
+        environment: "Environment"
+        view_the_exhibit: "View the exhibit"
+        status: "Status"
+        email_closing: "Please feel free to reach out with any feedback or questions"
     resources:
       upload:
         error: Your item could not be added.
