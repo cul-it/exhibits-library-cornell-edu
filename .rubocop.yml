@@ -23,6 +23,7 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Exclude:
     - 'app/prepends/prepended_services/exhibit_import_export_service.rb'
+    - 'app/prepends/prepended_riiif/vips_transformer.rb'
 
 Metrics/ModuleLength:
   Exclude:
