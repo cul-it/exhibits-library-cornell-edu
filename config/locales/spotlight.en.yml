@@ -17,11 +17,6 @@ en:
       edit_default:
         url-field:
           help: 'Valid file types: %{extensions}. Files should be less than 10MB in size.'
-    confirmation_mailer:
-      confirmation_instructions:
-        welcome: "Welcome %{email}!"
-        instructions: "You recently requested an account on the Library's Online Exhibitions website. Please click the link below to confirm your account:"
-        confirm: Confirm my account
     contacts:
       form:
         source:
@@ -49,6 +44,9 @@ en:
             help: 'Valid file types: %{extensions}. Files should be less than 10MB in size.'
         malformed_non_UTF8_csv_data: CSV contains malformed or non-UTF8 data.
         invalid_csv_headers: CSV headers do not match the expected headers.
+    roles:
+      edit_fields:
+        help: Enter a valid Cornell NetID email address in the form netid@cornell.edu
     search:
       fields:
         spotlight_copyright_tesim: Copyright

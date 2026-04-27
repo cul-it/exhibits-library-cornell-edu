@@ -320,7 +320,30 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :saml,
+  idp_cert: ENV['SAML_IDP_CERT'],
+  certificate: ENV['SAML_CERTIFICATE'],
+  private_key: ENV['SAML_PRIVATE_KEY'],
+  security: {
+    authn_requests_signed: false,     # Enable or not signature on AuthNRequest
+    logout_requests_signed: true,      # Enable or not signature on Logout Request
+    logout_responses_signed: true,     # Enable or not signature on Logout Response
+    want_assertions_signed: false,     # Enable or not the requirement of signed assertion
+    want_assertions_encrypted: true,     # adds <md:KeyDescriptor use="encryption">
+    metadata_signed: false,     # Enable or not signature on Metadata
+    digest_method: XMLSecurity::Document::SHA1,
+    signature_method: XMLSecurity::Document::RSA_SHA1,
+    # Embeded signature or HTTP GET parameter signature
+    # Note that metadata signature is always embedded regardless of this value.
+    embed_sign: true
+  },
+  idp_sso_service_url: ENV['SAML_IDP_SSO_SERVICE_URL'],
+  sp_entity_id: ENV['SAML_SP_ENTITY_ID'],
+  assertion_consumer_service_url: ENV['SAML_SP_CALLBACK'],
+  attribute_statements: {
+    netid: ['urn:oid:0.9.2342.19200300.100.1.1'],
+    email: ['urn:oid:1.3.6.1.4.1.5923.1.1.1.6'],
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

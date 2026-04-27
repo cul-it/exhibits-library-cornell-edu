@@ -24,11 +24,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'jsbundling-rails'
 gem 'mysql2'
 gem 'okcomputer', '~> 1.18'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-saml'
 gem 'propshaft'
 # Use Puma as the app server
 gem 'puma', '< 7'
 gem 'rdoc', require: false
-gem 'riiif'
+gem 'riiif', github: "sul-dlss/riiif", ref: "56e7e13" # Remove :git and :ref when riiif 2.8.2 is released
 gem 'rsolr'
 gem 'ruby-oembed'
 gem 'sidekiq', '~> 8'

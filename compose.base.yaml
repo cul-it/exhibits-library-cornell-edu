@@ -2,7 +2,9 @@
 
 services:
   solr:
-    image: solr:8.11.1
+    image: solr:9.10.1
+    environment:
+      - SOLR_MODULES=analysis-extras
     command:
       - solr-precreate
       - blacklight-core

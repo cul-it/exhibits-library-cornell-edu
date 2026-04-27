@@ -10,7 +10,14 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   mount OkComputer::Engine, at: "/syscheck"
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  # devise_scope :user do
+  #   get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  #   get 'users/edit', :to => 'users/registrations#edit', :as => :edit_user_registration
+  #   delete 'users/delete', :to => 'users/registrations#destroy', :as => :destroy_user_registration
+  # end
 
   mount Spotlight::Engine, at: '/' # as opposed to `at: 'spotlight'` which was generated
   mount Blacklight::Engine => '/'
