@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   get '/feed', to: 'spotlight/exhibits#index', defaults: { format: :rss }
 
   require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  authenticate :user, ->(user) { user.site_admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   mount OkComputer::Engine, at: "/syscheck"
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
