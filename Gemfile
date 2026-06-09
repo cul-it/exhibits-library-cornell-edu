@@ -48,6 +48,8 @@ gem 'blacklight-gallery', '~> 4.9.0'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'blacklight-spotlight', '~> 5.3.0'
 gem 'openseadragon', '~> 1.0.0'
+# Temp pinned due to v3.25.0 error when trying to render a view partial within a content_tag (from Spotlight::DocumentAdminTableComponent)
+gem 'view_component', '< 3.25.0'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors
