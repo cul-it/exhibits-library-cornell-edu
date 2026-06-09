@@ -486,7 +486,7 @@ GEM
       date
       stringio
     public_suffix (7.0.5)
-    puma (6.6.1)
+    puma (7.2.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.6)
@@ -766,7 +766,7 @@ DEPENDENCIES
   omniauth-saml
   openseadragon (~> 1.0.0)
   propshaft
-  puma (< 7)
+  puma (< 8)
   rails (~> 8.1.0)
   rails-controller-testing
   rdoc
