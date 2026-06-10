@@ -37,7 +37,7 @@ RSpec.describe 'Sidekiq Dashboard Access', type: :system do
   context 'while logged out' do
     it 'denies access to the Sidekiq web GUI and prompts login' do
       visit sidekiq_web_path
-      expect(page).to have_current_path('/users/sign_in')
+      expect(page).to have_current_path('/sign_in')
     end
   end
 end
