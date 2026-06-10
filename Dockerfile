@@ -15,7 +15,9 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     libghc-libyaml-dev=0.1.* \
     libvips \
     libvips-dev \
-    libvips-tools
+    libvips-tools \
+    # Remove git once riif install is switched back to rubygems.org/ version
+    git 
 
 RUN npm install --global yarn@1.22.*
 
