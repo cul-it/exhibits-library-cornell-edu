@@ -35,7 +35,7 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 preload_app!
 
 x = nil
-on_worker_boot do
+before_worker_boot do
   x = Sidekiq.configure_embed do |config|
     # config.logger.level = Logger::DEBUG
     config.queues = %w[default]
@@ -44,7 +44,7 @@ on_worker_boot do
   x.run
 end
 
-on_worker_shutdown do
+before_worker_shutdown do
   x&.stop
 end
 
