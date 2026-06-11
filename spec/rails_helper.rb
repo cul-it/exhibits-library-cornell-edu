@@ -88,4 +88,6 @@ RSpec.configure do |config|
   else
     Capybara.javascript_driver = :selenium_chrome_headless
   end
+
+  Capybara.default_max_wait_time = 10 # seconds
 end
