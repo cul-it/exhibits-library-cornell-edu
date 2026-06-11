@@ -48,8 +48,31 @@ en:
       edit_fields:
         help: Enter a valid Cornell NetID email address in the form netid@cornell.edu
     search:
-      fields:
-        spotlight_copyright_tesim: Copyright
+      fields: 
+        dcterms: 
+          labels: 
+            created: Date Created
+            issued: Date Issued
+            spatial: Location
+            temporal: Time Period
+            type: Work Type
+          short_descriptions:
+            creator: "\"An entity primarily responsible for making the resource.\" (DCMI Metadata Terms)"
+            contributor: "\"An entity responsible for making contributions to the resource.\" (DCMI Metadata Terms)"
+            created: "\"Date of creation of the resource.\" (DCMI Metadata Terms)"
+            issued: "\"Date of formal issuance (e.g., publication) of the resource.\" (DCMI Metadata Terms)"
+            language: "\"A language of the intellectual content of the resource.\" (DCMI Metadata Terms)"
+            publisher: "\"An entity responsible for making the resource available.\" (DCMI Metadata Terms)"
+            subject: "\"The topic of the resource.\" (DCMI Metadata Terms)"
+            spatial: "\"The spatial characteristics of the resource.\" (DCMI Metadata Terms)"
+            temporal: "\"The temporal characteristics of the resource.\" (DCMI Metadata Terms)"
+            type: "\"The nature or genre of the resource.\" (DCMI Metadata Terms)"
+            extent: "\"The size or duration of the resource.\" (DCMI Metadata Terms)"
+            format: "\"The file format, physical medium, or dimensions of the resource.\" (DCMI Metadata Terms)"
+            relation: "\"A related resource.\" (DCMI Metadata Terms)"
+            source: "\"A related resource from which the described resource is derived.\" (DCMI Metadata Terms)"
+            identifier: "\"An unambiguous reference to the resource within a given context.\" (DCMI Metadata Terms)"
+        spotlight_copyright_tesim: Rights
         spotlight_physicallocation_tesim: Physical Location
   shared:
     site_sidebar:
