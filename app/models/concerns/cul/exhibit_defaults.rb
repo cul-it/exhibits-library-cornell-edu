@@ -5,6 +5,24 @@ module Cul
   module ExhibitDefaults
     extend ActiveSupport::Concern
 
+    DCTERMS = [
+      { dcterms: 'creator', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'contributor', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'created', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'issued', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'language', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'spatial', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'publisher', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'subject', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'temporal', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'type', field_type: 'vocab', is_multiple: false },
+      { dcterms: 'extent', field_type: 'text', is_multiple: false },
+      { dcterms: 'format', field_type: 'text', is_multiple: false },
+      { dcterms: 'relation', field_type: 'text', is_multiple: false },
+      { dcterms: 'source', field_type: 'text', is_multiple: false },
+      { dcterms: 'identifier', field_type: 'vocab', is_multiple: true }
+    ].freeze
+
     included do
       before_save :set_published
       after_save :send_status_notification
@@ -31,27 +49,9 @@ module Cul
       return unless previously_new_record?
 
       # Add Qualified Dublin Core fields (using DCMI Metadata Terms)
-      dublin_core_fields = [
-        { dcterms: 'creator', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'contributor', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'created', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'issued', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'language', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'spatial', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'publisher', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'subject', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'temporal', field_type: 'vocab', is_multiple: true },
-        { dcterms: 'type', field_type: 'vocab', is_multiple: false },
-        { dcterms: 'extent', field_type: 'text', is_multiple: false },
-        { dcterms: 'format', field_type: 'text', is_multiple: false },
-        { dcterms: 'relation', field_type: 'text', is_multiple: false },
-        { dcterms: 'source', field_type: 'text', is_multiple: false },
-        { dcterms: 'identifier', field_type: 'vocab', is_multiple: true }
-      ]
-
-      dublin_core_fields.each do |field|
+      DCTERMS.each do |field|
         suffix = Spotlight::Engine.config.custom_field_types[field[:field_type].to_sym][:suffix] || Spotlight::Engine.config.solr_fields.text_suffix
-        
+
         Spotlight::CustomField.new(
           exhibit: self,
           field: "dcterms_#{field[:dcterms]}#{suffix}",
