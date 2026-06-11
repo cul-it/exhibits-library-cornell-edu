@@ -26,7 +26,12 @@
       <p style="margin: 0 0 6px 5px;"><%= t('spotlight.mailers.email_closing') %>,</p>
       <p style="margin: 0 0 6px 5px;">Online Exhibitions</p>
       <p style="margin: 0 0 6px 5px;"><a href="mailto:help-exhibits-library@cornell.edu" style="color: #005588;text-decoration: none;">help-exhibits-library@cornell.edu</a></p>
-      <p style="margin: 0 0 6px 5px;"><img src="https://exhibits.library.cornell.edu/img/mailer-CULibraryRed.jpg" alt="Cornell University Library Logo" style="max-width: 150px; height: auto;"></p>
+      <p style="margin: 0 0 6px 5px;">
+        <a href="http://www.library.cornell.edu">
+          <%= image_tag 'mailer-CULibraryRed.jpg', alt: 'Cornell University Library Logo', style: 'max-width: 175px; height: auto;' %>
+        </a>
+      </p>
     </footer>
   </body>
 </html>
+

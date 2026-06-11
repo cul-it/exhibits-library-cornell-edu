@@ -58,6 +58,7 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "exhibits-int.library.cornell.edu" }
+  config.action_mailer.asset_host = "https://exhibits-int.library.cornell.edu"
 
   config.action_mailer.smtp_settings = {
     address: ENV["SMTP_ADDRESS"],
