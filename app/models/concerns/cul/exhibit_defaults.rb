@@ -8,8 +8,7 @@ module Cul
     DCTERMS = [
       { dcterms: 'creator', field_type: 'vocab', is_multiple: true },
       { dcterms: 'contributor', field_type: 'vocab', is_multiple: true },
-      { dcterms: 'created', field_type: 'vocab', is_multiple: true },
-      { dcterms: 'issued', field_type: 'vocab', is_multiple: true },
+      { dcterms: 'date', field_type: 'vocab', is_multiple: true },
       { dcterms: 'language', field_type: 'vocab', is_multiple: true },
       { dcterms: 'spatial', field_type: 'vocab', is_multiple: true },
       { dcterms: 'publisher', field_type: 'vocab', is_multiple: true },
@@ -54,7 +53,7 @@ module Cul
 
         Spotlight::CustomField.new(
           exhibit: self,
-          field: "dcterms_#{field[:dcterms]}#{suffix}",
+          field: "#{field[:dcterms]}#{suffix}",
           label: I18n.t("spotlight.search.fields.dcterms.labels.#{field[:dcterms]}", default: field[:dcterms].humanize),
           short_description: I18n.t("spotlight.search.fields.dcterms.short_descriptions.#{field[:dcterms]}", default: nil),
           field_type: field[:field_type],

@@ -51,16 +51,13 @@ en:
       fields: 
         dcterms: 
           labels: 
-            created: Date Created
-            issued: Date Issued
             spatial: Location
             temporal: Time Period
             type: Work Type
           short_descriptions:
             creator: "\"An entity primarily responsible for making the resource.\" (DCMI Metadata Terms)"
             contributor: "\"An entity responsible for making contributions to the resource.\" (DCMI Metadata Terms)"
-            created: "\"Date of creation of the resource.\" (DCMI Metadata Terms)"
-            issued: "\"Date of formal issuance (e.g., publication) of the resource.\" (DCMI Metadata Terms)"
+            date: "\"A point or period of time associated with an event in the lifecycle of the resource.\" (DCMI Metadata Terms)"
             language: "\"A language of the intellectual content of the resource.\" (DCMI Metadata Terms)"
             publisher: "\"An entity responsible for making the resource available.\" (DCMI Metadata Terms)"
             subject: "\"The topic of the resource.\" (DCMI Metadata Terms)"
