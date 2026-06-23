@@ -7,17 +7,20 @@ Rails.application.routes.draw do
   get '/feed', to: 'spotlight/exhibits#index', defaults: { format: :rss }
 
   require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  authenticate :user, ->(user) { user.site_admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   mount OkComputer::Engine, at: "/syscheck"
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, skip: [:sessions], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  # devise_scope :user do
-  #   get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
-  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  #   get 'users/edit', :to => 'users/registrations#edit', :as => :edit_user_registration
-  #   delete 'users/delete', :to => 'users/registrations#destroy', :as => :destroy_user_registration
-  # end
+  devise_scope :user do
+    get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+    get 'users/edit', :to => 'users/registrations#edit', :as => :edit_user_registration
+    delete 'users/delete', :to => 'users/registrations#destroy', :as => :destroy_user_registration
+  end
 
   mount Spotlight::Engine, at: '/' # as opposed to `at: 'spotlight'` which was generated
   mount Blacklight::Engine => '/'

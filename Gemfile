@@ -19,16 +19,15 @@ gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'friendly_id'
 gem 'irb'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
 gem 'jsbundling-rails'
+gem 'multi_json'
 gem 'mysql2'
-gem 'okcomputer', '~> 1.18'
+gem 'okcomputer'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-saml'
 gem 'propshaft'
 # Use Puma as the app server
-gem 'puma', '< 7'
+gem 'puma', '< 8'
 gem 'rdoc', require: false
 gem 'riiif', github: "sul-dlss/riiif", ref: "56e7e13" # Remove :git and :ref when riiif 2.8.2 is released
 gem 'rsolr'
@@ -41,17 +40,16 @@ gem 'stimulus-rails'
 # Use Terser as compressor for JavaScript assets
 gem 'terser'
 gem 'turbo-rails'
-gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'whenever', require: false
 
 # Gems manually added to control blacklight and spotlight versions
 gem "blacklight", ">= 8.7.0", "< 9"
 gem 'blacklight-gallery', '~> 4.9.0'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'blacklight-spotlight', '~> 5.2.3'
+gem 'blacklight-spotlight', '~> 5.3.0'
 gem 'openseadragon', '~> 1.0.0'
+# Temp pinned due to v3.25.0 error when trying to render a view partial within a content_tag (from Spotlight::DocumentAdminTableComponent)
+gem 'view_component', '< 3.25.0'
 
 group :development do
   gem 'better_errors' # add command line in browser when errors

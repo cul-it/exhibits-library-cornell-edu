@@ -56,8 +56,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = false # Not raising errors as it causes jobs to fail AND repeat for notification errors
 
-  # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "exhibits-stg.library.cornell.edu" }
+  # Mailer links and assets are configured in config/initializers/action_mailer.rb
 
   config.action_mailer.smtp_settings = {
     address: ENV["SMTP_ADDRESS"],

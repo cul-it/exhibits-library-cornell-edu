@@ -1,0 +1,73 @@
+/*
+ Stylesheet used for Hip Hop exhibit theme
+*/
+
+@import 'application.bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@900&display=swap');
+
+// Fonts
+
+a {
+    color: #880000; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #880000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+// Masthead
+
+.masthead {
+    .site-title-container {  
+        .site-title-wrapper {
+            background: none;
+            margin: auto 0;
+
+            .site-title {
+                font-family: 'Montserrat Alternates', sans-serif;
+                font-weight: 900;
+            }
+
+            @media (min-width: breakpoint-max('lg')) {
+                max-width: 900px;
+
+                .site-title {
+                    background-image: url('spotlight/themes/hiphop/chhc_logo_250.png');
+                    background-position: 0% 0%;
+                    background-repeat: no-repeat;
+                    background-size: auto 100%;
+                    font-size: 3.5rem;
+                    padding-left: 260px;
+                }
+            }
+            
+        }
+    }
+  
+    .background-container {
+        background-position: right;
+      
+        @media (min-width: breakpoint-max('lg')) {
+            background-size: 200%;
+        }
+    }  
+  
+    .background-container-gradient {
+        display: none;
+    }
+  }
+
+  // Item-text widget - set widths of text and image columns
+
+  @media (min-width: breakpoint-max('md')) {
+    .item-text {
+        .items-col {
+            width: 25%;
+        }
+        
+        .text-col {
+            margin-left: 25%;
+        }
+    }
+}
