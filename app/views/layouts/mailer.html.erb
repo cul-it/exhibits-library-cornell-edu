@@ -14,9 +14,9 @@
       <p style="margin: 0 0 6px 5px;"><a href="mailto:help-exhibits-library@cornell.edu" style="color: #005588;text-decoration: none;">help-exhibits-library@cornell.edu</a></p>
       <p style="margin: 0 0 6px 5px;">
         <% if ENV['S3_BUCKET_DOMAIN'] %>
-          <%= link_to image_tag("#{ENV['S3_BUCKET_DOMAIN']}/mailer_assets/mailer-CULibraryRed.jpg", alt: 'Cornell University Library Logo', style: 'max-width: 175px; height: auto;'), 'http://www.library.cornell.edu' %>
+          <%= link_to image_tag("#{ENV['S3_BUCKET_DOMAIN']}/mailer_assets/mailer-CULibraryRed.jpg", alt: 'Cornell University Library Logo', style: 'max-width: 175px; height: auto;'), 'https://www.library.cornell.edu' %>
         <% else %>
-          <%= link_to 'Cornell University Library', 'http://www.library.cornell.edu' %>
+          <%= link_to 'Cornell University Library', 'https://www.library.cornell.edu' %>
         <% end %>
       </p>
     </div>
