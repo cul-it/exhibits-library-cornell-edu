@@ -46,6 +46,16 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
+  # Gzip-compress responses (HTML, CSS, JS, JSON, etc.). Must be the outermost
+  # middleware (index 0) so it wraps ActionDispatch::Static/Propshaft::Server
+  # and actually compresses static asset responses, not just dynamic ones.
+  config.middleware.insert_before 0, Rack::Deflater,
+    if: ->(_env, _status, headers, _body) do
+      (headers["content-type"] || headers["Content-Type"]).to_s.match?(
+        %r{\A(?:text/|application/(?:javascript|json|xml)|image/svg\+xml)}
+      )
+    end
+
   # Replace the default in-process memory cache store with a durable alternative.
   # config.cache_store = :mem_cache_store
 
