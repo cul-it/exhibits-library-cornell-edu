@@ -57,7 +57,11 @@ Rails.application.configure do
     end
 
   # Replace the default in-process memory cache store with a durable alternative.
-  # config.cache_store = :mem_cache_store
+  # Uses a Redis instance dedicated to caching, kept separate from the Redis
+  # instance used by Sidekiq/ActionCable per Sidekiq's guidance that cache and
+  # persistent-queue Redis instances should not be shared:
+  # https://github.com/sidekiq/sidekiq/wiki/FAQ#why-does-sidekiq-say-my-redis-is-not-configured-for-a-namespace
+  config.cache_store = :redis_cache_store, { url: ENV.fetch("REDIS_CACHE_URL") }
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
   config.active_job.queue_adapter = :sidekiq
