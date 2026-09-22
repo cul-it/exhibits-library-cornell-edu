@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.9'
+ruby '4.0.7'
 
 gem 'rails', '~> 8.1.0'
 
@@ -20,6 +20,8 @@ gem 'font-awesome-rails'
 gem 'friendly_id'
 gem 'irb'
 gem 'jsbundling-rails'
+# Temporarily pin json to < 3: https://github.com/rails/rails/pull/58601
+gem 'json', '< 3.0'
 gem 'multi_json'
 gem 'mysql2'
 gem 'okcomputer'
