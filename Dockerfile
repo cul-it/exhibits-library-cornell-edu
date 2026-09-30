@@ -1,4 +1,5 @@
-ARG RUBY_VERSION=3.4.9
+# Update any security patches in final production base image if image changes
+ARG RUBY_VERSION=4.0.7
 
 ################################################################################
 # Stage for building base image
@@ -122,10 +123,9 @@ ENV RAILS_ENV=${RAILS_ENV} \
     AWS_DEFAULT_REGION=us-east-1
 
 # Remove vulnerable gems shipped by the ruby base image that are replaced by bundled gems.
-RUN RG=/usr/local/lib/ruby/gems/3.4.0 && \
-    rm -f "$RG"/specifications/net-imap-0.5.8.gemspec && \
-    rm -rf "$RG"/gems/net-imap-0.5.8 && \
-    rm -f "$RG"/specifications/default/erb-4.0.4.gemspec
+RUN RG=/usr/local/lib/ruby/gems/4.0.0 && \
+    rm -rf "$RG"/specifications/default/json-2.18.0.gemspec && \
+    gem install -v 2.19.2 json
 
 # Create a non-privileged user that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
