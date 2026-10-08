@@ -1,0 +1,46 @@
+/*
+ Stylesheet used for riversofice exhibit theme
+*/
+
+@import 'application.bootstrap';
+@import url('https://use.typekit.net/xzr5byt.css');
+
+$riversofice-color: #014b52;
+$riversofice-font: "neue-kabel", sans-serif;
+
+.masthead {
+    .background-container-gradient {
+        display: none;
+    }
+
+    .site-title-container {  
+        .site-title-wrapper {
+            background: none;
+            font-family: $riversofice-font;
+            padding: 0;
+
+            .site-title {
+                font-size: 4.2rem;
+                font-weight: 600;
+                letter-spacing: 0.1rem;
+                line-height: 1;
+            }
+
+            small {
+                font-weight: 600;
+                letter-spacing: 0.04rem;
+                padding-top: 0 !important;
+            }
+        }
+    }
+
+    .exhibit-navbar {
+        background: $riversofice-color;
+    }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $riversofice-font;
+    color: $riversofice-color;
+}
