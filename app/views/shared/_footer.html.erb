@@ -27,7 +27,7 @@
     </div>
     <div class="col-sm-2">
       <% unless current_user %>
-        <%= button_to user_saml_omniauth_authorize_path, data: { turbo: false }, class: 'btn btn-link' do %>
+        <%= button_to user_saml_omniauth_authorize_path, data: { turbo: false }, class: 'btn btn-link admin-login' do %>
           <p><%= t('spotlight.header_links.login') %></p>
         <% end %>
       <% end %>
