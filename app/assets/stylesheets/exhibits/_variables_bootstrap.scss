@@ -11,3 +11,17 @@ $link-primary-hover: black;
 // --------------
 $font-family-sans-serif:  'freight-sans-pro', 'Helvetica', 'Arial', sans-serif;
 @import url(//use.typekit.net/wiq6yer.css);
+
+// Nav pills
+// --------------
+.nav-pills {
+  --bs-nav-pills-link-active-color: #ffffff;
+  --bs-nav-pills-link-active-bg: #005588;
+  --bs-nav-link-padding-x: .8rem;
+  --bs-nav-link-padding-y: 0.35rem;
+
+  .nav-link.active {
+    text-decoration: none;
+    -webkit-text-stroke: .8px;
+  }
+}
