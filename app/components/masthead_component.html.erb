@@ -1,0 +1,22 @@
+<% if show_contact_form? %>
+  <div id="report-problem-form"  class="collapse">
+    <%= render 'spotlight/shared/report_a_problem' %>
+  </div>
+<% end %>
+
+<header class="masthead <%= 'image-masthead' if current_masthead %> <%= 'resource-masthead' if resource_masthead? %>">
+  <% if current_masthead %>
+    <span class="background-container" style="background-image: url('<%= current_masthead.iiif_url %>')"></span>
+    <span class="background-container-gradient"></span>
+  <% end %>
+
+  <%# BEGIN CUSTOMIZATION - only show title area for exhibit pages %>
+  <% if current_exhibit %>
+    <%= masthead_navbar if resource_masthead? %>
+    <%= title_and_subtitle %>
+    <%= masthead_navbar unless resource_masthead? %>
+  <% end %>
+  <%# END CUSTOMIZATION %>
+</header>
+
+<%= render Spotlight::BreadcrumbsComponent.new(breadcrumbs:) %>

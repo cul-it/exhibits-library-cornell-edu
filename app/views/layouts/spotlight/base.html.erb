@@ -46,8 +46,10 @@
     <%= render blacklight_config.skip_link_component.new(render_search_link: should_render_spotlight_search_bar?) do %>
       <%= content_for(:skip_links) %>
     <% end %>
-    <%= render partial: 'shared/header_navbar' %>
-    <%= render partial: 'shared/masthead' %>
+    <%# BEGIN CUSTOMIZATION - use custom header and masthead components %>
+    <%= render blacklight_config.header_component.new(blacklight_config: blacklight_config, current_user: current_user, current_exhibit: current_exhibit, current_ability: current_ability) %>
+    <%= render MastheadComponent.new(current_exhibit:, current_masthead:, resource_masthead: resource_masthead?) %>
+    <%# END CUSTOMIZATION %>
     <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
     <main id="main-container" class="<%= container_classes %>" aria-label="<%= t('blacklight.main.aria.main_container') %>">
