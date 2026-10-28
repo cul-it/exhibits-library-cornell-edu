@@ -1,0 +1,9 @@
+<%# TO-DO: Remove this file when we upgrade to Blacklight 9 %>
+<% if blacklight_config.header_component.present? && blacklight_config.header_component != Blacklight::HeaderComponent %>
+  <%# BEGIN CUSTOMIZATION - Pass additional values for customized header component %>
+  <%= render blacklight_config.header_component.new(blacklight_config: blacklight_config, current_user: current_user, current_exhibit: current_exhibit, current_ability: current_ability) %>
+  <%# END CUSTOMIZATION %>
+<% else %>
+  <%= render Spotlight::HeaderComponent.new(blacklight_config: blacklight_config) %>
+  <% Spotlight.deprecator.warn("_header_navbar.html.erb will be deprecated in future versions. Please use Blacklight configuration to specify your HeaderComponent.") %>
+<% end %>
