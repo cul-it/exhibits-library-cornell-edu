@@ -23,7 +23,7 @@
     "sass": "^1.86.3",
     "sir-trevor": "^0.8.2",
     "sortablejs": "^1.15.6",
-    "spotlight-frontend": "6.0.0-rc.1"
+    "spotlight-frontend": "6.0.0-rc.2"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.3",

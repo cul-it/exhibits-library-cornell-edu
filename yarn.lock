@@ -968,10 +968,10 @@ sortablejs@^1.15.3, sortablejs@^1.15.6:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
-spotlight-frontend@6.0.0-rc.1:
-  version "6.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-6.0.0-rc.1.tgz#ee2ce460bdebaa1ea2bd1b4deca3e10885b2b812"
-  integrity sha512-F8DzHVSFa0NI0JFkk6WveX/KBdG+akn4ItP71NXtFALI9Q56hX1WNgIt9pRE/GxLZbcP8T33U58MtPSe2SW9IQ==
+spotlight-frontend@6.0.0-rc.2:
+  version "6.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-6.0.0-rc.2.tgz#bef4939a0a15809598728d3efcd754b3a91528a6"
+  integrity sha512-UkNkY/0G4tw149WbG/mAW+6VC+mx0Yuj78YwLf9JGEHMb8GUYbdgeRjBns1AnNQKzWq1JlX/oT1MK5Mns8TxGQ==
   dependencies:
     blacklight-frontend "^8.4.0 || ^9.0.0"
     blacklight-gallery "^5.0.0 || ^6.0.0"
