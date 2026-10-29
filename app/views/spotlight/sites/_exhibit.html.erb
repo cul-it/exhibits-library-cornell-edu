@@ -11,7 +11,7 @@
      </div>
 
   </td>
-  <td class="text-end"><%= exhibit.published? ? t(:'.published') : t(:'.unpublished') %></td>
+  <td class="text-end"><%= t(:".#{exhibit.publishing_status}") %></td>
   <%# BEGIN CUSTOMIZATION - Add published date column %>
   <td class="text-end"><%= display_exhibit_published_date(exhibit) %></td>
   <%# END CUSTOMIZATION %>
