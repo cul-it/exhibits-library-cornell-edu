@@ -94,6 +94,9 @@ header {
 		}
 	}
 	.background-container {
+		// override the default Spotlight CSS variable for masthead image blur
+		--masthead-image-blur: 0;
+
 		border: none;
 		height: calc(100% - 3.5rem);
 	}
