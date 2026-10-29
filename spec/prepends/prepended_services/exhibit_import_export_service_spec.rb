@@ -19,6 +19,17 @@ describe Spotlight::ExhibitImportExportService do
            data: upload.data.merge('full_title_tesim' => 'Item with multiple uploads'),
            exhibit: exported_exhibit)
   end
+  let(:exports_config) do
+    { attachments: true,
+      blacklight_configuration: true,
+      config: true,
+      pages: true,
+      resources: true }
+  end
+
+  before do
+    allow(Spotlight::Engine.config).to receive(:exports).and_return(exports_config)
+  end
 
   describe '#from_hash!' do
     let(:exhibit_export_json) { described_class.new(exported_exhibit).as_json }
