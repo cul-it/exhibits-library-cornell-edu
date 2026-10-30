@@ -17,6 +17,7 @@ class CatalogController < ApplicationController
     config.show.partials.insert(2, :related_pages)
 
     # Displays customized OSD viewer in the item embed block
+    config.view.embed.document_component = SolrDocumentLegacyEmbedComponent
     config.view.embed.embed_component = OpenseadragonEmbedComponent
 
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
