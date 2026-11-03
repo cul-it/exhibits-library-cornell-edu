@@ -10,7 +10,7 @@ class SolrDocumentLegacyEmbedComponent < Spotlight::SolrDocumentLegacyEmbedCompo
   end
 
   def before_render
-    with_embed(initial_page: @initial_page) unless embed
+    with_embed(block_context: block_context, initial_page: initial_page) unless embed
     super
   end
 end
