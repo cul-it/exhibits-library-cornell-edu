@@ -17,6 +17,7 @@ $font-family-sans-serif:  'freight-sans-pro', 'Helvetica', 'Arial', sans-serif;
 .nav-pills {
   --bs-nav-pills-link-active-color: #ffffff;
   --bs-nav-pills-link-active-bg: #005588;
+  --bs-nav-link-hover-color: $link-primary-hover;
   --bs-nav-link-padding-x: .8rem;
   --bs-nav-link-padding-y: 0.35rem;
 

@@ -9,6 +9,9 @@ footer {
   }
   .admin-login {
     color: $link-primary;
+    &:hover {
+      color: $link-primary-hover;
+    }
   }
 }
 
