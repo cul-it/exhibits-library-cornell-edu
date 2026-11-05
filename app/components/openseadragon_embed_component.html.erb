@@ -5,7 +5,7 @@
         <% multi_page_osd_config = osd_config_referencestrip.merge(osd_config) %>
         <a id="<%= @id_prefix %>-previous"><%= render Blacklight::Gallery::Icons::ChevronLeftComponent.new %></a>
         <span id="<%= @id_prefix %>-currentpage"><%= @initial_page + 1%></span>&nbsp; of <%= count %>
-        <a id="<%= @id_prefix %>-next"><%= render Blacklight::Gallery::Icons::ChevronRightComponent.new  %></a>
+        <a id="<%= @id_prefix %>-next"><%= render Blacklight::Gallery::Icons::ChevronRightComponent.new %></a>
       <% end %>
     </div>
     <div class="col-md-6 controls">

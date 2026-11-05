@@ -1,7 +1,7 @@
 <% ### BEGIN CUSTOMIZATION elr - show sidebar to all logged in users to give curators access to documentation %>
 <% if current_user %>
 <% ### END CUSTOMIZATION %>
-<h4 class="nav-heading"><%=t(:'.header') %></h4>
+<h4 class="nav-heading"><%= t(:'.header') %></h4>
 <ul class="nav sidenav flex-column">
   <% ### CUSTOM COMMENT elr - actions for all users - documentation %>
   <li class="nav-item"><%= link_to t('.documentation'), 'https://github.com/projectblacklight/spotlight/wiki/Configuration-settings', class: 'nav-link' %></li>
