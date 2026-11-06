@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_19_171124) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_26_182532) do
   create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.datetime "created_at", precision: nil, null: false
     t.string "document_id"
@@ -166,6 +166,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_19_171124) do
     t.string "title", null: false
     t.datetime "updated_at", precision: nil
     t.integer "weight", default: 50
+    t.boolean "discovery_enabled", default: true, null: false
     t.index ["masthead_id"], name: "index_spotlight_exhibits_on_masthead_id"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true

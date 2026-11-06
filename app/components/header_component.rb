@@ -5,8 +5,7 @@ class HeaderComponent < ViewComponent::Base
 
   # rubocop:disable Rails/SkipsModelValidations
   def initialize(blacklight_config:, current_user:, current_exhibit:, current_ability:)
-    super
-
+    super()
     @blacklight_config = blacklight_config
     @current_user = current_user
     @current_exhibit = current_exhibit

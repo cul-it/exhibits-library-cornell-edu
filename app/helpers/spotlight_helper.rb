@@ -22,11 +22,6 @@ module SpotlightHelper
     sanitize(safe_html)
   end
 
-  # Overrides osd_container_class of "col-md-6" from blacklight-gallery
-  def osd_container_class
-    ''
-  end
-
   # Gets initialPage for OpenSeadragon viewer
   # Document tilesources are in the format: /images/{TILESOURCE ID}/info.json
   # Selected tilesource from block is in the format: {DOMAIN}/images/{TILESOURCE ID}/info.json
