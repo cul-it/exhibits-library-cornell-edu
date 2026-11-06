@@ -62,7 +62,10 @@
     <% end %>
     <%# END CUSTOMIZATION %>
     </main>
-
+    
+    <%# BEGIN CUSTOMIZATION - 'Related Services' section added to the exhibits home page %>
+    <%= render partial: 'shared/related_services' unless current_exhibit %>
+    <%# END CUSTOMIZATION %>
     <%= render partial: 'shared/footer' %>
     <%= render partial: 'shared/modal' %>
   </body>
