@@ -14,7 +14,8 @@ gem 'carrierwave-aws'
 gem "cssbundling-rails", "~> 1.4"
 gem 'devise'
 gem 'devise-guests'
-gem 'devise_invitable'
+# TODO: Check if devise_invitable can be upgraded to 3.x
+gem 'devise_invitable', "~> 2.0"
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'friendly_id'
