@@ -27,6 +27,9 @@ en:
       site_improve_reminder: "Developers: add a group for this exhibit in Siteimprove."
       unpublished_message: "An online exhibit has just been unpublished."
       published_duration: "This exhibit was published for %{duration}."
+    exhibits_admin_invitation_mailer:
+      invitation_instructions:
+        accept_invitation: Click this link to accept the invitation.
     featured_images:
       form:
         source:
@@ -41,6 +44,9 @@ en:
     indexing_complete_mailer:
       documents_indexed:
         title: "Your CSV file '%{csv_file_name}' has just finished being processed."
+    invitation_mailer:
+      invitation_instructions:
+        accept_invitation: Click this link to accept the invitation.
     mailers:
         environment: "Environment"
         view_the_exhibit: "View the exhibit"
