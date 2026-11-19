@@ -1,5 +1,5 @@
 # Update any security patches in final production base image if image changes
-ARG RUBY_VERSION=4.0.7
+ARG RUBY_VERSION=4.0.10
 
 ################################################################################
 # Stage for building base image
